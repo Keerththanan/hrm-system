@@ -17,7 +17,7 @@ public class RejectCancelRequestDataToRejectCancelRequest {
       rejectCancelRequest.setCancelLeaveRequest(CancelLeaveRequestDataToCancelLeaveRequest
           .mapToCancelLeaveRequest(rejectCancelRequestData.getCancelLeaveRequest()));
       rejectCancelRequest
-          .setRejectedBy(UserDataToUser.mapToUser(rejectCancelRequestData.getUser()));
+          .setRejectedBy(UserDataToUser.mapToUser(rejectCancelRequestData.getRejectedBy()));
       rejectCancelRequest.setReason(rejectCancelRequestData.getReason());
     }
     return rejectCancelRequest;

@@ -3,7 +3,7 @@ package com.sgic.hrm.commons.dto;
 public class AcceptLeaveRequestData {
 
 	private Integer id;
-	private LeaveRequestData request;
+	private LeaveRequestData LeaveRequest;
 	private UserData acceptedBy;
 
 	public Integer getId() {
@@ -14,12 +14,12 @@ public class AcceptLeaveRequestData {
 		this.id = id;
 	}
 
-	public LeaveRequestData getRequest() {
-		return request;
+	public LeaveRequestData getLeaveRequest() {
+		return LeaveRequest;
 	}
 
-	public void setRequest(LeaveRequestData request) {
-		this.request = request;
+	public void setLeaveRequest(LeaveRequestData leaveRequest) {
+		LeaveRequest = leaveRequest;
 	}
 
 	public UserData getAcceptedBy() {

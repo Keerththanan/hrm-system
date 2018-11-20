@@ -24,6 +24,7 @@ public class RejectCarryforwardRequestToRejectCarryforwardRequestData {
     return rejectCarryforwardRequestData;
   }
 
+
   public static List<RejectCarryforwardRequestData> mapToRejectCarryforwardRequestDataList(
       List<RejectCarryforwardRequest> rejectCarryforwardRequestList) {
     List<RejectCarryforwardRequestData> rejectCarryforwardRequestDataList =

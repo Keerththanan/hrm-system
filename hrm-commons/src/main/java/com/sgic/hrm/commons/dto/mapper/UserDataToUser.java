@@ -7,6 +7,7 @@ import com.sgic.hrm.commons.entity.User;
 
 public class UserDataToUser {
 
+
   public static User mapToUser(UserData userData) {
     User user = new User();
     if (userData != null) {
@@ -17,11 +18,11 @@ public class UserDataToUser {
   }
 
   public static List<User> mapToUserList(List<UserData> userDataList) {
-    List<User> userList = new ArrayList<User>();        
-    if(userDataList != null) {
-        for(UserData userData:userDataList) {               
-            userList.add(mapToUser(userData));
-        }           
+    List<User> userList = new ArrayList<User>();
+    if (userDataList != null) {
+      for (UserData userData : userDataList) {
+        userList.add(mapToUser(userData));
+      }
     }
     return userList;
   }

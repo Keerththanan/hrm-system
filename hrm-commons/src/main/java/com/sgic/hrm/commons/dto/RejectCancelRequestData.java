@@ -2,41 +2,41 @@ package com.sgic.hrm.commons.dto;
 
 public class RejectCancelRequestData {
 
-	private Integer id;
-	private CancelLeaveRequestData cancelLeaveRequest;
-	private UserData user;
-	private String reason;
+  private Integer id;
+  private CancelLeaveRequestData cancelLeaveRequest;
+  private UserData rejectedBy;
+  private String reason;
 
-	public Integer getId() {
-		return id;
-	}
+  public Integer getId() {
+    return id;
+  }
 
-	public void setId(Integer id) {
-		this.id = id;
-	}
+  public void setId(Integer id) {
+    this.id = id;
+  }
 
-	public CancelLeaveRequestData getCancelLeaveRequest() {
-		return cancelLeaveRequest;
-	}
+  public CancelLeaveRequestData getCancelLeaveRequest() {
+    return cancelLeaveRequest;
+  }
 
-	public void setCancelLeaveRequest(CancelLeaveRequestData cancelLeaveRequest) {
-		this.cancelLeaveRequest = cancelLeaveRequest;
-	}
+  public void setCancelLeaveRequest(CancelLeaveRequestData cancelLeaveRequest) {
+    this.cancelLeaveRequest = cancelLeaveRequest;
+  }
 
-	public UserData getUser() {
-		return user;
-	}
+  public UserData getRejectedBy() {
+    return rejectedBy;
+  }
 
-	public void setUser(UserData user) {
-		this.user = user;
-	}
+  public void setRejectedBy(UserData rejectedBy) {
+    this.rejectedBy = rejectedBy;
+  }
 
-	public String getReason() {
-		return reason;
-	}
+  public String getReason() {
+    return reason;
+  }
 
-	public void setReason(String reason) {
-		this.reason = reason;
-	}
+  public void setReason(String reason) {
+    this.reason = reason;
+  }
 
 }

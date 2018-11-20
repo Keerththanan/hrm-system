@@ -1,11 +1,11 @@
 package com.sgic.hrm.commons.dto;
 
 import java.io.File;
-import java.time.ZonedDateTime;
+import java.util.Date;
 
 public class TerminationRequestData {
   Integer id;
-  ZonedDateTime planedLeavingDate;
+  Date planedLeavingDate;
   String reason;
   File resignationLetter;
   TerminationTypeData terminationType;
@@ -18,12 +18,12 @@ public class TerminationRequestData {
   public void setId(Integer id) {
     this.id = id;
   }
-
-  public ZonedDateTime getPlanedLeavingDate() {
+  
+  public Date getPlanedLeavingDate() {
     return planedLeavingDate;
   }
 
-  public void setPlanedLeavingDate(ZonedDateTime planedLeavingDate) {
+  public void setPlanedLeavingDate(Date planedLeavingDate) {
     this.planedLeavingDate = planedLeavingDate;
   }
 

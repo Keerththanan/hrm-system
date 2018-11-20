@@ -14,8 +14,8 @@ public class RejectLeaveRequestDataToRejectLeaveRequest {
     if (rejectLeaveRequestdata != null) {
       rejectLeaveRequest.setId(rejectLeaveRequestdata.getId());
       rejectLeaveRequest.setReason(rejectLeaveRequestdata.getReason());
-      rejectLeaveRequest.setRequest(
-          LeaveRequestDataToLeaveRequest.mapToLeaveRequest(rejectLeaveRequestdata.getRequest()));
+      rejectLeaveRequest.setLeaveRequest(
+          LeaveRequestDataToLeaveRequest.mapToLeaveRequest(rejectLeaveRequestdata.getLeaveRequest()));
 
     }
     return rejectLeaveRequest;

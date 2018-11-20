@@ -13,25 +13,25 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "reject_leave_request")
-public class RejectLeaveRequest implements Serializable{
+public class RejectLeaveRequest implements Serializable {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 4487356712259407256L;
-	
+
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Integer id;	
-	
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
+
 	@ManyToOne
 	@JoinColumn(name = "request_id")
-	LeaveRequest request;
-	
+	LeaveRequest leaveRequest;
+
 	@ManyToOne
 	@JoinColumn(name = "rejected_by")
 	User rejectedBy;
-	
+
 	@Column(name = "reason")
 	private String reason;
 
@@ -43,12 +43,12 @@ public class RejectLeaveRequest implements Serializable{
 		this.id = id;
 	}
 
-	public LeaveRequest getRequest() {
-		return request;
+	public LeaveRequest getLeaveRequest() {
+		return leaveRequest;
 	}
 
-	public void setRequest(LeaveRequest request) {
-		this.request = request;
+	public void setLeaveRequest(LeaveRequest leaveRequest) {
+		this.leaveRequest = leaveRequest;
 	}
 
 	public User getRejectedBy() {
@@ -66,5 +66,5 @@ public class RejectLeaveRequest implements Serializable{
 	public void setReason(String reason) {
 		this.reason = reason;
 	}
-	
+
 }
