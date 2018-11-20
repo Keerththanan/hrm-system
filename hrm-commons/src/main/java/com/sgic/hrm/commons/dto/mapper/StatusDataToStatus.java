@@ -6,7 +6,11 @@ import com.sgic.hrm.commons.entity.Status;
 public class StatusDataToStatus {
 
   public static Status mapToStatus(StatusData statusData) {
-    
+      Status status = new Status();
+      
+      if(status != null) {
+        
+      }
       return null;
   }
 }
