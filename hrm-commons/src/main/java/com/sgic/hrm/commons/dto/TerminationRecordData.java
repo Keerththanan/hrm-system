@@ -2,10 +2,10 @@ package com.sgic.hrm.commons.dto;
 
 import java.io.File;
 
-public class TerminationRecordDto {
+public class TerminationRecordData {
   Integer id;
   UserData employee;
-  TerminationTypeDto terminationType;
+  TerminationTypeData terminationType;
   String causeOfTermination;
   String disciplinaryProcedures;
   String legalStatus;
@@ -27,11 +27,11 @@ public class TerminationRecordDto {
     this.employee = employee;
   }
 
-  public TerminationTypeDto getTerminationType() {
+  public TerminationTypeData getTerminationType() {
     return terminationType;
   }
 
-  public void setTerminationType(TerminationTypeDto terminationType) {
+  public void setTerminationType(TerminationTypeData terminationType) {
     this.terminationType = terminationType;
   }
 
