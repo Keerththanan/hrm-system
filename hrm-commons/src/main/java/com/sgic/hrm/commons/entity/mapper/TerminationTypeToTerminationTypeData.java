@@ -1,36 +1,31 @@
-package com.sgic.hrm.commons.dto.mapper;
-
+package com.sgic.hrm.commons.entity.mapper;
 
 import java.util.ArrayList;
 import java.util.List;
 import com.sgic.hrm.commons.dto.TerminationTypeData;
 import com.sgic.hrm.commons.entity.TerminationType;
 
-public class TerminationTypeDtoMapping {
+public class TerminationTypeToTerminationTypeData {
 
-  public static TerminationTypeData terminationTypeToTerminationTypeDto(
-      TerminationType terminationType) {
+  public static TerminationTypeData mapToTerminationTypeData(TerminationType terminationType) {
     TerminationTypeData terminationTypeDto = new TerminationTypeData();
     if (terminationType != null) {
       terminationTypeDto.setId(terminationType.getId());
       terminationTypeDto.setTerminationType(terminationType.getTerminationTypeValue());
-      return terminationTypeDto;
+
     }
-    return null;
+    return terminationTypeDto;
   }
 
   public static List<TerminationTypeData> terminationTypeToTerminationTypeDtoList(
       List<TerminationType> terminationTypeList) {
-    List<TerminationTypeData> TerminationTypeDto = new ArrayList<TerminationTypeData>();
+    List<TerminationTypeData> terminationTypeDto = new ArrayList<TerminationTypeData>();
 
     if (terminationTypeList != null) {
       for (TerminationType terminationType : terminationTypeList) {
-        TerminationTypeDto.add(terminationTypeToTerminationTypeDto(terminationType));
+        terminationTypeDto.add(mapToTerminationTypeData(terminationType));
       }
-      return TerminationTypeDto;
-
     }
-    return null;
-
+    return terminationTypeDto;
   }
 }

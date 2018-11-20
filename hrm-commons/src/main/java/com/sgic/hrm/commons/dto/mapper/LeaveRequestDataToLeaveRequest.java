@@ -24,7 +24,7 @@ public class LeaveRequestDataToLeaveRequest {
     return leaveRequest;
   }
 
-  public static List<LeaveRequest> mapToLeaveRequestData(
+  public static List<LeaveRequest> mapToLeaveRequestList(
       List<LeaveRequestData> leaveRequestDataList) {
     List<LeaveRequest> leaveRequestList = new ArrayList<LeaveRequest>();
 

@@ -2,7 +2,7 @@ package com.sgic.hrm.commons.dto;
 
 import java.io.File;
 
-public class AttachmentsData {
+public class AttachmentData {
 
   Integer id;
   TerminationRecordData terminationRecord;

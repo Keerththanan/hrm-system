@@ -2,7 +2,7 @@ package com.sgic.hrm.commons.dto;
 
 public class DiscussionParticipantsData {
   Integer id;
-  UserData employee;
+  UserData participant;
   DiscussionScheduleData discussionSchedule;
 
   public Integer getId() {
@@ -13,17 +13,15 @@ public class DiscussionParticipantsData {
     this.id = id;
   }
 
-  
+  public UserData getParticipant() {
+    return participant;
+  }
 
-  public UserData getEmployee() {
-	return employee;
-}
+  public void setParticipant(UserData participant) {
+    this.participant = participant;
+  }
 
-public void setEmployee(UserData employee) {
-	this.employee = employee;
-}
-
-public DiscussionScheduleData getDiscussionSchedule() {
+  public DiscussionScheduleData getDiscussionSchedule() {
     return discussionSchedule;
   }
 

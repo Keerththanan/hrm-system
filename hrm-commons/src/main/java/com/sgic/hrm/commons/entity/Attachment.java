@@ -14,7 +14,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "atachments")
-public class Attachments implements Serializable {
+public class Attachment implements Serializable {
   /**
    * 
    */
