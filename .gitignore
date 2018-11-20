@@ -24,6 +24,6 @@
 /nbdist/
 /.nb-gradle/
 
-### Eclipse ###
+### Eclipse. ###
 /bin/
 .mvn
