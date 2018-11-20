@@ -20,15 +20,15 @@ public class LeaveTypeToLeaveTypeData {
 		return leaveTypeData;
 	}
 	
-	public static List<LeaveTypeData> mapToLeaveTypeDataList(List<LeaveType> leaveTypeList){
-		List<LeaveTypeData> leaveTypeDataList = new ArrayList<LeaveTypeData>();
-		
-		if(leaveTypeList != null) {
-			for(LeaveType leaveType:leaveTypeList) {
-				leaveTypeDataList.add(mapToLeaveTypeData(leaveType));
-			}
-		}
-		return leaveTypeDataList;
-	}
+  public static List<LeaveTypeData> mapToLeaveTypeDataList(List<LeaveType> leaveTypeList) {
+    List<LeaveTypeData> leaveTypeDataList = new ArrayList<LeaveTypeData>();
+
+    if (leaveTypeList != null) {
+      for (LeaveType leaveType : leaveTypeList) {
+        leaveTypeDataList.add(mapToLeaveTypeData(leaveType));
+      }
+    }
+    return leaveTypeDataList;
+  }
 
 }

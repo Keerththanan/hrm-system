@@ -3,12 +3,12 @@ package com.sgic.hrm.commons.dto;
 import java.io.File;
 import java.time.ZonedDateTime;
 
-public class TerminationRequestDto {
+public class TerminationRequestData {
   Integer id;
   ZonedDateTime planedLeavingDate;
   String reason;
   File resignationLetter;
-  TerminationTypeDto terminationType;
+  TerminationTypeData terminationType;
   UserData employee;
 
   public Integer getId() {
@@ -43,11 +43,11 @@ public class TerminationRequestDto {
     this.resignationLetter = resignationLetter;
   }
 
-  public TerminationTypeDto getTerminationType() {
+  public TerminationTypeData getTerminationType() {
     return terminationType;
   }
 
-  public void setTerminationType(TerminationTypeDto terminationType) {
+  public void setTerminationType(TerminationTypeData terminationType) {
     this.terminationType = terminationType;
   }
 

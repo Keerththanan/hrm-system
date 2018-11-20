@@ -1,9 +1,9 @@
 package com.sgic.hrm.commons.dto;
 
-public class DiscussionPartcipantsDto {
+public class DiscussionPartcipantsData {
   Integer id;
   String employee;
-  DiscussionScheduleDto discussionSchedule;
+  DiscussionScheduleData discussionSchedule;
 
   public Integer getId() {
     return id;
@@ -21,11 +21,11 @@ public class DiscussionPartcipantsDto {
     this.employee = employee;
   }
 
-  public DiscussionScheduleDto getDiscussionSchedule() {
+  public DiscussionScheduleData getDiscussionSchedule() {
     return discussionSchedule;
   }
 
-  public void setDiscussionSchedule(DiscussionScheduleDto discussionSchedule) {
+  public void setDiscussionSchedule(DiscussionScheduleData discussionSchedule) {
     this.discussionSchedule = discussionSchedule;
   }
 

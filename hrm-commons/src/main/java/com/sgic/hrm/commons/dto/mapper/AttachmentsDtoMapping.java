@@ -1,12 +1,12 @@
 package com.sgic.hrm.commons.dto.mapper;
 
-import com.sgic.hrm.commons.dto.AttachmentsDto;
+import com.sgic.hrm.commons.dto.AttachmentsData;
 import com.sgic.hrm.commons.entity.Attachments;
 
 public class AttachmentsDtoMapping {
 	
-	public static AttachmentsDto attachmentsToattachmentsDto(Attachments attachments ) {
-		AttachmentsDto attachmentsDto = new AttachmentsDto();
+	public static AttachmentsData attachmentsToattachmentsDto(Attachments attachments ) {
+		AttachmentsData attachmentsDto = new AttachmentsData();
 		
 		if(attachments != null) {
 			attachmentsDto.setId(attachments.getId());

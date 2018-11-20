@@ -3,13 +3,13 @@ package com.sgic.hrm.commons.dto.mapper;
 
 import java.util.ArrayList;
 import java.util.List;
-import com.sgic.hrm.commons.dto.TerminationTypeDto;
+import com.sgic.hrm.commons.dto.TerminationTypeData;
 import com.sgic.hrm.commons.entity.TerminationType;
 
 public class TerminationTypeDtoMapping {
 	
-	public static TerminationTypeDto terminationTypeToTerminationTypeDto(TerminationType terminationType ) {
-		TerminationTypeDto terminationTypeDto = new TerminationTypeDto();
+	public static TerminationTypeData terminationTypeToTerminationTypeDto(TerminationType terminationType ) {
+		TerminationTypeData terminationTypeDto = new TerminationTypeData();
 		if (terminationType != null) {
 			terminationTypeDto.setId(terminationType.getId());
 			terminationTypeDto.setTerminationType(terminationType.getTerminationTypeValue());
@@ -18,8 +18,8 @@ public class TerminationTypeDtoMapping {
 		return null;
 	}
 	
-	public static List<TerminationTypeDto> terminationTypeToTerminationTypeDtoList(List<TerminationType> terminationTypeList) {
-		List<TerminationTypeDto> TerminationTypeDto = new ArrayList<TerminationTypeDto>();
+	public static List<TerminationTypeData> terminationTypeToTerminationTypeDtoList(List<TerminationType> terminationTypeList) {
+		List<TerminationTypeData> TerminationTypeDto = new ArrayList<TerminationTypeData>();
 
 		if (terminationTypeList != null) {
 			for (TerminationType terminationType : terminationTypeList) {

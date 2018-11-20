@@ -2,10 +2,10 @@ package com.sgic.hrm.commons.dto;
 
 import java.io.File;
 
-public class AttachmentsDto {
+public class AttachmentsData {
 
   Integer id;
-  TerminationRecordDto terminationRecord;
+  TerminationRecordData terminationRecord;
   File attachment;
 
   public Integer getId() {
@@ -16,11 +16,11 @@ public class AttachmentsDto {
     this.id = id;
   }
 
-  public TerminationRecordDto getTerminationRecord() {
+  public TerminationRecordData getTerminationRecord() {
     return terminationRecord;
   }
 
-  public void setTerminationRecord(TerminationRecordDto terminationRecord) {
+  public void setTerminationRecord(TerminationRecordData terminationRecord) {
     this.terminationRecord = terminationRecord;
   }
 

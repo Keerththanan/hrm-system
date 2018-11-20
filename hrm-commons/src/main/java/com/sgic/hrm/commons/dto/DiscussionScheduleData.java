@@ -2,9 +2,9 @@ package com.sgic.hrm.commons.dto;
 
 import java.time.ZonedDateTime;
 
-public class DiscussionScheduleDto {
+public class DiscussionScheduleData {
   Integer id;
-  TerminationRequestDto terminationRequest;
+  TerminationRequestData terminationRequest;
   ZonedDateTime time;
   String venue;
 
@@ -16,11 +16,11 @@ public class DiscussionScheduleDto {
     this.id = id;
   }
 
-  public TerminationRequestDto getTerminationRequest() {
+  public TerminationRequestData getTerminationRequest() {
     return terminationRequest;
   }
 
-  public void setTerminationRequest(TerminationRequestDto terminationRequest) {
+  public void setTerminationRequest(TerminationRequestData terminationRequest) {
     this.terminationRequest = terminationRequest;
   }
 

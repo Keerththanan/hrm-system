@@ -1,6 +1,6 @@
 package com.sgic.hrm.commons.dto;
 
-public class TerminationTypeDto {
+public class TerminationTypeData {
 
   Integer id;
   String terminationType;
