@@ -17,15 +17,17 @@ public class RejectCarryforwardRequestToRejectCarryforwardRequestData {
 			rejectCarryforwardRequestData.setReason(rejectCarryforwardRequest.getReason());
 			rejectCarryforwardRequestData.setCarryforwardRequest(CarryforwardRequestToCarryforwardRequestData
 					.mapToCarryforwardRequestData(rejectCarryforwardRequest.getCarryforwardRequest()));
-			rejectCarryforwardRequestData.setRejectedBy(UserToUserData.mapToUserData(rejectCarryforwardRequest.getRejectedBy()));
+			rejectCarryforwardRequestData
+					.setRejectedBy(UserToUserData.mapToUserData(rejectCarryforwardRequest.getRejectedBy()));
 		}
 		return rejectCarryforwardRequestData;
 	}
-	
-	public static List<RejectCarryforwardRequestData> mapToRejectCarryforwardRequestDataList(List<RejectCarryforwardRequest> rejectCarryforwardRequestList){
+
+	public static List<RejectCarryforwardRequestData> mapToRejectCarryforwardRequestDataList(
+			List<RejectCarryforwardRequest> rejectCarryforwardRequestList) {
 		List<RejectCarryforwardRequestData> rejectCarryforwardRequestDataList = new ArrayList<RejectCarryforwardRequestData>();
-		if(rejectCarryforwardRequestList != null) {
-			for(RejectCarryforwardRequest rejectCarryforwardRequest : rejectCarryforwardRequestList ) {
+		if (rejectCarryforwardRequestList != null) {
+			for (RejectCarryforwardRequest rejectCarryforwardRequest : rejectCarryforwardRequestList) {
 				rejectCarryforwardRequestDataList.add(mapToRejectCarryforwardRequestData(rejectCarryforwardRequest));
 			}
 		}

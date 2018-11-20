@@ -3,7 +3,7 @@ package com.sgic.hrm.commons.dto;
 public class RejectLeaveRequestData {
 
 	private Integer id;
-	LeaveRequestData request;
+	LeaveRequestData leaveRequest;
 	UserData rejectedBy;
 	private String reason;
 
@@ -15,12 +15,12 @@ public class RejectLeaveRequestData {
 		this.id = id;
 	}
 
-	public LeaveRequestData getRequest() {
-		return request;
+	public LeaveRequestData getLeaveRequest() {
+		return leaveRequest;
 	}
 
-	public void setRequest(LeaveRequestData request) {
-		this.request = request;
+	public void setLeaveRequest(LeaveRequestData leaveRequest) {
+		this.leaveRequest = leaveRequest;
 	}
 
 	public UserData getRejectedBy() {

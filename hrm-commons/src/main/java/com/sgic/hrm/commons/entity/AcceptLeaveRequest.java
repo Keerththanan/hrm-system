@@ -25,7 +25,7 @@ public class AcceptLeaveRequest implements Serializable {
 
 	@ManyToOne
 	@JoinColumn(name = "request_id")
-	private LeaveRequest request;
+	private LeaveRequest leaveRequest;
 
 	@ManyToOne
 	@JoinColumn(name = "accepted_by")
@@ -39,12 +39,12 @@ public class AcceptLeaveRequest implements Serializable {
 		this.id = id;
 	}
 
-	public LeaveRequest getRequest() {
-		return request;
+	public LeaveRequest getLeaveRequest() {
+		return leaveRequest;
 	}
 
-	public void setRequest(LeaveRequest request) {
-		this.request = request;
+	public void setLeaveRequest(LeaveRequest leaveRequest) {
+		this.leaveRequest = leaveRequest;
 	}
 
 	public User getAcceptedBy() {
