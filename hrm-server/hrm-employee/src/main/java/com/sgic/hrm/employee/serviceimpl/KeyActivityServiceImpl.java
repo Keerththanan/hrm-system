@@ -4,11 +4,13 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.sgic.hrm.commons.entity.KeyActivity;
 import com.sgic.hrm.commons.repository.KeyActivityRepository;
 import com.sgic.hrm.employee.service.KeyActivityService;
 
+@Service
 public class KeyActivityServiceImpl implements KeyActivityService{
 	@Autowired
 	private KeyActivityRepository keyActivityRepository;

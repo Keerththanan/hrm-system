@@ -10,7 +10,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "", schema = "profile")
+@Table(name="referee",schema="employee")
 public class Referee implements Serializable {
 
 	/**

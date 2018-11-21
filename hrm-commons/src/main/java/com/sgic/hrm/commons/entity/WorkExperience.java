@@ -10,7 +10,7 @@ import javax.persistence.Table;
 
 
 @Entity
-@Table(name="",schema="")
+@Table(name="work_experience",schema="employee")
 public class WorkExperience implements Serializable{
 	/**
 	 * 

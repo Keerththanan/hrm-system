@@ -5,7 +5,7 @@ import java.util.Optional;
 
 import com.sgic.hrm.commons.entity.KeyActivity;
 
-;
+
 
 public interface KeyActivityService {
 	boolean addKeyActivity(KeyActivity keyActivity);

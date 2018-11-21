@@ -12,7 +12,7 @@ import javax.persistence.Table;
 import org.hibernate.annotations.UpdateTimestamp;
 
 @Entity
-@Table(name="user",schema="profile")
+@Table(name="user",schema="employee")
 public class User implements Serializable {
 	/**
 	 * 

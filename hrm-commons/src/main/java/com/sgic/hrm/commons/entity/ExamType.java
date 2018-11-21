@@ -13,7 +13,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 @Entity
-@Table(name="exam_type" ,schema="")
+@Table(name="exam_type" ,schema="employee")
 public class ExamType implements Serializable{
 	
 	/**
