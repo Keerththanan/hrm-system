@@ -11,7 +11,7 @@ public class DiscussionParticipantsToDiscussionParticipantsData {
       DiscussionParticipants discussionParticipants) {
     DiscussionParticipantsData discussionParticipantsData = new DiscussionParticipantsData();
     if (discussionParticipants != null) {
-      discussionParticipantsData.setId(discussionParticipantsData.getId());
+      discussionParticipantsData.setId(discussionParticipants.getId());
       discussionParticipantsData
           .setParticipant(UserToUserData.mapToUserData(discussionParticipants.getParticipant()));
       discussionParticipantsData.setDiscussionSchedule(DiscussionScheduleToDiscussionScheduleData
