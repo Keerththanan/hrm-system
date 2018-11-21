@@ -17,8 +17,7 @@ public class CancelLeaveRequestDataToCancelLeaveRequest {
       cancelLeaveRequest.setReason(cancelLeaveRequestdata.getReason());
       cancelLeaveRequest.setLeaveRequest(LeaveRequestDataToLeaveRequest
           .mapToLeaveRequest(cancelLeaveRequestdata.getLeaveRequest()));
-      cancelLeaveRequest
-          .setStatus(StatusDataToStatus.mapToStatus(cancelLeaveRequestdata.getStatus()));
+      cancelLeaveRequest.setStatus(cancelLeaveRequestdata.getStatus());
     }
     return cancelLeaveRequest;
   }

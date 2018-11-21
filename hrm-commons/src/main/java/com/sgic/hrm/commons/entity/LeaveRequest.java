@@ -16,6 +16,7 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
+import com.sgic.hrm.commons.enums.Status;
 
 @Entity
 @Table(name = "leave_request", schema = "leavesystem")
@@ -50,8 +51,7 @@ public class LeaveRequest implements Serializable {
 	@Column(name = "attachment")
 	private File attachment;
 
-	@ManyToOne
-	@JoinColumn(name = "status_id")
+	@Column(name = "status")
 	private Status status;
 
 	@CreationTimestamp

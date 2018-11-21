@@ -7,9 +7,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.sgic.hrm.commons.entity.LeaveRequest;
-import com.sgic.hrm.commons.entity.Status;
-import com.sgic.hrm.commons.entity.User;
+import com.sgic.hrm.commons.enums.Status;
 import com.sgic.hrm.commons.repository.LeaveRequestRepository;
+import com.sgic.hrm.commons.repository.UserRepository;
 import com.sgic.hrm.lms.service.LeaveRequestService;
 
 /**
@@ -21,11 +21,15 @@ public class LeaveRequestServiceImpl implements LeaveRequestService {
 
   @Autowired
   LeaveRequestRepository leaveRequestRepository;
-
+  @Autowired
+  UserRepository userRepository;  
+  
+  
   @Override
   public boolean addLeaveRequest(LeaveRequest leaveRequest) {
 
     if (leaveRequest != null) {
+      leaveRequest.setStatus(Status.PENDING);
       leaveRequestRepository.save(leaveRequest);
       return true;
     }
@@ -56,15 +60,19 @@ public class LeaveRequestServiceImpl implements LeaveRequestService {
   }
 
   @Override
-  public List<LeaveRequest> getLeaveRequestByUser(User user) {
+  public List<LeaveRequest> getLeaveRequestByUser(Integer userId) {
 
-    return leaveRequestRepository.findByUser(user);
+    return leaveRequestRepository.findByUser(userRepository.getOne(userId));
   }
-  
+
   @Override
   public List<LeaveRequest> getAllLeaveRequest() {
     return leaveRequestRepository.findAll();
   }
 
+  @Override
+  public List<LeaveRequest> getAllLeaveRequestByStatus(Status status) {
 
+    return leaveRequestRepository.findByStatus(status);
+  }
 }

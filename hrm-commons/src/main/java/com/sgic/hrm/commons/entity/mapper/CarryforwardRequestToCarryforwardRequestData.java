@@ -16,8 +16,7 @@ public class CarryforwardRequestToCarryforwardRequestData {
       carryforwardRequestData.setCreatedAt(carryforwardRequest.getCreatedAt());
       carryforwardRequestData.setUpdatedAt(carryforwardRequest.getUpdatedAt());
       carryforwardRequestData.setUser(UserToUserData.mapToUserData(carryforwardRequest.getUser()));
-      carryforwardRequestData
-          .setStatus(StatusToStatusData.mapToStatusData(carryforwardRequest.getStatus()));
+      carryforwardRequestData.setStatus(carryforwardRequest.getStatus());
     }
     return carryforwardRequestData;
   }

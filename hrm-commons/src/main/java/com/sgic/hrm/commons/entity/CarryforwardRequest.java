@@ -13,6 +13,7 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
+import com.sgic.hrm.commons.enums.Status;
 
 
 @Entity
@@ -35,7 +36,6 @@ public class CarryforwardRequest implements Serializable {
 	@JoinColumn(name = "user_id")
 	private User user;
 
-	@ManyToOne
 	@JoinColumn(name = "status")
 	private Status status;
 

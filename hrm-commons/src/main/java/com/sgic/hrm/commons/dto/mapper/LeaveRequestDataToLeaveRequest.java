@@ -18,8 +18,8 @@ public class LeaveRequestDataToLeaveRequest {
       leaveRequest.setStartDate(leaveRequestData.getStartDate());
       leaveRequest.setEndDate(leaveRequestData.getEndDate());
       leaveRequest.setAttachment(leaveRequestData.getAttachment());
-      leaveRequest.setStatus(StatusDataToStatus.mapToStatus(leaveRequestData.getStatus()));
       leaveRequest.setReason(leaveRequestData.getReason());
+      leaveRequest.setStatus(leaveRequestData.getStatus());
     }
     return leaveRequest;
   }
