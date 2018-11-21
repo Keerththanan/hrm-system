@@ -2,6 +2,7 @@ package com.sgic.hrm.commons.entity;
 
 import java.io.File;
 import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -24,7 +25,7 @@ public class Attachment implements Serializable {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   Integer id;
 
-  @OneToOne(fetch = FetchType.LAZY)
+  @OneToOne(fetch = FetchType.EAGER)
   @JoinColumn(name = "termination_record_id")
   TerminationRecord terminationRecord;
 

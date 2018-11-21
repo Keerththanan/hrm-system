@@ -8,24 +8,24 @@ import com.sgic.hrm.commons.entity.TerminationType;
 public class TerminationTypeToTerminationTypeData {
 
   public static TerminationTypeData mapToTerminationTypeData(TerminationType terminationType) {
-    TerminationTypeData terminationTypeDto = new TerminationTypeData();
+    TerminationTypeData terminationTypeData = new TerminationTypeData();
     if (terminationType != null) {
-      terminationTypeDto.setId(terminationType.getId());
-      terminationTypeDto.setTerminationType(terminationType.getTerminationTypeValue());
+      terminationTypeData.setId(terminationType.getId());
+      terminationTypeData.setTerminationType(terminationType.getTerminationTypeValue());
 
     }
-    return terminationTypeDto;
+    return terminationTypeData;
   }
 
-  public static List<TerminationTypeData> terminationTypeToTerminationTypeDtoList(
+  public static List<TerminationTypeData> mapToTerminationTypeDataList(
       List<TerminationType> terminationTypeList) {
-    List<TerminationTypeData> terminationTypeDto = new ArrayList<TerminationTypeData>();
+    List<TerminationTypeData> terminationTypeData = new ArrayList<TerminationTypeData>();
 
     if (terminationTypeList != null) {
       for (TerminationType terminationType : terminationTypeList) {
-        terminationTypeDto.add(mapToTerminationTypeData(terminationType));
+        terminationTypeData.add(mapToTerminationTypeData(terminationType));
       }
     }
-    return terminationTypeDto;
+    return terminationTypeData;
   }
 }
