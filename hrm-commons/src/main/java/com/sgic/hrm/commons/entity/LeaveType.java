@@ -33,7 +33,7 @@ public class LeaveType implements Serializable {
 	private Float defaultAllocation;
 
 	@CreationTimestamp
-	@Column(name = "created_at")
+	@Column(name = "created_at", nullable=false, updatable = false)
 	private ZonedDateTime createdAt;
 
 	@UpdateTimestamp
