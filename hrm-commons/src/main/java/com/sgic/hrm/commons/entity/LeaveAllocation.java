@@ -12,7 +12,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "leave_allocation")
+@Table(name = "leave_allocation",schema = "leavesystem")
 public class LeaveAllocation implements Serializable {
 
 	/**

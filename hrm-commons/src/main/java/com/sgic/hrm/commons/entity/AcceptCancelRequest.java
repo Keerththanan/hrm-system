@@ -11,7 +11,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "accept_cancel_request")
+@Table(name = "accept_cancel_request",schema = "leavesystem")
 public class AcceptCancelRequest implements Serializable {
 
 	/**

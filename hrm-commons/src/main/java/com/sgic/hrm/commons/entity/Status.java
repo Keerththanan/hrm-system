@@ -10,7 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "status")
+@Table(name = "status",schema = "leavesystem")
 public class Status implements Serializable {
 
 	/**

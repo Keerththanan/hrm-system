@@ -15,7 +15,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "termination_request")
+@Table(name = "termination_request",schema = "employee")
 public class TerminationRequest implements Serializable {
 
   /**

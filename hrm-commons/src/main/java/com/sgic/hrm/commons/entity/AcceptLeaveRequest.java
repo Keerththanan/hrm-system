@@ -11,7 +11,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "accept_leave_request")
+@Table(name = "accept_leave_request",schema = "leavesystem")
 public class AcceptLeaveRequest implements Serializable {
 
 	/**

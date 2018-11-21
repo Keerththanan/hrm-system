@@ -16,7 +16,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 
 @Entity
-@Table(name = "carryforward_request")
+@Table(name = "carryforward_request",schema = "leavesystem")
 public class CarryforwardRequest implements Serializable {
 
 	/**

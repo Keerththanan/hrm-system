@@ -13,7 +13,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "holiday_calendar")
+@Table(name = "holiday_calendar",schema = "leavesystem")
 public class HolidayCalendar implements Serializable {
 
 	/**

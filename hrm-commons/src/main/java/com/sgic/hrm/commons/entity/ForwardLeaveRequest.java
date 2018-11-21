@@ -11,7 +11,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "forward_leave_request")
+@Table(name = "forward_leave_request",schema = "leavesystem")
 public class ForwardLeaveRequest implements Serializable {
 
 	/**

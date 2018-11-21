@@ -9,7 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "TerminationType")
+@Table(name = "TerminationType", schema = "employee")
 public class TerminationType implements Serializable {
 
   /**

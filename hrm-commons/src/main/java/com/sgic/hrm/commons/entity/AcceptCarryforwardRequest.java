@@ -12,7 +12,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "accept_carryforward_request")
+@Table(name = "accept_carryforward_request",schema = "leavesystem")
 public class AcceptCarryforwardRequest implements Serializable {
 
 	/**

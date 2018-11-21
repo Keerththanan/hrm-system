@@ -13,7 +13,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "cancel_request")
+@Table(name = "cancel_request",schema = "leavesystem")
 public class CancelLeaveRequest implements Serializable {
 
 	/**
