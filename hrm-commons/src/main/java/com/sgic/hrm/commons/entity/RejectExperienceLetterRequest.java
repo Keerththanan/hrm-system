@@ -10,7 +10,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "reject_experience_letter_request", schema = "experience_letter")
+@Table(name = "reject_experience_letter_request", schema = "employee")
 public class RejectExperienceLetterRequest implements Serializable{
 
   private static final long serialVersionUID = 4760666211280933328L;

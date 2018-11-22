@@ -11,7 +11,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "request_experience_letter", schema = "experience_letter")
+@Table(name = "request_experience_letter", schema = "employee")
 public class RequestExperienceLetter implements Serializable{
 
   private static final long serialVersionUID = 4064807072781709213L;
