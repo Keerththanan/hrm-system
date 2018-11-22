@@ -10,7 +10,7 @@ public interface CancelLeaveRequestRepository extends JpaRepository<CancelLeaveR
   
   List<CancelLeaveRequest> findByStatus(Status status);
   
-  @Query("SELECT clr FROM CancelLeaveRequest clr WHERE clr.LeaveRequest.User.id = 1")
+  @Query("SELECT clr FROM CancelLeaveRequest clr WHERE clr.leaveRequest.user.id = 0")
   List<CancelLeaveRequest> findByUser(Integer id);
 
 }
