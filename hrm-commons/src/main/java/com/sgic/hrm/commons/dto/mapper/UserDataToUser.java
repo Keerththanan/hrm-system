@@ -11,8 +11,8 @@ public class UserDataToUser {
   public static User mapToUser(UserData userData) {
     User user = new User();
     if (userData != null) {
-      user.setUserId(userData.getUserId());
-      user.setUserName(userData.getUserName());
+      user.setId(userData.getId());
+      user.setFullName(userData.getFullName());
     }
     return user;
   }
