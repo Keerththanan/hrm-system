@@ -1,7 +1,11 @@
 com\sgic\hrm\commons\dto\TestData.class
 com\sgic\hrm\commons\entity\mapper\TestMapper.class
+com\sgic\hrm\commons\entity\LoanDetailsEntity.class
 com\sgic\hrm\commons\exception\TestException.class
 com\sgic\hrm\commons\dto\mapper\TestDataMapper.class
 com\sgic\hrm\commons\entity\SalaryChart.class
 com\sgic\hrm\commons\repository\SalaryChartRepository.class
 com\sgic\hrm\commons\App.class
+com\sgic\hrm\commons\entity\UserEntity.class
+com\sgic\hrm\commons\entity\RoleEntity.class
+com\sgic\hrm\commons\entity\UserLoanDetails.class

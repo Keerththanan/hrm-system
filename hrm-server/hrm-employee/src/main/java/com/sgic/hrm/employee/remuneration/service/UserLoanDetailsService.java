@@ -1,0 +1,11 @@
+package com.sgic.hrm.employee.remuneration.service;
+
+import java.util.List;
+import java.util.Optional;
+
+import com.sgic.hrm.commons.entity.UserLoanDetails;
+
+public interface UserLoanDetailsService {
+public List<UserLoanDetails> getAllUserLoanDetails();
+public Optional<UserLoanDetails> getUserLoanDetailsById(Integer id);
+}
