@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,7 +18,7 @@ import com.sgic.hrm.commons.dto.TerminationTypeData;
 import com.sgic.hrm.commons.dto.mapper.TerminationTypeDataToTerminationType;
 import com.sgic.hrm.commons.entity.mapper.TerminationTypeToTerminationTypeData;
 import com.sgic.hrm.employee.service.TerminationTypeService;
-
+@CrossOrigin(origins = "*")
 @RestController
 public class TerminationTypeController {
 	@Autowired
