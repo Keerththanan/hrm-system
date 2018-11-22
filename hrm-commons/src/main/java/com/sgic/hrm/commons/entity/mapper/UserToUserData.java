@@ -10,8 +10,11 @@ public class UserToUserData {
 	public static UserData mapToUserData(User user) {
 		UserData userData = new UserData();		
 		if(user != null) {
-			userData.setUserId(user.getUserId());
-			userData.setUserName(user.getUserName());
+			userData.setId(user.getId());
+			userData.setFullName(user.getFullName());
+			userData.setDateOfBirth(user.getDateOfBirth());
+			userData.setEmail(user.getEmail());
+			userData.setGender(user.getGender());
 		}
 		return userData;
 	}

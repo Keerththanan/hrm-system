@@ -20,6 +20,7 @@ import com.sgic.hrm.commons.entity.mapper.TerminationRequestToTerminationRequest
 import com.sgic.hrm.employee.service.TerminationRequestService;
 
 @CrossOrigin(origins = "http://localhost:4200",maxAge=3600)
+
 @RestController
 public class TerminationRequestController {
 	@Autowired
