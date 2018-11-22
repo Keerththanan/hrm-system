@@ -45,12 +45,7 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-annotations</artifactId>
-			<version>3.5.5-Final</version>
-		</dependency>
-		
+	
 		<dependency>
 		<groupId>com.sgic.hrm</groupId>
 	<artifactId>commons</artifactId>

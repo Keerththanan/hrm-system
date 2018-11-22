@@ -2,7 +2,6 @@ package com.sgic.hrm.commons.dto.mapper;
 
 import com.sgic.hrm.commons.dto.GeneralWelfareData;
 import com.sgic.hrm.commons.entity.GeneralWelfare;
-import com.sgic.hrm.commons.entity.IndividualWelfare;
 
 public class GeneralWelfareDataToGeneralWelfare {
 	public static GeneralWelfare generalWelfareDataToGeneralWelfare(GeneralWelfareData generalWelfaredata) {
