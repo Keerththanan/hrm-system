@@ -4,6 +4,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.sgic.hrm.commons.entity.RequestPromotion;
 
-public interface RequestPrommotionRepository extends JpaRepository<RequestPromotion, Integer>{
+public interface RequestPromotionRepository extends JpaRepository<RequestPromotion, Integer>{
 
 }
