@@ -18,9 +18,11 @@ import com.sgic.hrm.commons.entity.AcademicQualification;
 import com.sgic.hrm.commons.entity.ExamType;
 import com.sgic.hrm.commons.entity.User;
 import com.sgic.hrm.employee.service.AcademicQualificationService;
+
 import com.sgic.hrm.employee.service.ExamTypeService;
 import com.sgic.hrm.employee.service.UserService;
 @CrossOrigin(origins= "http://localhost:4200",maxAge=3600)
+
 @RestController
 public class AcademicQualificationController{
 	@Autowired

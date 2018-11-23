@@ -1,7 +1,6 @@
 package com.sgic.hrm.employee.serviceimpl;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,6 +17,7 @@ public class UserServiceImpl implements UserService {
 	public boolean addUser(User user) {
 		userRepository.save(user);
 		return true;
+		
 	}
 	@Override
 	public List<User> getUser() {
@@ -33,10 +33,7 @@ public class UserServiceImpl implements UserService {
 		}
 		return false;
 	}
-	@Override
-	public Optional<User> getUserId(Integer id) {
-		return userRepository.findById(id);
-	}
+	
 	@Override
 	public boolean deleteUser(Integer id) {
 		if(userRepository.getOne(id)!= null) {
@@ -47,9 +44,10 @@ public class UserServiceImpl implements UserService {
 	}
 	@Override
 	public User findByUserId(Integer id) {
-		
+
 		return userRepository.findUserById(id);
+
 	}
-	
+
 
 }
