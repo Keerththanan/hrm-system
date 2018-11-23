@@ -31,5 +31,4 @@ public class LeaveAllocationDataToLeaveAllocation {
     }
     return leaveAllocationList;
   }
-
 }

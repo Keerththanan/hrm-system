@@ -16,6 +16,7 @@ public class CancelLeaveRequestServiceImpl implements CancelLeaveRequestService 
 
   @Override
   public boolean addCancelLeaveRequest(CancelLeaveRequest cancelLeaveRequest) {
+    cancelLeaveRequest.setStatus(Status.PENDING);
     cancelLeaveRequestRepository.save(cancelLeaveRequest);
     return true;
   }
@@ -29,7 +30,7 @@ public class CancelLeaveRequestServiceImpl implements CancelLeaveRequestService 
   @Override
   public boolean updateCancelLeaveRequestStatus(Integer id, Status status) {
 
-    CancelLeaveRequest cancelLeaveRequest = cancelLeaveRequestRepository.getOne(id);
+    CancelLeaveRequest cancelLeaveRequest = cancelLeaveRequestRepository.findById(id).orElse(null);
     if (cancelLeaveRequest != null) {
       cancelLeaveRequest.setStatus(status);
       cancelLeaveRequestRepository.save(cancelLeaveRequest);
@@ -50,7 +51,7 @@ public class CancelLeaveRequestServiceImpl implements CancelLeaveRequestService 
 
   @Override
   public List<CancelLeaveRequest> getCancelRequestByUser(Integer userId) {
-//    return cancelLeaveRequestRepository.findByUser(userId);
+
 	  return null;
   }
 

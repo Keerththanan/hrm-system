@@ -9,20 +9,20 @@ import com.sgic.hrm.commons.entity.CancelLeaveRequest;
 public class CancelLeaveRequestDataToCancelLeaveRequest {
 
   public static CancelLeaveRequest mapToCancelLeaveRequest(
-      CancelLeaveRequestData cancelLeaveRequestdata) {
+      CancelLeaveRequestData cancelLeaveRequestData) {
     CancelLeaveRequest cancelLeaveRequest = new CancelLeaveRequest();
 
-    if (cancelLeaveRequestdata != null) {
-      cancelLeaveRequest.setId(cancelLeaveRequestdata.getId());
-      cancelLeaveRequest.setReason(cancelLeaveRequestdata.getReason());
+    if (cancelLeaveRequestData != null) {
+      cancelLeaveRequest.setId(cancelLeaveRequestData.getId());
+      cancelLeaveRequest.setReason(cancelLeaveRequestData.getReason());
       cancelLeaveRequest.setLeaveRequest(LeaveRequestDataToLeaveRequest
-          .mapToLeaveRequest(cancelLeaveRequestdata.getLeaveRequest()));
-      cancelLeaveRequest.setStatus(cancelLeaveRequestdata.getStatus());
+          .mapToLeaveRequest(cancelLeaveRequestData.getLeaveRequest()));
+      cancelLeaveRequest.setStatus(cancelLeaveRequestData.getStatus());
     }
     return cancelLeaveRequest;
   }
 
-  public static List<CancelLeaveRequest> mapToCancelLeaveRequestData(
+  public static List<CancelLeaveRequest> mapToCancelLeaveRequestList(
       List<CancelLeaveRequestData> cancelLeaveRequestDataList) {
     List<CancelLeaveRequest> cancelLeaveRequestList = new ArrayList<CancelLeaveRequest>();
 
