@@ -29,7 +29,7 @@ public class ResponseController {
 	}
 
 	@PostMapping("/response")
-	public HttpStatus AddResponse(@RequestBody Response response) {
+	public HttpStatus addResponse(@RequestBody Response response) {
 		boolean test = responseService.addResponse(response);
 		if (test) {
 			return HttpStatus.CREATED;

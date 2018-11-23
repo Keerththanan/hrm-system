@@ -1,10 +1,8 @@
 package com.sgic.hrm.employee.serviceimpl;
 
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.sgic.hrm.commons.entity.SelfServiceType;
 import com.sgic.hrm.commons.repository.SelfServiceTypeRepository;
 import com.sgic.hrm.employee.service.SelfServiceTypeService;
@@ -17,7 +15,6 @@ public class SelfServiceTypeServiceImpl implements SelfServiceTypeService {
 
 	@Override
 	public List<SelfServiceType> viewSelfServiceType() {
-
 		return selfServiceTypeRepository.findAll();
 	}
 

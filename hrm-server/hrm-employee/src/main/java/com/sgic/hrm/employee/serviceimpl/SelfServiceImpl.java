@@ -1,10 +1,8 @@
 package com.sgic.hrm.employee.serviceimpl;
 
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.sgic.hrm.commons.entity.SelfService;
 import com.sgic.hrm.commons.repository.SelfServiceRepository;
 import com.sgic.hrm.employee.service.SelfServiceService;

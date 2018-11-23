@@ -14,9 +14,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 @Entity
 @Table(name = "user", schema = "employee")
 public class User implements Serializable {
-  /**
-   * 
-   */
+ 
   private static final long serialVersionUID = 8918656601415434315L;
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)

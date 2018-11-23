@@ -1,7 +1,6 @@
 package com.sgic.hrm.employee.controller;
 
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,10 +12,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-
 import com.sgic.hrm.commons.entity.SelfServiceType;
 import com.sgic.hrm.employee.service.SelfServiceTypeService;
-
 
 @CrossOrigin(origins = "http://localhost:4200", maxAge = 3200)
 @RestController
@@ -32,7 +29,7 @@ public class SelfServiceTypeController {
 	}
 
 	@PostMapping("/selfservicetype")
-	public HttpStatus AddSelfServiceType(@RequestBody SelfServiceType selfServiceType) {
+	public HttpStatus addSelfServiceType(@RequestBody SelfServiceType selfServiceType) {
 		boolean test = selfServiceTypeService.addSelfServiceType(selfServiceType);
 		if (test) {
 			return HttpStatus.CREATED;
@@ -41,7 +38,7 @@ public class SelfServiceTypeController {
 	}
 
 	@PutMapping("/selfservicetype/{id}")
-	public HttpStatus ModifySelfServiceType(@PathVariable Integer id, @RequestBody SelfServiceType selfServiceType) {
+	public HttpStatus modifySelfServiceType(@PathVariable Integer id, @RequestBody SelfServiceType selfServiceType) {
 		boolean test = selfServiceTypeService.editSelfServiceType(selfServiceType, id);
 		if (test) {
 			return HttpStatus.ACCEPTED;
@@ -49,7 +46,7 @@ public class SelfServiceTypeController {
 		return HttpStatus.BAD_REQUEST;
 	}
 	@DeleteMapping("/selfservicetype/{id}")
-	public HttpStatus DeleteSelfServiceType(@PathVariable Integer id) {
+	public HttpStatus deleteSelfServiceType(@PathVariable Integer id) {
 	  boolean selfServiceType = selfServiceTypeService.deleteSelfServiceType(id);
 	  if(selfServiceType) {
 	    return HttpStatus.OK;

@@ -1,7 +1,6 @@
 package com.sgic.hrm.employee.controller;
 
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,10 +12,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-
 import com.sgic.hrm.commons.entity.SelfService;
 import com.sgic.hrm.employee.service.SelfServiceService;
-
 
 @CrossOrigin(origins = "http://localhost:4200", maxAge = 3200)
 @RestController
@@ -32,7 +29,7 @@ public class SelfServiceController {
 	}
 
 	@PostMapping("/selfservice")
-	public HttpStatus AddSelfService(@RequestBody SelfService selfService) {
+	public HttpStatus addSelfService(@RequestBody SelfService selfService) {
 		boolean test = selfServiceService.addSelfService(selfService);
 		if (test) {
 			return HttpStatus.CREATED;
@@ -41,7 +38,7 @@ public class SelfServiceController {
 	}
 
 	@PutMapping("/selfservice/{id}")
-	public HttpStatus ModifySelfService(@PathVariable Integer id, @RequestBody SelfService selfService) {
+	public HttpStatus modifySelfService(@PathVariable Integer id, @RequestBody SelfService selfService) {
 		boolean test = selfServiceService.editSelfService(selfService, id);
 		if (test) {
 			return HttpStatus.ACCEPTED;
@@ -50,7 +47,7 @@ public class SelfServiceController {
 	}
 
 	@DeleteMapping("/selfservice/{id}")
-	public HttpStatus DeleteSelfService(@PathVariable Integer id) {
+	public HttpStatus deleteSelfService(@PathVariable Integer id) {
 		boolean selfService = selfServiceService.deleteSelfService(id);
 		if (selfService) {
 			return HttpStatus.OK;
