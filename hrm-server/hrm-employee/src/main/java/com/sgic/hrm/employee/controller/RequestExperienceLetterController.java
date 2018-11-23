@@ -4,6 +4,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,6 +21,7 @@ import com.sgic.hrm.employee.service.RequestExperienceLetterService;
 
 @RestController
 @RequestMapping("/requestexpletter")
+@CrossOrigin(origins = "http://localhost:4200", maxAge = 3200)
 public class RequestExperienceLetterController {
 
   @Autowired
@@ -41,7 +43,7 @@ public class RequestExperienceLetterController {
     return new ResponseEntity<>("Experience Letter Request Failed", HttpStatus.BAD_REQUEST);
   }
   
-  @PutMapping("/experience-letter/{id}")
+  @PutMapping("/{id}")
   public boolean editExperienceLetterRequest(@RequestBody RequestExperienceLetter requestExperienceLetter, @PathVariable Integer id) {
      return requestExperienceLetterService.updateExperienceLetterRequest(requestExperienceLetter, id);
   }

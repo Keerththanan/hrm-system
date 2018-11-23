@@ -1,21 +1,21 @@
 /*
- * this dto only include request experience letter table fields only.
- * this dto will not include any foreign key related information. 
- * only foreign key id created in this dto.
- * using for POST HttpMethod
+ * this dto only include request experience letter table fields only. this dto will not include any
+ * foreign key related information. only foreign key id created in this dto. using for POST
+ * HttpMethod
  */
 package com.sgic.hrm.commons.dto;
 
+import java.time.LocalDate;
 import java.time.ZonedDateTime;
 
 public class RequestExperienceLetterDto {
 
   private Integer id;
-  private Integer userId;
+  private Integer user;
   private Integer noOfCopy;
   private String reason;
   private String competency;
-  private ZonedDateTime createdAt;
+  private LocalDate createdAt;
   private String status;
 
   public Integer getId() {
@@ -26,12 +26,12 @@ public class RequestExperienceLetterDto {
     this.id = id;
   }
 
-  public Integer getUserId() {
-    return userId;
+  public Integer getUser() {
+    return user;
   }
 
-  public void setUserId(Integer userId) {
-    this.userId = userId;
+  public void setUser(Integer user) {
+    this.user = user;
   }
 
   public Integer getNoOfCopy() {
@@ -58,11 +58,11 @@ public class RequestExperienceLetterDto {
     this.competency = competency;
   }
 
-  public ZonedDateTime getCreatedAt() {
+  public LocalDate getCreatedAt() {
     return createdAt;
   }
 
-  public void setCreatedAt(ZonedDateTime createdAt) {
+  public void setCreatedAt(LocalDate createdAt) {
     this.createdAt = createdAt;
   }
 

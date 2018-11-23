@@ -4,6 +4,7 @@
  */
 package com.sgic.hrm.commons.dto;
 
+import java.time.LocalDate;
 import java.time.ZonedDateTime;
 import com.sgic.hrm.commons.entity.User;
 
@@ -13,7 +14,7 @@ public class RequestExperienceLetterGetDto {
   private Integer noOfCopy;
   private String reason;
   private String competency;
-  private ZonedDateTime createdAt;
+  private LocalDate createdAt;
   private String status;
 
   public Integer getId() {
@@ -56,11 +57,11 @@ public class RequestExperienceLetterGetDto {
     this.competency = competency;
   }
 
-  public ZonedDateTime getCreatedAt() {
+  public LocalDate getCreatedAt() {
     return createdAt;
   }
 
-  public void setCreatedAt(ZonedDateTime createdAt) {
+  public void setCreatedAt(LocalDate createdAt) {
     this.createdAt = createdAt;
   }
 

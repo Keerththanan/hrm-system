@@ -16,9 +16,9 @@ public class RequestExperienceLetterDtoMapper {
   public static RequestExperienceLetter mapRequestExperienceLetter(RequestExperienceLetterDto requestExperienceLetterDto) {
     RequestExperienceLetter requestExperienceLetter = new RequestExperienceLetter();
     User user = new User();
-    user.setId(requestExperienceLetterDto.getUserId());
+    user.setId(requestExperienceLetterDto.getUser());
     
-    if (requestExperienceLetterDto != null) {
+    if (requestExperienceLetterDto.getNoOfCopy() != null) {
       requestExperienceLetter.setId(requestExperienceLetterDto.getId());
       requestExperienceLetter.setUser(user);
       requestExperienceLetter.setNoOfCopy(requestExperienceLetterDto.getNoOfCopy());
