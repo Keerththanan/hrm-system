@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.sgic.hrm.commons.entity.AppointmentType;
+import com.sgic.hrm.commons.entity.User;
 import com.sgic.hrm.commons.repository.AppointmentTypeRepository;
 import com.sgic.hrm.employee.service.AppointmentTypeService;
 
@@ -26,6 +27,10 @@ public class AppointmentTypeServiceImpl implements AppointmentTypeService{
 	{
 		return appointmentTypeRepository.findAll();
 	}
-	
+	@Override
+	public AppointmentType findByAppointmentTypeId(Integer id) {
+		// TODO Auto-generated method stub
+		return appointmentTypeRepository.findAppointmentTypeById(id);
+	}
 	
 }

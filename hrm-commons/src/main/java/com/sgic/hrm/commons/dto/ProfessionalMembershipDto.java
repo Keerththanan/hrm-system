@@ -1,25 +1,8 @@
-package com.sgic.hrm.commons.entity;
+package com.sgic.hrm.commons.dto;
 
-import java.io.Serializable;
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
-
-@Entity
-@Table(name="professional_membership",schema="employee")
-public class ProfessionalMembership implements Serializable {
-
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1930133425563493625L;
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+public class ProfessionalMembershipDto {
+	
+	private Integer userId;
 	private Integer id;
 	private String organizationName;
 	private String eventName;
@@ -28,14 +11,10 @@ public class ProfessionalMembership implements Serializable {
 	private Integer periodYearTo;
 	private Integer award;
 	
-	@ManyToOne
-	@JoinColumn(name="user_id")
-	private User userId;
-	
-	public User getUserId() {
+	public Integer getUserId() {
 		return userId;
 	}
-	public void setUserId(User userId) {
+	public void setUserId(Integer userId) {
 		this.userId = userId;
 	}
 	public Integer getId() {
@@ -80,9 +59,4 @@ public class ProfessionalMembership implements Serializable {
 	public void setAward(Integer award) {
 		this.award = award;
 	}
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-	
-	
 }

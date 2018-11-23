@@ -18,6 +18,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.sgic.hrm.commons.dto.ProfessionalQualificationDto;
 import com.sgic.hrm.commons.entity.EmployeeProfessionalQualification;
+import com.sgic.hrm.commons.entity.ProfessionalQualification;
+import com.sgic.hrm.commons.entity.User;
 import com.sgic.hrm.employee.service.EmployeeProfessionalQualificationService;
 import com.sgic.hrm.employee.service.ProfessionalQualificationService;
 import com.sgic.hrm.employee.service.UserService;

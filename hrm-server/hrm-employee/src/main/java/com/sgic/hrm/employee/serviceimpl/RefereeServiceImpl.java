@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.sgic.hrm.commons.entity.Referee;
-import com.sgic.hrm.commons.entity.User;
 import com.sgic.hrm.commons.repository.RefereeRepository;
 import com.sgic.hrm.employee.service.RefereeService;
 
@@ -18,10 +17,9 @@ public class RefereeServiceImpl implements RefereeService {
 	private RefereeRepository refereeRepository;
 	
 	@Override
-	public boolean addReferee(Referee referee, User user) {
-		referee.setUserId(user);
+	public boolean addReferee(Referee referee) {
 		refereeRepository.save(referee);
-		return true;
+		return false;
 	}
 
 	@Override

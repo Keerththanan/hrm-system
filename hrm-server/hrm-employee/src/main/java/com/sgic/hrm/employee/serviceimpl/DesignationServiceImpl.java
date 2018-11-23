@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.sgic.hrm.commons.entity.Department;
 import com.sgic.hrm.commons.entity.Designation;
 import com.sgic.hrm.commons.repository.DesignationRepository;
 import com.sgic.hrm.employee.service.DesignationService;
@@ -25,5 +26,11 @@ public class DesignationServiceImpl implements DesignationService{
 	public List<Designation> getDesignation() {
 		
 		return designationRepository.findAll();
+	}
+	
+	@Override
+	public  Designation findByDesignationId(Integer id) {
+		// TODO Auto-generated method stub
+		return designationRepository.findDesignationById(id);
 	}
 }
