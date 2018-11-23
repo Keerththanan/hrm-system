@@ -6,7 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 @Entity
-@Table(name="user",schema="profile")
+@Table(name="profile_attachments",schema="employee")
 public class ProfileAttachments implements Serializable{
 	/**
 	 * 

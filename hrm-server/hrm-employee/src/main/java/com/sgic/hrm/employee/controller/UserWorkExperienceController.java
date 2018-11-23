@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.sgic.hrm.commons.entity.UserWorkExperience;
 import com.sgic.hrm.employee.service.UserWorkExperienceService;
 
-@CrossOrigin(origins= "",maxAge=3600)
+@CrossOrigin(origins= "http://localhost:4200",maxAge=3600)
 @RestController
 public class UserWorkExperienceController {
 	@Autowired

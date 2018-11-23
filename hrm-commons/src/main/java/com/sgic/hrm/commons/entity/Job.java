@@ -5,9 +5,12 @@ import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 
 @Entity
+@Table(name="job",schema="employee")
+
 public class Job implements Serializable{
 	/**
 	 * 

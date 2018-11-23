@@ -1,23 +1,10 @@
-package com.sgic.hrm.commons.entity;
+package com.sgic.hrm.commons.dto;
 
-import java.io.Serializable;
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
-
-@Entity
-@Table(name="professional_qualification",schema="employee")
-public class ProfessionalQualification implements Serializable{
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -783618122291051997L;
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+public class ProfessionalQualificationDto {
+	
+	private Integer userId;
+	
+//	professional Qualification
 	private Integer id;
 	private String courseName;
 	private String courseType; 
@@ -27,18 +14,13 @@ public class ProfessionalQualification implements Serializable{
 	private String insituteName;
 	private String result;
 	private Float gpa;
-	@ManyToOne
-	private User userId;
 	
-	public User getUserId() {	
+	public Integer getUserId() {
 		return userId;
 	}
-	public void setUserId(User userId) {
+	public void setUserId(Integer userId) {
 		this.userId = userId;
 	}
-	
-	
-	
 	public Integer getId() {
 		return id;
 	}
@@ -94,5 +76,6 @@ public class ProfessionalQualification implements Serializable{
 		this.gpa = gpa;
 	}
 	
-
+	
+	
 }

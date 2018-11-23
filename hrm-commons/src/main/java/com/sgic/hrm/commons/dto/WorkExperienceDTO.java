@@ -1,24 +1,7 @@
-package com.sgic.hrm.commons.entity;
+package com.sgic.hrm.commons.dto;
 
-import java.io.Serializable;
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
-
-@Entity
-@Table(name="work_experience",schema="employee")
-public class WorkExperience implements Serializable{
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -5562561549450734893L;
-	
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Id
+public class WorkExperienceDTO {
+	private Integer userId;
 	private Integer id;
 	private String workName;
 	private String workPlace;
@@ -28,8 +11,12 @@ public class WorkExperience implements Serializable{
 	private String workType;
 	private String reasonForLeaving;
 	private Integer leavingSalary;
-	
-	
+	public Integer getUserId() {
+		return userId;
+	}
+	public void setUserId(Integer userId) {
+		this.userId = userId;
+	}
 	public Integer getId() {
 		return id;
 	}

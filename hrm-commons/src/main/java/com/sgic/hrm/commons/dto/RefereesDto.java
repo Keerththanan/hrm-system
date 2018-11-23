@@ -1,34 +1,14 @@
-package com.sgic.hrm.commons.entity;
+package com.sgic.hrm.commons.dto;
 
-import java.io.Serializable;
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
-
-@Entity
-@Table(name="referee",schema="employee")
-public class Referee implements Serializable {
-
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -2382706104002165442L;
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+public class RefereesDto {
 	private Integer id;
 	private String refereeName;
 	
-	@ManyToOne
-	private User userId;
+	private Integer userId;
 	
 	private String Address;
 	private String contactNo;
 	private String relationship;
-	
 	public Integer getId() {
 		return id;
 	}
@@ -41,10 +21,10 @@ public class Referee implements Serializable {
 	public void setRefereeName(String refereeName) {
 		this.refereeName = refereeName;
 	}
-	public User getUserId() {
+	public Integer getUserId() {
 		return userId;
 	}
-	public void setUserId(User userId) {
+	public void setUserId(Integer userId) {
 		this.userId = userId;
 	}
 	public String getAddress() {
@@ -65,8 +45,7 @@ public class Referee implements Serializable {
 	public void setRelationship(String relationship) {
 		this.relationship = relationship;
 	}
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
+	
+	
 
 }

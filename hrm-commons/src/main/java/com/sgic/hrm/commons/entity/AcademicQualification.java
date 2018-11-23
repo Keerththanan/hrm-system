@@ -16,7 +16,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 @Entity
-@Table(name="academic_qualification",schema="")
+@Table(name="academic_qualification",schema="employee")
 public class AcademicQualification implements Serializable{
 	
 	/**

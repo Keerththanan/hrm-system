@@ -11,7 +11,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "", schema = "profile")
+@Table(name="employee_professional_qualification",schema="employee")
 public class EmployeeProfessionalQualification implements Serializable {
 	/**
 	 * 

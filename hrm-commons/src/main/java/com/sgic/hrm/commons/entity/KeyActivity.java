@@ -4,7 +4,10 @@ import java.io.Serializable;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 @Entity
+@Table(name="key_activity",schema="employee")
+
 public class KeyActivity implements Serializable {
 
 	/**
