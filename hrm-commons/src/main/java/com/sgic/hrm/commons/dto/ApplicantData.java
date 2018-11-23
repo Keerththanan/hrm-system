@@ -12,9 +12,9 @@ import com.sgic.hrm.commons.entity.Job;
 public class ApplicantData {
 	
 	 Integer id;
-//	 HighestQualificationData highestQualificationDataid;
+	 HighestQualificationData highestQualificationDataid;
 	 DistrictData districtDataid;
-//	 JobData jobDataid;
+	 JobData jobDataid;
 	 String fullName;
 	 String nic;
 	 String email;
@@ -30,18 +30,18 @@ public class ApplicantData {
 	
 	
 	
-//	public HighestQualificationData getHighestQualificationDataid() {
-//		return highestQualificationDataid;
-//	}
-//	public void setHighestQualificationDataid(HighestQualificationData highestQualificationDataid) {
-//		this.highestQualificationDataid = highestQualificationDataid;
-//	}
-//	public JobData getJobDataid() {
-//		return jobDataid;
-//	}
-//	public void setJobDataid(JobData jobDataid) {
-//		this.jobDataid = jobDataid;
-//	}
+	public HighestQualificationData getHighestQualificationDataid() {
+		return highestQualificationDataid;
+	}
+	public void setHighestQualificationDataid(HighestQualificationData highestQualificationDataid) {
+		this.highestQualificationDataid = highestQualificationDataid;
+	}
+	public JobData getJobDataid() {
+		return jobDataid;
+	}
+	public void setJobDataid(JobData jobDataid) {
+		this.jobDataid = jobDataid;
+	}
 	public DistrictData getDistrictDataid() {
 		return districtDataid;
 	}
