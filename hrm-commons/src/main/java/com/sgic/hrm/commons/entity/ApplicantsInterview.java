@@ -12,7 +12,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "applicant_interview_panel", schema = "employee")
-public class ApplicantsInterviewPanel implements Serializable {
+public class ApplicantsInterview implements Serializable {
 
 	/**
 	 * 
@@ -25,7 +25,7 @@ public class ApplicantsInterviewPanel implements Serializable {
 
 	@ManyToOne
 	@JoinColumn(name = "interview_panel_id")
-	private InterviewPanel interviewPanelId;
+	private Interview interviewPanelId;
 
 	private Boolean reachedThroughtThePhoneCall;
 	private Boolean attendence;
@@ -41,11 +41,11 @@ public class ApplicantsInterviewPanel implements Serializable {
 		this.id = id;
 	}
 
-	public InterviewPanel getInterviewPanelId() {
+	public Interview getInterviewPanelId() {
 		return interviewPanelId;
 	}
 
-	public void setInterviewPanelId(InterviewPanel interviewPanelId) {
+	public void setInterviewPanelId(Interview interviewPanelId) {
 		this.interviewPanelId = interviewPanelId;
 	}
 

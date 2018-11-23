@@ -30,7 +30,7 @@ public class Interviewers implements Serializable {
 
 	@ManyToOne
 	@JoinColumn(name = "interview_panel_id")
-	private InterviewPanel interviewPanelId;
+	private Interview interviewPanelId;
 
 	public Integer getId() {
 		return id;
@@ -48,11 +48,11 @@ public class Interviewers implements Serializable {
 		this.userId = userId;
 	}
 
-	public InterviewPanel getInterviewPanelId() {
+	public Interview getInterviewPanelId() {
 		return interviewPanelId;
 	}
 
-	public void setInterviewPanelId(InterviewPanel interviewPanelId) {
+	public void setInterviewPanelId(Interview interviewPanelId) {
 		this.interviewPanelId = interviewPanelId;
 	}
 

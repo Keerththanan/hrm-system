@@ -1,6 +1,6 @@
 package com.sgic.hrm.commons.entity;
 
-import java.io.Serializable;
+import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,64 +11,57 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "interview_panel", schema = "employee")
-public class InterviewPanel implements Serializable {
-
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -1995265402050053499L;
+@Table(schema = "employee", name = "interview")
+public class Interview {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 
 	@ManyToOne
-	@JoinColumn(name = "interview_selection_id")
-	private InterviewSelection interviewSelectionId;
+	@JoinColumn(name = "job_id")
+	private Job jobId;
 
 	private String interviewPanelNo;
+	private Date date;
 	private String startTime;
 	private String endTime;
-
 	public Integer getId() {
 		return id;
 	}
-
 	public void setId(Integer id) {
 		this.id = id;
 	}
-
-	public InterviewSelection getInterviewSelectionId() {
-		return interviewSelectionId;
+	public Job getJobId() {
+		return jobId;
 	}
-
-	public void setInterviewSelectionId(InterviewSelection interviewSelectionId) {
-		this.interviewSelectionId = interviewSelectionId;
+	public void setJobId(Job jobId) {
+		this.jobId = jobId;
 	}
-
 	public String getInterviewPanelNo() {
 		return interviewPanelNo;
 	}
-
 	public void setInterviewPanelNo(String interviewPanelNo) {
 		this.interviewPanelNo = interviewPanelNo;
 	}
-
+	public Date getDate() {
+		return date;
+	}
+	public void setDate(Date date) {
+		this.date = date;
+	}
 	public String getStartTime() {
 		return startTime;
 	}
-
 	public void setStartTime(String startTime) {
 		this.startTime = startTime;
 	}
-
 	public String getEndTime() {
 		return endTime;
 	}
-
 	public void setEndTime(String endTime) {
 		this.endTime = endTime;
 	}
+	
 
 }
