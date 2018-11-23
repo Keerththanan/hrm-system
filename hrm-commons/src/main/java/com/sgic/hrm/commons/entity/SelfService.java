@@ -1,7 +1,7 @@
 package com.sgic.hrm.commons.entity;
 
 import java.io.Serializable;
-import java.time.ZonedDateTime;
+import java.sql.Date;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -14,7 +14,7 @@ import javax.persistence.Table;
 
 
 @Entity
-@Table(schema = "employee", name = "self_service1")
+@Table(schema = "employee", name = "self_service")
 public class SelfService implements Serializable {
 
 	/**
@@ -26,7 +26,7 @@ public class SelfService implements Serializable {
 	private Integer id;
 	@ManyToOne
 	@JoinColumn(name = "self_service_type_id")
-	private SelfServiceType selfServiceId;
+	private SelfServiceType selfServiceType;
 	@ManyToOne
 	@JoinColumn(name = "user_id")
 	private User userId;
@@ -40,7 +40,7 @@ public class SelfService implements Serializable {
 	private boolean informIndividual;
 	private String description;
 	private String attachment;
-	private ZonedDateTime createdAt;
+	private Date createdAt;
 	private String status;
 	private String message;
 	
@@ -50,11 +50,11 @@ public class SelfService implements Serializable {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public SelfServiceType getSelfServiceId() {
-		return selfServiceId;
+	public SelfServiceType getselfServiceType() {
+		return selfServiceType;
 	}
-	public void setSelfServiceId(SelfServiceType selfServiceId) {
-		this.selfServiceId = selfServiceId;
+	public void setSelfServiceId(SelfServiceType selfServiceType) {
+		this.selfServiceType= selfServiceType;
 	}
 	public User getUserId() {
 		return userId;
@@ -92,10 +92,10 @@ public class SelfService implements Serializable {
 	public void setAttachment(String attachment) {
 		this.attachment = attachment;
 	}
-	public ZonedDateTime getCreatedAt() {
+	public Date getCreatedAt() {
 		return createdAt;
 	}
-	public void setCreatedAt(ZonedDateTime createdAt) {
+	public void setCreatedAt(Date createdAt) {
 		this.createdAt = createdAt;
 	}
 	public String getStatus() {
