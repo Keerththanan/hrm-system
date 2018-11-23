@@ -5,12 +5,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.sgic.hrm.commons.entity.User;
 import com.sgic.hrm.commons.entity.WorkExperience;
 import com.sgic.hrm.commons.repository.WorkExperienceRepository;
 import com.sgic.hrm.employee.service.WorkExperienceService;
-
-
 
 @Service
 public class WorkExperienceServiceImpl implements WorkExperienceService{
@@ -18,13 +15,11 @@ public class WorkExperienceServiceImpl implements WorkExperienceService{
 	private WorkExperienceRepository experienceRepository;
 
 	@Override
-	public boolean addWorkExperience(WorkExperience workExperience, User user) {
+	public boolean addWorkExperience(WorkExperience workExperience) {
 		
-		workExperience.setUserId(user);
 		experienceRepository.save(workExperience);
 		return true;
 	}
-
 
 	@Override
 	public List<WorkExperience> getAllWorkExperience() {
@@ -52,12 +47,12 @@ public class WorkExperienceServiceImpl implements WorkExperienceService{
 		}
 		return false;
 	}
-	
 
-	
-	
-
-	
+	@Override
+	public WorkExperience getWorkExperienceById(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 	
 }
