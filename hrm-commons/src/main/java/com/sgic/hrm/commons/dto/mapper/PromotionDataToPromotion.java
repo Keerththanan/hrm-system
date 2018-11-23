@@ -17,6 +17,7 @@ public class PromotionDataToPromotion {
 	      promotion.setPromotedDate(promotionData.getPromotedDate());
 	      promotion.setRemark(promotionData.getRemark());
 	      promotion.setSalary(promotionData.getSalary());
+	      promotion.setSalary(promotionData.getPromotedBy());
 	    }
 	    return promotion;
 	  }

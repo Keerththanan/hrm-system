@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 E:\SGIC HRM Sys\new backend\hrm-system\hrm-commons\src\main\java\com\sgic\hrm\commons\repository\ProfileAttachmentRepository.java
 E:\SGIC HRM Sys\new backend\hrm-system\hrm-commons\src\main\java\com\sgic\hrm\commons\entity\Referee.java
 E:\SGIC HRM Sys\new backend\hrm-system\hrm-commons\src\main\java\com\sgic\hrm\commons\repository\ProfessionalMembershipRepository.java
@@ -53,3 +54,63 @@ E:\SGIC HRM Sys\new backend\hrm-system\hrm-commons\src\main\java\com\sgic\hrm\co
 E:\SGIC HRM Sys\new backend\hrm-system\hrm-commons\src\main\java\com\sgic\hrm\commons\repository\ExamTypeRepository.java
 E:\SGIC HRM Sys\new backend\hrm-system\hrm-commons\src\main\java\com\sgic\hrm\commons\entity\Location.java
 E:\SGIC HRM Sys\new backend\hrm-system\hrm-commons\src\main\java\com\sgic\hrm\commons\entity\Department.java
+=======
+E:\BE\hrm-system\hrm-commons\src\main\java\com\sgic\hrm\commons\dto\mapper\RequestPromotionDataMapper.java
+E:\BE\hrm-system\hrm-commons\src\main\java\com\sgic\hrm\commons\entity\User.java
+E:\BE\hrm-system\hrm-commons\src\main\java\com\sgic\hrm\commons\entity\WorkExperience.java
+E:\BE\hrm-system\hrm-commons\src\main\java\com\sgic\hrm\commons\repository\KeyActivityRepository.java
+E:\BE\hrm-system\hrm-commons\src\main\java\com\sgic\hrm\commons\repository\AppointmentRepository.java
+E:\BE\hrm-system\hrm-commons\src\main\java\com\sgic\hrm\commons\entity\RequestPromotion.java
+E:\BE\hrm-system\hrm-commons\src\main\java\com\sgic\hrm\commons\entity\UserWorkExperience.java
+E:\BE\hrm-system\hrm-commons\src\main\java\com\sgic\hrm\commons\exception\TestException.java
+E:\BE\hrm-system\hrm-commons\src\main\java\com\sgic\hrm\commons\repository\RolesAndResponsibilityRepository.java
+E:\BE\hrm-system\hrm-commons\src\main\java\com\sgic\hrm\commons\dto\mapper\DeniedPromotionDataToDeniedPromotion.java
+E:\BE\hrm-system\hrm-commons\src\main\java\com\sgic\hrm\commons\repository\EmployeeProfessionalQualificationRepository.java
+E:\BE\hrm-system\hrm-commons\src\main\java\com\sgic\hrm\commons\entity\ProfessionalMembership.java
+E:\BE\hrm-system\hrm-commons\src\main\java\com\sgic\hrm\commons\repository\DepartmentRepository.java
+E:\BE\hrm-system\hrm-commons\src\main\java\com\sgic\hrm\commons\entity\AcademicQualification.java
+E:\BE\hrm-system\hrm-commons\src\main\java\com\sgic\hrm\commons\entity\ExperienceLetter.java
+E:\BE\hrm-system\hrm-commons\src\main\java\com\sgic\hrm\commons\repository\ProjectRepository.java
+E:\BE\hrm-system\hrm-commons\src\main\java\com\sgic\hrm\commons\repository\AcademicQualificationRepository.java
+E:\BE\hrm-system\hrm-commons\src\main\java\com\sgic\hrm\commons\repository\WorkExperienceRepository.java
+E:\BE\hrm-system\hrm-commons\src\main\java\com\sgic\hrm\commons\entity\Project.java
+E:\BE\hrm-system\hrm-commons\src\main\java\com\sgic\hrm\commons\dto\mapper\TestDataMapper.java
+E:\BE\hrm-system\hrm-commons\src\main\java\com\sgic\hrm\commons\repository\UserRepository.java
+E:\BE\hrm-system\hrm-commons\src\main\java\com\sgic\hrm\commons\entity\EmployeeProfessionalMembership.java
+E:\BE\hrm-system\hrm-commons\src\main\java\com\sgic\hrm\commons\entity\KeyActivity.java
+E:\BE\hrm-system\hrm-commons\src\main\java\com\sgic\hrm\commons\App.java
+E:\BE\hrm-system\hrm-commons\src\main\java\com\sgic\hrm\commons\dto\RequestPromotionData.java
+E:\BE\hrm-system\hrm-commons\src\main\java\com\sgic\hrm\commons\repository\LocationRepository.java
+E:\BE\hrm-system\hrm-commons\src\main\java\com\sgic\hrm\commons\entity\DeniedPromotion.java
+E:\BE\hrm-system\hrm-commons\src\main\java\com\sgic\hrm\commons\repository\EmployeeProfessionalMembershipRepository.java
+E:\BE\hrm-system\hrm-commons\src\main\java\com\sgic\hrm\commons\entity\AppointmentType.java
+E:\BE\hrm-system\hrm-commons\src\main\java\com\sgic\hrm\commons\entity\ProfessionalQualification.java
+E:\BE\hrm-system\hrm-commons\src\main\java\com\sgic\hrm\commons\repository\DeniedPromotionRepository.java
+E:\BE\hrm-system\hrm-commons\src\main\java\com\sgic\hrm\commons\entity\EmployeeProfessionalQualification.java
+E:\BE\hrm-system\hrm-commons\src\main\java\com\sgic\hrm\commons\entity\Designation.java
+E:\BE\hrm-system\hrm-commons\src\main\java\com\sgic\hrm\commons\entity\Department.java
+E:\BE\hrm-system\hrm-commons\src\main\java\com\sgic\hrm\commons\entity\Job.java
+E:\BE\hrm-system\hrm-commons\src\main\java\com\sgic\hrm\commons\repository\JobRepository.java
+E:\BE\hrm-system\hrm-commons\src\main\java\com\sgic\hrm\commons\repository\ExperienceLetterRepository.java
+E:\BE\hrm-system\hrm-commons\src\main\java\com\sgic\hrm\commons\entity\Location.java
+E:\BE\hrm-system\hrm-commons\src\main\java\com\sgic\hrm\commons\repository\ProfessionalQualificationRepository.java
+E:\BE\hrm-system\hrm-commons\src\main\java\com\sgic\hrm\commons\repository\RefereeRepository.java
+E:\BE\hrm-system\hrm-commons\src\main\java\com\sgic\hrm\commons\entity\Referee.java
+E:\BE\hrm-system\hrm-commons\src\main\java\com\sgic\hrm\commons\entity\ProfileAttachments.java
+E:\BE\hrm-system\hrm-commons\src\main\java\com\sgic\hrm\commons\repository\ExamTypeRepository.java
+E:\BE\hrm-system\hrm-commons\src\main\java\com\sgic\hrm\commons\repository\AppointmentTypeRepository.java
+E:\BE\hrm-system\hrm-commons\src\main\java\com\sgic\hrm\commons\repository\UserWorkExperienceRepository.java
+E:\BE\hrm-system\hrm-commons\src\main\java\com\sgic\hrm\commons\entity\ExamType.java
+E:\BE\hrm-system\hrm-commons\src\main\java\com\sgic\hrm\commons\repository\RequestPromotionRepository.java
+E:\BE\hrm-system\hrm-commons\src\main\java\com\sgic\hrm\commons\entity\mapper\TestMapper.java
+E:\BE\hrm-system\hrm-commons\src\main\java\com\sgic\hrm\commons\repository\ProfileAttachmentRepository.java
+E:\BE\hrm-system\hrm-commons\src\main\java\com\sgic\hrm\commons\entity\mapper\DeniedPromotionToDeniedPromotionData.java
+E:\BE\hrm-system\hrm-commons\src\main\java\com\sgic\hrm\commons\entity\Appointment.java
+E:\BE\hrm-system\hrm-commons\src\main\java\com\sgic\hrm\commons\dto\DeniedPromotionData.java
+E:\BE\hrm-system\hrm-commons\src\main\java\com\sgic\hrm\commons\repository\ProfessionalMembershipRepository.java
+E:\BE\hrm-system\hrm-commons\src\main\java\com\sgic\hrm\commons\entity\mapper\RequestPromotionMapper.java
+E:\BE\hrm-system\hrm-commons\src\main\java\com\sgic\hrm\commons\dto\DesignationData.java
+E:\BE\hrm-system\hrm-commons\src\main\java\com\sgic\hrm\commons\entity\RolesAndResponsibilites.java
+E:\BE\hrm-system\hrm-commons\src\main\java\com\sgic\hrm\commons\dto\TestData.java
+E:\BE\hrm-system\hrm-commons\src\main\java\com\sgic\hrm\commons\repository\DesignationRepository.java
+>>>>>>> c70a3f56ae341ab1f34191785c525fc26ff4d626

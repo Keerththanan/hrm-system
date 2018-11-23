@@ -15,7 +15,10 @@ com\sgic\hrm\commons\entity\AcademicQualification.class
 com\sgic\hrm\commons\dto\RequestPromotionData.class
 com\sgic\hrm\commons\repository\RefereeRepository.class
 com\sgic\hrm\commons\entity\ProfessionalMembership.class
+<<<<<<< HEAD
 com\sgic\hrm\commons\repository\PromotionRepository.class
+=======
+>>>>>>> c70a3f56ae341ab1f34191785c525fc26ff4d626
 com\sgic\hrm\commons\repository\JobRepository.class
 com\sgic\hrm\commons\dto\TestData.class
 com\sgic\hrm\commons\repository\DepartmentRepository.class
@@ -24,22 +27,35 @@ com\sgic\hrm\commons\dto\mapper\TestDataMapper.class
 com\sgic\hrm\commons\entity\WorkExperience.class
 com\sgic\hrm\commons\dto\PromotionData.class
 com\sgic\hrm\commons\repository\ProfessionalQualificationRepository.class
+<<<<<<< HEAD
 com\sgic\hrm\commons\dto\mapper\PromotionDataToPromotion.class
 com\sgic\hrm\commons\repository\RolesAndResponsibilityRepository.class
 com\sgic\hrm\commons\entity\Department.class
 com\sgic\hrm\commons\repository\KeyActivityRepository.class
 com\sgic\hrm\commons\entity\mapper\PromotionToPromotionData.class
+=======
+com\sgic\hrm\commons\repository\RolesAndResponsibilityRepository.class
+com\sgic\hrm\commons\entity\Department.class
+com\sgic\hrm\commons\repository\KeyActivityRepository.class
+com\sgic\hrm\commons\entity\mapper\DeniedPromotionToDeniedPromotionData.class
+>>>>>>> c70a3f56ae341ab1f34191785c525fc26ff4d626
 com\sgic\hrm\commons\repository\UserWorkExperienceRepository.class
 com\sgic\hrm\commons\entity\User.class
+com\sgic\hrm\commons\dto\mapper\RequestPromotionDataMapper.class
 com\sgic\hrm\commons\entity\EmployeeProfessionalQualification.class
 com\sgic\hrm\commons\repository\ProfessionalMembershipRepository.class
 com\sgic\hrm\commons\repository\ProfileAttachmentRepository.class
 com\sgic\hrm\commons\entity\mapper\TestMapper.class
+<<<<<<< HEAD
+=======
+com\sgic\hrm\commons\entity\DeniedPromotion.class
+>>>>>>> c70a3f56ae341ab1f34191785c525fc26ff4d626
 com\sgic\hrm\commons\repository\DesignationRepository.class
 com\sgic\hrm\commons\entity\RolesAndResponsibilites.class
 com\sgic\hrm\commons\entity\ExperienceLetter.class
 com\sgic\hrm\commons\entity\ProfileAttachments.class
 com\sgic\hrm\commons\repository\RequestPromotionRepository.class
+<<<<<<< HEAD
 com\sgic\hrm\commons\repository\ProjectRepository.class
 com\sgic\hrm\commons\App.class
 com\sgic\hrm\commons\entity\Job.class
@@ -49,6 +65,21 @@ com\sgic\hrm\commons\entity\Designation.class
 com\sgic\hrm\commons\entity\RequestPromotion.class
 com\sgic\hrm\commons\entity\Promotion.class
 com\sgic\hrm\commons\repository\ExamTypeRepository.class
+=======
+com\sgic\hrm\commons\dto\DeniedPromotionData.class
+com\sgic\hrm\commons\repository\ProjectRepository.class
+com\sgic\hrm\commons\dto\mapper\DeniedPromotionDataToDeniedPromotion.class
+com\sgic\hrm\commons\App.class
+com\sgic\hrm\commons\entity\Job.class
+com\sgic\hrm\commons\entity\UserWorkExperience.class
+com\sgic\hrm\commons\repository\DeniedPromotionRepository.class
+com\sgic\hrm\commons\repository\UserRepository.class
+com\sgic\hrm\commons\entity\Designation.class
+com\sgic\hrm\commons\entity\RequestPromotion.class
+com\sgic\hrm\commons\repository\ExamTypeRepository.class
+com\sgic\hrm\commons\dto\DesignationData.class
+com\sgic\hrm\commons\entity\mapper\RequestPromotionMapper.class
+>>>>>>> c70a3f56ae341ab1f34191785c525fc26ff4d626
 com\sgic\hrm\commons\entity\KeyActivity.class
 com\sgic\hrm\commons\entity\ProfessionalQualification.class
 com\sgic\hrm\commons\repository\EmployeeProfessionalQualificationRepository.class

@@ -3,15 +3,15 @@ package com.sgic.hrm.commons.dto;
 public class RequestPromotionData {
 	private Integer id;
 	private int userId;
-	private String designationId;
+	private int designationId;
 	private String promotionRemark;
 	private String recommendedBy;
 
-	public String getDesignationId() {
+	public int getDesignationId() {
 		return designationId;
 	}
 
-	public void setDesignationId(String designationId) {
+	public void setDesignationId(int designationId) {
 		this.designationId = designationId;
 	}
 
