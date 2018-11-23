@@ -23,8 +23,9 @@ public class AcademicQualification implements Serializable{
 	 * 
 	 */
 	private static final long serialVersionUID = -3461576400367891708L;
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	
 	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 
 	@ManyToOne
