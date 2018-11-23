@@ -11,5 +11,6 @@ public interface DesignationService {
 //	boolean editDesignation(Designation designation,Integer id);
 //	Optional<Designation> getDesignationId(Integer id);
 //	boolean deleteDesignation(Integer id);
+	Designation getDesignationById(int id);
 	
 }

@@ -7,6 +7,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.CreationTimestamp;
@@ -18,21 +22,26 @@ public class RequestPromotion {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	private int userId;
 	
+	@ManyToOne
+	@JoinColumn(name = "user_id")
+	private User userId;
+	
+	@OneToOne
 	@JoinColumn(name = "id")
-	private String designationId;
+	private Designation designationId;
+	
 	private String promotionRemark;
 	private String recommendedBy;
 	
 	@CreationTimestamp
 	private Date createdAt;
 
-	public String getDesignationId() {
+	public Designation getDesignationId() {
 		return designationId;
 	}
 
-	public void setDesignationId(String designationId) {
+	public void setDesignationId(Designation designationId) {
 		this.designationId = designationId;
 	}
 
@@ -44,11 +53,11 @@ public class RequestPromotion {
 		this.id = id;
 	}
 
-	public int getUserId() {
+	public User getUserId() {
 		return userId;
 	}
 
-	public void setUserId(int userId) {
+	public void setUserId(User userId) {
 		this.userId = userId;
 	}
 
