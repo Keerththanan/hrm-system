@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.sgic.hrm.commons.entity.ProfessionalQualification;
+import com.sgic.hrm.commons.entity.User;
 import com.sgic.hrm.commons.repository.ProfessionalQualificationRepository;
 import com.sgic.hrm.employee.service.ProfessionalQualificationService;
 
@@ -18,9 +19,11 @@ public class ProfessionalQualificationServiceImpl implements ProfessionalQualifi
 	private ProfessionalQualificationRepository professionalQualificationRepository;
 
 	@Override
-	public boolean addProfessionalQualification(ProfessionalQualification professionalQualification) {
+	public boolean addProfessionalQualification(ProfessionalQualification professionalQualification,User user) {
+		professionalQualification.setUserId(user);
 		professionalQualificationRepository.save(professionalQualification);
 		return true;
+		
 	}
 
 	@Override
