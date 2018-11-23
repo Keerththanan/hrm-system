@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.sgic.hrm.commons.dto.CarryforwardObjectData;
 import com.sgic.hrm.commons.dto.CarryforwardRequestData;
-import com.sgic.hrm.commons.dto.mapper.CarryforwardRequestDataToCarryforwardRequest;
 import com.sgic.hrm.commons.entity.CarryforwardRequest;
 import com.sgic.hrm.commons.entity.mapper.CarryforwardRequestToCarryforwardRequestData;
 import com.sgic.hrm.lms.service.CarryforwardRequestService;
@@ -36,9 +36,8 @@ public class CarryforwordRequestController {
 
 	@PostMapping
 	public HttpStatus createCarryforwardRequest(
-			@RequestBody CarryforwardRequestData carryforwardRequestData) {
-		if (carryforwardRequestService.createCarryforwardRequest(
-				CarryforwardRequestDataToCarryforwardRequest.mapToCarryforwardRequest(carryforwardRequestData))) {
+			@RequestBody CarryforwardObjectData carryforwardObjectData) {
+		if (carryforwardRequestService.createCarryforwardRequest(carryforwardObjectData)){
 			return HttpStatus.CREATED;
 		}
 		return HttpStatus.BAD_REQUEST;
