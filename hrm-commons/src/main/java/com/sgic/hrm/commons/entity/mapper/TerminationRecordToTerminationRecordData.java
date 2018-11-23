@@ -12,6 +12,7 @@ public class TerminationRecordToTerminationRecordData {
     TerminationRecordData terminationRecordData = new TerminationRecordData();
     if (terminationRecord != null) {
       terminationRecordData.setId(terminationRecord.getId());
+      terminationRecordData.setDateOfTermination(terminationRecord.getDateOfTermination());
       terminationRecordData.setCauseOfTermination(terminationRecord.getCauseOfTermination());
       terminationRecordData
           .setDisciplinaryProcedures(terminationRecord.getDisciplinaryProcedures());

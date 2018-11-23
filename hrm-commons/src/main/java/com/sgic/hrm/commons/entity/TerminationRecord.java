@@ -2,6 +2,8 @@ package com.sgic.hrm.commons.entity;
 
 import java.io.File;
 import java.io.Serializable;
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -25,8 +27,9 @@ public class TerminationRecord implements Serializable {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   Integer id;
+  Date  dateOfTermination;
 
-  @OneToOne(fetch = FetchType.EAGER)
+  @OneToOne(fetch = FetchType.LAZY)
   @JoinColumn(name = "employee_id")
   User employee;
 
@@ -53,6 +56,16 @@ public class TerminationRecord implements Serializable {
   public void setId(Integer id) {
     this.id = id;
   }
+  
+  
+
+  public Date getDateOfTermination() {
+	return dateOfTermination;
+}
+
+  public void setDateOfTermination(Date dateOfTermination) {
+	this.dateOfTermination = dateOfTermination;
+}
 
   public User getEmployee() {
     return employee;

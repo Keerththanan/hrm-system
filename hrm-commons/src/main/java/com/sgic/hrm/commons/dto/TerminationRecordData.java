@@ -1,6 +1,8 @@
 package com.sgic.hrm.commons.dto;
 
 import java.io.File;
+import java.util.Date;
+import java.util.List;
 
 public class TerminationRecordData {
   Integer id;
@@ -10,6 +12,8 @@ public class TerminationRecordData {
   String disciplinaryProcedures;
   String legalStatus;
   File exitInterview;
+  Date dateOfTermination;
+  List<AttachmentData> attachmentDatas;
 
   public Integer getId() {
     return id;
@@ -66,5 +70,23 @@ public class TerminationRecordData {
   public void setExitInterview(File exitInterview) {
     this.exitInterview = exitInterview;
   }
+
+ public Date getDateOfTermination() {
+	return dateOfTermination;
+}
+
+ public void setDateOfTermination(Date dateOfTermination) {
+	this.dateOfTermination = dateOfTermination;
+}
+
+public List<AttachmentData> getAttachmentDatas() {
+	return attachmentDatas;
+}
+
+public void setAttachmentDatas(List<AttachmentData> attachmentDatas) {
+	this.attachmentDatas = attachmentDatas;
+}
+  
+  
 
 }
