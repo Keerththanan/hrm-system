@@ -14,25 +14,23 @@ public class RequestPromotionMapper {
 	    	requestPrommotionData.setId(requestPrommotion.getId());
 	    	requestPrommotionData.setPromotionRemark(requestPrommotion.getPromotionRemark());
 	    	requestPrommotionData.setRecommendedBy(requestPrommotion.getRecommendedBy());
-//	    	requestPrommotionData.setUserId(requestPrommotion.getUserId());
-	    	
-//	    	requestPrommotionData.setUser(UserToUserData.mapToUserData(requestPrommotion.getUser()));
-//	    	requestPrommotionData.setLeaveType(LeaveTypeToLeaveTypeData.mapToLeaveTypeData(requestPrommotion.getLeaveType()));
-	      
+	    	requestPrommotionData.setCreatedAt(requestPrommotion.getCreatedAt());
+	    	requestPrommotionData.setDesignationId(requestPrommotion.getDesignationId());
+	    	requestPrommotionData.setUserId(requestPrommotion.getUserId());
+	    	requestPrommotionData.setUpdatedAt(requestPrommotion.getUpdatedAt());
 	    }
 	    return requestPrommotionData;
 	  }
 
-	  public static List<RequestPromotionData> mapLeaveRequestDataList(
-	      List<RequestPromotion> requestPromotionList) {
-	    List<RequestPromotionData> requestProotionDataList = new ArrayList<RequestPromotionData>();
+	  public static List<RequestPromotionData> mapToRequestPromotionDataList(List<RequestPromotion> requestPromotionList) {
+	    List<RequestPromotionData> requestPromotionDataList = new ArrayList<RequestPromotionData>();
 
 	    if (requestPromotionList != null) {
 	      for (RequestPromotion requestPromotion : requestPromotionList) {
-	    	  requestProotionDataList.add(mapToRequestPromotionData(requestPromotion));
+	    	  requestPromotionDataList.add(mapToRequestPromotionData(requestPromotion));
 	      }
 	    }
-	    return requestProotionDataList;
+	    return requestPromotionDataList;
 	  }
 
 	}

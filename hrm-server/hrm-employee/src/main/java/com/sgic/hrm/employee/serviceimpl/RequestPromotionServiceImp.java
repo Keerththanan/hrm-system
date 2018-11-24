@@ -35,8 +35,8 @@ public class RequestPromotionServiceImp implements RequestPromotionService {
 	}
 
 	@Override
-	public RequestPromotion getRequestPromotionByUserId(int userId) {
-		return requestPromotionRepository.getOne(userId);
+	public RequestPromotion getRequestPromotionById(int id) {
+		return requestPromotionRepository.getOne(id);
 	}
 
 	@Override
