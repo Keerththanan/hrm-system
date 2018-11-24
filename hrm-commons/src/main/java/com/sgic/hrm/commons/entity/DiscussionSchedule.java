@@ -1,7 +1,8 @@
 package com.sgic.hrm.commons.entity;
 
 import java.io.Serializable;
-import java.time.ZonedDateTime;
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -30,7 +31,7 @@ public class DiscussionSchedule implements Serializable {
   TerminationRequest terminationRequest;
 
   @Column(name = "time")
-  ZonedDateTime time;
+  Date time;
 
   @Column(name = "venue")
   String venue;
@@ -51,15 +52,17 @@ public class DiscussionSchedule implements Serializable {
     this.terminationRequest = terminationRequest;
   }
 
-  public ZonedDateTime getTime() {
-    return time;
-  }
+  
 
-  public void setTime(ZonedDateTime time) {
-    this.time = time;
-  }
+  public Date getTime() {
+	return time;
+}
 
-  public String getVenue() {
+public void setTime(Date time) {
+	this.time = time;
+}
+
+public String getVenue() {
     return venue;
   }
 
