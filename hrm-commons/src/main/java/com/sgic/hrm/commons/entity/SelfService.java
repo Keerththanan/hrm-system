@@ -19,16 +19,20 @@ public class SelfService implements Serializable {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Integer id;
-  @ManyToOne
+  
+  @ManyToOne(cascade = CascadeType.ALL)
   @JoinColumn(name = "self_service_type_id")
   private SelfServiceType selfServiceType;
-  @ManyToOne
+  
+  @ManyToOne(cascade = CascadeType.ALL)
   @JoinColumn(name = "user_id")
   private User user;
+  
   @ManyToOne(cascade = CascadeType.ALL)
   @JoinColumn(name = "relevant_department_id")
   private Department relevantDepartment;
-  @ManyToOne
+  
+  @ManyToOne(cascade = CascadeType.ALL)
   @JoinColumn(name = "relevant_individual_id")
   private User relevantIndividual;
   private boolean informIndividual;

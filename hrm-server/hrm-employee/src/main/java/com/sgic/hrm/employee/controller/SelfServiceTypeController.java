@@ -54,7 +54,6 @@ public class SelfServiceTypeController {
 	  if(selfServiceType) {
 	    return HttpStatus.OK;
 	  }
-    return HttpStatus.BAD_REQUEST;
-	  
+    return HttpStatus.BAD_REQUEST;	  
 	}
 }

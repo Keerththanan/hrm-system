@@ -15,75 +15,75 @@ import javax.persistence.Table;
 @Table(name = "request_experience_letter", schema = "employee")
 public class RequestExperienceLetter implements Serializable {
 
-  private static final long serialVersionUID = 4064807072781709213L;
+	private static final long serialVersionUID = 4064807072781709213L;
 
-  @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
-  Integer id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	Integer id;
 
-  @ManyToOne(cascade= {CascadeType.ALL})
-  @JoinColumn(name = "user_id")
-  User user;
-  Integer noOfCopy;
-  String reason;
-  String competency;
-  LocalDate createdAt;
-  String status;
+	@ManyToOne(cascade = { CascadeType.ALL })
+	@JoinColumn(name = "user_id")
+	private User user;
+	private Integer noOfCopy;
+	private String reason;
+	private String competency;
+	private LocalDate createdAt;
+	private String status;
 
-  public Integer getId() {
-    return id;
-  }
+	public Integer getId() {
+		return id;
+	}
 
-  public void setId(Integer id) {
-    this.id = id;
-  }
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
-  public User getUser() {
-    return user;
-  }
+	public User getUser() {
+		return user;
+	}
 
-  public void setUser(User user) {
-    this.user = user;
-  }
+	public void setUser(User user) {
+		this.user = user;
+	}
 
-  public Integer getNoOfCopy() {
-    return noOfCopy;
-  }
+	public Integer getNoOfCopy() {
+		return noOfCopy;
+	}
 
-  public void setNoOfCopy(Integer noOfCopy) {
-    this.noOfCopy = noOfCopy;
-  }
+	public void setNoOfCopy(Integer noOfCopy) {
+		this.noOfCopy = noOfCopy;
+	}
 
-  public String getReason() {
-    return reason;
-  }
+	public String getReason() {
+		return reason;
+	}
 
-  public void setReason(String reason) {
-    this.reason = reason;
-  }
+	public void setReason(String reason) {
+		this.reason = reason;
+	}
 
-  public String getCompetency() {
-    return competency;
-  }
+	public String getCompetency() {
+		return competency;
+	}
 
-  public void setCompetency(String competency) {
-    this.competency = competency;
-  }
+	public void setCompetency(String competency) {
+		this.competency = competency;
+	}
 
-  public LocalDate getCreatedAt() {
-    return createdAt;
-  }
+	public LocalDate getCreatedAt() {
+		return createdAt;
+	}
 
-  public void setCreatedAt(LocalDate createdAt) {
-    this.createdAt = createdAt;
-  }
+	public void setCreatedAt(LocalDate createdAt) {
+		this.createdAt = createdAt;
+	}
 
-  public String getStatus() {
-    return status;
-  }
+	public String getStatus() {
+		return status;
+	}
 
-  public void setStatus(String status) {
-    this.status = status;
-  }
+	public void setStatus(String status) {
+		this.status = status;
+	}
 
 }

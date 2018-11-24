@@ -32,5 +32,5 @@ public class SelfServiceType implements Serializable {
   public void setSelfServiceTypeName(String selfServiceTypeName) {
     this.selfServiceTypeName = selfServiceTypeName;
   }
-  
+
 }
