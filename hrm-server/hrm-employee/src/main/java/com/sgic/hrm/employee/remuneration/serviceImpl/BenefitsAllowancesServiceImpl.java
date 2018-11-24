@@ -15,10 +15,21 @@ public class BenefitsAllowancesServiceImpl implements BenefitsAllowancesService 
 	@Autowired
 	BenefitsAllowancesRepository benefitsAllowancesRepository;
 
+	
 	@Override
 	public List<BenefitsAllowancesEntity> getBenefitsAllowances() {
 		// TODO Auto-generated method stub
 		return benefitsAllowancesRepository.findAll();
 	}
+
+	@Override
+	public BenefitsAllowancesEntity viewById(Integer id) {
+		// TODO Auto-generated method stub
+		return benefitsAllowancesRepository.getOne(id);
+	}
+
+
+
+
 
 }

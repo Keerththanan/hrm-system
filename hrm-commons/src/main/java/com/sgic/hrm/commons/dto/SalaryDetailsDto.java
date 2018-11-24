@@ -1,24 +1,8 @@
-package com.sgic.hrm.commons.entity;
+package com.sgic.hrm.commons.dto;
 
-import java.io.Serializable;
 import java.sql.Date;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
-@Entity
-@Table(schema = "employee", name = "salary_details_HR_view")
-public class SalaryDetailsHRViewEntity implements Serializable {
-
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -6829814477663791410L;
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+public class SalaryDetailsDto {
 	private Integer id;
 	private String empName;
 	private Date appointmentDate;
@@ -45,12 +29,12 @@ public class SalaryDetailsHRViewEntity implements Serializable {
 		this.empName = empName;
 	}
 
-	public Date getAppointmentdate() {
+	public Date getAppointmentDate() {
 		return appointmentDate;
 	}
 
-	public void setAppointmentdate(Date appointmentdate) {
-		this.appointmentDate = appointmentdate;
+	public void setAppointmentDate(Date appointmentDate) {
+		this.appointmentDate = appointmentDate;
 	}
 
 	public Integer getBasicSalary() {

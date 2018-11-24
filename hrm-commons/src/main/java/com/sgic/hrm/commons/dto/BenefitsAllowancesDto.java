@@ -1,22 +1,6 @@
-package com.sgic.hrm.commons.entity;
+package com.sgic.hrm.commons.dto;
 
-import java.io.Serializable;
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
-@Entity
-@Table(schema = "employee", name = "benefits_allowances")
-public class BenefitsAllowancesEntity implements Serializable {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 5957635216582771331L;
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+public class BenefitsAllowancesDto {
 	private Integer id;
 	private String name;
 	private String deptName;
@@ -89,5 +73,4 @@ public class BenefitsAllowancesEntity implements Serializable {
 	public void setMedical(Integer medical) {
 		this.medical = medical;
 	}
-
 }

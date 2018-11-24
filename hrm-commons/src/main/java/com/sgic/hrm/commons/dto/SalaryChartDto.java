@@ -1,23 +1,7 @@
-package com.sgic.hrm.commons.entity;
+package com.sgic.hrm.commons.dto;
 
-import java.io.Serializable;
+public class SalaryChartDto {
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
-@Entity
-@Table(schema = "employee", name = "salary_chart")
-public class SalaryChartEntity implements Serializable {
-
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -6380894775207406278L;
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String empName;
 	private Integer basicSalary;
@@ -98,10 +82,6 @@ public class SalaryChartEntity implements Serializable {
 
 	public void setStampDuty(Integer stampDuty) {
 		this.stampDuty = stampDuty;
-	}
-
-	public static long getSerialversionuid() {
-		return serialVersionUID;
 	}
 
 }

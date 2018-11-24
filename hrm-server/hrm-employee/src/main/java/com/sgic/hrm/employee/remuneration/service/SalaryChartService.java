@@ -8,6 +8,5 @@ public interface SalaryChartService {
 
 	public List<SalaryChartEntity> viewSalaryChart();
 
-	public Integer viewById(Integer id);
-//	public List<SalaryChartEntity> viewOneById(Integer id);
+	public SalaryChartEntity viewOneById(Integer id);
 }

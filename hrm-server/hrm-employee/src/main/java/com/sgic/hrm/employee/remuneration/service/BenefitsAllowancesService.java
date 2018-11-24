@@ -6,5 +6,7 @@ import com.sgic.hrm.commons.entity.BenefitsAllowancesEntity;
 
 public interface BenefitsAllowancesService {
 
-	public List<BenefitsAllowancesEntity> getBenefitsAllowances();
+	List<BenefitsAllowancesEntity> getBenefitsAllowances();
+
+	BenefitsAllowancesEntity viewById(Integer id);
 }

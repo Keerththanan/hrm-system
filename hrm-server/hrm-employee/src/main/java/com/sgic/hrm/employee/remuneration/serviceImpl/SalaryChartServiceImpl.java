@@ -22,10 +22,11 @@ public class SalaryChartServiceImpl implements SalaryChartService {
 	}
 
 	@Override
-	public Integer viewById(Integer id) {
+	public SalaryChartEntity viewOneById(Integer id) {
 		// TODO Auto-generated method stub
-		return salaryChartRepository.getOne(id).getBasicSalary();
-
+		return salaryChartRepository.getOne(id);
 	}
+
+
 
 }
