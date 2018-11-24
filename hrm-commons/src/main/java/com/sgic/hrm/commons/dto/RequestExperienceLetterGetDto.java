@@ -5,7 +5,6 @@
 package com.sgic.hrm.commons.dto;
 
 import java.time.LocalDate;
-import java.time.ZonedDateTime;
 import com.sgic.hrm.commons.entity.User;
 
 public class RequestExperienceLetterGetDto {

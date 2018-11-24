@@ -12,6 +12,7 @@ public class UserDtoMapper {
     if(userDto != null) {
       user.setId(userDto.getId());
       user.setFullName((userDto.getUserName()));
+      user.setDepartment(userDto.getDepartment());
     }
     return user;
   }
@@ -25,4 +26,5 @@ public class UserDtoMapper {
     }
     return userList;
   }
+  
 }

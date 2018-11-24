@@ -1,35 +1,16 @@
-package com.sgic.hrm.commons.entity;
+package com.sgic.hrm.commons.dto;
 
-import java.io.Serializable;
 import java.sql.Date;
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import com.sgic.hrm.commons.entity.Department;
+import com.sgic.hrm.commons.entity.SelfServiceType;
+import com.sgic.hrm.commons.entity.User;
 
-@Entity
-@Table(schema = "employee", name = "self_service")
-public class SelfService implements Serializable {
-
-  private static final long serialVersionUID = 4534072616944311046L;
-  @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class SelfServiceDto {
+  
   private Integer id;
-  @ManyToOne
-  @JoinColumn(name = "self_service_type_id")
   private SelfServiceType selfServiceType;
-  @ManyToOne
-  @JoinColumn(name = "user_id")
   private User user;
-  @ManyToOne(cascade = CascadeType.ALL)
-  @JoinColumn(name = "relevant_department_id")
   private Department relevantDepartment;
-  @ManyToOne
-  @JoinColumn(name = "relevant_individual_id")
   private User relevantIndividual;
   private boolean informIndividual;
   private String description;

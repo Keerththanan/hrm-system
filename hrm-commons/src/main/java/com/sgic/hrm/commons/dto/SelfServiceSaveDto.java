@@ -1,36 +1,13 @@
-package com.sgic.hrm.commons.entity;
+package com.sgic.hrm.commons.dto;
 
-import java.io.Serializable;
 import java.sql.Date;
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
 
-@Entity
-@Table(schema = "employee", name = "self_service")
-public class SelfService implements Serializable {
-
-  private static final long serialVersionUID = 4534072616944311046L;
-  @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class SelfServiceSaveDto {
   private Integer id;
-  @ManyToOne
-  @JoinColumn(name = "self_service_type_id")
-  private SelfServiceType selfServiceType;
-  @ManyToOne
-  @JoinColumn(name = "user_id")
-  private User user;
-  @ManyToOne(cascade = CascadeType.ALL)
-  @JoinColumn(name = "relevant_department_id")
-  private Department relevantDepartment;
-  @ManyToOne
-  @JoinColumn(name = "relevant_individual_id")
-  private User relevantIndividual;
+  private Integer selfServiceType;
+  private Integer user;
+  private Integer relevantDepartment;
+  private Integer relevantIndividual;
   private boolean informIndividual;
   private String description;
   private String attachment;
@@ -46,35 +23,35 @@ public class SelfService implements Serializable {
     this.id = id;
   }
 
-  public SelfServiceType getSelfServiceType() {
+  public Integer getSelfServiceType() {
     return selfServiceType;
   }
 
-  public void setSelfServiceType(SelfServiceType selfServiceType) {
+  public void setSelfServiceType(Integer selfServiceType) {
     this.selfServiceType = selfServiceType;
   }
 
-  public User getUser() {
+  public Integer getUser() {
     return user;
   }
 
-  public void setUser(User user) {
+  public void setUser(Integer user) {
     this.user = user;
   }
 
-  public Department getRelevantDepartment() {
+  public Integer getRelevantDepartment() {
     return relevantDepartment;
   }
 
-  public void setRelevantDepartment(Department relevantDepartment) {
+  public void setRelevantDepartment(Integer relevantDepartment) {
     this.relevantDepartment = relevantDepartment;
   }
 
-  public User getRelevantIndividual() {
+  public Integer getRelevantIndividual() {
     return relevantIndividual;
   }
 
-  public void setRelevantIndividual(User relevantIndividual) {
+  public void setRelevantIndividual(Integer relevantIndividual) {
     this.relevantIndividual = relevantIndividual;
   }
 

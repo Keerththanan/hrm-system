@@ -1,7 +1,6 @@
 package com.sgic.hrm.employee.controller;
 
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,8 +12,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.sgic.hrm.commons.entity.SelfServiceType;
+import com.sgic.hrm.commons.dto.SelfServiceTypeDto;
+import com.sgic.hrm.commons.dto.mapper.SelfServiceTypeDtoMapper;
+import com.sgic.hrm.commons.entity.mapper.SelfServiceTypeMapper;
 import com.sgic.hrm.employee.service.SelfServiceTypeService;
 
 
@@ -25,15 +25,14 @@ public class SelfServiceTypeController {
 	private SelfServiceTypeService selfServiceTypeService;
 
 	@GetMapping("/selfservicetype")
-	public ResponseEntity<List<SelfServiceType>> viewSelfServiceType() {
-		List<SelfServiceType> selfServiceType = selfServiceTypeService.viewSelfServiceType();
-		ResponseEntity<List<SelfServiceType>> response = new ResponseEntity<>(selfServiceType, HttpStatus.OK);
-		return response;
+	public ResponseEntity<List<SelfServiceTypeDto>> viewSelfServiceType() {
+		List<SelfServiceTypeDto> selfServiceTypeDto = SelfServiceTypeMapper.mapSelfServiceTypeListToSelfServiceTypeDtoList(selfServiceTypeService.viewSelfServiceType());
+		return new ResponseEntity<>(selfServiceTypeDto, HttpStatus.OK);
 	}
 
 	@PostMapping("/selfservicetype")
-	public HttpStatus AddSelfServiceType(@RequestBody SelfServiceType selfServiceType) {
-		boolean test = selfServiceTypeService.addSelfServiceType(selfServiceType);
+	public HttpStatus addSelfServiceType(@RequestBody SelfServiceTypeDto selfServiceTypeDto) {
+		boolean test = selfServiceTypeService.addSelfServiceType(SelfServiceTypeDtoMapper.mapSelfServiceTypeDtoToSelfServiceType(selfServiceTypeDto));
 		if (test) {
 			return HttpStatus.CREATED;
 		}
@@ -41,15 +40,16 @@ public class SelfServiceTypeController {
 	}
 
 	@PutMapping("/selfservicetype/{id}")
-	public HttpStatus ModifySelfServiceType(@PathVariable Integer id, @RequestBody SelfServiceType selfServiceType) {
-		boolean test = selfServiceTypeService.editSelfServiceType(selfServiceType, id);
+	public HttpStatus modifySelfServiceType(@PathVariable Integer id, @RequestBody SelfServiceTypeDto selfServiceTypeDto) {
+		boolean test = selfServiceTypeService.editSelfServiceType(SelfServiceTypeDtoMapper.mapSelfServiceTypeDtoToSelfServiceType(selfServiceTypeDto), id);
 		if (test) {
 			return HttpStatus.ACCEPTED;
 		}
 		return HttpStatus.BAD_REQUEST;
 	}
+	
 	@DeleteMapping("/selfservicetype/{id}")
-	public HttpStatus DeleteSelfServiceType(@PathVariable Integer id) {
+	public HttpStatus meleteSelfServiceType(@PathVariable Integer id) {
 	  boolean selfServiceType = selfServiceTypeService.deleteSelfServiceType(id);
 	  if(selfServiceType) {
 	    return HttpStatus.OK;
