@@ -4,7 +4,7 @@ import com.sgic.hrm.commons.dto.RecruitmentData;
 import com.sgic.hrm.commons.entity.Recruitment;
 
 public class RecruitmentMapper {
-	private RecruitmentMapper() {}
+	
 	public static RecruitmentData recruitmentMapper(Recruitment recruitment) {
 		RecruitmentData recruitmentData = new RecruitmentData();
 

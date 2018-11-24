@@ -44,14 +44,23 @@ public class RecuitmentController {
 		return response;
 	}
 	
+//	@PutMapping("/recruitment/{id}")
+//	public HttpStatus editRecuitment(@RequestBody Recruitment recuitment, @PathVariable("id") Integer id) {
+//		boolean test = recruitmentService.editRecruitment(recuitment, id);
+//		if (test) {
+//			return HttpStatus.ACCEPTED;
+//		}
+//		return HttpStatus.BAD_REQUEST;
+//
+//	}
 	@PutMapping("/recruitment/{id}")
-	public HttpStatus editRecuitment(@RequestBody Recruitment recuitment, @PathVariable("id") Integer id) {
-		boolean test = recruitmentService.editRecruitment(recuitment, id);
-		if (test) {
-			return HttpStatus.ACCEPTED;
+	public ResponseEntity<String> updateRecuitment(@PathVariable(name="id") Integer id,@RequestBody RecruitmentData recruitmentData){
+		Recruitment recruitment=RecruitmentDataMapper.recruitmentDataMapper(recruitmentData);
+		if(recruitmentService.editRecruitment(recruitment, id))
+		{
+			return new ResponseEntity<>("updated",HttpStatus.OK);
 		}
-		return HttpStatus.BAD_REQUEST;
-
+		return new ResponseEntity<>("upadte failed", HttpStatus.BAD_REQUEST);
 	}
 
 	@DeleteMapping("/recruitment/{id}")

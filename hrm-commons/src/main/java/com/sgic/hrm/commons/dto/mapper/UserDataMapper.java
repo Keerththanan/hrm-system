@@ -4,6 +4,7 @@ import com.sgic.hrm.commons.dto.UserData;
 import com.sgic.hrm.commons.entity.User;
 
 public class UserDataMapper {
+	private UserDataMapper() {}
 	public static User userDataMapper(UserData userData) {
 		User user = new User();
 

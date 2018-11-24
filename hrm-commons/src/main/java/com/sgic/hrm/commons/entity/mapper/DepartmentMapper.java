@@ -4,7 +4,7 @@ import com.sgic.hrm.commons.dto.DepartmentData;
 import com.sgic.hrm.commons.entity.Department;
 
 public class DepartmentMapper {
-	private DepartmentMapper() {}
+	
 	public static DepartmentData departmentMapper(Department department) {
 		
 		DepartmentData departmentData = new DepartmentData();

@@ -4,7 +4,7 @@ import com.sgic.hrm.commons.dto.VacancyData;
 import com.sgic.hrm.commons.entity.Vacancy;
 
 public class VacancyMapper {
-	private VacancyMapper() {}
+	
 	public static VacancyData vacancyMapper(Vacancy vacancy) {
 		VacancyData vacancyData = new VacancyData();
 

@@ -4,7 +4,7 @@ import com.sgic.hrm.commons.dto.JobRoleTemplateData;
 import com.sgic.hrm.commons.entity.JobRoleTemplate;
 
 public class JobRoleTemplateMapper {
-	private JobRoleTemplateMapper() {}
+	
 	public static JobRoleTemplateData jobRoleTemplateMapper(JobRoleTemplate jobRoleTemplate) {
 		JobRoleTemplateData jobRoleTemplateData = new JobRoleTemplateData();
 

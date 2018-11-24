@@ -38,13 +38,22 @@ public class JobController {
 		ResponseEntity<List<Job>> responseEntity=new ResponseEntity<>(job , HttpStatus.OK);
 		return responseEntity;
 	}
-	@PutMapping("job/{id}")
-	public HttpStatus ModifyJob(@PathVariable Integer id,@RequestBody Job job) {
-		boolean test=jobService.editJob(job, id);
-		if(test) {
-			return HttpStatus.ACCEPTED;
+//	@PutMapping("job/{id}")
+//	public HttpStatus ModifyJob(@PathVariable Integer id,@RequestBody Job job) {
+//		boolean test=jobService.editJob(job, id);
+//		if(test) {
+//			return HttpStatus.ACCEPTED;
+//		}
+//		return HttpStatus.BAD_REQUEST;
+//	}
+	@PutMapping("/job/{id}")
+	public ResponseEntity<String> updateJob(@PathVariable(name="id") Integer id,@RequestBody JobData jobData){
+		Job job=JobDataMapper.jobDataMapper(jobData);
+		if(jobService.editJob(job, id))
+		{
+			return new ResponseEntity<>("updated",HttpStatus.OK);
 		}
-		return HttpStatus.BAD_REQUEST;
+		return new ResponseEntity<>("upadte failed", HttpStatus.BAD_REQUEST);
 	}
 	@DeleteMapping("job/{id}")
 	public HttpStatus DeleteUser(@PathVariable Integer id) {

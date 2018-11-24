@@ -4,7 +4,7 @@ import com.sgic.hrm.commons.dto.HighestQualificationData;
 import com.sgic.hrm.commons.entity.HighestQualification;
 
 public class HighestQualificationMapper {
-	private HighestQualificationMapper() {}
+
 	public static HighestQualificationData highestQualificationMapper(HighestQualification highestQualification) {
 		HighestQualificationData highestQualificationData = new HighestQualificationData();
 

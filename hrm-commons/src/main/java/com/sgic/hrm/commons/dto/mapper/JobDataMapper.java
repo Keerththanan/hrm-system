@@ -4,6 +4,7 @@ import com.sgic.hrm.commons.dto.JobData;
 import com.sgic.hrm.commons.entity.Job;
 
 public class JobDataMapper {
+	private JobDataMapper() {}
 	public static Job jobDataMapper(JobData jobData) {
 		Job job = new Job();
 
