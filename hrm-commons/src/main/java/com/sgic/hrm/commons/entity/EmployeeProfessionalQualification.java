@@ -6,6 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -20,13 +22,13 @@ public class EmployeeProfessionalQualification implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
-//	@ManyToOne
-//	@JoinColumn(name="user_id")
-//	private User userId;
-//
-//	@ManyToOne
-//	@JoinColumn(name="professionalqualification_id")
-//	private ProfessionalQualification professionalQualificationId;
+	@ManyToOne
+	@JoinColumn(name="user_id")
+	private User userId;
+
+	@ManyToOne
+	@JoinColumn(name="professionalqualification_id")
+	private ProfessionalQualification professionalQualificationId;
 
 	public Integer getId() {
 		return id;
@@ -36,20 +38,20 @@ public class EmployeeProfessionalQualification implements Serializable {
 		this.id = id;
 	}
 
-//	public User getUserId() {
-//		return userId;
-//	}
-//
-//	public void setUserId(User userId) {
-//		this.userId = userId;
-//	}
-//
-//	public ProfessionalQualification getProfessionalQualificationId() {
-//		return professionalQualificationId;
-//	}
-//
-//	public void setProfessionalQualificationId(ProfessionalQualification professionalQualificationId) {
-//		this.professionalQualificationId = professionalQualificationId;
-//	}
+	public User getUserId() {
+		return userId;
+	}
+
+	public void setUserId(User userId) {
+		this.userId = userId;
+	}
+
+	public ProfessionalQualification getProfessionalQualificationId() {
+		return professionalQualificationId;
+	}
+
+	public void setProfessionalQualificationId(ProfessionalQualification professionalQualificationId) {
+		this.professionalQualificationId = professionalQualificationId;
+	}
 
 }

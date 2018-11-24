@@ -13,5 +13,4 @@ public interface DepartmentService {
 //	boolean editDepartment(Department department,Integer id);
 //	Optional<Department> getDepartmentId(Integer id);
 //	boolean deleteDepartment(Integer id);
-	Department findByDepartmentId(Integer id);
 }

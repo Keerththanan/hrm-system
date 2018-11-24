@@ -4,14 +4,13 @@ import java.util.List;
 import java.util.Optional;
 
 import com.sgic.hrm.commons.entity.ProfessionalMembership;
-import com.sgic.hrm.commons.entity.User;
 
 
 
 
 public interface ProfessionalMembershipService {
 	
-	boolean addProfessionalMembership(ProfessionalMembership professionalMembership,User user);
+	boolean addProfessionalMembership(ProfessionalMembership professionalMembership);
 
 	List<ProfessionalMembership> getAllProfessionalMembership();
 	

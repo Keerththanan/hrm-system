@@ -8,6 +8,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.ManyToAny;
+
 @Entity
 @Table(name="roles_and_responsibilites",schema="employee")
 
@@ -19,23 +21,18 @@ public class RolesAndResponsibilites  implements Serializable{
 	private static final long serialVersionUID = 1L;
 	@Id
 	private Integer id;
-	
 	@ManyToOne
 	@JoinColumn(name="user_id")
 	private User userId;
-	
 	@ManyToOne
 	@JoinColumn(name="job_id")
 	private Job jobId;
-	
 	@ManyToOne
 	@JoinColumn(name="location_id")
 	private Location locatioId;
-	
 	@ManyToOne
 	@JoinColumn(name="key_activity_id")
 	private KeyActivity keyActivityId;
-	
 	private String responsibility;
 	private String overAllPurpose;
 	public Integer getId() {

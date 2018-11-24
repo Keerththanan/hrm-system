@@ -8,7 +8,6 @@ public class ProfessionalQualificationDtoToProfessionalQualification {
 	public static ProfessionalQualification map(ProfessionalQualificationDto professionalQualificationDto) {
 		
 		ProfessionalQualification professionalQualification=new ProfessionalQualification();
-		
 		professionalQualification.setCourseName(professionalQualificationDto.getCourseName());
 		professionalQualification.setCourseType(professionalQualificationDto.getCourseType());
 		professionalQualification.setExaminationYear(professionalQualificationDto.getExaminationYear());

@@ -6,6 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -20,13 +22,13 @@ public class EmployeeProfessionalMembership implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
-//	@ManyToOne
-//	@JoinColumn(name="user_id")
-//	private User userId;
-//	
-//	@ManyToOne
-//	@JoinColumn(name="professional_membership_id")
-//	private ProfessionalMembership professionalMembershipId;
+	@ManyToOne
+	@JoinColumn(name="user_id")
+	private User userId;
+	
+	@ManyToOne
+	@JoinColumn(name="professional_membership_id")
+	private ProfessionalMembership professionalMembershipId;
 
 	public Integer getId() {
 		return id;
@@ -36,21 +38,21 @@ public class EmployeeProfessionalMembership implements Serializable {
 		this.id = id;
 	}
 
-//	public User getUserId() {
-//		return userId;
-//	}
-//
-//	public void setUserId(User userId) {
-//		this.userId = userId;
-//	}
-//
-//	public ProfessionalMembership getProfessionalMembershipId() {
-//		return professionalMembershipId;
-//	}
+	public User getUserId() {
+		return userId;
+	}
 
-//	public void setProfessionalMembershipId(ProfessionalMembership professionalMembershipId) {
-//		this.professionalMembershipId = professionalMembershipId;
-//	}
+	public void setUserId(User userId) {
+		this.userId = userId;
+	}
+
+	public ProfessionalMembership getProfessionalMembershipId() {
+		return professionalMembershipId;
+	}
+
+	public void setProfessionalMembershipId(ProfessionalMembership professionalMembershipId) {
+		this.professionalMembershipId = professionalMembershipId;
+	}
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
