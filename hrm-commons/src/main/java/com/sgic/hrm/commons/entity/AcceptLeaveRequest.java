@@ -1,14 +1,16 @@
 package com.sgic.hrm.commons.entity;
 
 import java.io.Serializable;
-
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name = "accept_leave_request",schema = "leavesystem")
@@ -22,12 +24,13 @@ public class AcceptLeaveRequest implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-
-	@ManyToOne
+	
+	@JsonIgnoreProperties(value = "user")
+	@OneToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "request_id")
 	private LeaveRequest leaveRequest;
 
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "accepted_by")
 	private User acceptedBy;
 

@@ -79,14 +79,17 @@ public class LeaveAllocationServiceImpl implements LeaveAllocationService {
         Math.abs(leaveRequest.getStartDate().getTime() - leaveRequest.getEndDate().getTime());
     double days = TimeUnit.DAYS.convert(diffInMillies, TimeUnit.MILLISECONDS);
 
-    if (leaveRequest.getStatus() == Status.PENDING) {
-      allocation.setAllocatedDays(allocation.getAllocatedDays() - days + 1);
+    if (leaveRequest.getStatus() == Status.PENDING
+        && allocation.getAllocatedDays() >= allocation.getUtilizedDays() + days + 1) {
+
+      allocation.setUtilizedDays(allocation.getUtilizedDays() + days + 1);
       leaveAllocationRepository.save(allocation);
       return true;
     }
 
-    if (leaveRequest.getStatus() == Status.CANCELED) {
-      allocation.setAllocatedDays(allocation.getAllocatedDays() + days + 1);
+    if (leaveRequest.getStatus() == Status.CANCELED || leaveRequest.getStatus() == Status.REJECTED
+        || leaveRequest.getStatus() == Status.DELETED) {
+      allocation.setUtilizedDays(allocation.getUtilizedDays() - days - 1);
       leaveAllocationRepository.save(allocation);
       return true;
     }

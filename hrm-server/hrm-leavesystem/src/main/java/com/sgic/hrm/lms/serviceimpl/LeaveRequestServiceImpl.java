@@ -6,9 +6,17 @@ package com.sgic.hrm.lms.serviceimpl;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import com.sgic.hrm.commons.dto.AcceptLeaveDto;
+import com.sgic.hrm.commons.dto.RejectLeaveDto;
+import com.sgic.hrm.commons.entity.AcceptLeaveRequest;
 import com.sgic.hrm.commons.entity.LeaveRequest;
+import com.sgic.hrm.commons.entity.RejectLeaveRequest;
 import com.sgic.hrm.commons.enums.Status;
+import com.sgic.hrm.commons.repository.AcceptLeaveRequestRepository;
 import com.sgic.hrm.commons.repository.LeaveRequestRepository;
+import com.sgic.hrm.commons.repository.LoginRepository;
+import com.sgic.hrm.commons.repository.RejectLeaveRequestRepository;
 import com.sgic.hrm.commons.repository.UserRepository;
 import com.sgic.hrm.lms.service.LeaveAllocationService;
 import com.sgic.hrm.lms.service.LeaveRequestService;
@@ -23,39 +31,58 @@ public class LeaveRequestServiceImpl implements LeaveRequestService {
   @Autowired
   LeaveRequestRepository leaveRequestRepository;
   @Autowired
-  UserRepository userRepository;  
+  UserRepository userRepository;
   @Autowired
   LeaveAllocationService leaveAllocationService;
-  
+  @Autowired
+  LoginRepository loginRepository;
+  @Autowired
+  AcceptLeaveRequestRepository acceptLeaveRequestRepository;
+  @Autowired
+  RejectLeaveRequestRepository rejectLeaveRequestRepository;
+
+  @Transactional
   @Override
   public boolean addLeaveRequest(LeaveRequest leaveRequest) {
 
     if (leaveRequest != null) {
       leaveRequest.setStatus(Status.PENDING);
-      leaveAllocationService.updateLeaveCount(leaveRequest);
+      if(leaveAllocationService.updateLeaveCount(leaveRequest)) {
       leaveRequestRepository.save(leaveRequest);
       return true;
+      }  
     }
     return false;
   }
 
+  @Transactional
   @Override
-  public boolean updateLeaveStatus(Integer id, Status status) {
+  public boolean acceptLeaveRequest(AcceptLeaveDto acceptLeaveDto) {
 
-    LeaveRequest request = leaveRequestRepository.getOne(id);
+    LeaveRequest leaveRequest =
+        leaveRequestRepository.findById(acceptLeaveDto.getLeaveRequestId()).orElse(null);
 
-    if (request != null) {
-      request.setStatus(status);
-      leaveRequestRepository.save(request);
+    if (leaveRequest != null) {
+      leaveRequest.setStatus(Status.ACCEPTED);
+      leaveRequestRepository.save(leaveRequest);
+      AcceptLeaveRequest acceptLeaveRequest = new AcceptLeaveRequest();
+      acceptLeaveRequest.setLeaveRequest(leaveRequest);
+      acceptLeaveRequest
+          .setAcceptedBy(loginRepository.findByUserName(acceptLeaveDto.getUserName()).getUser());
+      acceptLeaveRequestRepository.save(acceptLeaveRequest);
       return true;
     }
     return false;
   }
 
+  @Transactional
   @Override
   public boolean deleteLeaveRequest(Integer id) {
 
-    if (leaveRequestRepository.getOne(id) != null) {
+    LeaveRequest leaveRequest = leaveRequestRepository.findById(id).orElse(null);
+    if (leaveRequest != null) {
+      leaveRequest.setStatus(Status.DELETED);
+      leaveAllocationService.updateLeaveCount(leaveRequest);
       leaveRequestRepository.deleteById(id);
       return true;
     }
@@ -77,5 +104,27 @@ public class LeaveRequestServiceImpl implements LeaveRequestService {
   public List<LeaveRequest> getAllLeaveRequestByStatus(Status status) {
 
     return leaveRequestRepository.findByStatus(status);
+  }
+
+
+  @Transactional
+  @Override
+  public boolean rejectLeaveRequest(RejectLeaveDto rejectLeaveDto) {
+    LeaveRequest leaveRequest =
+        leaveRequestRepository.findById(rejectLeaveDto.getLeaveRequestId()).orElse(null);
+
+    if (leaveRequest != null) {
+      leaveRequest.setStatus(Status.REJECTED);
+      leaveAllocationService.updateLeaveCount(leaveRequest);
+      leaveRequestRepository.save(leaveRequest);
+      RejectLeaveRequest rejectLeaveRequest = new RejectLeaveRequest();
+      rejectLeaveRequest.setLeaveRequest(leaveRequest);
+      rejectLeaveRequest
+          .setRejectedBy(loginRepository.findByUserName(rejectLeaveDto.getUserName()).getUser());
+      rejectLeaveRequest.setReason(rejectLeaveDto.getRejectReason());
+      rejectLeaveRequestRepository.save(rejectLeaveRequest);
+      return true;
+    }
+    return false;
   }
 }

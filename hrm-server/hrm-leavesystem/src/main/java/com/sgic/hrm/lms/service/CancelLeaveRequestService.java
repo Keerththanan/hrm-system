@@ -1,8 +1,9 @@
 package com.sgic.hrm.lms.service;
 
 import java.util.List;
+import com.sgic.hrm.commons.dto.AcceptCancelRequestDto;
+import com.sgic.hrm.commons.dto.RejectCancelRequestDto;
 import com.sgic.hrm.commons.entity.CancelLeaveRequest;
-import com.sgic.hrm.commons.enums.Status;
 
 public interface CancelLeaveRequestService {
 
@@ -10,7 +11,9 @@ public interface CancelLeaveRequestService {
   
   boolean deleteCancelLeaveRequest(Integer id);
   
-  boolean updateCancelLeaveRequestStatus(Integer id, Status status);
+  boolean acceptCancelLeaveRequestStatus(AcceptCancelRequestDto acceptCancelRequestDto);
+  
+  boolean rejectCancelLeaveRequestStatus(RejectCancelRequestDto rejectCancelRequestDto);
   
   List<CancelLeaveRequest> getAllCancelRequest();
   

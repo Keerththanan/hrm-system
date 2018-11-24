@@ -43,8 +43,8 @@ public class LeaveAllocationController {
     return new ResponseEntity<>("Faild to create Leave Allocation", HttpStatus.BAD_REQUEST);
   }
 
-  @GetMapping
-  public ResponseEntity<List<LeaveAllocationData>> viewLeaveAllocationByUser(String userName) {
+  @GetMapping("/{username}")
+  public ResponseEntity<List<LeaveAllocationData>> viewLeaveAllocationByUser(@PathVariable(name = "username") String userName) {
 
     List<LeaveAllocation> leaveAllocationList =
         leaveAllocationService.viewLeaveAllocationByUser(loginService.getUser(userName));

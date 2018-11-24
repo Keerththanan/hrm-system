@@ -40,11 +40,11 @@ public class CarryforwardRequest implements Serializable {
 	private Status status;
 
 	@CreationTimestamp
-	@Column(name = "created_at")
+	@Column(name = "created_at", updatable = false, nullable = false)
 	private ZonedDateTime createdAt;
 
 	@UpdateTimestamp
-	@Column(name = "updated_at")
+	@Column(name = "updated_at", nullable = false)
 	private ZonedDateTime updatedAt;
 
 	public Integer getId() {

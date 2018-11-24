@@ -4,21 +4,19 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.sgic.hrm.commons.dto.AcceptLeaveRequestData;
+import com.sgic.hrm.commons.dto.AcceptLeaveDto;
 import com.sgic.hrm.commons.dto.LeaveRequestData;
-import com.sgic.hrm.commons.dto.RejectLeaveRequestData;
-import com.sgic.hrm.commons.dto.mapper.AcceptLeaveRequestDataToAcceptLeaveRequest;
+import com.sgic.hrm.commons.dto.RejectLeaveDto;
 import com.sgic.hrm.commons.dto.mapper.LeaveRequestDataToLeaveRequest;
-import com.sgic.hrm.commons.dto.mapper.RejectLeaveRequestDataToRejectLeaveRequest;
 import com.sgic.hrm.commons.entity.mapper.LeaveRequestToLeaveRequestData;
 import com.sgic.hrm.commons.enums.Status;
 import com.sgic.hrm.lms.service.AcceptLeaveRequestService;
@@ -75,25 +73,21 @@ public class LeaveRequestController {
     return new ResponseEntity<>("faild to delete request", HttpStatus.BAD_REQUEST);
   }
 
-  @PutMapping("/{id}/accept")
-  public ResponseEntity<String> acceptLeaveRequest(@PathVariable("id") Integer id,
-      AcceptLeaveRequestData acceptLeaveRequestData) {
+  @Transactional
+  @PostMapping("/accept")
+  public ResponseEntity<String> acceptLeaveRequest(@RequestBody AcceptLeaveDto acceptLeaveDto) {
 
-    if (leaveRequestService.updateLeaveStatus(id, Status.ACCEPTED) && acceptLeaveRequestSrevice
-        .addAcceptLeaveRequest(AcceptLeaveRequestDataToAcceptLeaveRequest
-            .mapToAcceptLeaveRequest(acceptLeaveRequestData))) {
+    if (leaveRequestService.acceptLeaveRequest(acceptLeaveDto)) {
       return new ResponseEntity<>("status updated successfully", HttpStatus.OK);
     }
     return new ResponseEntity<>("status update faild", HttpStatus.BAD_REQUEST);
   }
 
-  @PutMapping("/{id}/reject")
-  public ResponseEntity<String> rejectLeaveRequest(@PathVariable("id") Integer id,
-      RejectLeaveRequestData rejectLeaveRequestData) {
 
-    if (leaveRequestService.updateLeaveStatus(id, Status.REJECTED) && rejectLeaveRequestSrevice
-        .addRejectLeaveRequest(RejectLeaveRequestDataToRejectLeaveRequest
-            .mapToRejectLeaveRequest(rejectLeaveRequestData))) {
+  @PostMapping("/reject")
+  public ResponseEntity<String> rejectLeaveRequest(@RequestBody RejectLeaveDto rejectLeaveDto) {
+
+    if (leaveRequestService.rejectLeaveRequest(rejectLeaveDto)) {
       return new ResponseEntity<>("status updated successfully", HttpStatus.OK);
     }
     return new ResponseEntity<>("status update faild", HttpStatus.BAD_REQUEST);
