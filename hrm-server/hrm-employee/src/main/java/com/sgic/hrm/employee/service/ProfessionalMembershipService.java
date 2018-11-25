@@ -20,5 +20,5 @@ public interface ProfessionalMembershipService {
 	Optional<ProfessionalMembership> getProfessionalMembershipById(int id);
 	
 	boolean deleteProfessionalMembership(Integer id);
-	//List<ProfessionalMembership> getProfessionalMembershipByUserId(Integer uid);
+	List<ProfessionalMembership> getProfessionalMembershipByUserId(Integer uid);
 }

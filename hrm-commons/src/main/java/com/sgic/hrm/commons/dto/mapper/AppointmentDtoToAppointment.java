@@ -9,6 +9,8 @@ public class AppointmentDtoToAppointment {
 		appointment.setAppoinmentDate(appointmentDto.getAppoinmentDate());
 		appointment.setJobDesc(appointmentDto.getJobDesc());
 		appointment.setId(appointmentDto.getId());
+		
+		
 		return appointment;
 	}
 

@@ -58,11 +58,11 @@ public class ProfessionalMembershipController {
 		}
 		return HttpStatus.BAD_REQUEST;
 	}
-//	@GetMapping("/professionalMembership/{uid}")
-//	public  ResponseEntity<List<ProfessionalMembership>>findProfessionalMembershipByUserId(@PathVariable("uid") Integer id)
-//	{
-//		List<ProfessionalMembership> 
-//		professionalMembership = professionalMembershipService.getProfessionalMembershipByUserId(id);
-//		return new ResponseEntity<>(professionalMembership,HttpStatus.OK);
-//	}
+	@GetMapping("/professionalMembership/{uid}")
+	public  ResponseEntity<List<ProfessionalMembership>>findProfessionalMembershipByUserId(@PathVariable("uid") Integer id)
+	{
+		List<ProfessionalMembership> 
+		professionalMembership = professionalMembershipService.getProfessionalMembershipByUserId(id);
+		return new ResponseEntity<>(professionalMembership,HttpStatus.OK);
+	}
 }

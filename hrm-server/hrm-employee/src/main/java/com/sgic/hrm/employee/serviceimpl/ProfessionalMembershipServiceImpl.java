@@ -55,10 +55,10 @@ public class ProfessionalMembershipServiceImpl implements ProfessionalMembership
 		return false;
 	}
 
-//	@Override
-//	public List<ProfessionalMembership> getProfessionalMembershipByUserId(Integer uid) {
-//		User userObj= userRepository.findUserById(uid);
-//		return professionalMembershipRepository.findByUserId(userObj);
-//	}
+	@Override
+	public List<ProfessionalMembership> getProfessionalMembershipByUserId(Integer uid) {
+		User userObj= userRepository.findUserById(uid);
+		return professionalMembershipRepository.findByUserId(userObj);
+	}
 
 }
