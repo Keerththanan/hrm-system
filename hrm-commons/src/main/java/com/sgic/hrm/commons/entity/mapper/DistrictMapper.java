@@ -1,9 +1,8 @@
 package com.sgic.hrm.commons.entity.mapper;
 
-import java.util.ArrayList;
+
 import com.sgic.hrm.commons.dto.DistrictData;
 import com.sgic.hrm.commons.entity.District;
-import java.util.List;
 
 public class DistrictMapper {
 	

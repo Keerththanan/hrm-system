@@ -6,8 +6,6 @@ import java.sql.Date;
 
 
 import com.sgic.hrm.commons.dto.DistrictData;
-import com.sgic.hrm.commons.entity.HighestQualification;
-import com.sgic.hrm.commons.entity.Job;
 
 public class ApplicantData {
 	

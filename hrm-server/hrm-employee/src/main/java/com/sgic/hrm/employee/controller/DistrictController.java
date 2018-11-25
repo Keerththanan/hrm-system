@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.sgic.hrm.commons.dto.DistrictData;
 import com.sgic.hrm.commons.dto.mapper.DistrictDataMapper;
 import com.sgic.hrm.commons.entity.District;
-import com.sgic.hrm.commons.entity.mapper.DistrictMapper;
 import com.sgic.hrm.employee.service.DistrictService;
 
 

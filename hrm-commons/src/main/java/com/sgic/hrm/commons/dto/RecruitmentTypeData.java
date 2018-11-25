@@ -1,6 +1,6 @@
 package com.sgic.hrm.commons.dto;
 
-public class RecruitmentData {
+public class RecruitmentTypeData {
 	private Integer id;
 	private String recruitmentTypeName;
 	

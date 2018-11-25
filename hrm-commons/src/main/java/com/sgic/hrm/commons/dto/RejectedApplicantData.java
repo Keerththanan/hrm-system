@@ -2,8 +2,6 @@ package com.sgic.hrm.commons.dto;
 
 
 
-import com.sgic.hrm.commons.entity.Applicant;
-
 public class RejectedApplicantData {
 	
 	private Integer id;

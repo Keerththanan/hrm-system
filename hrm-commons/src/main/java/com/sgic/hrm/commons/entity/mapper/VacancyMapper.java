@@ -21,7 +21,7 @@ public class VacancyMapper {
 			vacancyData.setUserid(UserMapper.userMapper(vacancy.getUserid()));
 			vacancyData.setJobid(JobMapper.jobMapper(vacancy.getJobid()));
 			vacancyData.setDepartmentid(DepartmentMapper.departmentMapper(vacancy.getDepartmentid()));
-			vacancyData.setRecruitmentid(RecruitmentMapper.recruitmentMapper(vacancy.getRecruitmentid()));
+			vacancyData.setRecruitmentid(RecruitmentTypeMapper.recruitmentMapper(vacancy.getRecruitmentid()));
 			
 			return vacancyData;
 		}

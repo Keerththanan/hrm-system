@@ -46,7 +46,7 @@ public class Vacancy implements Serializable{
 
 	@ManyToOne
 	@JoinColumn(name = "recuitment_id")
-	private Recruitment recruitmentid;
+	private RecruitmentType recruitmentid;
 
 	public Integer getId() {
 		return id;
@@ -128,11 +128,11 @@ public class Vacancy implements Serializable{
 		this.departmentid = departmentid;
 	}
 
-	public Recruitment getRecruitmentid() {
+	public RecruitmentType getRecruitmentid() {
 		return recruitmentid;
 	}
 
-	public void setRecruitmentid(Recruitment recruitmentid) {
+	public void setRecruitmentid(RecruitmentType recruitmentid) {
 		this.recruitmentid = recruitmentid;
 	}
 	

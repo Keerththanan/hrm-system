@@ -1,6 +1,5 @@
 package com.sgic.hrm.commons.entity.mapper;
-import com.sgic.hrm.commons.dto.DistrictData;
-import com.sgic.hrm.commons.entity.District;
+
 import com.sgic.hrm.commons.dto.ApplicantData;
 import com.sgic.hrm.commons.entity.Applicant;
 

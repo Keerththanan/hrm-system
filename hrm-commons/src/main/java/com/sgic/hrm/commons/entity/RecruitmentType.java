@@ -10,7 +10,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(schema="employee", name="recuitment")
-public class Recruitment implements Serializable{
+public class RecruitmentType implements Serializable{
 	/**
 	 * 
 	 */

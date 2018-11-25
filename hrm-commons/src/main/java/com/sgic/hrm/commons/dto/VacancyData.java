@@ -14,7 +14,7 @@ public class VacancyData {
 	private UserData userid;
 	private JobData jobid;
 	private DepartmentData departmentid;
-	private RecruitmentData recruitmentid;
+	private RecruitmentTypeData recruitmentid;
 	
 	
 	public Integer getId() {
@@ -77,10 +77,10 @@ public class VacancyData {
 	public void setDepartmentid(DepartmentData departmentid) {
 		this.departmentid = departmentid;
 	}
-	public RecruitmentData getRecruitmentid() {
+	public RecruitmentTypeData getRecruitmentid() {
 		return recruitmentid;
 	}
-	public void setRecruitmentid(RecruitmentData recruitmentid) {
+	public void setRecruitmentid(RecruitmentTypeData recruitmentid) {
 		this.recruitmentid = recruitmentid;
 	}
 	

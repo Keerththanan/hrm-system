@@ -4,8 +4,6 @@ import java.sql.Date;
 
 
 
-import com.sgic.hrm.commons.entity.Applicant;
-
 public class InterviewScheduleData {
 	
 	private Integer id;

@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.sgic.hrm.commons.dto.InterviewDto;
 import com.sgic.hrm.commons.entity.Interview;
 import com.sgic.hrm.commons.entity.Interviewers;
-import com.sgic.hrm.commons.entity.Job;
 import com.sgic.hrm.employee.service.ApplicantsInterviewService;
 import com.sgic.hrm.employee.service.InterviewService;
 import com.sgic.hrm.employee.service.InterviewersServices;
