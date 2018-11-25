@@ -23,29 +23,29 @@ public class UserEntity implements Serializable{
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="user_id")
-	private Integer user_id;
+	public Integer userId;
 	@Column(name="user_name")
-	private String user_name;
+	private String userName;
 	@ManyToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
 	@JoinColumn(name="role_id")
-	private RoleEntity role_id;
-	public Integer getUser_id() {
-		return user_id;
+	private RoleEntity roleId;
+	public Integer getUserId() {
+		return userId;
 	}
-	public void setUser_id(Integer user_id) {
-		this.user_id = user_id;
+	public void setUserId(Integer user_id) {
+		this.userId = user_id;
 	}
-	public String getUser_name() {
-		return user_name;
+	public String getUserName() {
+		return userName;
 	}
-	public void setUser_name(String user_name) {
-		this.user_name = user_name;
+	public void setUserName(String user_name) {
+		this.userName = user_name;
 	}
-	public RoleEntity getRole_id() {
-		return role_id;
+	public RoleEntity getRoleId() {
+		return roleId;
 	}
-	public void setRole_id(RoleEntity role_id) {
-		this.role_id = role_id;
+	public void setRoleId(RoleEntity role_id) {
+		this.roleId = role_id;
 	}
 	
 	

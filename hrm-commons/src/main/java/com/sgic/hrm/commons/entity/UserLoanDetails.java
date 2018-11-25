@@ -1,7 +1,7 @@
 package com.sgic.hrm.commons.entity;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.sql.Date;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -15,88 +15,101 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="user_loan_details",schema="employee")
-public class UserLoanDetails implements Serializable{
-/**
-	 * 
-	 */
-	private static final long serialVersionUID = -6999466993121815342L;
-@Id
-@GeneratedValue(strategy=GenerationType.AUTO)
-@Column(name="user_loan_id")
-private Integer user_loan_id;
-@Column(name="loan_obtained_date")
-private Date loan_obtained_date;
-@Column(name="installment_period")
-private Integer installment_period;
-@Column(name="installment_amount")
-private Integer installment_amount;
-@Column(name="redumption_date")
-private Date redumption_date;
+@Table(name = "user_loan_details", schema = "employee")
+public class UserLoanDetails implements Serializable {
+	/**
+		 * 
+		 */
+	private static final long serialVersionUID = 1L;
+	/**
+		 * 
+		 */
+	// private static final long serialVersionUID = -6999466993121815342L;
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "user_loan_id")
+	private Integer userLoanId;
+	@Column(name = "loan_obtained_date")
+	private Date loanObtainedDate;
+	@Column(name = "installment_period")
+	private Integer installmentPeriod;
+	@Column(name = "installment_date")
+	private Date installmentDate;
+	@Column(name = "installment_amount")
+	private Integer installmentAmount;
+	@Column(name = "redumption_date")
+	private Date redumptionDate;
 
-@ManyToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
-@JoinColumn(name="user_id")
-private UserEntity user_id;
+	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@JoinColumn(name = "user_id")
+	private UserEntity user;
 
-@ManyToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
-@JoinColumn(name="loan_id")
-private LoanDetailsEntity loanDetailsEntity;
+	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@JoinColumn(name = "loan_id")
+	private LoanDetailsEntity loanDetailsEntity;
 
+	public LoanDetailsEntity getLoanDetailsEntity() {
+		return loanDetailsEntity;
+	}
 
-public LoanDetailsEntity getLoanDetailsEntity() {
-	return loanDetailsEntity;
-}
+	public void setLoanDetailsEntity(LoanDetailsEntity loanDetailsEntity) {
+		this.loanDetailsEntity = loanDetailsEntity;
+	}
 
-public void setLoanDetailsEntity(LoanDetailsEntity loanDetailsEntity) {
-	this.loanDetailsEntity = loanDetailsEntity;
-}
+	public Integer getUserLoanId() {
+		return userLoanId;
+	}
 
-public Integer getUser_loan_id() {
-	return user_loan_id;
-}
+	public void setUserLoanId(Integer user_loan_id) {
+		this.userLoanId = user_loan_id;
+	}
 
-public void setUser_loan_id(Integer user_loan_id) {
-	this.user_loan_id = user_loan_id;
-}
+	public Date getLoanObtainedDate() {
+		return loanObtainedDate;
+	}
 
-public Date getLoan_obtained_date() {
-	return loan_obtained_date;
-}
+	public void setLoanObtainedDate(Date loan_obtained_date) {
+		this.loanObtainedDate = loan_obtained_date;
+	}
 
-public void setLoan_obtained_date(Date loan_obtained_date) {
-	this.loan_obtained_date = loan_obtained_date;
-}
+	public Integer getInstallmentPeriod() {
+		return installmentPeriod;
+	}
 
-public Integer getInstallment_period() {
-	return installment_period;
-}
+	public void setInstallmentPeriod(Integer installment_period) {
+		this.installmentPeriod = installment_period;
+	}
 
-public void setInstallment_period(Integer installment_period) {
-	this.installment_period = installment_period;
-}
+	public Date getInstallmentDate() {
+		return installmentDate;
+	}
 
-public Integer getInstallment_amount() {
-	return installment_amount;
-}
+	public void setInstallmentDate(Date installment_date) {
+		this.installmentDate = installment_date;
+	}
 
-public void setInstallment_amount(Integer installment_amount) {
-	this.installment_amount = installment_amount;
-}
+	public Integer getInstallmentAmount() {
+		return installmentAmount;
+	}
 
-public Date getRedumption_date() {
-	return redumption_date;
-}
+	public void setInstallmentAmount(Integer installment_amount) {
+		this.installmentAmount = installment_amount;
+	}
 
-public void setRedumption_date(Date redumption_date) {
-	this.redumption_date = redumption_date;
-}
+	public Date getRedumptionDate() {
+		return redumptionDate;
+	}
 
-public UserEntity getUser_id() {
-	return user_id;
-}
+	public void setRedumptionDate(Date redumption_date) {
+		this.redumptionDate = redumption_date;
+	}
 
-public void setUser_id(UserEntity user_id) {
-	this.user_id = user_id;
-}
+	public UserEntity getUserId() {
+		return user;
+	}
+
+	public void setUserId(UserEntity user_id) {
+		this.user = user_id;
+	}
 
 }

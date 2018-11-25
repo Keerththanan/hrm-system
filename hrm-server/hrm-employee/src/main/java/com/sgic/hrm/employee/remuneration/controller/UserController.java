@@ -11,10 +11,11 @@ import com.sgic.hrm.employee.remuneration.service.UserService;
 
 @RestController
 public class UserController {
-@Autowired
-private UserService userService;
-@GetMapping("/user")
-public List<UserEntity> viewAll(){
-	return userService.getAllUser();
-}
+	@Autowired
+	private UserService userService;
+
+	@GetMapping("/user")
+	public List<UserEntity> viewAll() {
+		return userService.getAllUser();
+	}
 }

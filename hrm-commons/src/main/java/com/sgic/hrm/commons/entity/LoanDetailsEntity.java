@@ -11,6 +11,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="loan_details",schema="employee")
+
 public class LoanDetailsEntity implements Serializable{
 /**
 	 * 
