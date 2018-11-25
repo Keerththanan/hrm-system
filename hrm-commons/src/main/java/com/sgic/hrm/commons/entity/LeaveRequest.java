@@ -4,7 +4,6 @@ import java.io.File;
 import java.io.Serializable;
 import java.time.ZonedDateTime;
 import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,7 +12,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 import com.sgic.hrm.commons.enums.Status;
@@ -22,116 +20,127 @@ import com.sgic.hrm.commons.enums.Status;
 @Table(name = "leave_request", schema = "leavesystem")
 public class LeaveRequest implements Serializable {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -226677173807650191L;
+  /**
+   * 
+   */
+  private static final long serialVersionUID = -226677173807650191L;
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Integer id;
 
-	@ManyToOne
-	@JoinColumn(name = "user_id")
-	private User user;
+  @ManyToOne
+  @JoinColumn(name = "user_id")
+  private User user;
 
-	@ManyToOne
-	@JoinColumn(name = "leave_type_id")
-	private LeaveType leaveType;
+  @ManyToOne
+  @JoinColumn(name = "leave_type_id")
+  private LeaveType leaveType;
 
-	@Column(name = "start_date")
-	private Date startDate;
+  @Column(name = "start_date")
+  private Date startDate;
 
-	@Column(name = "end_date")
-	private Date endDate;
+  @Column(name = "end_date")
+  private Date endDate;
 
-	@Column(name = "reason")
-	private String reason;
+  @Column(name = "no_of_days")
+  private Double noOfDays;
 
-	@Column(name = "attachment")
-	private File attachment;
+  @Column(name = "reason")
+  private String reason;
 
-	@Column(name = "status")
-	private Status status;
+  @Column(name = "attachment")
+  private File attachment;
 
-	@CreationTimestamp
-	@Column(name = "created_at")
-	private ZonedDateTime createdAt;
+  @Column(name = "status")
+  private Status status;
 
-	@UpdateTimestamp
-	@Column(name = "updated_at")
-	private ZonedDateTime updatedAt;
+  @CreationTimestamp
+  @Column(name = "created_at", nullable = false, updatable = false)
+  private ZonedDateTime createdAt;
 
-	public Integer getId() {
-		return id;
-	}
+  @UpdateTimestamp
+  @Column(name = "updated_at", nullable = false)
+  private ZonedDateTime updatedAt;
 
-	public void setId(Integer id) {
-		this.id = id;
-	}
+  public Integer getId() {
+    return id;
+  }
 
-	public User getUser() {
-		return user;
-	}
+  public void setId(Integer id) {
+    this.id = id;
+  }
 
-	public void setUser(User user) {
-		this.user = user;
-	}
+  public User getUser() {
+    return user;
+  }
 
-	public LeaveType getLeaveType() {
-		return leaveType;
-	}
+  public void setUser(User user) {
+    this.user = user;
+  }
 
-	public void setLeaveType(LeaveType leaveType) {
-		this.leaveType = leaveType;
-	}
+  public LeaveType getLeaveType() {
+    return leaveType;
+  }
 
-	public Date getStartDate() {
-		return startDate;
-	}
+  public void setLeaveType(LeaveType leaveType) {
+    this.leaveType = leaveType;
+  }
 
-	public void setStartDate(Date startDate) {
-		this.startDate = startDate;
-	}
+  public Date getStartDate() {
+    return startDate;
+  }
 
-	public Date getEndDate() {
-		return endDate;
-	}
+  public void setStartDate(Date startDate) {
+    this.startDate = startDate;
+  }
 
-	public void setEndDate(Date endDate) {
-		this.endDate = endDate;
-	}
+  public Date getEndDate() {
+    return endDate;
+  }
 
-	public String getReason() {
-		return reason;
-	}
+  public void setEndDate(Date endDate) {
+    this.endDate = endDate;
+  }
 
-	public void setReason(String reason) {
-		this.reason = reason;
-	}
+  public String getReason() {
+    return reason;
+  }
 
-	public Status getStatus() {
-		return status;
-	}
+  public void setReason(String reason) {
+    this.reason = reason;
+  }
 
-	public void setStatus(Status status) {
-		this.status = status;
-	}
+  public Status getStatus() {
+    return status;
+  }
 
-	public File getAttachment() {
-		return attachment;
-	}
+  public void setStatus(Status status) {
+    this.status = status;
+  }
 
-	public void setAttachment(File attachment) {
-		this.attachment = attachment;
-	}
+  public File getAttachment() {
+    return attachment;
+  }
 
-	public ZonedDateTime getCreatedAt() {
-		return createdAt;
-	}
+  public void setAttachment(File attachment) {
+    this.attachment = attachment;
+  }
 
-	public ZonedDateTime getUpdatedAt() {
-		return updatedAt;
-	}
+  public ZonedDateTime getCreatedAt() {
+    return createdAt;
+  }
+
+  public ZonedDateTime getUpdatedAt() {
+    return updatedAt;
+  }
+
+  public Double getNoOfDays() {
+    return noOfDays;
+  }
+
+  public void setNoOfDays(Double noOfDays) {
+    this.noOfDays = noOfDays;
+  }
 
 }
