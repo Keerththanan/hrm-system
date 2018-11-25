@@ -43,14 +43,14 @@ public class LeaveRequestController {
   }
 
   @PostMapping("/{userName}")
-  public ResponseEntity<String> addLeaveRequest(@RequestBody LeaveRequestData leaveRequestData,
+  public HttpStatus addLeaveRequest(@RequestBody LeaveRequestData leaveRequestData,
       @PathVariable(name = "userName") String userName) {
 
     if (leaveRequestService.addLeaveRequest(
         LeaveRequestDataToLeaveRequest.mapToLeaveRequest(leaveRequestData), userName)) {
-      return new ResponseEntity<>("request added successfully", HttpStatus.OK);
+      return HttpStatus.OK;
     }
-    return new ResponseEntity<>("faild adding request", HttpStatus.BAD_REQUEST);
+    return HttpStatus.BAD_REQUEST;
   }
 
   @GetMapping("/user/{id}")
