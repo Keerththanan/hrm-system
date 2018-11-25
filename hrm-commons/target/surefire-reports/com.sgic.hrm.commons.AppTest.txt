@@ -1,8 +1,0 @@
--------------------------------------------------------------------------------
-Test set: com.sgic.hrm.commons.AppTest
--------------------------------------------------------------------------------
-<<<<<<< HEAD
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 sec
-=======
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.022 sec
->>>>>>> 35c657a8b630a1fe2a0a78d8c24c81674ec3d600
