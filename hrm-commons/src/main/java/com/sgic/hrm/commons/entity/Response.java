@@ -20,15 +20,19 @@ public class Response implements Serializable {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Integer id;
+  
   @OneToOne
   @JoinColumn(name = "self_service_id")
   private SelfService selfService;
+  
   @ManyToOne(cascade = CascadeType.ALL)
   @JoinColumn(name = "relevant_department_id")
   private Department relevantDepartment;
+  
   @ManyToOne(cascade = CascadeType.ALL)
   @JoinColumn(name = "relevant_individual_id")
   private User relevantIndividual;
+  private String responseMessage;
   private String attachment;
   private LocalDate createdAt;
 
@@ -78,6 +82,14 @@ public class Response implements Serializable {
 
   public void setCreatedAt(LocalDate createdAt) {
     this.createdAt = createdAt;
+  }
+
+  public String getResponseMessage() {
+    return responseMessage;
+  }
+
+  public void setResponseMessage(String responseMessage) {
+    this.responseMessage = responseMessage;
   }
 
 }

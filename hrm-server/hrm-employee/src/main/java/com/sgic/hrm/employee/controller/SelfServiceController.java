@@ -12,7 +12,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-import com.sgic.hrm.commons.entity.SelfService;
+import com.sgic.hrm.commons.dto.SelfServiceDto;
+import com.sgic.hrm.commons.dto.SelfServiceSaveDto;
+import com.sgic.hrm.commons.dto.mapper.SelfServiceDtoMapper;
+import com.sgic.hrm.commons.entity.mapper.SelfServiceMapper;
 import com.sgic.hrm.employee.service.SelfServiceService;
 
 @CrossOrigin(origins = "http://localhost:4200", maxAge = 3200)
@@ -22,15 +25,14 @@ public class SelfServiceController {
 	private SelfServiceService selfServiceService;
 
 	@GetMapping("/selfservice")
-	public ResponseEntity<List<SelfService>> viewSelfService() {
-		List<SelfService> selfService = selfServiceService.viewSelfService();
-		ResponseEntity<List<SelfService>> response = new ResponseEntity<>(selfService, HttpStatus.OK);
-		return response;
+	public ResponseEntity<List<SelfServiceDto>> viewSelfService() {
+		List<SelfServiceDto> selfService = SelfServiceMapper.mapSelfServiceListToSelfServiceDtoList(selfServiceService.viewSelfService());
+		return new ResponseEntity<>(selfService, HttpStatus.OK);
 	}
-  
+
 	@PostMapping("/selfservice")
-	public HttpStatus addSelfService(@RequestBody SelfService selfService) {
-		boolean test = selfServiceService.addSelfService(selfService);
+	public HttpStatus addSelfService(@RequestBody SelfServiceSaveDto selfServiceSaveDto) {
+		boolean test = selfServiceService.addSelfService(SelfServiceDtoMapper.mapSelfServiceSaveDtoToSelfService(selfServiceSaveDto));
 		if (test) {
 			return HttpStatus.CREATED;
 		}
@@ -38,8 +40,8 @@ public class SelfServiceController {
 	}
 
 	@PutMapping("/selfservice/{id}")
-	public HttpStatus modifySelfService(@PathVariable Integer id, @RequestBody SelfService selfService) {
-		boolean test = selfServiceService.editSelfService(selfService, id);
+	public HttpStatus modifySelfService(@PathVariable Integer id, @RequestBody SelfServiceSaveDto selfServiceSaveDto) {
+		boolean test = selfServiceService.editSelfService(SelfServiceDtoMapper.mapSelfServiceSaveDtoToSelfService(selfServiceSaveDto), id);
 		if (test) {
 			return HttpStatus.ACCEPTED;
 		}
@@ -54,6 +56,5 @@ public class SelfServiceController {
 		}
 		return HttpStatus.BAD_REQUEST;
 	}
-
 
 }

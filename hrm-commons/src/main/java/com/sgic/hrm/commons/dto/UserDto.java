@@ -1,12 +1,10 @@
 package com.sgic.hrm.commons.dto;
 
-import com.sgic.hrm.commons.entity.Department;
-
 public class UserDto {
 
   private Integer id;
-  private String userName;
-  private Department department;
+  private String fullname;
+  private String department;
 
   public Integer getId() {
     return id;
@@ -16,19 +14,19 @@ public class UserDto {
     this.id = id;
   }
 
-  public String getUserName() {
-    return userName;
+  public String getFullname() {
+    return fullname;
   }
 
-  public void setUserName(String userName) {
-    this.userName = userName;
+  public void setFullname(String fullname) {
+    this.fullname = fullname;
   }
 
-  public Department getDepartment() {
+  public String getDepartment() {
     return department;
   }
 
-  public void setDepartment(Department department) {
+  public void setDepartment(String department) {
     this.department = department;
   }
 

@@ -8,7 +8,7 @@ import com.sgic.hrm.commons.entity.User;
 
 public class SelfServiceDtoMapper {
 
-  public static SelfService mapSelfServiceDtoToSelfService(SelfServiceSaveDto selfServiceSaveDto) {
+  public static SelfService mapSelfServiceSaveDtoToSelfService(SelfServiceSaveDto selfServiceSaveDto) {
     SelfService selfService = new SelfService();
     SelfServiceType selfServiceType = new SelfServiceType();
     Department relevantDepartment = new Department();

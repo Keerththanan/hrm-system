@@ -14,6 +14,7 @@ public class ResponseDtoMapper {
     response.setRelevantDepartment(responseDto.getRelevantDepartment());
     response.setRelevantIndividual(responseDto.getRelevantIndividual());
     response.setSelfService(responseDto.getSelfService());
+    
     return response;
   }
 }
