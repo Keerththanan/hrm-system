@@ -9,8 +9,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(schema="employee", name="highestQualification")
-public class HighestQualification implements Serializable{
+@Table(schema = "employee", name = "highestQualification")
+public class HighestQualification implements Serializable {
 	/**
 	 * 
 	 */
@@ -19,18 +19,21 @@ public class HighestQualification implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String highestQualificationName;
+
 	public Integer getId() {
 		return id;
 	}
+
 	public void setId(Integer id) {
 		this.id = id;
 	}
+
 	public String getHighestQualificationName() {
 		return highestQualificationName;
 	}
+
 	public void setHighestQualificationName(String highestQualificationName) {
 		this.highestQualificationName = highestQualificationName;
 	}
-	
-	
+
 }
