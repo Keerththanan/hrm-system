@@ -22,5 +22,6 @@ public class HrmEmployeeApplicationTests {
 
   @Value("http://localhost:8888/hrm_system")
   protected String HRM_SYSTEM_BASE_URL;
-
 }
+	
+

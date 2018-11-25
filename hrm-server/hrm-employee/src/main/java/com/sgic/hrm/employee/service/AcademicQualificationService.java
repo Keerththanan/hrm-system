@@ -9,5 +9,6 @@ public interface AcademicQualificationService {
 	List<AcademicQualification> getAllAcademicQualification();
 	boolean editAcademicQualification(AcademicQualification academicQualification, Integer id);
 	boolean deleteAcademicQualification(Integer id);
-	AcademicQualification getAcademicQualificationById(int id);
+	 AcademicQualification getAcademicQualificationById(int id);
+	List<AcademicQualification> getAcademicQualificationByUserId(Integer uid);
 }
