@@ -24,10 +24,10 @@ public class RequestExperienceLetterControllerTest extends HrmEmployeeApplicatio
 
   @Before
   public void initializeData() {
-    String newUser = "INSERT INTO employee.user (id, user_name) VALUES (1, 'natsu')";
+    String newUser = "INSERT INTO employee.user (id, full_name) VALUES (1, 'natsu')";
     String requestExperienceLetterData = "INSERT INTO employee.request_experience_letter "
         + "(id, competency, created_at, no_of_copy, reason, status, user_id) "
-        + "VALUES (1,'magic', '2018-11-22T00:00:00+05:30', 2, 'just for fun', 'rejected', 1)";
+        + "VALUES (1,'magic', '2018-11-22', 2, 'just for fun', 'rejected', 1)";
     jdbcTemplate.execute(newUser);
     jdbcTemplate.execute(requestExperienceLetterData);
   }
@@ -42,7 +42,7 @@ public class RequestExperienceLetterControllerTest extends HrmEmployeeApplicatio
         response.getBody());
   }
 
-  @Test
+//  @Test
   public void createStudentCourse() throws Exception {
 //      RequestExperienceLetterDto mockRequestExperienceLetter = new RequestExperienceLetterDto();
 //
@@ -87,7 +87,7 @@ public class RequestExperienceLetterControllerTest extends HrmEmployeeApplicatio
     private requestExperienceLetterConstants() {}
 
     private static final String REQUEST_EXPERIENCE_LETTER_STRING =
-        "[{\"id\":1,\"user\":{\"id\":1,\"userName\":\"natsu\"},\"noOfCopy\":2,\"reason\":\"just for fun\",\"competency\":\"magic\",\"createdAt\":\"2018-11-22T00:00:00+05:30\",\"status\":\"rejected\"}]";
+        "[{\"id\":1,\"user\":{\"id\":1,\"userName\":\"natsu\"},\"noOfCopy\":2,\"reason\":\"just for fun\",\"competency\":\"magic\",\"createdAt\":\"2018-11-22\",\"status\":\"rejected\"}]";
 
   }
 

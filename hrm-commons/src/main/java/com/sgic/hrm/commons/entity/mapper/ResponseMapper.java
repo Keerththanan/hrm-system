@@ -9,11 +9,12 @@ public class ResponseMapper {
     ResponseDto responseDto = new ResponseDto();
     
     responseDto.setId(response.getId());
-    responseDto.setAttachment(response.getAttachment());
     responseDto.setRelevantDepartment(response.getRelevantDepartment());
     responseDto.setRelevantIndividual(response.getRelevantIndividual());
     responseDto.setSelfService(response.getSelfService());
+    responseDto.setResponseMessage(response.getResponseMessage());
     responseDto.setCreatedAt(response.getCreatedAt());
+    responseDto.setAttachment(response.getAttachment());
     
     return responseDto;
   }

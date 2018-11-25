@@ -7,6 +7,7 @@ public class ResponseSaveDto {
   private Integer selfService;
   private Integer relevantDepartment;
   private Integer relevantIndividual;
+  private String responseMessage;
   private String attachment;
   private LocalDate createdAt;
 
@@ -40,6 +41,14 @@ public class ResponseSaveDto {
 
   public void setRelevantIndividual(Integer relevantIndividual) {
     this.relevantIndividual = relevantIndividual;
+  }
+
+  public String getResponseMessage() {
+    return responseMessage;
+  }
+
+  public void setResponseMessage(String responseMessage) {
+    this.responseMessage = responseMessage;
   }
 
   public String getAttachment() {
