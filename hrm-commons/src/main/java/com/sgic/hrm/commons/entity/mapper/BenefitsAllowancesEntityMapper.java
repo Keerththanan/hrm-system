@@ -20,7 +20,7 @@ public class BenefitsAllowancesEntityMapper {
 		benefitsAllowancesDto.setMobile(benefitsAllowancesEntity.getMobile());
 		benefitsAllowancesDto.setName(benefitsAllowancesEntity.getName());
 		benefitsAllowancesDto.setTravelling(benefitsAllowancesEntity.getTravelling());
-
+		benefitsAllowancesDto.setChartEntity(benefitsAllowancesEntity.getChartEntity());
 		return benefitsAllowancesDto;
 	}
 

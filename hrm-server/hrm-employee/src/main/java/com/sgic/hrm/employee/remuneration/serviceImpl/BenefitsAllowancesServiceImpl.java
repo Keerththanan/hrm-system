@@ -28,6 +28,12 @@ public class BenefitsAllowancesServiceImpl implements BenefitsAllowancesService 
 		return benefitsAllowancesRepository.getOne(id);
 	}
 
+	@Override
+	public List<BenefitsAllowancesEntity> viewByChatId(Integer id) {
+		// TODO Auto-generated method stub
+		return benefitsAllowancesRepository.findByBenefitsId(id);
+	}
+
 
 
 

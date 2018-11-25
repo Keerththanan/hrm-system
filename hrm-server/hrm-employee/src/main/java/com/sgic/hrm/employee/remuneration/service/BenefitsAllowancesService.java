@@ -9,4 +9,6 @@ public interface BenefitsAllowancesService {
 	List<BenefitsAllowancesEntity> getBenefitsAllowances();
 
 	BenefitsAllowancesEntity viewById(Integer id);
+	
+	List<BenefitsAllowancesEntity> viewByChatId(Integer id);
 }
