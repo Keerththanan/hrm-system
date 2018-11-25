@@ -9,6 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -21,12 +22,12 @@ import com.sgic.hrm.employee.service.AcademicQualificationService;
 @RestController
 public class AcademicQualificationController{
 	@Autowired
-	private AcademicQualificationService academicQualificationSer;
+	private AcademicQualificationService academicQualificationService;
 	
 	@PostMapping("/academicQualification")
 	public HttpStatus createAcademicQualification(@Valid @RequestBody AcademicQualification academicqualification)
 	{
-		boolean test=academicQualificationSer.addAcademicQualification(academicqualification);
+		boolean test=academicQualificationService.addAcademicQualification(academicqualification);
 				if (test) {
 			return HttpStatus.CREATED;
 		}
@@ -36,18 +37,18 @@ public class AcademicQualificationController{
 		@GetMapping("/academicQualification")
 		public ResponseEntity <List<AcademicQualification>> getAcademicQualification()
 		{
-			List<AcademicQualification> academicquali = academicQualificationSer.getAllAcademicQualification();
+			List<AcademicQualification> academicquali = academicQualificationService.getAllAcademicQualification();
 			return new ResponseEntity<>(academicquali, HttpStatus.OK);
 			
 		}
-		
+		@GetMapping("/academicQualification/{uid}")
+		public  ResponseEntity<List<AcademicQualification>>findAcademicQualificationByUserId(@PathVariable("uid") Integer id)
+		{
+			List<AcademicQualification> 
+			academicQualifications = academicQualificationService.getAcademicQualificationByUserId(id);
+			return new ResponseEntity<>(academicQualifications,HttpStatus.OK);
+		}
 
-		// get details of leave request by user id
-//		@GetMapping("/leaverequest/user/{userId}")
-//		public ResponseEntity<List<LeaveRequest>> findLeaveRequestByUserId(@PathVariable("userId") Integer id) {		
-//			List<LeaveRequest> leaveRequsetDetails = leaveRequestService.findByUserId(id);
-//			return new ResponseEntity<>(leaveRequsetDetails, HttpStatus.OK);
-//		}
 		
 	
 	

@@ -7,14 +7,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.sgic.hrm.commons.entity.ProfessionalMembership;
+import com.sgic.hrm.commons.entity.User;
 import com.sgic.hrm.commons.repository.ProfessionalMembershipRepository;
+import com.sgic.hrm.commons.repository.UserRepository;
 import com.sgic.hrm.employee.service.ProfessionalMembershipService;
+
 
 @Service
 public class ProfessionalMembershipServiceImpl implements ProfessionalMembershipService {
 	@Autowired
 	private ProfessionalMembershipRepository professionalMembershipRepository;
-	
+	@Autowired
+	private UserRepository userRepository;
 	
 	@Override
 	public boolean addProfessionalMembership(ProfessionalMembership professionalMembership) {
@@ -50,5 +54,11 @@ public class ProfessionalMembershipServiceImpl implements ProfessionalMembership
 		}
 		return false;
 	}
+
+//	@Override
+//	public List<ProfessionalMembership> getProfessionalMembershipByUserId(Integer uid) {
+//		User userObj= userRepository.findUserById(uid);
+//		return professionalMembershipRepository.findByUserId(userObj);
+//	}
 
 }

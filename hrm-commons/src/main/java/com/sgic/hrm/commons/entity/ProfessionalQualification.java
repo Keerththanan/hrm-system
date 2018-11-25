@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -27,7 +28,9 @@ public class ProfessionalQualification implements Serializable{
 	private String insituteName;
 	private String result;
 	private Float gpa;
+	
 	@ManyToOne
+	@JoinColumn(name="user_id")
 	private User userId;
 	
 	public User getUserId() {	
