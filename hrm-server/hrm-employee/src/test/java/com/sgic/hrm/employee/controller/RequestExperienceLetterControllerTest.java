@@ -24,8 +24,8 @@ public class RequestExperienceLetterControllerTest extends HrmEmployeeApplicatio
 
   @Before
   public void initializeData() {
-    String newUser = "INSERT INTO profile.user (id, user_name) VALUES (1, 'natsu')";
-    String requestExperienceLetterData = "INSERT INTO experience_letter.request_experience_letter "
+    String newUser = "INSERT INTO employee.user (id, user_name) VALUES (1, 'natsu')";
+    String requestExperienceLetterData = "INSERT INTO employee.request_experience_letter "
         + "(id, competency, created_at, no_of_copy, reason, status, user_id) "
         + "VALUES (1,'magic', '2018-11-22T00:00:00+05:30', 2, 'just for fun', 'rejected', 1)";
     jdbcTemplate.execute(newUser);
