@@ -42,11 +42,11 @@ public class LeaveRequestController {
         .mapLeaveRequestDataList(leaveRequestService.getAllLeaveRequest()), HttpStatus.OK);
   }
 
-  @PostMapping
-  public ResponseEntity<String> addLeaveRequest(@RequestBody LeaveRequestData leaveRequestData) {
+  @PostMapping("/{userName}")
+  public ResponseEntity<String> addLeaveRequest(@RequestBody LeaveRequestData leaveRequestData,@PathVariable(name="userName") String userName) {
 
     if (leaveRequestService
-        .addLeaveRequest(LeaveRequestDataToLeaveRequest.mapToLeaveRequest(leaveRequestData))) {
+        .addLeaveRequest(LeaveRequestDataToLeaveRequest.mapToLeaveRequest(leaveRequestData),userName)) {
       return new ResponseEntity<>("request added successfully", HttpStatus.OK);
     }
     return new ResponseEntity<>("faild adding request", HttpStatus.BAD_REQUEST);
