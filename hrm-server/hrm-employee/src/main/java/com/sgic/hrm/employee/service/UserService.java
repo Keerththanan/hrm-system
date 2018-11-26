@@ -13,5 +13,6 @@ public interface UserService {
 	boolean editUser(User user,Integer id);
 	Optional<User> getUserId(Integer id);
 	boolean deleteUser(Integer id);
+	User getUserById(int id);
 
 }
