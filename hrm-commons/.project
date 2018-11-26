@@ -11,12 +11,39 @@
 			</arguments>
 		</buildCommand>
 		<buildCommand>
+<<<<<<< HEAD
+			<name>org.springframework.ide.eclipse.boot.validation.springbootbuilder</name>
+<<<<<<< HEAD
+=======
+			<arguments>
+			</arguments>
+		</buildCommand>
+		<buildCommand>
+			<name>org.springframework.ide.eclipse.core.springbuilder</name>
+>>>>>>> anushanth
+=======
+			<name>org.springframework.ide.eclipse.core.springbuilder</name>
+>>>>>>> jerobert
+			<arguments>
+			</arguments>
+		</buildCommand>
+		<buildCommand>
+<<<<<<< HEAD
+			<name>org.springframework.ide.eclipse.core.springbuilder</name>
+=======
+			<name>org.springframework.ide.eclipse.boot.validation.springbootbuilder</name>
+>>>>>>> jerobert
+			<arguments>
+			</arguments>
+		</buildCommand>
+		<buildCommand>
 			<name>org.eclipse.m2e.core.maven2Builder</name>
 			<arguments>
 			</arguments>
 		</buildCommand>
 	</buildSpec>
 	<natures>
+		<nature>org.springframework.ide.eclipse.core.springnature</nature>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 		<nature>org.eclipse.m2e.core.maven2Nature</nature>
 	</natures>
