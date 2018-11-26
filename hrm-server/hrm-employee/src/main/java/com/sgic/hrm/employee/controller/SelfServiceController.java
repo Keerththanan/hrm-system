@@ -26,9 +26,15 @@ public class SelfServiceController {
 
 	@GetMapping("/selfservice")
 	public ResponseEntity<List<SelfServiceDto>> viewSelfService() {
-		List<SelfServiceDto> selfService = SelfServiceMapper.mapSelfServiceListToSelfServiceDtoList(selfServiceService.viewSelfService());
-		return new ResponseEntity<>(selfService, HttpStatus.OK);
+		List<SelfServiceDto> selfServiceDtoList = SelfServiceMapper.mapSelfServiceListToSelfServiceDtoList(selfServiceService.viewSelfService());
+		return new ResponseEntity<>(selfServiceDtoList, HttpStatus.OK);
 	}
+	
+	@GetMapping("/selfservice/{id}")
+    public ResponseEntity<List<SelfServiceDto>> viewSelfServiceByUser(@PathVariable Integer id) {
+        List<SelfServiceDto> selfServiceDtoList = SelfServiceMapper.mapSelfServiceListToSelfServiceDtoList(selfServiceService.findByUserId(id));
+        return new ResponseEntity<>(selfServiceDtoList, HttpStatus.OK);
+    }
 
 	@PostMapping("/selfservice")
 	public HttpStatus addSelfService(@RequestBody SelfServiceSaveDto selfServiceSaveDto) {

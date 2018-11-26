@@ -43,4 +43,9 @@ public class SelfServiceImpl implements SelfServiceService {
 		return false;
 	}
 
+  @Override
+  public List<SelfService> findByUserId(Integer id) {
+    return selfServiceRepository.findByUser(id);
+  }
+
 }

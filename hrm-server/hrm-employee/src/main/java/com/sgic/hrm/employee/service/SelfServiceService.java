@@ -11,4 +11,6 @@ public interface SelfServiceService {
 	boolean editSelfService(SelfService selfService, Integer id);
 
 	boolean deleteSelfService(Integer id);
+	
+	List<SelfService> findByUserId(Integer id);
 }
