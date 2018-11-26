@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.sgic.hrm.commons.entity.AppointmentType;
 import com.sgic.hrm.commons.entity.Department;
 import com.sgic.hrm.commons.repository.DepartmentRepository;
 import com.sgic.hrm.employee.service.DepartmentService;
@@ -26,10 +25,6 @@ private DepartmentRepository departmentRepo;
 		return departmentRepo.findAll();
 	}
 
-	@Override
-	public Department findByDepartmentId(Integer id) {
-		// TODO Auto-generated method stub
-		return departmentRepo.findDepartmentById(id);
-	}
+	
 	
 }

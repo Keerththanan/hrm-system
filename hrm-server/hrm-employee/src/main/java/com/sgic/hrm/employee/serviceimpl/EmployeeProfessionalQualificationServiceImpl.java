@@ -21,7 +21,7 @@ public class EmployeeProfessionalQualificationServiceImpl implements EmployeePro
 	public boolean addEmployeeProfessionalQualification(
 			EmployeeProfessionalQualification employeeProfessionalQualification) {
 		employeeProfessionalQualificationRepository.save(employeeProfessionalQualification);
-		return true;
+		return false;
 	}
 
 	@Override

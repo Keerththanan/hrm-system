@@ -50,10 +50,4 @@ public class JobServiceImpl implements JobService {
 		}
 		return false;
 	}
-
-	@Override
-	public Job findByJobId(Integer id) {
-		// TODO Auto-generated method stub
-		return jobRepository.findJobById(id);
-	}
 }

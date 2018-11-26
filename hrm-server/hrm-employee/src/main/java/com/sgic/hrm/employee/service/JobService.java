@@ -12,5 +12,4 @@ public interface JobService {
 	boolean editJob(Job job,Integer id);
 	Optional<Job>getJobId(Integer id);
 	boolean deleteJob(Integer id);
-	Job findByJobId(Integer jobId);
 }
