@@ -5,10 +5,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
-
-
-@EntityScan("com.sgic.hrm.commons.entity")
-@EnableJpaRepositories("com.sgic.hrm.commons.repository")
+@EntityScan(basePackages = { "com.sgic.hrm.commons.entity" })
+@EnableJpaRepositories(basePackages = { "com.sgic.hrm.commons.repository" })
 @SpringBootApplication
 public class HrmEmployeeApplication {
 

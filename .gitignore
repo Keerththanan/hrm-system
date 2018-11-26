@@ -1,5 +1,12 @@
 /hrm-commons/target/
+
 .settings
+
+!.mvn/wrapper/maven-wrapper.jar
+
+### STS ###
+.apt_generated
+
 .classpath
 .project
 /target/

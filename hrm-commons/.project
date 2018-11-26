@@ -12,6 +12,14 @@
 		</buildCommand>
 		<buildCommand>
 			<name>org.springframework.ide.eclipse.boot.validation.springbootbuilder</name>
+<<<<<<< HEAD
+=======
+			<arguments>
+			</arguments>
+		</buildCommand>
+		<buildCommand>
+			<name>org.springframework.ide.eclipse.core.springbuilder</name>
+>>>>>>> anushanth
 			<arguments>
 			</arguments>
 		</buildCommand>
