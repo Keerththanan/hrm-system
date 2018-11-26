@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.sgic.hrm.commons.entity.User;
 import com.sgic.hrm.commons.entity.WorkExperience;
+import com.sgic.hrm.commons.repository.UserRepository;
 import com.sgic.hrm.commons.repository.WorkExperienceRepository;
 import com.sgic.hrm.employee.service.WorkExperienceService;
 
@@ -14,10 +15,11 @@ import com.sgic.hrm.employee.service.WorkExperienceService;
 public class WorkExperienceServiceImpl implements WorkExperienceService{
 	@Autowired
 	private WorkExperienceRepository experienceRepository;
-
+	@Autowired
+	private UserRepository userRepository;
 	@Override
 	public boolean addWorkExperience(WorkExperience workExperience,User user) {
-		workExperience.setUserId(user);
+		workExperience.setUser(user);
 		experienceRepository.save(workExperience);
 		
 		return true;
@@ -54,6 +56,12 @@ public class WorkExperienceServiceImpl implements WorkExperienceService{
 	public WorkExperience getWorkExperienceById(int id) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public List<WorkExperience> getWorkExperienceByUserId(Integer uid) {
+		User userObj=userRepository.findUserById(uid);
+		return experienceRepository.findWorkExperienceByUser(userObj);
 	}
 	
 	

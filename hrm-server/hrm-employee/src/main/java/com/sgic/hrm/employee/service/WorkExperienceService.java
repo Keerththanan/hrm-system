@@ -13,4 +13,6 @@ public interface WorkExperienceService {
 	   boolean editWorkExperience(WorkExperience workExperience, Integer id);
 	boolean deleteWorkExperience(Integer id);
 	WorkExperience getWorkExperienceById(int id);
+	
+	List<WorkExperience> getWorkExperienceByUserId(Integer uid);
 }

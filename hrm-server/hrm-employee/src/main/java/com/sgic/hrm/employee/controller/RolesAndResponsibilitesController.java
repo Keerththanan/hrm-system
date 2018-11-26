@@ -68,6 +68,15 @@ public class RolesAndResponsibilitesController {
 				HttpStatus.OK);
 		return responseEntity;
 	}
+	
+	@GetMapping("/rolesandresponsibilities/{uid}")
+	public  ResponseEntity<List<RolesAndResponsibilites>>findRolesAndResponsibilitesByUserId(@PathVariable("uid") Integer id)
+	{
+		List<RolesAndResponsibilites> 
+		responseEntity = responsibilitiesService.getRolesAndResponsibilitesByUserId(id);
+		return new ResponseEntity<>(responseEntity,HttpStatus.OK);
+	}
+
 
 	@PutMapping("/rolesandresponsibilities/{id}")
 	public HttpStatus ModifyRolesAndResponsibilities(@RequestBody RolesAndResponsibilites rolesAndResponsibilites,

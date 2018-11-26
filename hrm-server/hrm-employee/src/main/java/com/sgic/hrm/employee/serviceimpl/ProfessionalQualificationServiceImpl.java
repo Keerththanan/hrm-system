@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.sgic.hrm.commons.entity.ProfessionalQualification;
 import com.sgic.hrm.commons.entity.User;
 import com.sgic.hrm.commons.repository.ProfessionalQualificationRepository;
+import com.sgic.hrm.commons.repository.UserRepository;
 import com.sgic.hrm.employee.service.ProfessionalQualificationService;
 
 
@@ -17,10 +18,11 @@ public class ProfessionalQualificationServiceImpl implements ProfessionalQualifi
 	
 	@Autowired
 	private ProfessionalQualificationRepository professionalQualificationRepository;
-
+	@Autowired
+	private UserRepository userRepository ;
 	@Override
 	public boolean addProfessionalQualification(ProfessionalQualification professionalQualification,User user) {
-		professionalQualification.setUserId(user);
+		professionalQualification.setUser(user);
 		professionalQualificationRepository.save(professionalQualification);
 		return true;
 		
@@ -55,5 +57,11 @@ public class ProfessionalQualificationServiceImpl implements ProfessionalQualifi
 			return true;
 		}
 		return false;
+	}
+
+	@Override
+	public List<ProfessionalQualification> getProfessionalQualificationByUserId(Integer uid) {
+		User userObj=userRepository.findUserById(uid);
+		return professionalQualificationRepository.findProfessionalQualificationByUser(userObj) ;
 	}
 }

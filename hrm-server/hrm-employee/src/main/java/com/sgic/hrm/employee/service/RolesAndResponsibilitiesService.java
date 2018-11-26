@@ -20,4 +20,6 @@ public interface RolesAndResponsibilitiesService {
 	Optional<RolesAndResponsibilites> getReloAndResponsibilities(Integer id);
 
 	boolean deleteRolesAndResponsibilites(Integer id);
+	
+	List<RolesAndResponsibilites> getRolesAndResponsibilitesByUserId(Integer uid);
 }

@@ -22,7 +22,7 @@ public class RolesAndResponsibilites  implements Serializable{
 	
 	@ManyToOne
 	@JoinColumn(name="user_id")
-	private User userId;
+	private User user;
 	
 	@ManyToOne
 	@JoinColumn(name="job_id")
@@ -44,11 +44,12 @@ public class RolesAndResponsibilites  implements Serializable{
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public User getUserId() {
-		return userId;
+	
+	public User getUser() {
+		return user;
 	}
-	public void setUserId(User userId) {
-		this.userId = userId;
+	public void setUser(User user) {
+		this.user = user;
 	}
 	public Job getJobId() {
 		return jobId;

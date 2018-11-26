@@ -21,7 +21,7 @@ import com.sgic.hrm.employee.service.AppointmentService;
 	@Override
 	public boolean addAppointment(Appointment appointment, AppointmentType appointmentType, User user,
 			Department department, Designation designation) {
-		appointment.setUserId(user);
+		appointment.setUser(user);
 		appointment.setAppointmentTypeId(appointmentType);
 		appointment.setDesignationId(designation);
 		appointment.setDepartmentId(department);

@@ -25,7 +25,7 @@ public class Referee implements Serializable {
 	
 	@ManyToOne
 	@JoinColumn(name="user_id")
-	private User userId;
+	private User user;
 	
 	private String Address;
 	private String email;
@@ -50,11 +50,12 @@ public class Referee implements Serializable {
 	public void setRefereeName(String refereeName) {
 		this.refereeName = refereeName;
 	}
-	public User getUserId() {
-		return userId;
+	
+	public User getUser() {
+		return user;
 	}
-	public void setUserId(User userId) {
-		this.userId = userId;
+	public void setUser(User user) {
+		this.user = user;
 	}
 	public String getAddress() {
 		return Address;

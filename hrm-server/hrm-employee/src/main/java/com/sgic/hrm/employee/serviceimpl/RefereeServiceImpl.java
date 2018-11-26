@@ -23,7 +23,7 @@ public class RefereeServiceImpl implements RefereeService {
 	
 	@Override
 	public boolean addReferee(Referee referee, User user) {
-		referee.setUserId(user);
+		referee.setUser(user);
 		refereeRepository.save(referee);
 		return true;
 	}
