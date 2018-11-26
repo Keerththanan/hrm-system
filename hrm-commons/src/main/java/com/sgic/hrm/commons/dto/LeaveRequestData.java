@@ -12,6 +12,7 @@ public class LeaveRequestData {
   private LeaveTypeData leaveType;
   private Date startDate;
   private Date endDate;
+  private Double noOfDays;
   private String reason;
   private File attachment;
   private Status status;
@@ -98,4 +99,11 @@ public class LeaveRequestData {
     this.updatedAt = updatedAt;
   }
 
+  public Double getNoOfDays() {
+    return noOfDays;
+  }
+
+  public void setNoOfDays(Double noOfDays) {
+    this.noOfDays = noOfDays;
+  }
 }

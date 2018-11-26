@@ -20,6 +20,7 @@ import com.sgic.hrm.commons.repository.RejectLeaveRequestRepository;
 import com.sgic.hrm.commons.repository.UserRepository;
 import com.sgic.hrm.lms.service.LeaveAllocationService;
 import com.sgic.hrm.lms.service.LeaveRequestService;
+import com.sgic.hrm.lms.service.LoginService;
 
 /**
  * @author Anushanth
@@ -28,103 +29,102 @@ import com.sgic.hrm.lms.service.LeaveRequestService;
 @Service
 public class LeaveRequestServiceImpl implements LeaveRequestService {
 
-  @Autowired
-  LeaveRequestRepository leaveRequestRepository;
-  @Autowired
-  UserRepository userRepository;
-  @Autowired
-  LeaveAllocationService leaveAllocationService;
-  @Autowired
-  LoginRepository loginRepository;
-  @Autowired
-  AcceptLeaveRequestRepository acceptLeaveRequestRepository;
-  @Autowired
-  RejectLeaveRequestRepository rejectLeaveRequestRepository;
+	@Autowired
+	LeaveRequestRepository leaveRequestRepository;
+	@Autowired
+	UserRepository userRepository;
+	@Autowired
+	LeaveAllocationService leaveAllocationService;
+	@Autowired
+	LoginRepository loginRepository;
+	@Autowired
+	LoginService loginService;
+	@Autowired
+	AcceptLeaveRequestRepository acceptLeaveRequestRepository;
+	@Autowired
+	RejectLeaveRequestRepository rejectLeaveRequestRepository;
 
-  @Transactional
-  @Override
-  public boolean addLeaveRequest(LeaveRequest leaveRequest) {
+	@Transactional
+	@Override
+	public boolean addLeaveRequest(LeaveRequest leaveRequest, String userName) {
 
-    if (leaveRequest != null) {
-      leaveRequest.setStatus(Status.PENDING);
-      if(leaveAllocationService.updateLeaveCount(leaveRequest)) {
-      leaveRequestRepository.save(leaveRequest);
-      return true;
-      }  
-    }
-    return false;
-  }
+		if (leaveRequest != null) {
+			leaveRequest.setUser(loginService.getUser(userName));
 
-  @Transactional
-  @Override
-  public boolean acceptLeaveRequest(AcceptLeaveDto acceptLeaveDto) {
+			leaveRequest.setStatus(Status.PENDING);
+			if (leaveAllocationService.updateLeaveCount(leaveRequest)) {
+				leaveRequestRepository.save(leaveRequest);
+				return true;
+			}
+		}
+		return false;
+	}
 
-    LeaveRequest leaveRequest =
-        leaveRequestRepository.findById(acceptLeaveDto.getLeaveRequestId()).orElse(null);
+	@Transactional
+	@Override
+	public boolean acceptLeaveRequest(AcceptLeaveDto acceptLeaveDto) {
 
-    if (leaveRequest != null) {
-      leaveRequest.setStatus(Status.ACCEPTED);
-      leaveRequestRepository.save(leaveRequest);
-      AcceptLeaveRequest acceptLeaveRequest = new AcceptLeaveRequest();
-      acceptLeaveRequest.setLeaveRequest(leaveRequest);
-      acceptLeaveRequest
-          .setAcceptedBy(loginRepository.findByUserName(acceptLeaveDto.getUserName()).getUser());
-      acceptLeaveRequestRepository.save(acceptLeaveRequest);
-      return true;
-    }
-    return false;
-  }
+		LeaveRequest leaveRequest = leaveRequestRepository.findById(acceptLeaveDto.getLeaveRequestId()).orElse(null);
 
-  @Transactional
-  @Override
-  public boolean deleteLeaveRequest(Integer id) {
+		if (leaveRequest != null) {
+			leaveRequest.setStatus(Status.ACCEPTED);
+			leaveRequestRepository.save(leaveRequest);
+			AcceptLeaveRequest acceptLeaveRequest = new AcceptLeaveRequest();
+			acceptLeaveRequest.setLeaveRequest(leaveRequest);
+			acceptLeaveRequest.setAcceptedBy(loginRepository.findByUserName(acceptLeaveDto.getUserName()).getUser());
+			acceptLeaveRequestRepository.save(acceptLeaveRequest);
+			return true;
+		}
+		return false;
+	}
 
-    LeaveRequest leaveRequest = leaveRequestRepository.findById(id).orElse(null);
-    if (leaveRequest != null) {
-      leaveRequest.setStatus(Status.DELETED);
-      leaveAllocationService.updateLeaveCount(leaveRequest);
-      leaveRequestRepository.deleteById(id);
-      return true;
-    }
-    return false;
-  }
+	@Transactional
+	@Override
+	public boolean deleteLeaveRequest(Integer id) {
 
-  @Override
-  public List<LeaveRequest> getLeaveRequestByUser(Integer userId) {
+		LeaveRequest leaveRequest = leaveRequestRepository.findById(id).orElse(null);
+		if (leaveRequest != null) {
+			leaveRequest.setStatus(Status.DELETED);
+			leaveAllocationService.updateLeaveCount(leaveRequest);
+			leaveRequestRepository.deleteById(id);
+			return true;
+		}
+		return false;
+	}
 
-    return leaveRequestRepository.findByUser(userRepository.getOne(userId));
-  }
+	@Override
+	public List<LeaveRequest> getLeaveRequestByUser(Integer userId) {
 
-  @Override
-  public List<LeaveRequest> getAllLeaveRequest() {
-    return leaveRequestRepository.findAll();
-  }
+		return leaveRequestRepository.findByUser(userRepository.getOne(userId));
+	}
 
-  @Override
-  public List<LeaveRequest> getAllLeaveRequestByStatus(Status status) {
+	@Override
+	public List<LeaveRequest> getAllLeaveRequest() {
+		return leaveRequestRepository.findAll();
+	}
 
-    return leaveRequestRepository.findByStatus(status);
-  }
+	@Override
+	public List<LeaveRequest> getAllLeaveRequestByStatus(Status status) {
 
+		return leaveRequestRepository.findByStatus(status);
+	}
 
-  @Transactional
-  @Override
-  public boolean rejectLeaveRequest(RejectLeaveDto rejectLeaveDto) {
-    LeaveRequest leaveRequest =
-        leaveRequestRepository.findById(rejectLeaveDto.getLeaveRequestId()).orElse(null);
+	@Transactional
+	@Override
+	public boolean rejectLeaveRequest(RejectLeaveDto rejectLeaveDto) {
+		LeaveRequest leaveRequest = leaveRequestRepository.findById(rejectLeaveDto.getLeaveRequestId()).orElse(null);
 
-    if (leaveRequest != null) {
-      leaveRequest.setStatus(Status.REJECTED);
-      leaveAllocationService.updateLeaveCount(leaveRequest);
-      leaveRequestRepository.save(leaveRequest);
-      RejectLeaveRequest rejectLeaveRequest = new RejectLeaveRequest();
-      rejectLeaveRequest.setLeaveRequest(leaveRequest);
-      rejectLeaveRequest
-          .setRejectedBy(loginRepository.findByUserName(rejectLeaveDto.getUserName()).getUser());
-      rejectLeaveRequest.setReason(rejectLeaveDto.getRejectReason());
-      rejectLeaveRequestRepository.save(rejectLeaveRequest);
-      return true;
-    }
-    return false;
-  }
+		if (leaveRequest != null) {
+			leaveRequest.setStatus(Status.REJECTED);
+			leaveAllocationService.updateLeaveCount(leaveRequest);
+			leaveRequestRepository.save(leaveRequest);
+			RejectLeaveRequest rejectLeaveRequest = new RejectLeaveRequest();
+			rejectLeaveRequest.setLeaveRequest(leaveRequest);
+			rejectLeaveRequest.setRejectedBy(loginRepository.findByUserName(rejectLeaveDto.getUserName()).getUser());
+			rejectLeaveRequest.setReason(rejectLeaveDto.getRejectReason());
+			rejectLeaveRequestRepository.save(rejectLeaveRequest);
+			return true;
+		}
+		return false;
+	}
 }

@@ -22,6 +22,7 @@ public class LeaveRequestToLeaveRequestData {
       leaveRequestData
           .setLeaveType(LeaveTypeToLeaveTypeData.mapToLeaveTypeData(leaveRequest.getLeaveType()));
       leaveRequestData.setStatus(leaveRequest.getStatus());
+      leaveRequestData.setNoOfDays(leaveRequest.getNoOfDays());
     }
     return leaveRequestData;
   }

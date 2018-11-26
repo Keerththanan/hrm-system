@@ -21,6 +21,7 @@ public static LeaveRequest mapToLeaveRequest(LeaveRequestData leaveRequestData) 
       leaveRequest.setAttachment(leaveRequestData.getAttachment());
       leaveRequest.setReason(leaveRequestData.getReason());
       leaveRequest.setStatus(leaveRequestData.getStatus());
+      leaveRequest.setNoOfDays(leaveRequestData.getNoOfDays());
     }
     return leaveRequest;
   }

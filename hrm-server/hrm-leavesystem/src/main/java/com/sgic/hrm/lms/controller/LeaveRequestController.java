@@ -42,14 +42,15 @@ public class LeaveRequestController {
         .mapLeaveRequestDataList(leaveRequestService.getAllLeaveRequest()), HttpStatus.OK);
   }
 
-  @PostMapping
-  public ResponseEntity<String> addLeaveRequest(@RequestBody LeaveRequestData leaveRequestData) {
+  @PostMapping("/{userName}")
+  public HttpStatus addLeaveRequest(@RequestBody LeaveRequestData leaveRequestData,
+      @PathVariable(name = "userName") String userName) {
 
-    if (leaveRequestService
-        .addLeaveRequest(LeaveRequestDataToLeaveRequest.mapToLeaveRequest(leaveRequestData))) {
-      return new ResponseEntity<>("request added successfully", HttpStatus.OK);
+    if (leaveRequestService.addLeaveRequest(
+        LeaveRequestDataToLeaveRequest.mapToLeaveRequest(leaveRequestData), userName)) {
+      return HttpStatus.OK;
     }
-    return new ResponseEntity<>("faild adding request", HttpStatus.BAD_REQUEST);
+    return HttpStatus.BAD_REQUEST;
   }
 
   @GetMapping("/user/{id}")
