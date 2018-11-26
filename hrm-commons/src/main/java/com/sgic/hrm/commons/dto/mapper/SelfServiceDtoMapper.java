@@ -15,9 +15,10 @@ public class SelfServiceDtoMapper {
     User user = new User();
     User relevantUser = new User();
     
-    selfServiceType.setId(selfServiceSaveDto.getId());
+    selfServiceType.setId(selfServiceSaveDto.getSelfServiceType());
     relevantDepartment.setId(selfServiceSaveDto.getRelevantDepartment());
     user.setId(selfServiceSaveDto.getUser());
+    relevantUser.setId(selfServiceSaveDto.getRelevantIndividual());
     
     selfService.setId(selfServiceSaveDto.getId());
     selfService.setSelfServiceType(selfServiceType);

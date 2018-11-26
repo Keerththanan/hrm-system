@@ -2,7 +2,7 @@ package com.sgic.hrm.commons.entity;
 
 import java.io.Serializable;
 import java.sql.Date;
-import javax.persistence.CascadeType;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -20,19 +20,19 @@ public class SelfService implements Serializable {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Integer id;
   
-  @ManyToOne(cascade = CascadeType.ALL)
+  @ManyToOne
   @JoinColumn(name = "self_service_type_id")
   private SelfServiceType selfServiceType;
   
-  @ManyToOne(cascade = CascadeType.ALL)
+  @ManyToOne
   @JoinColumn(name = "user_id")
   private User user;
   
-  @ManyToOne(cascade = CascadeType.ALL)
+  @ManyToOne
   @JoinColumn(name = "relevant_department_id")
   private Department relevantDepartment;
   
-  @ManyToOne(cascade = CascadeType.ALL)
+  @ManyToOne
   @JoinColumn(name = "relevant_individual_id")
   private User relevantIndividual;
   private boolean informIndividual;
