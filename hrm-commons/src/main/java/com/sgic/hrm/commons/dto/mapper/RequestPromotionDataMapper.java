@@ -3,7 +3,6 @@ package com.sgic.hrm.commons.dto.mapper;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.sgic.hrm.commons.dto.DesignationData;
 import com.sgic.hrm.commons.dto.RequestPromotionData;
 import com.sgic.hrm.commons.entity.RequestPromotion;
 

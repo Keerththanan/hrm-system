@@ -8,6 +8,7 @@ public class RequestPromotionData {
 	private int designationId;
 	private String promotionRemark;
 	private int recommendedBy;
+
 	private Date createdAt;
 	private Date updatedAt;
 
