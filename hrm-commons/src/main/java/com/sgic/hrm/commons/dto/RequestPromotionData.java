@@ -1,11 +1,31 @@
 package com.sgic.hrm.commons.dto;
 
+import java.sql.Date;
+
 public class RequestPromotionData {
 	private Integer id;
 	private int userId;
 	private int designationId;
 	private String promotionRemark;
-	private String recommendedBy;
+	private int recommendedBy;
+	private Date createdAt;
+	private Date updatedAt;
+
+	public Date getUpdatedAt() {
+		return updatedAt;
+	}
+
+	public void setUpdatedAt(Date updatedAt) {
+		this.updatedAt = updatedAt;
+	}
+
+	public Date getCreatedAt() {
+		return createdAt;
+	}
+
+	public void setCreatedAt(Date createdAt) {
+		this.createdAt = createdAt;
+	}
 
 	public int getDesignationId() {
 		return designationId;
@@ -39,11 +59,11 @@ public class RequestPromotionData {
 		this.promotionRemark = promotionRemark;
 	}
 
-	public String getRecommendedBy() {
+	public int getRecommendedBy() {
 		return recommendedBy;
 	}
 
-	public void setRecommendedBy(String recommendedBy) {
+	public void setRecommendedBy(int recommendedBy) {
 		this.recommendedBy = recommendedBy;
 	}
 

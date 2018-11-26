@@ -1,10 +1,10 @@
 package com.sgic.hrm.employee.controller;
-
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,70 +14,48 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.sgic.hrm.commons.dto.RequestPromotionData;
-import com.sgic.hrm.commons.entity.Designation;
-import com.sgic.hrm.commons.entity.RequestPromotion;
-import com.sgic.hrm.commons.entity.User;
-import com.sgic.hrm.employee.service.DesignationService;
+import com.sgic.hrm.commons.dto.mapper.RequestPromotionDataMapper;
+import com.sgic.hrm.commons.entity.mapper.RequestPromotionMapper;
 import com.sgic.hrm.employee.service.RequestPromotionService;
-import com.sgic.hrm.employee.service.UserService;
 
-//@CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
+@CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
 @RestController
 public class RequestPromotionController {
 	@Autowired
 	private RequestPromotionService requestPromotionService;
-	@Autowired
-	private DesignationService designationService;
-	@Autowired
-	private UserService userService;
-
-	@PostMapping("/requestpromotion")
-	public HttpStatus requestPromotion(@RequestBody RequestPromotionData requestPromotiondata) {
-		
-		RequestPromotion requestPromotion=new RequestPromotion();		
-		requestPromotion.setId(requestPromotiondata.getId());
-		requestPromotion.setPromotionRemark(requestPromotiondata.getPromotionRemark());
-		requestPromotion.setRecommendedBy(requestPromotiondata.getRecommendedBy());
-		
-		Designation designation=designationService.getDesignationById(requestPromotiondata.getDesignationId());
-		requestPromotion.setDesignationId(designation);
-		
-		User user= userService.getUserById(requestPromotiondata.getUserId());
-		requestPromotion.setUserId(user);
-		
-		boolean rest=requestPromotionService.addRequestPromotion(requestPromotion);
-		
-		if (rest) {
-			return HttpStatus.CREATED;
-		}
-		return HttpStatus.BAD_REQUEST;
-
+	
+	@GetMapping("/requestpromotion")
+	public ResponseEntity<List<RequestPromotionData>> getAllRequestPromotions() {
+		return new ResponseEntity<>(RequestPromotionMapper.mapToRequestPromotionDataList
+				(requestPromotionService.getAllRequestPromotion()), HttpStatus.OK);
 	}
 
-	@GetMapping("/requestpromotion")
-	public ResponseEntity<List<RequestPromotion>> getAllRequestPromotions() {
-		List<RequestPromotion> reqPromotionData = requestPromotionService.getAllRequestPromotion();
-		ResponseEntity<List<RequestPromotion>> response = new ResponseEntity<>(reqPromotionData, HttpStatus.OK);
-		return response;
+	@PostMapping("/requestpromotion")
+	public ResponseEntity<String> addRequestPromotion(@RequestBody RequestPromotionData requestPromotionData) {
+		if(requestPromotionService.addRequestPromotion(RequestPromotionDataMapper.mapToRequestPromotion(requestPromotionData))) {
+			return new ResponseEntity<>("Success",HttpStatus.OK);
+		}
+		return new ResponseEntity<>("Failed",HttpStatus.BAD_REQUEST);
+
 	}
 
 	@PutMapping("/requestpromotion/{id}")
-	public HttpStatus updateRequestPromotion(@PathVariable Integer id, @RequestBody RequestPromotion requestPromotion) {
-		boolean reqPro = requestPromotionService.updateRequestPromotion(requestPromotion, id);
+	public ResponseEntity<String> updateRequestPromotion(@PathVariable(name="id") Integer id, @RequestBody RequestPromotionData requestPromotionData) {
+		boolean reqPro = requestPromotionService.updateRequestPromotion(RequestPromotionDataMapper.mapToRequestPromotion(requestPromotionData),id);
+		
 		if (reqPro) {
-			return HttpStatus.ACCEPTED;
+			return new ResponseEntity<>("Update Successfully",HttpStatus.ACCEPTED);
 		}
-		return HttpStatus.BAD_REQUEST;
-
+		return new ResponseEntity<>("Update failed",HttpStatus.BAD_REQUEST);
 	}
 
 	@DeleteMapping("/requestpromotion/{id}")
-	public HttpStatus deleteRequestPromotion(@PathVariable Integer id) {
+	public ResponseEntity<String> deleteRequestPromotion(@PathVariable("id") Integer id) {
 		boolean reqPro = requestPromotionService.deleteRequstPromotion(id);
 		if (reqPro) {
-			return HttpStatus.ACCEPTED;
+			return new ResponseEntity<>("Deleted" ,HttpStatus.OK);
 		}
-		return HttpStatus.BAD_REQUEST;
+		return new ResponseEntity<>("Deleted" ,HttpStatus.BAD_REQUEST);
 	}
 
 }

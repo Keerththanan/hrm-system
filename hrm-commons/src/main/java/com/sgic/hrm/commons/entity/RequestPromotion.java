@@ -6,14 +6,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 
 @Entity
@@ -23,25 +19,36 @@ public class RequestPromotion {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
-	@ManyToOne
-	@JoinColumn(name = "user_id")
-	private User userId;
+//	@ManyToOne
+//	@JoinColumn(name = "user_id")
+	private int userId;
 	
-	@OneToOne
-	@JoinColumn(name = "id")
-	private Designation designationId;
+//	@OneToOne
+//	@JoinColumn(name = "id")
+	private int designationId;
 	
 	private String promotionRemark;
-	private String recommendedBy;
+	private int recommendedBy;
 	
 	@CreationTimestamp
 	private Date createdAt;
+	
+	@UpdateTimestamp
+	private Date updatedAt;
 
-	public Designation getDesignationId() {
+	public Date getUpdatedAt() {
+		return updatedAt;
+	}
+
+	public void setUpdatedAt(Date updatedAt) {
+		this.updatedAt = updatedAt;
+	}
+
+	public int getDesignationId() {
 		return designationId;
 	}
 
-	public void setDesignationId(Designation designationId) {
+	public void setDesignationId(int designationId) {
 		this.designationId = designationId;
 	}
 
@@ -53,11 +60,11 @@ public class RequestPromotion {
 		this.id = id;
 	}
 
-	public User getUserId() {
+	public int getUserId() {
 		return userId;
 	}
 
-	public void setUserId(User userId) {
+	public void setUserId(int userId) {
 		this.userId = userId;
 	}
 
@@ -69,11 +76,11 @@ public class RequestPromotion {
 		this.promotionRemark = promotionRemark;
 	}
 
-	public String getRecommendedBy() {
+	public int getRecommendedBy() {
 		return recommendedBy;
 	}
 
-	public void setRecommendedBy(String recommendedBy) {
+	public void setRecommendedBy(int recommendedBy) {
 		this.recommendedBy = recommendedBy;
 	}
 
