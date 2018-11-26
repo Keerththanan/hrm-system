@@ -26,6 +26,7 @@ import com.sgic.hrm.employee.service.LocationService;
 import com.sgic.hrm.employee.service.RolesAndResponsibilitiesService;
 import com.sgic.hrm.employee.service.UserService;
 
+
 @RestController
 public class RolesAndResponsibilitesController {
 	
