@@ -7,6 +7,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 @Entity
 @Table(name="appointment",schema="employee")
@@ -18,9 +21,15 @@ public class Appointment implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
-	private User userId;
+	
+	@ManyToOne
+	@JoinColumn(name = "designation_id")
 	private Designation designationId;
+	
+	@ManyToOne
+	@JoinColumn(name = "appointment_type_id")
 	private AppointmentType appointmentTypeId;
+	
 	private String jobDesc;
 	private Date appoinmentDate;
 	
@@ -29,12 +38,6 @@ public class Appointment implements Serializable {
 	}
 	public void setId(Integer id) {
 		this.id = id;
-	}
-	public User getUserId() {
-		return userId;
-	}
-	public void setUserId(User userId) {
-		this.userId = userId;
 	}
 	public Designation getDesignationId() {
 		return designationId;

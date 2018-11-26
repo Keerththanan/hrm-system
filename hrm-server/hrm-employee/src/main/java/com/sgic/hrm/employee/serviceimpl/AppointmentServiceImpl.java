@@ -1,5 +1,6 @@
 package com.sgic.hrm.employee.serviceimpl;
 
+import java.sql.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +24,11 @@ import com.sgic.hrm.employee.service.AppointmentService;
 	@Override
 	public List<Appointment> getAppointment() {
 		return appointmentRepository.findAll();
+	}
+
+	@Override
+	public List<Appointment> getAppointmentByAppoinmentDate(Date date) {
+		return appointmentRepository.findByDate(date);
 	}
 
 }

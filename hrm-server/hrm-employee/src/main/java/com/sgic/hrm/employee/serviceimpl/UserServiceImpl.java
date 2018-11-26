@@ -12,6 +12,7 @@ import com.sgic.hrm.employee.service.UserService;
 
 @Service
 public class UserServiceImpl implements UserService {
+	
 	@Autowired
 	private UserRepository userRepository;
 	@Override
@@ -45,6 +46,22 @@ public class UserServiceImpl implements UserService {
 		}
 		return false;
 	}
+	@Override
+	public List<User> getUsersByName(String name) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public List<User> getUsersByDesignation(String designation) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public List<User> getUsersByServicePeriod(String service) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 	
 
 }

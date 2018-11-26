@@ -1,5 +1,6 @@
 package com.sgic.hrm.employee.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,15 +27,6 @@ public class AppointmentController {
 			return HttpStatus.CREATED;
 		}
 		return HttpStatus.BAD_REQUEST;
-	}
-	@GetMapping("/appointment")
-	public ResponseEntity <List<Appointment>> GetAppointment()
-	{
-		List<Appointment> appointment= appointmentService.getAppointment() ;
-		ResponseEntity<List<Appointment>> 
-		response =  new ResponseEntity<>(appointment,HttpStatus.OK);
-		return response;
-		
 	}
 	
 }
