@@ -49,4 +49,10 @@ public class KeyActivityServiceImpl implements KeyActivityService{
 		return true;
 	}
 
+	@Override
+	public KeyActivity findByActivityId(Integer id) {
+		// TODO Auto-generated method stub
+		return keyActivityRepository.findKeyActivityById(id);
+	}
+
 }

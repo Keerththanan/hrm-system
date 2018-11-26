@@ -62,5 +62,11 @@ public class RefereeController {
 		}
 		return HttpStatus.BAD_REQUEST;
 	}
-	
+	@GetMapping("/referee/{uid}")
+	public  ResponseEntity<List<Referee>>findAcademicQualificationByUserId(@PathVariable("uid") Integer id)
+	{
+		List<Referee> 
+		referee = refereeService.getRefereeByUserId(id);
+		return new ResponseEntity<>(referee,HttpStatus.OK);
+	}
 }
