@@ -11,7 +11,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import com.sgic.hrm.commons.entity.ReportParAppraise;
 import com.sgic.hrm.commons.entity.ScoreParAppraisee;
-import com.sgic.hrm.employee.service.ParReportForAppraiseeService;
+//import com.sgic.hrm.employee.service.ParReportForAppraiseeService;
 
 
 
@@ -19,7 +19,7 @@ import com.sgic.hrm.employee.service.ParReportForAppraiseeService;
 @SpringBootTest
 public class ParReportTest {
 	@Autowired
-	ParReportForAppraiseeService parReportForAppraiseeService;
+	//ParReportForAppraiseeService parReportForAppraiseeService;
 	
 	@Test
 	public void parReportTest1() {
@@ -28,6 +28,6 @@ public class ParReportTest {
 	scheduleParAppraisorList.add(new ScoreParAppraisee(1,"C001",3.00));
 	scheduleParAppraisorList.add(new ScoreParAppraisee(2,"C002",4.00));
 	scheduleParAppraisorList.add(new ScoreParAppraisee(3,"C003",5.00));
-	parReportForAppraiseeService.saveReportAndScore(1, objParReport, scheduleParAppraisorList);
+	//parReportForAppraiseeService.saveReportAndScore(1, objParReport, scheduleParAppraisorList);
 	}
 }

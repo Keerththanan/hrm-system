@@ -12,7 +12,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import com.sgic.hrm.commons.dto.ScheduleParAppraisorsDTO;
 import com.sgic.hrm.commons.dto.ScheduleParContentDTO;
 import com.sgic.hrm.commons.entity.Par;
-import com.sgic.hrm.employee.serviceExtended.ParScheduleService;
+//import com.sgic.hrm.employee.serviceExtended.ParScheduleService;
 
 
 @RunWith(SpringRunner.class)
@@ -20,7 +20,7 @@ import com.sgic.hrm.employee.serviceExtended.ParScheduleService;
 public class ParScheduleServiceTest {
 
 	@Autowired
-	ParScheduleService parScheduleService;
+	//ParScheduleService parScheduleService;
 
 	@Test
 	public void createParScheduleService() {
@@ -34,6 +34,6 @@ public class ParScheduleServiceTest {
 		scheduleParContentList.add(new ScheduleParContentDTO("C002"));
 		scheduleParContentList.add(new ScheduleParContentDTO("C003"));
 
-		parScheduleService.createSchedulePar(parObj, scheduleParAppraisorList, scheduleParContentList);
+		//parScheduleService.createSchedulePar(parObj, scheduleParAppraisorList, scheduleParContentList);
 	}
 }
