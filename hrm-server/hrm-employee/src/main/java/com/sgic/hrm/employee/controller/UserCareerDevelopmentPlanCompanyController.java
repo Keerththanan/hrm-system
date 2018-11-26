@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+import com.sgic.hrm.commons.dto.UserCareerDevelopmentPlanCompanyData;
+import com.sgic.hrm.commons.dto.mapper.UserCareerDevelopmentPlanCompanyDataMapper;
 import com.sgic.hrm.commons.entity.UserCareerDevelopmentPlanCompany;
 import com.sgic.hrm.employee.service.UserCareerDevelopmentPlanCompanyService;
 
@@ -21,13 +23,14 @@ public class UserCareerDevelopmentPlanCompanyController {
   UserCareerDevelopmentPlanCompanyService userCareerDevelopmentPlanCompanyService;
   
   @PostMapping("/usercareerdevelopmentplancompany")
-  public HttpStatus addUserCareerDevelopmentPlanCompany(@RequestBody UserCareerDevelopmentPlanCompany careerDevelopmentPlanCompany) {
-    boolean testadd=userCareerDevelopmentPlanCompanyService.addUserCareerDevelopmentPlanCompany(careerDevelopmentPlanCompany);
-    if(testadd) {
-      return HttpStatus.CREATED;
+  public HttpStatus addUserCareerDevelopmentPlanCompany(@RequestBody UserCareerDevelopmentPlanCompanyData userCareerDevelopmentPlanCompanyData) {
+      boolean testadd=userCareerDevelopmentPlanCompanyService.addUserCareerDevelopmentPlanCompany(UserCareerDevelopmentPlanCompanyDataMapper.userCareerDevelopmentPlanCompanyDataMapper(userCareerDevelopmentPlanCompanyData));
+      if(testadd) {
+        
+        return HttpStatus.CREATED;
+      }
+      return HttpStatus.BAD_REQUEST;
     }
-    return HttpStatus.BAD_REQUEST;
-  }
   
   @GetMapping("/usercareerdevelopmentplancompany")
   public ResponseEntity<List<UserCareerDevelopmentPlanCompany>> getCareerDevelopemntPlan() {
@@ -36,8 +39,8 @@ public class UserCareerDevelopmentPlanCompanyController {
   }
   
   @PutMapping("/usercareerdevelopmentplancompany/{id}")
-  public HttpStatus updateCareerDevelopemntPlanCompany(@RequestBody UserCareerDevelopmentPlanCompany careerDevelopmentPlanCompany, @PathVariable Integer id) {
-      boolean testedit=userCareerDevelopmentPlanCompanyService.editCareerDevelopmentPlanSelf(careerDevelopmentPlanCompany, id);
+  public HttpStatus updateCareerDevelopemntPlanCompany(@RequestBody UserCareerDevelopmentPlanCompanyData userCareerDevelopmentPlanCompanyData, @PathVariable Integer id) {
+      boolean testedit=userCareerDevelopmentPlanCompanyService.editCareerDevelopmentPlanSelf(UserCareerDevelopmentPlanCompanyDataMapper.userCareerDevelopmentPlanCompanyDataMapper(userCareerDevelopmentPlanCompanyData), id);
       if(testedit) {
           return HttpStatus.ACCEPTED;
       }

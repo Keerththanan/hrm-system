@@ -1,6 +1,6 @@
 package com.sgic.hrm.commons.dto;
 
-public class UserCareerDevelopmentPlanCompanyData {
+public class UserCareerDevelopmentPlanSelfData {
 
   Integer id;
   CareerDevelopmentPlanData cdpId;

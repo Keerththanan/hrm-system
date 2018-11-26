@@ -1,8 +1,6 @@
 package com.sgic.hrm.commons.entity;
 
 import java.io.Serializable;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,52 +11,52 @@ import javax.persistence.ManyToOne;
 @Entity
 public class UserCareerDevelopmentPlanSelf implements Serializable {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1917334021724684496L;
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
-	@ManyToOne(cascade = { CascadeType.PERSIST })
-	@JoinColumn(name = "cdp_Id")
-	private CareerDevelopmentPlan cdpName;
+  /**
+   * 
+   */
+  private static final long serialVersionUID = 1917334021724684496L;
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Integer id;
+  @ManyToOne
+  @JoinColumn(name = "cdp_Id")
+  private CareerDevelopmentPlan cdpId;
 
-	@ManyToOne(cascade = { CascadeType.PERSIST })
-	@JoinColumn(name = "cdp_Id")
-	private User userName;
-	private String status;
+  @ManyToOne
+  @JoinColumn(name = "user_Id")
+  private User userId;
+  private String status;
 
-	public Integer getId() {
-		return id;
-	}
+  public Integer getId() {
+    return id;
+  }
 
-	public void setId(Integer id) {
-		this.id = id;
-	}
+  public void setId(Integer id) {
+    this.id = id;
+  }
 
-	public CareerDevelopmentPlan getCdpName() {
-		return cdpName;
-	}
+  public CareerDevelopmentPlan getCdpId() {
+    return cdpId;
+  }
 
-	public void setCdpName(CareerDevelopmentPlan cdpName) {
-		this.cdpName = cdpName;
-	}
+  public void setCdpId(CareerDevelopmentPlan cdpId) {
+    this.cdpId = cdpId;
+  }
 
-	public User getUserName() {
-		return userName;
-	}
+  public User getUserId() {
+    return userId;
+  }
 
-	public void setUserName(User userName) {
-		this.userName = userName;
-	}
+  public void setUserId(User userId) {
+    this.userId = userId;
+  }
 
-	public String getStatus() {
-		return status;
-	}
+  public String getStatus() {
+    return status;
+  }
 
-	public void setStatus(String status) {
-		this.status = status;
-	}
+  public void setStatus(String status) {
+    this.status = status;
+  }
 
 }

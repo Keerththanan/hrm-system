@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+import com.sgic.hrm.commons.dto.UserCareerDevelopmentPlanSelfData;
+import com.sgic.hrm.commons.dto.mapper.UserCareerDevelopmentPlanSelfDataMapper;
 import com.sgic.hrm.commons.entity.UserCareerDevelopmentPlanSelf;
 import com.sgic.hrm.employee.service.UserCareerDevelopmentPlanSelfService;
 
@@ -20,17 +22,10 @@ public class UserCareerDevelopmentPlanSelfController {
   @Autowired
   UserCareerDevelopmentPlanSelfService userCareerDevelopmentPlanSelfService;
   
+   
   @PostMapping("/usercareerdevelopmentplanself")
-  public HttpStatus addCareerDevelopemntPlan(@RequestBody UserCareerDevelopmentPlanSelf userCareerDevelopmentPlanSelf) {
-    
-//    UserCareerDevelopmentPlanSelf userCareerDevelopmentPlanSelf=new UserCareerDevelopmentPlanSelf();
-//    
-//    userCareerDevelopmentPlanSelf.setId(userCareerDevelopmentPlanSelfdto.getId());
-//    userCareerDevelopmentPlanSelf.setCdpId(userCareerDevelopmentPlanSelfdto.getCdpId());
-//    userCareerDevelopmentPlanSelf.setUserId(userCareerDevelopmentPlanSelfdto.getUserDataId());
-//    userCareerDevelopmentPlanSelf.setStatus(userCareerDevelopmentPlanSelfdto.getStatus());
-    
-    boolean testadd=userCareerDevelopmentPlanSelfService.addCareerDevelopmentPlanSelf(userCareerDevelopmentPlanSelf);
+  public HttpStatus addCareerDevelopemntPlan(@RequestBody UserCareerDevelopmentPlanSelfData userCareerDevelopmentPlanSelfData) {
+    boolean testadd=userCareerDevelopmentPlanSelfService.addCareerDevelopmentPlanSelf(UserCareerDevelopmentPlanSelfDataMapper.userCareerDevelopmentSelfDataMapper(userCareerDevelopmentPlanSelfData));
     if(testadd) {
       
       return HttpStatus.CREATED;
@@ -46,8 +41,8 @@ public class UserCareerDevelopmentPlanSelfController {
   }
   
   @PutMapping("/usercareerdevelopmentplanself/{id}")
-  public HttpStatus updateCareerDevelopemntPlan(@RequestBody UserCareerDevelopmentPlanSelf userCareerDevelopmentPlanSelf, @PathVariable Integer id) {
-      boolean testedit=userCareerDevelopmentPlanSelfService.editCareerDevelopmentPlanSelf(userCareerDevelopmentPlanSelf, id);
+  public HttpStatus updateCareerDevelopemntPlan(@RequestBody UserCareerDevelopmentPlanSelfData userCareerDevelopmentPlanSelfData, @PathVariable Integer id) {
+      boolean testedit=userCareerDevelopmentPlanSelfService.editCareerDevelopmentPlanSelf(UserCareerDevelopmentPlanSelfDataMapper.userCareerDevelopmentSelfDataMapper(userCareerDevelopmentPlanSelfData), id);
       if(testedit) {
           return HttpStatus.ACCEPTED;
       }
