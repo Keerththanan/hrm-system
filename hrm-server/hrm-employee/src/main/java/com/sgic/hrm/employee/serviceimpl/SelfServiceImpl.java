@@ -47,5 +47,10 @@ public class SelfServiceImpl implements SelfServiceService {
   public List<SelfService> findByUserId(Integer id) {
     return selfServiceRepository.findByUser(id);
   }
+  
+  @Override
+  public List<SelfService> findByStatusNot(String status){
+    return selfServiceRepository.findByStatus(status);
+  }
 
 }

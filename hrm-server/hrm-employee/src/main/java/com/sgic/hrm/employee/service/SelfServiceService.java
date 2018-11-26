@@ -13,4 +13,6 @@ public interface SelfServiceService {
 	boolean deleteSelfService(Integer id);
 	
 	List<SelfService> findByUserId(Integer id);
+	
+	List<SelfService> findByStatusNot(String status);
 }

@@ -9,4 +9,6 @@ public interface SelfServiceRepository extends JpaRepository<SelfService, Intege
 
   @Query("SELECT ss FROM SelfService ss WHERE ss.user.id = ?1")
   List<SelfService> findByUser(Integer id);
+  
+  List<SelfService> findByStatus(String status);
 }

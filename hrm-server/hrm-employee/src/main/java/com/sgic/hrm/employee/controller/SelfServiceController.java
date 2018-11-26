@@ -21,46 +21,59 @@ import com.sgic.hrm.employee.service.SelfServiceService;
 @CrossOrigin(origins = "http://localhost:4200", maxAge = 3200)
 @RestController
 public class SelfServiceController {
-	@Autowired
-	private SelfServiceService selfServiceService;
+  @Autowired
+  private SelfServiceService selfServiceService;
 
-	@GetMapping("/selfservice")
-	public ResponseEntity<List<SelfServiceDto>> viewSelfService() {
-		List<SelfServiceDto> selfServiceDtoList = SelfServiceMapper.mapSelfServiceListToSelfServiceDtoList(selfServiceService.viewSelfService());
-		return new ResponseEntity<>(selfServiceDtoList, HttpStatus.OK);
-	}
-	
-	@GetMapping("/selfservice/{id}")
-    public ResponseEntity<List<SelfServiceDto>> viewSelfServiceByUser(@PathVariable Integer id) {
-        List<SelfServiceDto> selfServiceDtoList = SelfServiceMapper.mapSelfServiceListToSelfServiceDtoList(selfServiceService.findByUserId(id));
-        return new ResponseEntity<>(selfServiceDtoList, HttpStatus.OK);
+  @GetMapping("/selfservice")
+  public ResponseEntity<List<SelfServiceDto>> viewSelfService() {
+    List<SelfServiceDto> selfServiceDtoList = SelfServiceMapper
+        .mapSelfServiceListToSelfServiceDtoList(selfServiceService.viewSelfService());
+    return new ResponseEntity<>(selfServiceDtoList, HttpStatus.OK);
+  }
+
+  @GetMapping("/selfservice/{id}")
+  public ResponseEntity<List<SelfServiceDto>> viewSelfServiceByUser(@PathVariable Integer id) {
+    List<SelfServiceDto> selfServiceDtoList = SelfServiceMapper
+        .mapSelfServiceListToSelfServiceDtoList(selfServiceService.findByUserId(id));
+    return new ResponseEntity<>(selfServiceDtoList, HttpStatus.OK);
+  }
+
+  @GetMapping("/selfservice/status/{status}")
+  public ResponseEntity<List<SelfServiceDto>> viewSelfServiceByUser(@PathVariable String status) {
+    List<SelfServiceDto> selfServiceDtoList = SelfServiceMapper
+        .mapSelfServiceListToSelfServiceDtoList(selfServiceService.findByStatusNot(status));
+    return new ResponseEntity<>(selfServiceDtoList, HttpStatus.OK);
+  }
+
+  @PostMapping("/selfservice")
+  public HttpStatus addSelfService(@RequestBody SelfServiceSaveDto selfServiceSaveDto) {
+    selfServiceSaveDto.setStatus("Pending");
+    boolean test = selfServiceService.addSelfService(
+        SelfServiceDtoMapper.mapSelfServiceSaveDtoToSelfService(selfServiceSaveDto));
+    if (test) {
+      return HttpStatus.CREATED;
     }
+    return HttpStatus.BAD_REQUEST;
+  }
 
-	@PostMapping("/selfservice")
-	public HttpStatus addSelfService(@RequestBody SelfServiceSaveDto selfServiceSaveDto) {
-		boolean test = selfServiceService.addSelfService(SelfServiceDtoMapper.mapSelfServiceSaveDtoToSelfService(selfServiceSaveDto));
-		if (test) {
-			return HttpStatus.CREATED;
-		}
-		return HttpStatus.BAD_REQUEST;
-	}
+  @PutMapping("/selfservice/{id}")
+  public HttpStatus modifySelfService(@PathVariable Integer id,
+      @RequestBody SelfServiceSaveDto selfServiceSaveDto) {
+    boolean test = selfServiceService.editSelfService(
+        SelfServiceDtoMapper.mapSelfServiceSaveDtoToSelfService(selfServiceSaveDto), id);
+    if (test) {
+      return HttpStatus.ACCEPTED;
+    }
+    return HttpStatus.BAD_REQUEST;
+  }
 
-	@PutMapping("/selfservice/{id}")
-	public HttpStatus modifySelfService(@PathVariable Integer id, @RequestBody SelfServiceSaveDto selfServiceSaveDto) {
-		boolean test = selfServiceService.editSelfService(SelfServiceDtoMapper.mapSelfServiceSaveDtoToSelfService(selfServiceSaveDto), id);
-		if (test) {
-			return HttpStatus.ACCEPTED;
-		}
-		return HttpStatus.BAD_REQUEST;
-	}
-
-	@DeleteMapping("/selfservice/{id}")
-	public HttpStatus deleteSelfService(@PathVariable Integer id) {
-		boolean selfService = selfServiceService.deleteSelfService(id);
-		if (selfService) {
-			return HttpStatus.OK;
-		}
-		return HttpStatus.BAD_REQUEST;
-	}
+  @DeleteMapping("/selfservice/{id}")
+  public HttpStatus deleteSelfService(@PathVariable Integer id) {
+    boolean selfService = selfServiceService.deleteSelfService(id);
+    if (selfService) {
+      return HttpStatus.OK;
+    }
+    return HttpStatus.BAD_REQUEST;
+  }
 
 }
