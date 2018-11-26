@@ -1,11 +1,25 @@
-E:\SGIC-HRM\BackendFinal_final\hrm-system\hrm-commons\src\main\java\com\sgic\hrm\commons\dto\mapper\TestDataMapper.java
-E:\SGIC-HRM\BackendFinal_final\hrm-system\hrm-commons\src\main\java\com\sgic\hrm\commons\entity\UserEntity.java
-E:\SGIC-HRM\BackendFinal_final\hrm-system\hrm-commons\src\main\java\com\sgic\hrm\commons\dto\TestData.java
-E:\SGIC-HRM\BackendFinal_final\hrm-system\hrm-commons\src\main\java\com\sgic\hrm\commons\entity\RoleEntity.java
-E:\SGIC-HRM\BackendFinal_final\hrm-system\hrm-commons\src\main\java\com\sgic\hrm\commons\entity\SalaryChart.java
-E:\SGIC-HRM\BackendFinal_final\hrm-system\hrm-commons\src\main\java\com\sgic\hrm\commons\entity\UserLoanDetails.java
-E:\SGIC-HRM\BackendFinal_final\hrm-system\hrm-commons\src\main\java\com\sgic\hrm\commons\App.java
-E:\SGIC-HRM\BackendFinal_final\hrm-system\hrm-commons\src\main\java\com\sgic\hrm\commons\entity\LoanDetailsEntity.java
-E:\SGIC-HRM\BackendFinal_final\hrm-system\hrm-commons\src\main\java\com\sgic\hrm\commons\entity\mapper\TestMapper.java
-E:\SGIC-HRM\BackendFinal_final\hrm-system\hrm-commons\src\main\java\com\sgic\hrm\commons\exception\TestException.java
-E:\SGIC-HRM\BackendFinal_final\hrm-system\hrm-commons\src\main\java\com\sgic\hrm\commons\repository\SalaryChartRepository.java
+E:\HRM backend employee\zzzzzzzzzzz\hrm-system\hrm-commons\src\main\java\com\sgic\hrm\commons\entity\LoanDetailsEntity.java
+E:\HRM backend employee\zzzzzzzzzzz\hrm-system\hrm-commons\src\main\java\com\sgic\hrm\commons\entity\UserEntity.java
+E:\HRM backend employee\zzzzzzzzzzz\hrm-system\hrm-commons\src\main\java\com\sgic\hrm\commons\dto\SalaryDetailsDto.java
+E:\HRM backend employee\zzzzzzzzzzz\hrm-system\hrm-commons\src\main\java\com\sgic\hrm\commons\entity\SalaryChartEntity.java
+E:\HRM backend employee\zzzzzzzzzzz\hrm-system\hrm-commons\src\main\java\com\sgic\hrm\commons\repository\SalaryDetailsHRViewRepository.java
+E:\HRM backend employee\zzzzzzzzzzz\hrm-system\hrm-commons\src\main\java\com\sgic\hrm\commons\entity\BenefitsAllowancesEntity.java
+E:\HRM backend employee\zzzzzzzzzzz\hrm-system\hrm-commons\src\main\java\com\sgic\hrm\commons\repository\UserLoanDetailsRepository.java
+E:\HRM backend employee\zzzzzzzzzzz\hrm-system\hrm-commons\src\main\java\com\sgic\hrm\commons\entity\RoleEntity.java
+E:\HRM backend employee\zzzzzzzzzzz\hrm-system\hrm-commons\src\main\java\com\sgic\hrm\commons\entity\UserLoanDetails.java
+E:\HRM backend employee\zzzzzzzzzzz\hrm-system\hrm-commons\src\main\java\com\sgic\hrm\commons\repository\LoanDetailsRepository.java
+E:\HRM backend employee\zzzzzzzzzzz\hrm-system\hrm-commons\src\main\java\com\sgic\hrm\commons\entity\SalaryDetailsHRViewEntity.java
+E:\HRM backend employee\zzzzzzzzzzz\hrm-system\hrm-commons\src\main\java\com\sgic\hrm\commons\repository\RoleRepository.java
+E:\HRM backend employee\zzzzzzzzzzz\hrm-system\hrm-commons\src\main\java\com\sgic\hrm\commons\dto\mapper\SalaryChartDtoMapper.java
+E:\HRM backend employee\zzzzzzzzzzz\hrm-system\hrm-commons\src\main\java\com\sgic\hrm\commons\entity\mapper\BenefitsAllowancesEntityMapper.java
+E:\HRM backend employee\zzzzzzzzzzz\hrm-system\hrm-commons\src\main\java\com\sgic\hrm\commons\repository\SalaryChartRepository.java
+E:\HRM backend employee\zzzzzzzzzzz\hrm-system\hrm-commons\src\main\java\com\sgic\hrm\commons\dto\BenefitsAllowancesDto.java
+E:\HRM backend employee\zzzzzzzzzzz\hrm-system\hrm-commons\src\main\java\com\sgic\hrm\commons\entity\mapper\SalaryDetailsEntityMapper.java
+E:\HRM backend employee\zzzzzzzzzzz\hrm-system\hrm-commons\src\main\java\com\sgic\hrm\commons\repository\SalaryDetailsEmpViewRepository.java
+E:\HRM backend employee\zzzzzzzzzzz\hrm-system\hrm-commons\src\main\java\com\sgic\hrm\commons\dto\SalaryChartDto.java
+E:\HRM backend employee\zzzzzzzzzzz\hrm-system\hrm-commons\src\main\java\com\sgic\hrm\commons\exception\TestException.java
+E:\HRM backend employee\zzzzzzzzzzz\hrm-system\hrm-commons\src\main\java\com\sgic\hrm\commons\repository\UserRepository.java
+E:\HRM backend employee\zzzzzzzzzzz\hrm-system\hrm-commons\src\main\java\com\sgic\hrm\commons\entity\mapper\SalaryChartEntityMapper.java
+E:\HRM backend employee\zzzzzzzzzzz\hrm-system\hrm-commons\src\main\java\com\sgic\hrm\commons\App.java
+E:\HRM backend employee\zzzzzzzzzzz\hrm-system\hrm-commons\src\main\java\com\sgic\hrm\commons\repository\BenefitsAllowancesRepository.java
+E:\HRM backend employee\zzzzzzzzzzz\hrm-system\hrm-commons\src\main\java\com\sgic\hrm\commons\entity\SalaryDetailsEmpViewEntity.java
