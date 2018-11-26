@@ -14,8 +14,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.sgic.hrm.commons.dto.AcademicQualificationDTO;
+import com.sgic.hrm.commons.dto.mapper.AcademicQualificationDTOToAcademicQualification;
 import com.sgic.hrm.commons.entity.AcademicQualification;
+import com.sgic.hrm.commons.entity.ExamType;
+import com.sgic.hrm.commons.entity.User;
 import com.sgic.hrm.employee.service.AcademicQualificationService;
+import com.sgic.hrm.employee.service.ExamTypeService;
+import com.sgic.hrm.employee.service.UserService;
 
 
 @CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
@@ -23,12 +29,20 @@ import com.sgic.hrm.employee.service.AcademicQualificationService;
 public class AcademicQualificationController{
 	@Autowired
 	private AcademicQualificationService academicQualificationService;
+	@Autowired
+	private UserService userService;
+	@Autowired
+	private ExamTypeService examTypeService;
 	
 	@PostMapping("/academicQualification")
-	public HttpStatus createAcademicQualification(@Valid @RequestBody AcademicQualification academicqualification)
-	{
-		boolean test=academicQualificationService.addAcademicQualification(academicqualification);
-				if (test) {
+	public HttpStatus addAcademicQualification(@Valid @RequestBody AcademicQualificationDTO academicQualificationDTO) {
+		User userobj=userService.findByUserId(academicQualificationDTO.getUserId());
+		ExamType examTypeObj=examTypeService.findByExamTypeId(academicQualificationDTO.getExamTypeId());
+		
+		AcademicQualification academicQualification=AcademicQualificationDTOToAcademicQualification.map(academicQualificationDTO);
+		
+		boolean test = academicQualificationService.addAcademicQualification(academicQualification, examTypeObj,userobj);
+		if (test) {
 			return HttpStatus.CREATED;
 		}
 		return HttpStatus.BAD_REQUEST;

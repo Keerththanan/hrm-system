@@ -5,8 +5,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.sgic.hrm.commons.entity.AcademicQualification;
+import com.sgic.hrm.commons.entity.ExamType;
 import com.sgic.hrm.commons.entity.User;
 import com.sgic.hrm.commons.repository.AcademicQualificationRepository;
+import com.sgic.hrm.commons.repository.ExamTypeRepository;
 import com.sgic.hrm.commons.repository.UserRepository;
 import com.sgic.hrm.employee.service.AcademicQualificationService;
 
@@ -17,11 +19,9 @@ public class AcademicQualificationServiceImpl implements AcademicQualificationSe
 	private AcademicQualificationRepository academicQualificationRepository;
 	@Autowired
 	private UserRepository userRepository;
-	@Override
-	public boolean addAcademicQualification(AcademicQualification academicqualification) {
-		academicQualificationRepository.save(academicqualification);
-		return true;
-	}
+	@Autowired
+	private ExamTypeRepository examTypeRepository;
+	
 	
 	@Override
 	public List<AcademicQualification> getAllAcademicQualification() {
@@ -62,6 +62,14 @@ public class AcademicQualificationServiceImpl implements AcademicQualificationSe
 		User userObj=userRepository.findUserById(uid);
 		
 		return academicQualificationRepository.findByUserId(userObj);
+	}
+
+	@Override
+	public boolean addAcademicQualification(AcademicQualification academicqualification, ExamType examType, User user) {
+		academicqualification.setUserId(user);
+		academicqualification.setExamTypeId(examType);
+		academicQualificationRepository.save(academicqualification);
+		return true;
 	}
 	
 }

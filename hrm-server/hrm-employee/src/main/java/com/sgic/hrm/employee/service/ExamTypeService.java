@@ -9,4 +9,5 @@ import com.sgic.hrm.commons.entity.ExamType;
 public interface ExamTypeService {
 	boolean addExamType(ExamType examtype);
 	List<ExamType>getAllExamType();
+	ExamType findByExamTypeId(Integer id);
 }
