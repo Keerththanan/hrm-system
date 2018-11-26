@@ -64,5 +64,5 @@ public class UserController {
 			return HttpStatus.ACCEPTED;
 		}
 		return HttpStatus.BAD_REQUEST;
-	}
+	} 
 }

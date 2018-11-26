@@ -34,7 +34,7 @@ public class DepartmentController {
 		return HttpStatus.BAD_REQUEST;
 	}
 
-
+ 
 	@GetMapping("/department")
 	public ResponseEntity <List<Department>> GetDepartment()
 	{

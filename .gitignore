@@ -1,5 +1,9 @@
 /hrm-commons/target/
+<<<<<<< HEAD
 
+=======
+/bin/
+>>>>>>> c99bfbc13f90d647e184d869a14b1582f659817e
 .settings
 
 !.mvn/wrapper/maven-wrapper.jar

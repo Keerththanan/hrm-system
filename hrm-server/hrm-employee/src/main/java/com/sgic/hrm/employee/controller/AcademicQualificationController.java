@@ -35,7 +35,7 @@ public class AcademicQualificationController {
 
   }
 
-
+ 
   // get details of leave request by user id
   // @GetMapping("/leaverequest/user/{userId}")
   // public ResponseEntity<List<LeaveRequest>> findLeaveRequestByUserId(@PathVariable("userId")
