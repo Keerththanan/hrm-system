@@ -6,5 +6,5 @@ import com.sgic.hrm.commons.entity.User;
 
 
 public interface UserRepository extends JpaRepository<User, Integer>{
-	User findById(int id);
+
 }

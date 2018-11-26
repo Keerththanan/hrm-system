@@ -6,6 +6,5 @@ import com.sgic.hrm.commons.entity.Designation;
 
 
 public interface DesignationRepository extends JpaRepository<Designation, Integer> {
-	Designation findById(int id);
-	Designation findByDesignationName(String designationName);
+	
 }

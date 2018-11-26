@@ -26,10 +26,4 @@ public class DesignationServiceImpl implements DesignationService{
 		
 		return designationRepository.findAll();
 	}
-	@Override
-	public Designation getDesignationById(int id) {
-		// TODO Auto-generated method stub
-
-		return designationRepository.findById(id);
-	}
 }

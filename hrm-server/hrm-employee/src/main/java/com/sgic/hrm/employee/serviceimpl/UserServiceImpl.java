@@ -46,10 +46,5 @@ public class UserServiceImpl implements UserService {
 		return false;
 	}
 	
-	@Override
-	public User getUserById(int id) {
-		// TODO Auto-generated method stub
 
-		return userRepository.findById(id);
-	}
 }
