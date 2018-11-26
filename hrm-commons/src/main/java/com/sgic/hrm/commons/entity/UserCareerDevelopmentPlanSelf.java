@@ -1,61 +1,64 @@
 package com.sgic.hrm.commons.entity;
 
 import java.io.Serializable;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
-public class UserCareerDevelopmentPlanSelf implements Serializable{
+public class UserCareerDevelopmentPlanSelf implements Serializable {
 
-  /**
-   * 
-   */
-  private static final long serialVersionUID = 1917334021724684496L;
-  @Id
-  @GeneratedValue(strategy=GenerationType.IDENTITY)
-  private Integer id;
-//  @ManyToOne(cascade= {CascadeType.PERSIST})
-//  @JoinColumn(name="cdp_Id")
-  private String cdpName;
-  
-//  @ManyToOne(cascade= {CascadeType.PERSIST})
-//  @JoinColumn(name="user_Id")
-  private String userName;
-  private String status;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1917334021724684496L;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
+	@ManyToOne(cascade = { CascadeType.PERSIST })
+	@JoinColumn(name = "cdp_Id")
+	private CareerDevelopmentPlan cdpName;
 
-  public Integer getId() {
-    return id;
-  }
+	@ManyToOne(cascade = { CascadeType.PERSIST })
+	@JoinColumn(name = "cdp_Id")
+	private User userName;
+	private String status;
 
-  public void setId(Integer id) {
-    this.id = id;
-  }
+	public Integer getId() {
+		return id;
+	}
 
-  
-  public String getCdpName() {
-    return cdpName;
-  }
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
-  public void setCdpName(String cdpName) {
-    this.cdpName = cdpName;
-  }
+	public CareerDevelopmentPlan getCdpName() {
+		return cdpName;
+	}
 
-  public String getUserName() {
-    return userName;
-  }
+	public void setCdpName(CareerDevelopmentPlan cdpName) {
+		this.cdpName = cdpName;
+	}
 
-  public void setUserName(String userName) {
-    this.userName = userName;
-  }
+	public User getUserName() {
+		return userName;
+	}
 
-  public String getStatus() {
-    return status;
-  }
+	public void setUserName(User userName) {
+		this.userName = userName;
+	}
 
-  public void setStatus(String status) {
-    this.status = status;
-  }
-  
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
 }

@@ -1,6 +1,6 @@
 package com.sgic.hrm.commons.dto;
 
-public class UserCareerDevelopmentSelfData {
+public class UserCareerDevelopmentPlanCompanyData {
 
 	Integer id;
     CareerDevelopmentPlanData cdpId;
@@ -30,6 +30,5 @@ public class UserCareerDevelopmentSelfData {
 	}
 	public void setStatus(String status) {
 		this.status = status;
-	}	
+	}
 }
-	
