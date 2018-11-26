@@ -4,6 +4,8 @@ import java.io.Serializable;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -17,10 +19,23 @@ public class RolesAndResponsibilites  implements Serializable{
 	private static final long serialVersionUID = 1L;
 	@Id
 	private Integer id;
+	
+	@ManyToOne
+	@JoinColumn(name="user_id")
 	private User userId;
+	
+	@ManyToOne
+	@JoinColumn(name="job_id")
 	private Job jobId;
+	
+	@ManyToOne
+	@JoinColumn(name="location_id")
 	private Location locatioId;
+	
+	@ManyToOne
+	@JoinColumn(name="key_activity_id")
 	private KeyActivity keyActivityId;
+	
 	private String responsibility;
 	private String overAllPurpose;
 	public Integer getId() {

@@ -5,7 +5,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.sgic.hrm.commons.entity.AcademicQualification;
+import com.sgic.hrm.commons.entity.ExamType;
+import com.sgic.hrm.commons.entity.User;
 import com.sgic.hrm.commons.repository.AcademicQualificationRepository;
+import com.sgic.hrm.commons.repository.ExamTypeRepository;
+import com.sgic.hrm.commons.repository.UserRepository;
 import com.sgic.hrm.employee.service.AcademicQualificationService;
 
 
@@ -13,12 +17,11 @@ import com.sgic.hrm.employee.service.AcademicQualificationService;
 public class AcademicQualificationServiceImpl implements AcademicQualificationService {
 	@Autowired
 	private AcademicQualificationRepository academicQualificationRepository;
+	@Autowired
+	private UserRepository userRepository;
+	@Autowired
+	private ExamTypeRepository examTypeRepository;
 	
-	@Override
-	public boolean addAcademicQualification(AcademicQualification academicqualification) {
-		academicQualificationRepository.save(academicqualification);
-		return true;
-	}
 	
 	@Override
 	public List<AcademicQualification> getAllAcademicQualification() {
@@ -51,6 +54,22 @@ public class AcademicQualificationServiceImpl implements AcademicQualificationSe
 	public AcademicQualification getAcademicQualificationById(int id) {
 		// TODO Auto-generated method stub
 		return academicQualificationRepository.getOne(id);
+	}
+
+	@Override
+	public List<AcademicQualification> getAcademicQualificationByUserId(Integer uid) {
+		// TODO Auto-generated method stub
+		User userObj=userRepository.findUserById(uid);
+		
+		return academicQualificationRepository.findByUserId(userObj);
+	}
+
+	@Override
+	public boolean addAcademicQualification(AcademicQualification academicqualification, ExamType examType, User user) {
+		academicqualification.setUserId(user);
+		academicqualification.setExamTypeId(examType);
+		academicQualificationRepository.save(academicqualification);
+		return true;
 	}
 	
 }

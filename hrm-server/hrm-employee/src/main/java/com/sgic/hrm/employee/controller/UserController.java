@@ -2,6 +2,7 @@ package com.sgic.hrm.employee.controller;
 
 import java.util.List;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -33,6 +34,12 @@ public class UserController {
 	
 	@GetMapping("/user")
 	public ResponseEntity<List<User>> GetUser() {
+		List<User> user = userService.getUser();
+		ResponseEntity<List<User>> response = new ResponseEntity<>(user, HttpStatus.OK);
+		return response;
+	}
+	@GetMapping("/user/{id}")
+	public ResponseEntity<List<User>> GetUserById() {
 		List<User> user = userService.getUser();
 		ResponseEntity<List<User>> response = new ResponseEntity<>(user, HttpStatus.OK);
 		return response;

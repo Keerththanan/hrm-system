@@ -3,9 +3,11 @@ package com.sgic.hrm.commons.repository;
 import java.sql.Date;
 import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 import org.springframework.data.jpa.repository.Query;
 import com.sgic.hrm.commons.entity.User;
 
+@Repository
 public interface UserRepository extends JpaRepository<User, Integer> {
 
   @Query("select usr from User as usr where usr.fullName LIKE '%'|| ?1 ||'%' ")
@@ -32,4 +34,5 @@ public interface UserRepository extends JpaRepository<User, Integer> {
 
 
 
+User findUserById(Integer id);
 }

@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.sgic.hrm.commons.entity.User;
 import com.sgic.hrm.commons.entity.WorkExperience;
 import com.sgic.hrm.commons.repository.WorkExperienceRepository;
 import com.sgic.hrm.employee.service.WorkExperienceService;
@@ -15,9 +16,10 @@ public class WorkExperienceServiceImpl implements WorkExperienceService{
 	private WorkExperienceRepository experienceRepository;
 
 	@Override
-	public boolean addWorkExperience(WorkExperience workExperience) {
-		
+	public boolean addWorkExperience(WorkExperience workExperience,User user) {
+		workExperience.setUserId(user);
 		experienceRepository.save(workExperience);
+		
 		return true;
 	}
 

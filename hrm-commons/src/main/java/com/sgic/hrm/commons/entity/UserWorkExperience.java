@@ -22,12 +22,12 @@ public class UserWorkExperience implements Serializable {
 	@Id
 	private Integer id;
 
-	@ManyToOne
-	@JoinColumn(name = "user_id")
-	private User userId;
-
-	@ManyToOne
-	@JoinColumn(name = "experience_id")
+//	@ManyToOne
+//	@JoinColumn(name = "user_id")
+//	private User userId;
+//
+//	@ManyToOne
+//	@JoinColumn(name = "experience_id")
 	private WorkExperience experienceId;
 	
 	public Integer getId() {
@@ -36,12 +36,12 @@ public class UserWorkExperience implements Serializable {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public User getUserId() {
-		return userId;
-	}
-	public void setUserId(User userId) {
-		this.userId = userId;
-	}
+//	public User getUserId() {
+//		return userId;
+//	}
+//	public void setUserId(User userId) {
+//		this.userId = userId;
+//	}
 	public WorkExperience getExperienceId() {
 		return experienceId;
 	}

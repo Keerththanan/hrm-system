@@ -27,5 +27,11 @@ public class ExamTypeServiceImpl implements ExamTypeService{
 		
 		return examTypeRepository.findAll();
 	}
+
+	@Override
+	public ExamType findByExamTypeId(Integer id) {
+		// TODO Auto-generated method stub
+		return examTypeRepository.findExamTypeById(id);
+	}
 	
 }

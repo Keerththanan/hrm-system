@@ -1,9 +1,7 @@
 package com.sgic.hrm.employee.controller;
 
 import java.util.List;
-
 import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,18 +14,25 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.sgic.hrm.commons.dto.RefereesDto;
+import com.sgic.hrm.commons.dto.mapper.RefeereeDtoToReferee;
 import com.sgic.hrm.commons.entity.Referee;
+import com.sgic.hrm.commons.entity.User;
 import com.sgic.hrm.employee.service.RefereeService;
+import com.sgic.hrm.employee.service.UserService;
 
-@CrossOrigin(origins= "",maxAge=3600)
+@CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
 @RestController
 public class RefereeController {
 	@Autowired
 	private RefereeService refereeService;
-	
+	@Autowired
+	private UserService userService;
 	@PostMapping("/referee")
-	public HttpStatus addReferee(@Valid @RequestBody Referee referee) {
-		boolean test = refereeService.addReferee(referee);
+	public HttpStatus addReferee(@Valid @RequestBody RefereesDto refereesDto) {
+		User userObj= userService.findByUserId(refereesDto.getUserId());
+		Referee referee=RefeereeDtoToReferee.map(refereesDto);
+		boolean test = refereeService.addReferee(referee ,userObj);
 		if (test) {
 			return HttpStatus.CREATED;
 		}
@@ -57,5 +62,11 @@ public class RefereeController {
 		}
 		return HttpStatus.BAD_REQUEST;
 	}
-	
+	@GetMapping("/referee/{uid}")
+	public  ResponseEntity<List<Referee>>findAcademicQualificationByUserId(@PathVariable("uid") Integer id)
+	{
+		List<Referee> 
+		referee = refereeService.getRefereeByUserId(id);
+		return new ResponseEntity<>(referee,HttpStatus.OK);
+	}
 }

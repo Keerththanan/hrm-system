@@ -9,8 +9,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 @SpringBootTest
 public class HrmEmployeeApplicationTests {
 
-	@Test
-	public void contextLoads() {
-	}
-
+	
 }
+	
+
