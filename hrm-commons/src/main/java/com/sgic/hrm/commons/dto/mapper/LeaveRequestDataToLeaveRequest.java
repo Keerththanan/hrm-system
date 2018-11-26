@@ -7,7 +7,8 @@ import com.sgic.hrm.commons.entity.LeaveRequest;
 
 public class LeaveRequestDataToLeaveRequest {
 
-  public static LeaveRequest mapToLeaveRequest(LeaveRequestData leaveRequestData) {
+
+public static LeaveRequest mapToLeaveRequest(LeaveRequestData leaveRequestData) {
     LeaveRequest leaveRequest = new LeaveRequest();
 
     if (leaveRequestData != null) {

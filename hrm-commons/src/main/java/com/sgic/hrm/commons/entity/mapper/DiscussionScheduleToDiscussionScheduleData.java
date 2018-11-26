@@ -12,6 +12,8 @@ public class DiscussionScheduleToDiscussionScheduleData {
     DiscussionScheduleData discussionScheduleData = new DiscussionScheduleData();
     if (discussionSchedule != null) {
       discussionScheduleData.setId(discussionSchedule.getId());
+      discussionScheduleData.setTime(discussionSchedule.getTime());
+      discussionScheduleData.setVenue(discussionSchedule.getVenue());
       discussionScheduleData.setTerminationRequest(TerminationRequestToTerminationRequestData
           .mapToTerminationRequestData(discussionSchedule.getTerminationRequest()));
     }

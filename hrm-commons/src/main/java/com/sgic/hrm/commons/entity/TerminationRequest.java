@@ -15,6 +15,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.sgic.hrm.commons.enums.Status;
+
 @Entity
 @Table(name = "termination_request", schema = "employee")
 public class TerminationRequest implements Serializable {
@@ -26,6 +28,9 @@ public class TerminationRequest implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	Integer id;
+	
+	@Column(name = "status")
+	Status status;
 
 	@Column(name = "planed_leaving_date")
 	Date planedLeavingDate;
@@ -50,6 +55,17 @@ public class TerminationRequest implements Serializable {
 
 	public void setId(Integer id) {
 		this.id = id;
+	}
+	
+
+	
+
+	public Status getStatus() {
+		return status;
+	}
+
+	public void setStatus(Status status) {
+		this.status = status;
 	}
 
 	public Date getPlanedLeavingDate() {

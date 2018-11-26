@@ -4,8 +4,10 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.sgic.hrm.commons.entity.TerminationRequest;
+import com.sgic.hrm.commons.enums.Status;
 import com.sgic.hrm.commons.repository.TerminationRequestRepository;
 import com.sgic.hrm.employee.service.TerminationRequestService;
+
 
 @Service
 public class TerminationRequestServiceImpl implements TerminationRequestService {
@@ -15,6 +17,7 @@ public class TerminationRequestServiceImpl implements TerminationRequestService 
 
   @Override
   public boolean addTerminationRequest(TerminationRequest terminationRequest) {
+	  terminationRequest.setStatus(Status.PENDING);
     terminationRequestRepository.save(terminationRequest);
     return true;
   }
@@ -41,8 +44,8 @@ public class TerminationRequestServiceImpl implements TerminationRequestService 
   }
 
   @Override
-  public TerminationRequest getById(Integer id) {
-    return terminationRequestRepository.findById(id).orElse(null);
+  public List<TerminationRequest> getPendingTerminationRequest() {
+    return terminationRequestRepository.findByStatus(Status.PENDING);
   }
 
 }

@@ -26,10 +26,10 @@ public class TerminationRequestController {
 	@Autowired
 	TerminationRequestService terminationRequestService;
 
-	@GetMapping("/terminationRequest/{id}")
-	public ResponseEntity<TerminationRequestData> getById(@PathVariable(name = "id") Integer id) {
+	@GetMapping("/terminationRequest/status")
+	public ResponseEntity<List<TerminationRequestData>> getByStatus() {
 		return new ResponseEntity<>(TerminationRequestToTerminationRequestData
-				.mapToTerminationRequestData(terminationRequestService.getById(id)), HttpStatus.OK);
+				.mapToTerminationRequestDataList(terminationRequestService.getPendingTerminationRequest()), HttpStatus.OK);
 	}
 
 	@GetMapping("/terminationRequest")

@@ -6,6 +6,8 @@ import com.sgic.hrm.commons.dto.TerminationRecordData;
 import com.sgic.hrm.commons.entity.TerminationRecord;
 
 public class TerminationRecordDataToTerminationRecord {
+	
+	
   
   public static TerminationRecord mapToTerminationRecord(TerminationRecordData terminationRecordData) {
     TerminationRecord terminationRecord = new TerminationRecord();

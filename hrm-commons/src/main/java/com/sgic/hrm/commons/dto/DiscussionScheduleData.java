@@ -2,12 +2,14 @@ package com.sgic.hrm.commons.dto;
 
 
 import java.util.Date;
+import java.util.List;
 
 public class DiscussionScheduleData {
   Integer id;
   TerminationRequestData terminationRequest;
   Date time;
   String venue;
+  List<DiscussionParticipantsData> discussionParticipants;
 
   public Integer getId() {
     return id;
@@ -42,5 +44,14 @@ public String getVenue() {
   public void setVenue(String venue) {
     this.venue = venue;
   }
+
+public List<DiscussionParticipantsData> getDiscussionParticipants() {
+	return discussionParticipants;
+}
+
+public void setDiscussionParticipants(List<DiscussionParticipantsData> discussionParticipants) {
+	this.discussionParticipants = discussionParticipants;
+}
+  
 
 }

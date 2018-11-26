@@ -5,88 +5,105 @@ import java.util.Date;
 import java.util.List;
 
 public class TerminationRecordData {
-  Integer id;
-  UserData employee;
-  TerminationTypeData terminationType;
-  String causeOfTermination;
-  String disciplinaryProcedures;
-  String legalStatus;
-  File exitInterview;
-  Date dateOfTermination;
-  List<AttachmentData> attachmentDatas;
+	Integer id;
+	UserData employee;
+	TerminationTypeData terminationType;
+	String causeOfTermination;
+	String disciplinaryProcedures;
+	String legalStatus;
+	File exitInterview;
+	Date dateOfTermination;
+	List<AttachmentData> attachmentDatas;
 
-  public Integer getId() {
-    return id;
-  }
+	
+	public TerminationRecordData() {
+	}
 
-  public void setId(Integer id) {
-    this.id = id;
-  }
+	public TerminationRecordData(Integer id, UserData employee, TerminationTypeData terminationType,
+			String causeOfTermination, String disciplinaryProcedures, String legalStatus, File exitInterview,
+			Date dateOfTermination, List<AttachmentData> attachmentDatas) {
+		super();
+		this.id = id;
+		this.employee = employee;
+		this.terminationType = terminationType;
+		this.causeOfTermination = causeOfTermination;
+		this.disciplinaryProcedures = disciplinaryProcedures;
+		this.legalStatus = legalStatus;
+		this.exitInterview = exitInterview;
+		this.dateOfTermination = dateOfTermination;
+		this.attachmentDatas = attachmentDatas;
+	}
 
-  public UserData getEmployee() {
-    return employee;
-  }
+	public Integer getId() {
+		return id;
+	}
 
-  public void setEmployee(UserData employee) {
-    this.employee = employee;
-  }
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
-  public TerminationTypeData getTerminationType() {
-    return terminationType;
-  }
+	public UserData getEmployee() {
+		return employee;
+	}
 
-  public void setTerminationType(TerminationTypeData terminationType) {
-    this.terminationType = terminationType;
-  }
+	public void setEmployee(UserData employee) {
+		this.employee = employee;
+	}
 
-  public String getCauseOfTermination() {
-    return causeOfTermination;
-  }
+	public TerminationTypeData getTerminationType() {
+		return terminationType;
+	}
 
-  public void setCauseOfTermination(String causeOfTermination) {
-    this.causeOfTermination = causeOfTermination;
-  }
+	public void setTerminationType(TerminationTypeData terminationType) {
+		this.terminationType = terminationType;
+	}
 
-  public String getDisciplinaryProcedures() {
-    return disciplinaryProcedures;
-  }
+	public String getCauseOfTermination() {
+		return causeOfTermination;
+	}
 
-  public void setDisciplinaryProcedures(String disciplinaryProcedures) {
-    this.disciplinaryProcedures = disciplinaryProcedures;
-  }
+	public void setCauseOfTermination(String causeOfTermination) {
+		this.causeOfTermination = causeOfTermination;
+	}
 
-  public String getLegalStatus() {
-    return legalStatus;
-  }
+	public String getDisciplinaryProcedures() {
+		return disciplinaryProcedures;
+	}
 
-  public void setLegalStatus(String legalStatus) {
-    this.legalStatus = legalStatus;
-  }
+	public void setDisciplinaryProcedures(String disciplinaryProcedures) {
+		this.disciplinaryProcedures = disciplinaryProcedures;
+	}
 
-  public File getExitInterview() {
-    return exitInterview;
-  }
+	public String getLegalStatus() {
+		return legalStatus;
+	}
 
-  public void setExitInterview(File exitInterview) {
-    this.exitInterview = exitInterview;
-  }
+	public void setLegalStatus(String legalStatus) {
+		this.legalStatus = legalStatus;
+	}
 
- public Date getDateOfTermination() {
-	return dateOfTermination;
-}
+	public File getExitInterview() {
+		return exitInterview;
+	}
 
- public void setDateOfTermination(Date dateOfTermination) {
-	this.dateOfTermination = dateOfTermination;
-}
+	public void setExitInterview(File exitInterview) {
+		this.exitInterview = exitInterview;
+	}
 
-public List<AttachmentData> getAttachmentDatas() {
-	return attachmentDatas;
-}
+	public Date getDateOfTermination() {
+		return dateOfTermination;
+	}
 
-public void setAttachmentDatas(List<AttachmentData> attachmentDatas) {
-	this.attachmentDatas = attachmentDatas;
-}
-  
-  
+	public void setDateOfTermination(Date dateOfTermination) {
+		this.dateOfTermination = dateOfTermination;
+	}
+
+	public List<AttachmentData> getAttachmentDatas() {
+		return attachmentDatas;
+	}
+
+	public void setAttachmentDatas(List<AttachmentData> attachmentDatas) {
+		this.attachmentDatas = attachmentDatas;
+	}
 
 }

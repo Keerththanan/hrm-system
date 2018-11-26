@@ -12,6 +12,7 @@ public class TerminationRequestToTerminationRequestData {
     TerminationRequestData terminationRequestData = new TerminationRequestData();
     if (terminationRequest != null) {
       terminationRequestData.setId(terminationRequest.getId());
+      terminationRequestData.setStatus(terminationRequest.getStatus());
       terminationRequestData.setPlanedLeavingDate(terminationRequest.getPlanedLeavingDate());
       terminationRequestData.setReason(terminationRequest.getReason());
       terminationRequestData.setResignationLetter(terminationRequest.getResignationLetter());

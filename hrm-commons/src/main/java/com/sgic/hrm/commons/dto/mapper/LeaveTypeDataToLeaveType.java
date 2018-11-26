@@ -7,7 +7,12 @@ import com.sgic.hrm.commons.entity.LeaveType;
 
 public class LeaveTypeDataToLeaveType {
 
-  public static LeaveType mapToLeaveType(LeaveTypeData leaveTypeData) {
+	
+  public LeaveTypeDataToLeaveType() {
+
+	}
+
+public static LeaveType mapToLeaveType(LeaveTypeData leaveTypeData) {
     LeaveType leaveType = new LeaveType();
 
     if (leaveTypeData != null) {

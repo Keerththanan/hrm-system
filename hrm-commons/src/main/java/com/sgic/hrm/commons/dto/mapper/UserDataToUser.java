@@ -7,8 +7,13 @@ import com.sgic.hrm.commons.entity.User;
 
 public class UserDataToUser {
 
+	
 
-  public static User mapToUser(UserData userData) {
+  public UserDataToUser() {
+
+	}
+
+public static User mapToUser(UserData userData) {
     User user = new User();
     if (userData != null) {
       user.setId(userData.getId());

@@ -3,6 +3,7 @@ package com.sgic.hrm.commons.dto.mapper;
 import java.util.ArrayList;
 import java.util.List;
 import com.sgic.hrm.commons.dto.DiscussionParticipantsData;
+import com.sgic.hrm.commons.dto.DiscussionScheduleData;
 import com.sgic.hrm.commons.entity.DiscussionParticipants;
 
 public class DiscussionParticipantsDataToDiscussionParticipants {
@@ -20,12 +21,11 @@ public class DiscussionParticipantsDataToDiscussionParticipants {
     return discussionParticipants;
   }
 
-  public static List<DiscussionParticipants> mapToDiscussionParticipantsList(
-      List<DiscussionParticipantsData> discussionParticipantsList) {
+  public static List<DiscussionParticipants> mapToDiscussionParticipantsList(DiscussionScheduleData discussionScheduleData ) {
     List<DiscussionParticipants> discussionParticipants = new ArrayList<DiscussionParticipants>();
 
-    if (discussionParticipantsList != null) {
-      for (DiscussionParticipantsData discussionParticipantsData : discussionParticipantsList) {
+    if (discussionScheduleData.getDiscussionParticipants() != null) {
+      for (DiscussionParticipantsData discussionParticipantsData : discussionScheduleData.getDiscussionParticipants()) {
         discussionParticipants.add(mapToDiscussionPaticipants(discussionParticipantsData));
       }
     }

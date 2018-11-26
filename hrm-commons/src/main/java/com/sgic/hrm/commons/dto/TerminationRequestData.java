@@ -3,8 +3,11 @@ package com.sgic.hrm.commons.dto;
 import java.io.File;
 import java.util.Date;
 
+import com.sgic.hrm.commons.enums.Status;
+
 public class TerminationRequestData {
   Integer id;
+  Status status;
   Date planedLeavingDate;
   String reason;
   File resignationLetter;
@@ -18,8 +21,15 @@ public class TerminationRequestData {
   public void setId(Integer id) {
     this.id = id;
   }
-  
-  public Date getPlanedLeavingDate() {
+ public Status getStatus() {
+	return status;
+ }
+
+ public void setStatus(Status status) {
+	this.status = status;
+ }
+
+ public Date getPlanedLeavingDate() {
     return planedLeavingDate;
   }
 
