@@ -51,4 +51,10 @@ public class LocationServiceImpl implements LocationService{
 		return true;
 	}
 
+	@Override
+	public Location findByLocationId(Integer id) {
+		// TODO Auto-generated method stub
+		return locationRepository.findLocationById(id);
+	}
+
 }

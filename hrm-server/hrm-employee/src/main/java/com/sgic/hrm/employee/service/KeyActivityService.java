@@ -13,4 +13,5 @@ public interface KeyActivityService {
 	boolean editKeyActivity(KeyActivity keyActivity,Integer id);
 	Optional<KeyActivity>getKeyActivityId(Integer id);
 	boolean deleteKeyActivity(Integer id);
+	KeyActivity findByActivityId(Integer keyActivityId);
 }

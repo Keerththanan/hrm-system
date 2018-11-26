@@ -7,7 +7,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.sgic.hrm.commons.entity.ParAppraisor;
-//import com.sgic.hrm.employee.service.ParAppraisorService;
+import com.sgic.hrm.employee.service.ParAppraisorService;
 
 
 @RunWith(SpringRunner.class)
@@ -15,10 +15,10 @@ import com.sgic.hrm.commons.entity.ParAppraisor;
 public class parAppraisorsTest {
 
 	@Autowired
-	//ParAppraisorService  parAppraisorService;
+	ParAppraisorService  parAppraisorService;
 	
 	@Test
 	public void saveParAppraisorTest() {
-		//parAppraisorService.createParAppraisor(new ParAppraisor(1,"appraisor1"));
+		parAppraisorService.createParAppraisor(new ParAppraisor(1,"appraisor1"));
 	}
 }

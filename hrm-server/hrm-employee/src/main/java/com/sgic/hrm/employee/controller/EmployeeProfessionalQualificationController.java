@@ -1,7 +1,9 @@
 package com.sgic.hrm.employee.controller;
 
 import java.util.List;
+
 import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,8 +15,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+
 import com.sgic.hrm.commons.dto.ProfessionalQualificationDto;
 import com.sgic.hrm.commons.entity.EmployeeProfessionalQualification;
+import com.sgic.hrm.commons.entity.ProfessionalQualification;
+import com.sgic.hrm.commons.entity.User;
 import com.sgic.hrm.employee.service.EmployeeProfessionalQualificationService;
 import com.sgic.hrm.employee.service.ProfessionalQualificationService;
 import com.sgic.hrm.employee.service.UserService;

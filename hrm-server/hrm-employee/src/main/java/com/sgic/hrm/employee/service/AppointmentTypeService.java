@@ -10,4 +10,5 @@ public interface AppointmentTypeService {
 //	boolean editDepartment(AppointmentType appointmentType,Integer id);
 //	Optional<AppointmentType> getAppointmentTypeId(Integer id);
 //	boolean deleteAppointmentType(Integer id);
+	public AppointmentType findByAppointmentTypeId(Integer id);
 }
