@@ -15,6 +15,6 @@ public interface ApplicantService {
 	   
 	   boolean deleteApplicant(Integer id);
 	   
-	   Applicant getById(Integer id);
+	 //  Applicant getById(Integer id);
 
 }

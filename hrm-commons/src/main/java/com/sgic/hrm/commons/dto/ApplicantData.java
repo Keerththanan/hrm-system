@@ -10,43 +10,40 @@ import com.sgic.hrm.commons.dto.DistrictData;
 public class ApplicantData {
 	
 	 Integer id;
-	 HighestQualificationData highestQualificationDataid;
-	 DistrictData districtDataid;
-	 JobData jobDataid;
+	 HighestQualificationData highestQualificationid;
+	 DistrictData districtid;
+	 JobData jobid;
 	 String fullName;
 	 String nic;
 	 String email;
 	 Date dateOfBirth;
 	 String address;
 	 File cvFile;
+	 
 	public Integer getId() {
 		return id;
 	}
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	
-	
-	
-	public HighestQualificationData getHighestQualificationDataid() {
-		return highestQualificationDataid;
+	public HighestQualificationData getHighestQualificationid() {
+		return highestQualificationid;
 	}
-	public void setHighestQualificationDataid(HighestQualificationData highestQualificationDataid) {
-		this.highestQualificationDataid = highestQualificationDataid;
+	public void setHighestQualificationid(HighestQualificationData highestQualificationid) {
+		this.highestQualificationid = highestQualificationid;
 	}
-	public JobData getJobDataid() {
-		return jobDataid;
+	public DistrictData getDistrictid() {
+		return districtid;
 	}
-	public void setJobDataid(JobData jobDataid) {
-		this.jobDataid = jobDataid;
+	public void setDistrictid(DistrictData districtid) {
+		this.districtid = districtid;
 	}
-	public DistrictData getDistrictDataid() {
-		return districtDataid;
+	public JobData getJobid() {
+		return jobid;
 	}
-	public void setDistrictDataid(DistrictData districtDataid) {
-		this.districtDataid = districtDataid;
+	public void setJobid(JobData jobid) {
+		this.jobid = jobid;
 	}
-	
 	public String getFullName() {
 		return fullName;
 	}
@@ -84,5 +81,5 @@ public class ApplicantData {
 		this.cvFile = cvFile;
 	}
 	
-
+	
 }
