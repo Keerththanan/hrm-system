@@ -28,39 +28,47 @@ public class RefereeController {
 	private RefereeService refereeService;
 	@Autowired
 	private UserService userService;
+
 	@PostMapping("/referee")
 	public HttpStatus addReferee(@Valid @RequestBody RefereesDto refereesDto) {
-		User userObj= userService.findByUserId(refereesDto.getUserId());
-		Referee referee=RefeereeDtoToReferee.map(refereesDto);
-		boolean test = refereeService.addReferee(referee ,userObj);
+		User userObj = userService.findByUserId(refereesDto.getUserId());
+		Referee referee = RefeereeDtoToReferee.map(refereesDto);
+		boolean test = refereeService.addReferee(referee, userObj);
 		if (test) {
 			return HttpStatus.CREATED;
 		}
 		return HttpStatus.BAD_REQUEST;
 	}
-	
+
 	@GetMapping("/referee")
-	public ResponseEntity<List<Referee>> GetReferee(){
-		List<Referee> referee=refereeService.getAllReferee();
-		ResponseEntity<List<Referee>> response=new ResponseEntity<>(referee,HttpStatus.OK);
+	public ResponseEntity<List<Referee>> GetReferee() {
+		List<Referee> referee = refereeService.getAllReferee();
+		ResponseEntity<List<Referee>> response = new ResponseEntity<>(referee, HttpStatus.OK);
 		return response;
 	}
+
 	@PutMapping("/referee/{id}")
-	public HttpStatus editReferee(@RequestBody Referee referee,@PathVariable("id") Integer id) {
-		boolean test = refereeService.editReferee(referee,id);
+	public HttpStatus editReferee(@RequestBody Referee referee, @PathVariable("id") Integer id) {
+		boolean test = refereeService.editReferee(referee, id);
 		if (test) {
 			return HttpStatus.ACCEPTED;
 		}
 		return HttpStatus.BAD_REQUEST;
 
 	}
+
 	@DeleteMapping("/referee/{id}")
 	public HttpStatus deleteReferee(@PathVariable("id") Integer Id) {
 		boolean test = refereeService.deleteReferee(Id);
-		if(test) {
+		if (test) {
 			return HttpStatus.ACCEPTED;
 		}
 		return HttpStatus.BAD_REQUEST;
 	}
-	
+
+	@GetMapping("/referee/{uid}")
+	public ResponseEntity<List<Referee>> findAcademicQualificationByUserId(@PathVariable("uid") Integer id) {
+		List<Referee> referee = refereeService.getRefereeByUserId(id);
+		return new ResponseEntity<>(referee, HttpStatus.OK);
+	}
 }

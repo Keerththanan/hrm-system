@@ -29,7 +29,7 @@ public class AcademicQualification implements Serializable{
 
 	@ManyToOne
 	@JoinColumn(name="user_id")
-	private User userId;
+	private User user;
 	
 	@ManyToOne
 	@JoinColumn(name = "exam_type_id")
@@ -57,12 +57,12 @@ public class AcademicQualification implements Serializable{
 
 	
 
-	public User getUserId() {
-		return userId;
+	public User getUser() {
+		return user;
 	}
 
-	public void setUserId(User userId) {
-		this.userId = userId;
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 	public ExamType getExamTypeId() {

@@ -15,4 +15,5 @@ public interface LocationService {
 	boolean editLocation(Location location,Integer id);
 	Optional<Location>getLocationId(Integer id);
 	boolean deleteLocation(Integer id);
+	Location findByLocationId(Integer id);
 }

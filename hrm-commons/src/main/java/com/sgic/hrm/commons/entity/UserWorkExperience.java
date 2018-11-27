@@ -6,7 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-@Entity
+@Entity 
 @Table(name="user_work_experience",schema="employee")
 
 public class UserWorkExperience implements Serializable {

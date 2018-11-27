@@ -9,5 +9,5 @@ import com.sgic.hrm.commons.entity.User;
 
 
 public interface AcademicQualificationRepository extends JpaRepository<AcademicQualification,Integer>{
-	List<AcademicQualification>findByUserId(User user);
+	List<AcademicQualification>findAcademicQualificationByUser(User user);
 }
