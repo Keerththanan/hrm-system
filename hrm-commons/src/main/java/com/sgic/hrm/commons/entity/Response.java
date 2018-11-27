@@ -2,7 +2,7 @@ package com.sgic.hrm.commons.entity;
 
 import java.io.Serializable;
 import java.time.LocalDate;
-import javax.persistence.CascadeType;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -25,11 +25,11 @@ public class Response implements Serializable {
   @JoinColumn(name = "self_service_id")
   private SelfService selfService;
   
-  @ManyToOne(cascade = CascadeType.ALL)
+  @ManyToOne
   @JoinColumn(name = "relevant_department_id")
   private Department relevantDepartment;
   
-  @ManyToOne(cascade = CascadeType.ALL)
+  @ManyToOne
   @JoinColumn(name = "relevant_individual_id")
   private User relevantIndividual;
   private String responseMessage;

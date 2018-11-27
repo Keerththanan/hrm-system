@@ -11,25 +11,30 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.sgic.hrm.commons.dto.DepartmentData;
+import com.sgic.hrm.commons.dto.mapper.DepartmentDataMapper;
 import com.sgic.hrm.commons.entity.Department;
 import com.sgic.hrm.employee.service.DepartmentService;
-
-
 @CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
+
+
 @RestController
 public class DepartmentController {
 	@Autowired
 	private DepartmentService departmentService;
 	
 	@PostMapping("/department")
-	public HttpStatus AddDepartment(@RequestBody Department department) 
+	public HttpStatus AddDepartment(@RequestBody DepartmentData departmentData) 
 	{
-		boolean testadd= departmentService.addDepartment(department);
+		boolean testadd= departmentService.addDepartment(DepartmentDataMapper.departmentDataMapper(departmentData));
+		
 		if(testadd) {
 			return HttpStatus.CREATED;
 		}
 		return HttpStatus.BAD_REQUEST;
 	}
+
+ 
 	@GetMapping("/department")
 	public ResponseEntity <List<Department>> GetDepartment()
 	{
@@ -39,4 +44,5 @@ public class DepartmentController {
 		return response;
 		
 	}
+	
 }
