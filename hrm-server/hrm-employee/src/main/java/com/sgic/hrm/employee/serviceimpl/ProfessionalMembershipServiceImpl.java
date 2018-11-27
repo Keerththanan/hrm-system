@@ -21,10 +21,9 @@ public class ProfessionalMembershipServiceImpl implements ProfessionalMembership
 	private UserRepository userRepository;
 	
 	@Override
-	public boolean addProfessionalMembership(ProfessionalMembership professionalMembership,User user) {
-		professionalMembership.setUserId(user);
+	public boolean addProfessionalMembership(ProfessionalMembership professionalMembership) {
 		professionalMembershipRepository.save(professionalMembership);
-		return true;
+		return false;
 	}
 
 	@Override

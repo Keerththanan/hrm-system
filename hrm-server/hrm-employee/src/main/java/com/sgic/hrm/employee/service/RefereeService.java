@@ -16,5 +16,4 @@ public interface RefereeService {
 	Optional<Referee> getRefereeById(int id);
 	boolean deleteReferee(int id);
 
-	List<Referee> getRefereeByUserId(Integer uid);
 }

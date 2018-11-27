@@ -6,7 +6,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.sgic.hrm.commons.entity.Appointment;
 import com.sgic.hrm.commons.entity.User;
+import com.sgic.hrm.commons.repository.AppointmentRepository;
 import com.sgic.hrm.commons.repository.UserRepository;
 import com.sgic.hrm.employee.service.DirectoryService;
 
@@ -14,42 +16,42 @@ import com.sgic.hrm.employee.service.DirectoryService;
 public class DirectoryServiceImpl implements DirectoryService {
 
 	@Autowired
-	private UserRepository userRepository;
+	private AppointmentRepository appointmentRepository;
 
 
 	@Override
-	public List<User> getUserByDesignationName(String designation) {
-		return userRepository.findAllUsersByDesignation(designation);
+	public List<Appointment> getUserByDesignationName(String designation) {
+		return appointmentRepository.findAllUsersByDesignation(designation);
 	}
 
 	@Override
-	public List<User> getUserByFullName(String name) {
-		return userRepository.findAllUsersByName(name);
+	public List<Appointment> getUserByFullName(String name) {
+		return appointmentRepository.findAllUsersByName(name);
 	}
 
 	@Override
-	public List<User> getUserByAppoinmentDateAndName(Date date, String name) {
-		return userRepository.findAllUsersByAppointmentDatenAndName(date, name);
+	public List<Appointment> getUserByAppoinmentDateAndName(Date date, String name) {
+		return appointmentRepository.findAllUsersByAppointmentDatenAndName(date, name);
 	}
 
 	@Override
-	public List<User> getUserByDesignationNameAndName(String designation, String name) {
-		return userRepository.findAllUsersByDesignationAndName(designation, name);
+	public List<Appointment> getUserByDesignationNameAndName(String designation, String name) {
+		return appointmentRepository.findAllUsersByDesignationAndName(designation, name);
 	}
 
 	@Override
-	public List<User> getUserByDesignationNameAndAppointmentDate(String designation, Date date) {
-		return userRepository.findAllUsersByDesignationAndAppointmentDate(designation , date);
+	public List<Appointment> getUserByDesignationNameAndAppointmentDate(String designation, Date date) {
+		return appointmentRepository.findAllUsersByDesignationAndAppointmentDate(designation , date);
 	}
 
 	@Override
-	public List<User> getUserByAllThreeFeilds(String name, Date date, String designation) {
-		return userRepository.findAllUsersByAppointmentDatenAndNameAndDesignation(date, name, designation);
+	public List<Appointment> getUserByAllThreeFeilds(String name, Date date, String designation) {
+		return appointmentRepository.findAllUsersByAppointmentDatenAndNameAndDesignation(date, name, designation);
 	}
 
 	@Override
-	public List<User> getUserByAppoinmentDate(Date date) {
-		return userRepository.findUsersByAppointmentDate(date);
+	public List<Appointment> getUserByAppoinmentDate(Date date) {
+		return appointmentRepository.findUsersByAppointmentDate(date);
 	}
 
 }

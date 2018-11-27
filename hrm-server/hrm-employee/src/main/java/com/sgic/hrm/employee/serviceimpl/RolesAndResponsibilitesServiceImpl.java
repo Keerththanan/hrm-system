@@ -6,11 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.sgic.hrm.commons.entity.Job;
-import com.sgic.hrm.commons.entity.KeyActivity;
-import com.sgic.hrm.commons.entity.Location;
 import com.sgic.hrm.commons.entity.RolesAndResponsibilites;
-import com.sgic.hrm.commons.entity.User;
 import com.sgic.hrm.commons.repository.RolesAndResponsibilityRepository;
 import com.sgic.hrm.employee.service.RolesAndResponsibilitiesService;
 
@@ -18,14 +14,8 @@ import com.sgic.hrm.employee.service.RolesAndResponsibilitiesService;
 public class RolesAndResponsibilitesServiceImpl implements RolesAndResponsibilitiesService {
 	@Autowired
 	private RolesAndResponsibilityRepository rolesAndResponsibilitesRepository;
-
 	@Override
-	public boolean addRolesAndResponsibilites(RolesAndResponsibilites rolesAndResponsibilites, Job job, User user,
-			KeyActivity keyActivity, Location location) {
-		rolesAndResponsibilites.setUserId(user);
-		rolesAndResponsibilites.setJobId(job);
-		rolesAndResponsibilites.setKeyActivityId(keyActivity);
-		rolesAndResponsibilites.setLocatioId(location);
+	public boolean addRolesAndResponsibilites(RolesAndResponsibilites rolesAndResponsibilites) {
 		rolesAndResponsibilitesRepository.save(rolesAndResponsibilites);
 		return true;
 	}
@@ -37,18 +27,20 @@ public class RolesAndResponsibilitesServiceImpl implements RolesAndResponsibilit
 
 	@Override
 	public boolean editRolesAndResponsibilites(RolesAndResponsibilites rolesAndResponsibilites, Integer id) {
-		if (rolesAndResponsibilitesRepository.getOne(id) != null) {
-			rolesAndResponsibilites.setId(id);
-			rolesAndResponsibilitesRepository.save(rolesAndResponsibilites);
-			return true;
-		}
-		return false;
+	if (rolesAndResponsibilitesRepository.getOne(id)!=null) {
+		rolesAndResponsibilites.setId(id);
+		rolesAndResponsibilitesRepository.save(rolesAndResponsibilites);
+		return true;
 	}
+	return false;
+	}
+
+	
 
 	@Override
 	public boolean deleteRolesAndResponsibilites(Integer id) {
-		if (rolesAndResponsibilitesRepository.getOne(id) != null) {
-
+		if (rolesAndResponsibilitesRepository.getOne(id)!=null) {
+			
 			rolesAndResponsibilitesRepository.deleteById(id);
 			return true;
 		}

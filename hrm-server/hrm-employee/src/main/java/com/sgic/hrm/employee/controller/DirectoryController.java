@@ -16,7 +16,9 @@ import org.springframework.web.bind.annotation.RestController;
 import com.sgic.hrm.commons.dto.DirectoryDto;
 import com.sgic.hrm.commons.dto.DirectorySearchDto;
 import com.sgic.hrm.commons.dto.mapper.EntityToDirectoryDto;
+import com.sgic.hrm.commons.entity.Appointment;
 import com.sgic.hrm.commons.entity.User;
+import com.sgic.hrm.employee.service.AppointmentService;
 import com.sgic.hrm.employee.service.DirectoryService;
 import com.sgic.hrm.employee.service.UserService;
 
@@ -25,7 +27,7 @@ import com.sgic.hrm.employee.service.UserService;
 public class DirectoryController {
 
 	@Autowired
-	private UserService userService;
+	private AppointmentService appointmentService;
 
 	@Autowired
 	private DirectoryService directoryService;
@@ -33,8 +35,8 @@ public class DirectoryController {
 	@GetMapping("/directory")
 	public List<DirectoryDto> getAllUserDetails() {
 		List<DirectoryDto> userDtoList = new ArrayList<>();
-		for (User user : userService.getUser()) {
-			DirectoryDto userDto = EntityToDirectoryDto.entityToUserDtoMapping(user);
+		for (Appointment apt : appointmentService.getAppointment()) {
+			DirectoryDto userDto = EntityToDirectoryDto.entityToUserDtoMapping(apt);
 			userDtoList.add(userDto);
 		}
 		return userDtoList;
@@ -48,28 +50,28 @@ public class DirectoryController {
 		Date date = directorySearchDto.getAppointmentDate();
 
 		List<DirectoryDto> userDtoList = new ArrayList<>();
-		List<User> users = new ArrayList<>();
+		List<Appointment> apoinment = new ArrayList<>();
 
 		if (name == null && designation == null && date == null) {
-			users =  userService.getUser();
+			apoinment =  appointmentService.getAppointment();
 		} else if (name != null && designation == null && date == null) {
-			users = directoryService.getUserByFullName(name);
+			apoinment = directoryService.getUserByFullName(name);
 		} else if (name == null && designation != null && date == null) {
-			users = directoryService.getUserByDesignationName(designation);
+			apoinment = directoryService.getUserByDesignationName(designation);
 		} else if (name == null && designation == null && date != null) {
-			users = directoryService.getUserByAppoinmentDate(date);
+			apoinment = directoryService.getUserByAppoinmentDate(date);
 		} else if (name != null && designation != null && date == null) {
-			users = directoryService.getUserByDesignationNameAndName(designation, name);
+			apoinment = directoryService.getUserByDesignationNameAndName(designation, name);
 		} else if (name != null && designation == null && date != null) {
-			users = directoryService.getUserByAppoinmentDateAndName(date, name);
+			apoinment = directoryService.getUserByAppoinmentDateAndName(date, name);
 		} else if (name == null && designation != null && date != null) {
-			users = directoryService.getUserByDesignationNameAndAppointmentDate(designation, date);
+			apoinment = directoryService.getUserByDesignationNameAndAppointmentDate(designation, date);
 		} else if (name != null && designation != null && date != null) {
-			users = directoryService.getUserByAllThreeFeilds(name, date, designation);
+			apoinment = directoryService.getUserByAllThreeFeilds(name, date, designation);
 		}
 
-		for (User user : users) {
-			DirectoryDto userDto = EntityToDirectoryDto.entityToUserDtoMapping(user);
+		for (Appointment aptmnt : apoinment) {
+			DirectoryDto userDto = EntityToDirectoryDto.entityToUserDtoMapping(aptmnt);
 			userDtoList.add(userDto);
 		}
 		

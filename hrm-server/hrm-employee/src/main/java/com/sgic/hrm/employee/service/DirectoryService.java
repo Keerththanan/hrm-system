@@ -2,18 +2,16 @@ package com.sgic.hrm.employee.service;
 
 import java.sql.Date;
 import java.util.List;
-
-import com.sgic.hrm.commons.dto.DirectoryDto;
-import com.sgic.hrm.commons.entity.User;
+import com.sgic.hrm.commons.entity.Appointment;
 
 public interface DirectoryService {
 
-	List<User> getUserByAppoinmentDate(Date date);
-	List<User> getUserByDesignationName(String designation);
-	List<User> getUserByFullName(String name);
+	List<Appointment> getUserByAppoinmentDate(Date date);
+	List<Appointment> getUserByDesignationName(String designation);
+	List<Appointment> getUserByFullName(String name);
 	
-	List<User> getUserByDesignationNameAndName(String designation, String name);
-	List<User> getUserByDesignationNameAndAppointmentDate(String designation,Date date);
-	List<User> getUserByAllThreeFeilds(String name,Date date,String designation);
-	List<User> getUserByAppoinmentDateAndName(Date date, String name);	
+	List<Appointment> getUserByDesignationNameAndName(String designation, String name);
+	List<Appointment> getUserByDesignationNameAndAppointmentDate(String designation,Date date);
+	List<Appointment> getUserByAllThreeFeilds(String name,Date date,String designation);
+	List<Appointment> getUserByAppoinmentDateAndName(Date date, String name);	
 }

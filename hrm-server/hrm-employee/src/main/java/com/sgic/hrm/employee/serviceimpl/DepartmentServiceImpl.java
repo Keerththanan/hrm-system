@@ -25,12 +25,6 @@ private DepartmentRepository departmentRepo;
 		return departmentRepo.findAll();
 	}
 
-	@Override
-	public Department findByDepartmentId(Integer id) {
-		return departmentRepo.findDepartmentById(id);
-			
-	}
-
 	
 	
 }

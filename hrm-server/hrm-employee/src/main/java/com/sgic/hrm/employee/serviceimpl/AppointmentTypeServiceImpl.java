@@ -26,12 +26,6 @@ public class AppointmentTypeServiceImpl implements AppointmentTypeService{
 	{
 		return appointmentTypeRepository.findAll();
 	}
-
-	@Override
-	public AppointmentType findByAppointmentTypeId(Integer id) {
-		// TODO Auto-generated method stub
-		return appointmentTypeRepository.findAppointmentTypeById(id);
-	}
 	
 	
 }
