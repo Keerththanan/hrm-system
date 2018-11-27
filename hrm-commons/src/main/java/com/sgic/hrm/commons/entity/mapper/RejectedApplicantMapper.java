@@ -13,7 +13,7 @@ public class RejectedApplicantMapper {
 			rejectedApplicantData.setReason(rejectedApplicant.getReason());
 			
 			
-			rejectedApplicantData.setApplicantDataid(ApplicantMapper.applicantMapper(rejectedApplicant.getApplicantid()));
+			rejectedApplicantData.setApplicantid(ApplicantMapper.applicantMapper(rejectedApplicant.getApplicantid()));
 			
 			return rejectedApplicantData;
 		}

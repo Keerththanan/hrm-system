@@ -16,7 +16,7 @@ public class InterviewScheduleMapper {
 			interviewScheduleData.setInterviewTime(interviewSchedule.getInterviewTime());
 			interviewScheduleData.setInterviewDate(interviewSchedule.getInterviewDate());
 			
-			interviewScheduleData.setApplicantDataid(ApplicantMapper.applicantMapper(interviewSchedule.getApplicantid()));
+			interviewScheduleData.setApplicantid(ApplicantMapper.applicantMapper(interviewSchedule.getApplicantid()));
 			
 			return interviewScheduleData;
 		}
