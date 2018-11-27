@@ -1,5 +1,4 @@
 package com.sgic.hrm.commons.entity;
-
 import java.io.Serializable;
 
 import javax.persistence.Entity;
