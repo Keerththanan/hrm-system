@@ -25,9 +25,9 @@ public class RolesAndResponsibilitesServiceImpl implements RolesAndResponsibilit
 	public boolean addRolesAndResponsibilites(RolesAndResponsibilites rolesAndResponsibilites, Job job, User user,
 			KeyActivity keyActivity, Location location) {
 		rolesAndResponsibilites.setUser(user);
-		rolesAndResponsibilites.setJobId(job);
-		rolesAndResponsibilites.setKeyActivityId(keyActivity);
-		rolesAndResponsibilites.setLocatioId(location);
+		rolesAndResponsibilites.setJob(job);
+		rolesAndResponsibilites.setKeyActivity(keyActivity);
+		rolesAndResponsibilites.setLocation(location);
 		rolesAndResponsibilitesRepository.save(rolesAndResponsibilites);
 		return true;
 	}

@@ -40,7 +40,6 @@ public class RefereeServiceImpl implements RefereeService {
 			referee.setId(id);
 			refereeRepository.save(referee);
 			return true;
-			
 		}
 		return false;
 	}
@@ -66,5 +65,4 @@ public class RefereeServiceImpl implements RefereeService {
 		
 		return refereeRepository.findRefereeByUser(userObj);
 	}
-
 }
