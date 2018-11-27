@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.sgic.hrm.commons.entity.ParContent;
-import com.sgic.hrm.employee.service.ParContentService;
+import com.sgic.hrm.commons.entity.par.ParContent;
+import com.sgic.hrm.employee.par.service.ParContentService;
 
 
 

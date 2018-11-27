@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.sgic.hrm.commons.entity.ParAppraisor;
-import com.sgic.hrm.employee.service.ParAppraisorService;
+import com.sgic.hrm.commons.entity.par.ParAppraisor;
+import com.sgic.hrm.employee.par.service.ParAppraisorService;
 
 
 @RunWith(SpringRunner.class)

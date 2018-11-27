@@ -9,10 +9,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.sgic.hrm.commons.dto.ScheduleParAppraisorsDTO;
-import com.sgic.hrm.commons.dto.ScheduleParContentDTO;
-import com.sgic.hrm.commons.entity.Par;
-import com.sgic.hrm.employee.serviceExtended.ParScheduleService;
+import com.sgic.hrm.commons.dto.par.ScheduleParAppraisorsDTO;
+import com.sgic.hrm.commons.dto.par.ScheduleParContentDTO;
+import com.sgic.hrm.commons.entity.par.Par;
+import com.sgic.hrm.employee.par.serviceCombined.ParScheduleService;
 
 
 @RunWith(SpringRunner.class)

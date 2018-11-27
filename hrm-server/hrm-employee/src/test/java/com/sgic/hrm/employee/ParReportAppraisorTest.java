@@ -9,9 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.sgic.hrm.commons.entity.ReportParAppraisor;
-import com.sgic.hrm.commons.entity.ScoreParAppraisor;
-import com.sgic.hrm.employee.service.ParReportForAppraisorService;
+import com.sgic.hrm.commons.entity.par.ReportParAppraisor;
+import com.sgic.hrm.commons.entity.par.ScoreParAppraisor;
+import com.sgic.hrm.employee.par.service.ParReportForAppraisorService;
 
 
 @RunWith(SpringRunner.class)
