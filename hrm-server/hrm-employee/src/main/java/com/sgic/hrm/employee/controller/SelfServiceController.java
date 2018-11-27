@@ -58,9 +58,8 @@ public class SelfServiceController {
 
   @PutMapping("/selfservice/{id}")
   public HttpStatus modifySelfService(@PathVariable Integer id,
-      @RequestBody SelfServiceSaveDto selfServiceSaveDto) {
-    boolean test = selfServiceService.editSelfService(
-        SelfServiceDtoMapper.mapSelfServiceSaveDtoToSelfService(selfServiceSaveDto), id);
+      @RequestBody SelfServiceDto selfServiceDto) {
+    boolean test = selfServiceService.editSelfService(SelfServiceDtoMapper.mapSelfServiceDtoToSelfService(selfServiceDto), id);
     if (test) {
       return HttpStatus.ACCEPTED;
     }

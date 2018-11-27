@@ -1,5 +1,6 @@
 package com.sgic.hrm.commons.dto.mapper;
 
+import com.sgic.hrm.commons.dto.SelfServiceDto;
 import com.sgic.hrm.commons.dto.SelfServiceSaveDto;
 import com.sgic.hrm.commons.entity.Department;
 import com.sgic.hrm.commons.entity.SelfService;
@@ -15,9 +16,10 @@ public class SelfServiceDtoMapper {
     User user = new User();
     User relevantUser = new User();
     
-    selfServiceType.setId(selfServiceSaveDto.getId());
+    selfServiceType.setId(selfServiceSaveDto.getSelfServiceType());
     relevantDepartment.setId(selfServiceSaveDto.getRelevantDepartment());
     user.setId(selfServiceSaveDto.getUser());
+    relevantUser.setId(selfServiceSaveDto.getRelevantIndividual());
     
     selfService.setId(selfServiceSaveDto.getId());
     selfService.setSelfServiceType(selfServiceType);
@@ -34,4 +36,22 @@ public class SelfServiceDtoMapper {
     return selfService;
   }
   
+  
+  public static SelfService mapSelfServiceDtoToSelfService(SelfServiceDto selfServiceDto) {
+	    SelfService selfService = new SelfService();
+	    
+	    selfService.setId(selfServiceDto.getId());
+	    selfService.setSelfServiceType(selfServiceDto.getSelfServiceType());
+	    selfService.setUser(selfServiceDto.getUser());
+	    selfService.setRelevantDepartment(selfServiceDto.getRelevantDepartment());
+	    selfService.setRelevantIndividual(selfServiceDto.getRelevantIndividual());
+	    selfService.setInformIndividual(selfService.isInformIndividual());
+	    selfService.setDescription(selfServiceDto.getDescription());
+	    selfService.setAttachment(selfServiceDto.getAttachment());
+	    selfService.setCreatedAt(selfServiceDto.getCreatedAt());
+	    selfService.setStatus(selfServiceDto.getStatus());
+	    selfService.setMessage(selfServiceDto.getMessage());
+	    
+	    return selfService;
+	  }
 }
