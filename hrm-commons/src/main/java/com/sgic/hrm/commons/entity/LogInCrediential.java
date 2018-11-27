@@ -11,7 +11,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "login_crediential", schema = "employee")
+@Table(name ="login_crediential", schema = "employee")
 
 public class LogInCrediential implements Serializable {
 

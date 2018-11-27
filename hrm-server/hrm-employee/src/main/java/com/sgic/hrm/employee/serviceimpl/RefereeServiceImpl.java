@@ -64,7 +64,7 @@ public class RefereeServiceImpl implements RefereeService {
 	public List<Referee> getRefereeByUserId(Integer uid) {
 	User userObj =userRepository.findUserById(uid);
 		
-		return refereeRepository.findRefereeByUserId(userObj);
+		return refereeRepository.findRefereeByUser(userObj);
 	}
 
 }
