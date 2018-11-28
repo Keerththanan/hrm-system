@@ -26,8 +26,8 @@ public class UserController {
 	private UserService userService;
 	
 	@PostMapping("/user")
-	public HttpStatus AddUser(@RequestBody UserData userData) {
-		boolean test = userService.addUser(UserDataMapper.userDataMapper(userData));
+	public HttpStatus AddUser(@RequestBody User user) {
+		boolean test = userService.addUser(user);
 		if (test) {
 			return HttpStatus.CREATED;
 		}
