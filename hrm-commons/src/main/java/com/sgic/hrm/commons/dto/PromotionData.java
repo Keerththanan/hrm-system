@@ -1,11 +1,13 @@
 package com.sgic.hrm.commons.dto;
 
+import java.sql.Date;
+
 public class PromotionData {
 	
 	private Integer id;
 	private int requestId;
 	private int designationId;
-	private int promotedDate;
+	private Date promotedDate;
 	private String remark;
 	private int salary;
 	private int promotedBy;
@@ -28,10 +30,10 @@ public class PromotionData {
 	public void setDesignationId(int designationId) {
 		this.designationId = designationId;
 	}
-	public int getPromotedDate() {
+	public Date getPromotedDate() {
 		return promotedDate;
 	}
-	public void setPromotedDate(int promotedDate) {
+	public void setPromotedDate(Date promotedDate) {
 		this.promotedDate = promotedDate;
 	}
 	public String getRemark() {

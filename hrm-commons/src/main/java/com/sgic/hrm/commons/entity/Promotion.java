@@ -1,12 +1,15 @@
 package com.sgic.hrm.commons.entity;
 
 import java.io.Serializable;
+import java.sql.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import org.springframework.data.annotation.CreatedDate;
 
 @Entity
 @Table
@@ -25,7 +28,8 @@ public class Promotion implements Serializable {
 	
 	private int requestId;
 	private int designationId;
-	private int promotedDate;
+	@CreatedDate
+	private Date promotedDate;
 	private String remark;
 	private int salary;
 	private int promotedBy;
@@ -47,10 +51,10 @@ public class Promotion implements Serializable {
 	public void setDesignationId(int designationId) {
 		this.designationId = designationId;
 	}
-	public int getPromotedDate() {
+	public Date getPromotedDate() {
 		return promotedDate;
 	}
-	public void setPromotedDate(int promotedDate) {
+	public void setPromotedDate(Date promotedDate) {
 		this.promotedDate = promotedDate;
 	}
 	public String getRemark() {
