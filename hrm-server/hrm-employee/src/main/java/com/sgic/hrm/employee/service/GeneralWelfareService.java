@@ -6,12 +6,14 @@ import com.sgic.hrm.commons.entity.GeneralWelfare;
 
 public interface GeneralWelfareService {
 
-	public List<GeneralWelfare> getGeneralWelfare();
+	public List<GeneralWelfare> getAllGeneralWelfare();
 
-	public void createGeneralWelfare(GeneralWelfare generalWelfare);
+	public boolean createGeneralWelfare(GeneralWelfare generalWelfare);
 
-	public void updateGeneralWelfare(GeneralWelfare generalWelfare, Integer id);
+	public boolean updateGeneralWelfare(GeneralWelfare generalWelfare, Integer id);
 
-	public void deleteGeneralWelfare(Integer id);
+	public boolean deleteGeneralWelfare(Integer id);
+	
+	public GeneralWelfare getById(Integer id);
 
 }
