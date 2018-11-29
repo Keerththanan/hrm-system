@@ -22,19 +22,19 @@ public class RolesAndResponsibilites  implements Serializable{
 	
 	@ManyToOne
 	@JoinColumn(name="user_id")
-	private User userId;
+	private User user;
 	
 	@ManyToOne
 	@JoinColumn(name="job_id")
-	private Job jobId;
+	private Job job;
 	
 	@ManyToOne
 	@JoinColumn(name="location_id")
-	private Location locatioId;
+	private Location location;
 	
 	@ManyToOne
 	@JoinColumn(name="key_activity_id")
-	private KeyActivity keyActivityId;
+	private KeyActivity keyActivity;
 	
 	private String responsibility;
 	private String overAllPurpose;
@@ -44,29 +44,31 @@ public class RolesAndResponsibilites  implements Serializable{
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public User getUserId() {
-		return userId;
+	
+	public User getUser() {
+		return user;
 	}
-	public void setUserId(User userId) {
-		this.userId = userId;
+	public void setUser(User user) {
+		this.user = user;
 	}
-	public Job getJobId() {
-		return jobId;
+	
+	public Job getJob() {
+		return job;
 	}
-	public void setJobId(Job jobId) {
-		this.jobId = jobId;
+	public void setJob(Job job) {
+		this.job = job;
 	}
-	public Location getLocatioId() {
-		return locatioId;
+	public Location getLocation() {
+		return location;
 	}
-	public void setLocatioId(Location locatioId) {
-		this.locatioId = locatioId;
+	public void setLocation(Location location) {
+		this.location = location;
 	}
-	public KeyActivity getKeyActivityId() {
-		return keyActivityId;
+	public KeyActivity getKeyActivity() {
+		return keyActivity;
 	}
-	public void setKeyActivityId(KeyActivity keyActivityId) {
-		this.keyActivityId = keyActivityId;
+	public void setKeyActivity(KeyActivity keyActivity) {
+		this.keyActivity = keyActivity;
 	}
 	public String getResponsibility() {
 		return responsibility;

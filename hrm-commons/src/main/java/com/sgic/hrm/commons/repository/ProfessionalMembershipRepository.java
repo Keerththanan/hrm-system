@@ -10,5 +10,5 @@ import com.sgic.hrm.commons.entity.User;
 
 @Repository
 public interface ProfessionalMembershipRepository extends JpaRepository<ProfessionalMembership, Integer> {
-	List<ProfessionalMembership>findByUserId(User user);
+	List<ProfessionalMembership>findByUser(User user);
 }

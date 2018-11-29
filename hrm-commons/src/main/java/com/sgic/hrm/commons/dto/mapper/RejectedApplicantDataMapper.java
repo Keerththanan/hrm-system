@@ -15,7 +15,7 @@ public RejectedApplicantDataMapper() {
 		rejectedApplicant.setReason(rejectedApplicantData.getReason());
 		
 	    
-		rejectedApplicant.setApplicantid(ApplicantDataMapper.applicantDataMapper(rejectedApplicantData.getApplicantDataid()));
+		rejectedApplicant.setApplicantid(ApplicantDataMapper.applicantDataMapper(rejectedApplicantData.getApplicantid()));
 	    
 		
 	    return rejectedApplicant;

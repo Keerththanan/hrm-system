@@ -48,10 +48,10 @@ public class ApplicantServiceImpl implements ApplicantService {
 		return false;
 	}
 
-	@Override
-	public Applicant getById(Integer id) {
-		return applicantRepository.getOne(id);
-	}
+//	@Override
+//	public Applicant getById(Integer id) {
+//		return applicantRepository.getOne(id);
+//	}
 
 
 

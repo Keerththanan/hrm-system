@@ -8,6 +8,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+
 import javax.persistence.Table;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -20,6 +24,12 @@ public class User implements Serializable {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Integer id;
   private String fullName;
+
+  
+	@OneToOne
+	@JoinColumn(name = "appintment_id")
+	private Appointment appointmentId;
+
   private String gender;
   private String telephoneNumber;
   private String mobileNumber;
@@ -40,6 +50,16 @@ public class User implements Serializable {
 
   @UpdateTimestamp
   private Date updateAt;
+
+
+  public Appointment getAppointmentId() {
+		return appointmentId;
+	}
+
+	public void setAppointmentId(Appointment appointmentId) {
+		this.appointmentId = appointmentId;
+	}
+	
 
   public Integer getId() {
     return id;

@@ -51,6 +51,13 @@ public class ProfessionalQualificationController {
 		ResponseEntity<List<ProfessionalQualification>> response=new ResponseEntity<>(professionalQualifications,HttpStatus.OK);
 		return response;
 	}
+	@GetMapping("/professionalQualification/{uid}")
+	public  ResponseEntity<List<ProfessionalQualification>>findProfessionalQualificationByUserId(@PathVariable("uid") Integer id)
+	{
+		List<ProfessionalQualification> 
+		professionalQualifications = professionalQualificationService.getProfessionalQualificationByUserId(id);
+		return new ResponseEntity<>(professionalQualifications,HttpStatus.OK);
+	}
 	@PutMapping("/professionalQualification/{id}")
 	public HttpStatus ModifyProfessionalQualification(@PathVariable Integer id,@RequestBody ProfessionalQualification professionalQualification) {
 		boolean editTest=professionalQualificationService.editProfessionalQualification(professionalQualification, id);
@@ -68,4 +75,5 @@ public class ProfessionalQualificationController {
 		}
 		return HttpStatus.BAD_REQUEST;
 	}
+	
 }

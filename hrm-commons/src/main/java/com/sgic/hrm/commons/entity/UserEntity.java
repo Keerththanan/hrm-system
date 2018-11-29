@@ -14,7 +14,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="user",schema="employee")
+@Table(name="user_entity",schema="employee")
 public class UserEntity implements Serializable{
 	/**
 	 * 
