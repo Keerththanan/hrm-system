@@ -25,9 +25,7 @@ public class Applicant implements Serializable {
 	@ManyToOne
 	@JoinColumn(name="highestQualification_id")
 	private HighestQualification highestQualificationid;
-	@ManyToOne
-	@JoinColumn(name="district_id")
-	private District districtid;
+	
 	@ManyToOne
 	@JoinColumn(name="job_id")
 	private Job jobid;
@@ -49,12 +47,7 @@ public class Applicant implements Serializable {
 	public void setHighestQualificationid(HighestQualification highestQualificationid) {
 		this.highestQualificationid = highestQualificationid;
 	}
-	public District getDistrictid() {
-		return districtid;
-	}
-	public void setDistrictid(District districtid) {
-		this.districtid = districtid;
-	}
+	
 	public Job getJobid() {
 		return jobid;
 	}

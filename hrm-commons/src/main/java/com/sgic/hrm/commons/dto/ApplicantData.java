@@ -11,7 +11,7 @@ public class ApplicantData {
 	
 	 Integer id;
 	 HighestQualificationData highestQualificationid;
-	 DistrictData districtid;
+	 //DistrictData districtid;
 	 JobData jobid;
 	 String fullName;
 	 String nic;
@@ -31,12 +31,6 @@ public class ApplicantData {
 	}
 	public void setHighestQualificationid(HighestQualificationData highestQualificationid) {
 		this.highestQualificationid = highestQualificationid;
-	}
-	public DistrictData getDistrictid() {
-		return districtid;
-	}
-	public void setDistrictid(DistrictData districtid) {
-		this.districtid = districtid;
 	}
 	public JobData getJobid() {
 		return jobid;

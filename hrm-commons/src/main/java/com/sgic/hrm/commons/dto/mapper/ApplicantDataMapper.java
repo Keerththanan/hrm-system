@@ -19,7 +19,7 @@ public ApplicantDataMapper() {
 		applicant.setCvFile(applicantData.getCvFile());
 	    
 		applicant.setHighestQualificationid(HighestQualificationDataMapper.highestQualificationDataMapper(applicantData.getHighestQualificationid()));
-		applicant.setDistrictid(DistrictDataMapper.districtDataMapper(applicantData.getDistrictid()));
+		//applicant.setDistrictid(DistrictDataMapper.districtDataMapper(applicantData.getDistrictid()));
 		applicant.setJobid(JobDataMapper.jobDataMapper(applicantData.getJobid()));
 		
 	    return applicant;
