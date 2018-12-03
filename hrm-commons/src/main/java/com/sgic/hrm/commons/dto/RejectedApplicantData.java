@@ -5,7 +5,7 @@ package com.sgic.hrm.commons.dto;
 public class RejectedApplicantData {
 	
 	private Integer id;
-	private ApplicantData applicantid;
+	private ApplicantData applicant;
 	private String reason;
 	public Integer getId() {
 		return id;
@@ -15,11 +15,12 @@ public class RejectedApplicantData {
 	}
 	
 	
-	public ApplicantData getApplicantid() {
-		return applicantid;
+	
+	public ApplicantData getApplicant() {
+		return applicant;
 	}
-	public void setApplicantid(ApplicantData applicantid) {
-		this.applicantid = applicantid;
+	public void setApplicant(ApplicantData applicant) {
+		this.applicant = applicant;
 	}
 	public String getReason() {
 		return reason;

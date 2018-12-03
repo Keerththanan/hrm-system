@@ -1,3 +1,4 @@
+
 package com.sgic.hrm.commons.entity.mapper;
 
 import com.sgic.hrm.commons.dto.RejectedApplicantData;
@@ -13,7 +14,7 @@ public class RejectedApplicantMapper {
 			rejectedApplicantData.setReason(rejectedApplicant.getReason());
 			
 			
-			rejectedApplicantData.setApplicantid(ApplicantMapper.applicantMapper(rejectedApplicant.getApplicantid()));
+			rejectedApplicantData.setApplicant(ApplicantMapper.applicantMapper(rejectedApplicant.getApplicant()));
 			
 			return rejectedApplicantData;
 		}

@@ -34,19 +34,19 @@ public class Vacancy implements Serializable{
 	
 	@ManyToOne
 	@JoinColumn(name = "user_id")
-	private User userid;
+	private User user;
 
 	@ManyToOne
 	@JoinColumn(name = "job_id")
-	private Job jobid;
+	private Job job;
 
 	@ManyToOne
 	@JoinColumn(name = "department_id")
-	private Department departmentid;
+	private Department department;
 
 	@ManyToOne
 	@JoinColumn(name = "recuitment_id")
-	private RecruitmentType recruitmentid;
+	private RecruitmentType recruitment;
 
 	public Integer getId() {
 		return id;
@@ -104,37 +104,39 @@ public class Vacancy implements Serializable{
 		this.keyRecuitment = keyRecuitment;
 	}
 
-	public User getUserid() {
-		return userid;
+	public User getUser() {
+		return user;
 	}
 
-	public void setUserid(User userid) {
-		this.userid = userid;
+	public void setUser(User user) {
+		this.user = user;
 	}
 
-	public Job getJobid() {
-		return jobid;
+	public Job getJob() {
+		return job;
 	}
 
-	public void setJobid(Job jobid) {
-		this.jobid = jobid;
+	public void setJob(Job job) {
+		this.job = job;
 	}
 
-	public Department getDepartmentid() {
-		return departmentid;
+	public Department getDepartment() {
+		return department;
 	}
 
-	public void setDepartmentid(Department departmentid) {
-		this.departmentid = departmentid;
+	public void setDepartment(Department department) {
+		this.department = department;
 	}
 
-	public RecruitmentType getRecruitmentid() {
-		return recruitmentid;
+	public RecruitmentType getRecruitment() {
+		return recruitment;
 	}
 
-	public void setRecruitmentid(RecruitmentType recruitmentid) {
-		this.recruitmentid = recruitmentid;
+	public void setRecruitment(RecruitmentType recruitment) {
+		this.recruitment = recruitment;
 	}
+
+	
 	
 	
 

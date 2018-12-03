@@ -17,8 +17,8 @@ public class ApplicantMapper {
 			applicantData.setAddress(applicant.getAddress());
 			applicantData.setCvFile(applicant.getCvFile());
 			
-			applicantData.setJobid(JobMapper.jobMapper(applicant.getJobid()));
-			applicantData.setHighestQualificationid(HighestQualificationMapper.highestQualificationMapper(applicant.getHighestQualificationid()));
+			applicantData.setJob(JobMapper.jobMapper(applicant.getJob()));
+			applicantData.setHighestQualification(HighestQualificationMapper.highestQualificationMapper(applicant.getHighestQualification()));
 			//applicantData.setDistrictid(DistrictMapper.districtMapper(applicant.getDistrictid()));
 			
 			

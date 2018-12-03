@@ -24,36 +24,49 @@ public class Applicant implements Serializable {
 	private Integer id;
 	@ManyToOne
 	@JoinColumn(name="highestQualification_id")
-	private HighestQualification highestQualificationid;
+	private HighestQualification highestQualification;
 	
 	@ManyToOne
 	@JoinColumn(name="job_id")
-	private Job jobid;
+	private Job job;
+	@ManyToOne
+	@JoinColumn(name="district_id")
+	private District district;
+	
 	private String fullName;
 	private String nic;
 	private String email;
 	private Date dateOfBirth;
 	private String address;
 	private File cvFile;
+	
+	
+	public Job getJob() {
+		return job;
+	}
+	public void setJob(Job job) {
+		this.job = job;
+	}
+	public District getDistrict() {
+		return district;
+	}
+	public void setDistrict(District district) {
+		this.district = district;
+	}
 	public Integer getId() {
 		return id;
 	}
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public HighestQualification getHighestQualificationid() {
-		return highestQualificationid;
+	
+	public HighestQualification getHighestQualification() {
+		return highestQualification;
 	}
-	public void setHighestQualificationid(HighestQualification highestQualificationid) {
-		this.highestQualificationid = highestQualificationid;
+	public void setHighestQualification(HighestQualification highestQualification) {
+		this.highestQualification = highestQualification;
 	}
 	
-	public Job getJobid() {
-		return jobid;
-	}
-	public void setJobid(Job jobid) {
-		this.jobid = jobid;
-	}
 	public String getFullName() {
 		return fullName;
 	}
