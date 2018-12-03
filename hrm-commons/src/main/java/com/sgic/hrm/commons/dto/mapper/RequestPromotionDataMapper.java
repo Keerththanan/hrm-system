@@ -13,11 +13,13 @@ public class RequestPromotionDataMapper {
 		if (requestPromotionData != null) {
 			requestPromotion.setId(requestPromotionData.getId());
 			requestPromotion.setPromotionRemark(requestPromotionData.getPromotionRemark());
+			requestPromotion.setCreatedAt(requestPromotionData.getCreatedAt());
+			requestPromotion.setDesignationId(DesignationDataMapper.designationDataMapper(requestPromotionData.getDesignationId()));
 			requestPromotion.setRecommendedBy(requestPromotionData.getRecommendedBy());
-//			requestPromotion.setCreatedAt(requestPromotionData.getCreatedAt());
-			requestPromotion.setDesignationId(requestPromotionData.getDesignationId());
-			requestPromotion.setUserId(requestPromotionData.getUserId());
-//			requestPromotion.setUpdatedAt(requestPromotionData.getCreatedAt());
+			requestPromotion.setUserId(UserDataMapper.userDataMapper(requestPromotionData.getUserId()));
+			requestPromotion.setUpdatedAt(requestPromotionData.getCreatedAt());
+			
+//			vacancy.setUserid(UserDataMapper.userDataMapper(vacancyData.getUserid()));
 		}
 		return requestPromotion;
 	}
