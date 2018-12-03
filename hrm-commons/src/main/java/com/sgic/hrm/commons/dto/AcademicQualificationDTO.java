@@ -31,7 +31,7 @@ public class AcademicQualificationDTO {
 	public Integer getUser() {
 		return user;
 	}
-	public void setUser(Integer user) {
+	public void setUserId(Integer user) {
 		this.user = user;
 	}
 	public Integer getExamTypeId() {
