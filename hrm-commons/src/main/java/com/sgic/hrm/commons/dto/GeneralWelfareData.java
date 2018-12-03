@@ -5,6 +5,8 @@ public class GeneralWelfareData {
 	private Integer Id;
 	private String generalWelfare_name;
 	private String details;
+	WelfareEventDto welfareEvent;
+	
 	public Integer getId() {
 		return Id;
 	}
@@ -22,6 +24,12 @@ public class GeneralWelfareData {
 	}
 	public void setDetails(String details) {
 		this.details = details;
+	}
+	public WelfareEventDto getWelfareEvent() {
+		return welfareEvent;
+	}
+	public void setWelfareEvent(WelfareEventDto welfareEvent) {
+		this.welfareEvent = welfareEvent;
 	}
 	
 
