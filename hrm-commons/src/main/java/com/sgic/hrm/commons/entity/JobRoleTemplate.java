@@ -33,11 +33,11 @@ public class JobRoleTemplate implements Serializable{
 
 	@ManyToOne
 	@JoinColumn(name = "job_id")
-	private Job jobid;
+	private Job job;
 
 	@ManyToOne
 	@JoinColumn(name = "highestQualification_id")
-	private HighestQualification highestQualificationid;
+	private HighestQualification highestQualification;
 
 	public Integer getId() {
 		return id;
@@ -111,21 +111,22 @@ public class JobRoleTemplate implements Serializable{
 		this.certification = certification;
 	}
 
-	public Job getJobid() {
-		return jobid;
+	public Job getJob() {
+		return job;
 	}
 
-	public void setJobid(Job jobid) {
-		this.jobid = jobid;
+	public void setJob(Job job) {
+		this.job = job;
 	}
 
-	public HighestQualification getHighestQualificationid() {
-		return highestQualificationid;
+	public HighestQualification getHighestQualification() {
+		return highestQualification;
 	}
 
-	public void setHighestQualificationid(HighestQualification highestQualificationid) {
-		this.highestQualificationid = highestQualificationid;
+	public void setHighestQualification(HighestQualification highestQualification) {
+		this.highestQualification = highestQualification;
 	}
+
 	
 	
 }

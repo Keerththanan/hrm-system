@@ -10,9 +10,9 @@ import com.sgic.hrm.commons.dto.DistrictData;
 public class ApplicantData {
 	
 	 Integer id;
-	 HighestQualificationData highestQualificationid;
-	 DistrictData districtid;
-	 JobData jobid;
+	 HighestQualificationData highestQualification;
+	 DistrictData district;
+	 JobData job;
 	 String fullName;
 	 String nic;
 	 String email;
@@ -26,23 +26,25 @@ public class ApplicantData {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public HighestQualificationData getHighestQualificationid() {
-		return highestQualificationid;
+	
+	public HighestQualificationData getHighestQualification() {
+		return highestQualification;
 	}
-	public void setHighestQualificationid(HighestQualificationData highestQualificationid) {
-		this.highestQualificationid = highestQualificationid;
+	public void setHighestQualification(HighestQualificationData highestQualification) {
+		this.highestQualification = highestQualification;
 	}
-	public DistrictData getDistrictid() {
-		return districtid;
+	public DistrictData getDistrict() {
+		return district;
 	}
-	public void setDistrictid(DistrictData districtid) {
-		this.districtid = districtid;
+	public void setDistrict(DistrictData district) {
+		this.district = district;
 	}
-	public JobData getJobid() {
-		return jobid;
+
+	public JobData getJob() {
+		return job;
 	}
-	public void setJobid(JobData jobid) {
-		this.jobid = jobid;
+	public void setJob(JobData job) {
+		this.job = job;
 	}
 	public String getFullName() {
 		return fullName;

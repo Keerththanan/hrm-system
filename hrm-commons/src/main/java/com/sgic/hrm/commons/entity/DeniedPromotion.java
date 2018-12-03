@@ -1,12 +1,14 @@
 package com.sgic.hrm.commons.entity;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.sql.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
+import org.hibernate.annotations.CreationTimestamp;
 
 @Entity
 public class DeniedPromotion implements Serializable {
@@ -20,6 +22,7 @@ public class DeniedPromotion implements Serializable {
 	private Integer id;
 	private int requsetId;
 	private int designationId;
+	@CreationTimestamp
 	private Date deniedDate;
 	private String deniedRemark;
 	private String position;

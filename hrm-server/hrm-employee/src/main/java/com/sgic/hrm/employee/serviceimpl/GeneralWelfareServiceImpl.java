@@ -16,29 +16,38 @@ public class GeneralWelfareServiceImpl implements GeneralWelfareService{
 	private GeneralWelfareRepository generalWelfareRepository;
 
 	@Override
-	public List<GeneralWelfare> getGeneralWelfare() {
+	public List<GeneralWelfare> getAllGeneralWelfare() {
 		return generalWelfareRepository.findAll();
 	}
 
 	@Override
-	public void createGeneralWelfare(GeneralWelfare generalWelfare) {
+	public boolean createGeneralWelfare(GeneralWelfare generalWelfare) {
 		generalWelfareRepository.save(generalWelfare);	
+		return true;
 	}
 
 	@Override
-	public void updateGeneralWelfare(GeneralWelfare generalWelfare, Integer id) {
+	public boolean updateGeneralWelfare(GeneralWelfare generalWelfare, Integer id) {
 		GeneralWelfare existGeneralWelfare =generalWelfareRepository.getOne(id);
 		
 		if(existGeneralWelfare.getId() !=null) {
 			generalWelfare.setId(id);
 			generalWelfareRepository.save(generalWelfare);
+			return true;
 		}
+		return false;
 	}
 
 	@Override
-	public void deleteGeneralWelfare(Integer id) {
+	public boolean deleteGeneralWelfare(Integer id) {
 		generalWelfareRepository.deleteById(id);
+		return true;
 		
+	}
+
+	@Override
+	public GeneralWelfare getById(Integer id) {
+		return generalWelfareRepository.findById(id).orElse(null);
 	}
 
 }
