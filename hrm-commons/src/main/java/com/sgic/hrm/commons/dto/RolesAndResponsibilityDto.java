@@ -2,10 +2,10 @@ package com.sgic.hrm.commons.dto;
 
 public class RolesAndResponsibilityDto {
 	private Integer id;
-	private Integer userId;
-	private Integer jobId;
-	private Integer locatioId;
-	private Integer keyActivityId;
+	private Integer user;
+	private Integer job;
+	private Integer location;
+	private Integer keyActivity;
 	private String responsibility;
 	private String overAllPurpose;
 	
@@ -15,29 +15,30 @@ public class RolesAndResponsibilityDto {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public Integer getUserId() {
-		return userId;
+	
+	public Integer getUser() {
+		return user;
 	}
-	public void setUserId(Integer userId) {
-		this.userId = userId;
+	public void setUser(Integer user) {
+		this.user = user;
 	}
-	public Integer getJobId() {
-		return jobId;
+	public Integer getJob() {
+		return job;
 	}
-	public void setJobId(Integer jobId) {
-		this.jobId = jobId;
+	public void setJob(Integer job) {
+		this.job = job;
 	}
-	public Integer getLocatioId() {
-		return locatioId;
+	public Integer getLocation() {
+		return location;
 	}
-	public void setLocatioId(Integer locatioId) {
-		this.locatioId = locatioId;
+	public void setLocatio(Integer location) {
+		this.location = location;
 	}
-	public Integer getKeyActivityId() {
-		return keyActivityId;
+	public Integer getKeyActivity() {
+		return keyActivity;
 	}
-	public void setKeyActivityId(Integer keyActivityId) {
-		this.keyActivityId = keyActivityId;
+	public void setKeyActivity(Integer keyActivity) {
+		this.keyActivity = keyActivity;
 	}
 	public String getResponsibility() {
 		return responsibility;

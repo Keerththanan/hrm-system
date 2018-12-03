@@ -1,3 +1,5 @@
+
+
 package com.sgic.hrm.employee.controller;
 
 import java.util.List;
@@ -36,7 +38,7 @@ public class AcademicQualificationController{
 	
 	@PostMapping("/academicQualification")
 	public HttpStatus addAcademicQualification(@Valid @RequestBody AcademicQualificationDTO academicQualificationDTO) {
-		User userobj=userService.findByUserId(academicQualificationDTO.getUserId());
+		User userobj=userService.findByUserId(academicQualificationDTO.getUser());
 		ExamType examTypeObj=examTypeService.findByExamTypeId(academicQualificationDTO.getExamTypeId());
 		
 		AcademicQualification academicQualification=AcademicQualificationDTOToAcademicQualification.map(academicQualificationDTO);

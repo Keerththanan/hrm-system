@@ -35,7 +35,7 @@ public class ProfessionalQualificationController {
 
 	@PostMapping("/professionalQualification")
 	public HttpStatus addProfessionalQualification(@Valid @RequestBody ProfessionalQualificationDto professionalQualificationDto) {
-		User userobj=userService.findByUserId(professionalQualificationDto.getUserId());
+		User userobj=userService.findByUserId(professionalQualificationDto.getUser());
 		ProfessionalQualification professionalQualification=ProfessionalQualificationDtoToProfessionalQualification.map(professionalQualificationDto);
 		
 		boolean test = professionalQualificationService.addProfessionalQualification(professionalQualification, userobj);
