@@ -28,39 +28,39 @@ public class IndividualWelfareController {
 private IndividualWelfareService individualWelfareService;
 
 
-@GetMapping("/individualWelfare/{id}")
-public ResponseEntity<IndividualWelfareData> getById(@PathVariable(name ="id") Integer id) {
-	return new ResponseEntity<>(
-			IndividualWelfareToIndividualWelfareData.maptoIndividualWelfareData(individualWelfareService.getById(id)),
-			HttpStatus.OK);
-}
+//@GetMapping("/individualWelfare/{id}")
+//public ResponseEntity<IndividualWelfareData> getById(@PathVariable(name ="id") Integer id) {
+//	return new ResponseEntity<>(
+//			IndividualWelfareToIndividualWelfareData.maptoIndividualWelfareData(individualWelfareService.getById(id)),
+//			HttpStatus.OK);
+//}
 
-@GetMapping("/individualWelfare")
-public ResponseEntity<List<IndividualWelfareData>> getAllIndividualWelfare() {
+//@GetMapping("/individualWelfare")
+//public ResponseEntity<List<IndividualWelfareData>> getAllIndividualWelfare() {
+//
+//	return new ResponseEntity<>(IndividualWelfareToIndividualWelfareData
+//			.maptoIndividualWelfareList(individualWelfareService.getAllIndividualWelfare()), HttpStatus.OK);
+//}
 
-	return new ResponseEntity<>(IndividualWelfareToIndividualWelfareData
-			.maptoIndividualWelfareList(individualWelfareService.getAllIndividualWelfare()), HttpStatus.OK);
-}
+//@PostMapping("/individualWelfare")
+//public ResponseEntity<String> createIndividualWelfare(@RequestBody IndividualWelfareData individualWelfareData) {
+//
+//	if (individualWelfareService
+//			.createIndividualWelfare(IndividualWelfareDataToIndividualWelfare.maptoIndividualWelfare(individualWelfareData))) {
+//		return new ResponseEntity<>("IndividualWelfare Create Succesfully ", HttpStatus.OK);
+//	}
+//	return new ResponseEntity<>("IndividualWelfare Create Failed ", HttpStatus.BAD_REQUEST);
+//}
 
-@PostMapping("/individualWelfare")
-public ResponseEntity<String> createIndividualWelfare(@RequestBody IndividualWelfareData individualWelfareData) {
-
-	if (individualWelfareService
-			.createIndividualWelfare(IndividualWelfareDataToIndividualWelfare.maptoIndividualWelfare(individualWelfareData))) {
-		return new ResponseEntity<>("IndividualWelfare Create Succesfully ", HttpStatus.OK);
-	}
-	return new ResponseEntity<>("IndividualWelfare Create Failed ", HttpStatus.BAD_REQUEST);
-}
-
-@PutMapping("/individualWelfare/{id}")
-public ResponseEntity<String> updateIndividualWelfare(@PathVariable(name = "id") Integer id,
-		@RequestBody IndividualWelfareData individualWelfareData) {
-	if (individualWelfareService.updateIndividualWelfare(
-			IndividualWelfareDataToIndividualWelfare.maptoIndividualWelfare(individualWelfareData), id)) {
-		return new ResponseEntity<>("IndividualWelfare Update Succesfully ", HttpStatus.OK);
-	}
-	return new ResponseEntity<>("IndividualWelfare Update Failed ", HttpStatus.BAD_REQUEST);
-}
+//@PutMapping("/individualWelfare/{id}")
+//public ResponseEntity<String> updateIndividualWelfare(@PathVariable(name = "id") Integer id,
+//		@RequestBody IndividualWelfareData individualWelfareData) {
+//	if (individualWelfareService.updateIndividualWelfare(
+//			IndividualWelfareDataToIndividualWelfare.maptoIndividualWelfare(individualWelfareData), id)) {
+//		return new ResponseEntity<>("IndividualWelfare Update Succesfully ", HttpStatus.OK);
+//	}
+//	return new ResponseEntity<>("IndividualWelfare Update Failed ", HttpStatus.BAD_REQUEST);
+//}
 
 @DeleteMapping("/individualWelfare/{id}")
 public ResponseEntity<String> deleteIndividualWelfare(@PathVariable(name = "id") Integer id) {

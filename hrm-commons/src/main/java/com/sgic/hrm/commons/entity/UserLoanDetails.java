@@ -42,7 +42,7 @@ public class UserLoanDetails implements Serializable {
 
 	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinColumn(name = "user_id")
-	private UserEntity user;
+	private User user;
 
 	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinColumn(name = "loan_id")
@@ -104,11 +104,11 @@ public class UserLoanDetails implements Serializable {
 		this.redumptionDate = redumption_date;
 	}
 
-	public UserEntity getUserId() {
+	public User getUserId() {
 		return user;
 	}
 
-	public void setUserId(UserEntity user_id) {
+	public void setUserId(User user_id) {
 		this.user = user_id;
 	}
 

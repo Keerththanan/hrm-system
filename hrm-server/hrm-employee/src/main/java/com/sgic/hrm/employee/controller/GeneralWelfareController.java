@@ -27,39 +27,39 @@ public class GeneralWelfareController {
 	private GeneralWelfareService generalWelfareService;
 	
 
-	@GetMapping("/generalWelfare/{id}")
-	public ResponseEntity<GeneralWelfareData> getById(@PathVariable(name = "id") Integer id) {
-		return new ResponseEntity<>(
-				GeneralWelfareToGneralWelfareData.maptoGeneralWelfareData(generalWelfareService.getById(id)),
-				HttpStatus.OK);
-	}
+//	@GetMapping("/generalWelfare/{id}")
+//	public ResponseEntity<GeneralWelfareData> getById(@PathVariable(name = "id") Integer id) {
+//		return new ResponseEntity<>(
+//				GeneralWelfareToGneralWelfareData.maptoGeneralWelfareData(generalWelfareService.getById(id)),
+//				HttpStatus.OK);
+//	}
 
-	@GetMapping("/generalWelfare")
-	public ResponseEntity<List<GeneralWelfareData>> getAllGeneralWelfare() {
-
-		return new ResponseEntity<>(GeneralWelfareToGneralWelfareData
-				.maptoGeneralWelfareDataList(generalWelfareService.getAllGeneralWelfare()), HttpStatus.OK);
-	}
+//	@GetMapping("/generalWelfare")
+//	public ResponseEntity<List<GeneralWelfareData>> getAllGeneralWelfare() {
+//
+//		return new ResponseEntity<>(GeneralWelfareToGneralWelfareData
+//				.maptoGeneralWelfareDataList(generalWelfareService.getAllGeneralWelfare()), HttpStatus.OK);
+//	}
 
 	@PostMapping("/generalWelfare")
-	public ResponseEntity<String> createGeneralWelfare(@RequestBody GeneralWelfareData generalWelfareData) {
+	//public ResponseEntity<String> createGeneralWelfare(@RequestBody GeneralWelfareData generalWelfareData) {
 
-		if (generalWelfareService
-				.createGeneralWelfare(GeneralWelfareDataToGeneralWelfare.maptoGeneralWelfare(generalWelfareData))) {
-			return new ResponseEntity<>("GeneralWelfare Create Succesfully ", HttpStatus.OK);
-		}
-		return new ResponseEntity<>("GeneralWelfare Create Failed ", HttpStatus.BAD_REQUEST);
-	}
+//		if (generalWelfareService
+//				.createGeneralWelfare(GeneralWelfareDataToGeneralWelfare.maptoGeneralWelfare(generalWelfareData))) {
+//			return new ResponseEntity<>("GeneralWelfare Create Succesfully ", HttpStatus.OK);
+//		}
+//		return new ResponseEntity<>("GeneralWelfare Create Failed ", HttpStatus.BAD_REQUEST);
+//	}
 
 	@PutMapping("/generalWelfare/{id}")
-	public ResponseEntity<String> updateGeneralWelfare(@PathVariable(name = "id") Integer id,
-			@RequestBody GeneralWelfareData generalWelfareData) {
-		if (generalWelfareService.updateGeneralWelfare(
-				GeneralWelfareDataToGeneralWelfare.maptoGeneralWelfare(generalWelfareData), id)) {
-			return new ResponseEntity<>("GeneralWelfare Update Succesfully ", HttpStatus.OK);
-		}
-		return new ResponseEntity<>("GeneralWelfare Update Failed ", HttpStatus.BAD_REQUEST);
-	}
+//	public ResponseEntity<String> updateGeneralWelfare(@PathVariable(name = "id") Integer id,
+//			@RequestBody GeneralWelfareData generalWelfareData) {
+//		if (generalWelfareService.updateGeneralWelfare(
+//				GeneralWelfareDataToGeneralWelfare.maptoGeneralWelfare(generalWelfareData), id)) {
+//			return new ResponseEntity<>("GeneralWelfare Update Succesfully ", HttpStatus.OK);
+//		}
+//		return new ResponseEntity<>("GeneralWelfare Update Failed ", HttpStatus.BAD_REQUEST);
+//	}
 
 	@DeleteMapping("/generalWelfare/{id}")
 	public ResponseEntity<String> deleteGeneralWelfare(@PathVariable(name = "id") Integer id) {
