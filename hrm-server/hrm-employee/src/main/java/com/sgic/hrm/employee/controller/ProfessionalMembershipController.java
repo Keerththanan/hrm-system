@@ -35,7 +35,7 @@ public class ProfessionalMembershipController {
 	@PostMapping("/professionalMembership")
 	public HttpStatus addProfessionalMembership(
 			@Valid @RequestBody ProfessionalMembershipDto professionalMembershipDto) {
-		User userObj = userService.findByUserId(professionalMembershipDto.getUserId());
+		User userObj = userService.findByUserId(professionalMembershipDto.getUser());
 		ProfessionalMembership professionalMembership = ProfessionalMembershipDtoToProfessionalMembership
 				.map(professionalMembershipDto);
 		boolean test = professionalMembershipService.addProfessionalMembership(professionalMembership, userObj);

@@ -13,8 +13,8 @@ public class EntityToDirectoryDto {
     userDto.setEmail(user.getEmail());
     userDto.setContact(user.getTelephoneNumber());
     userDto.setPermenentAddress(user.getPermenentAddress());
-    userDto.setDesignation(user.getAppointmentId().getDesignationId().getDesignationName());
-    userDto.setAppointmentDate(user.getAppointmentId().getAppoinmentDate());
+//    userDto.setDesignation(user.getAppointmentId().getDesignationId().getDesignationName());
+//    userDto.setAppointmentDate(user.getAppointmentId().getAppoinmentDate());
     userDto.setServicePeriod(user.getServicePeriod());
     return userDto;
   }

@@ -2,7 +2,7 @@ package com.sgic.hrm.commons.dto;
 
 public class ProfessionalMembershipDto {
 	
-	private Integer userId;
+	private Integer user;
 	private Integer id;
 	private String organizationName;
 	private String eventName;
@@ -11,11 +11,11 @@ public class ProfessionalMembershipDto {
 	private Integer periodYearTo;
 	private Integer award;
 	
-	public Integer getUserId() {
-		return userId;
+	public Integer getUser() {
+		return user;
 	}
-	public void setUserId(Integer userId) {
-		this.userId = userId;
+	public void setUser(Integer user) {
+		this.user = user;
 	}
 	public Integer getId() {
 		return id;

@@ -29,12 +29,7 @@ public class Referee implements Serializable {
 	
 	private String Address;
 	private String email;
-	public String getEmail() {
-		return email;
-	}
-	public void setEmail(String email) {
-		this.email = email;
-	}
+	
 	private String contactNo;
 	private String relationship;
 	
@@ -56,6 +51,12 @@ public class Referee implements Serializable {
 	}
 	public void setUser(User user) {
 		this.user = user;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
 	}
 	public String getAddress() {
 		return Address;

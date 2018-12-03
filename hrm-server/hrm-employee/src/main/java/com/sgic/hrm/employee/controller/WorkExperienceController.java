@@ -31,7 +31,7 @@ public class WorkExperienceController {
 
 	@PostMapping("/workexperience")
 	public HttpStatus addWorkExperience(@Valid @RequestBody WorkExperienceDTO workExperienceDTO) {
-		User userobj=userService.findByUserId(workExperienceDTO.getUserId());
+		User userobj=userService.findByUserId(workExperienceDTO.getUser());
 		WorkExperience workExperience=WorkExperienceDTOToWorkExperience.map(workExperienceDTO);
 		
 		boolean test = workExperienceService.addWorkExperience(workExperience, userobj);

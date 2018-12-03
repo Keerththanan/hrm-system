@@ -19,10 +19,10 @@ public class VacancyDataMapper {
 		vacancy.setKeyRecuitment(vacancyData.getKeyRecuitment());
 		
 
-		vacancy.setUserid(UserDataMapper.userDataMapper(vacancyData.getUserid()));
-		vacancy.setJobid(JobDataMapper.jobDataMapper(vacancyData.getJobid()));
-		vacancy.setDepartmentid(DepartmentDataMapper.departmentDataMapper(vacancyData.getDepartmentid()));
-		vacancy.setRecruitmentid(RecruitmentTypeDataMapper.recruitmentDataMapper(vacancyData.getRecruitmentid()));
+		vacancy.setUser(UserDataMapper.userDataMapper(vacancyData.getUser()));
+		vacancy.setJob(JobDataMapper.jobDataMapper(vacancyData.getJob()));
+		vacancy.setDepartment(DepartmentDataMapper.departmentDataMapper(vacancyData.getDepartment()));
+		vacancy.setRecruitment(RecruitmentTypeDataMapper.recruitmentDataMapper(vacancyData.getRecruitment()));
 		
 		
 		return vacancy;

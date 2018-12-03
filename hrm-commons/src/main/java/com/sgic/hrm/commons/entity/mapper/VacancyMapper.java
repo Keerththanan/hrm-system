@@ -18,10 +18,10 @@ public class VacancyMapper {
 			vacancyData.setInterviewDate(vacancy.getInterviewDate());
 			vacancyData.setKeyRecuitment(vacancy.getKeyRecuitment());
 
-			vacancyData.setUserid(UserMapper.userMapper(vacancy.getUserid()));
-			vacancyData.setJobid(JobMapper.jobMapper(vacancy.getJobid()));
-			vacancyData.setDepartmentid(DepartmentMapper.departmentMapper(vacancy.getDepartmentid()));
-			vacancyData.setRecruitmentid(RecruitmentTypeMapper.recruitmentMapper(vacancy.getRecruitmentid()));
+			vacancyData.setUser(UserMapper.userMapper(vacancy.getUser()));
+			vacancyData.setJob(JobMapper.jobMapper(vacancy.getJob()));
+			vacancyData.setDepartment(DepartmentMapper.departmentMapper(vacancy.getDepartment()));
+			vacancyData.setRecruitment(RecruitmentTypeMapper.recruitmentMapper(vacancy.getRecruitment()));
 			
 			return vacancyData;
 		}
