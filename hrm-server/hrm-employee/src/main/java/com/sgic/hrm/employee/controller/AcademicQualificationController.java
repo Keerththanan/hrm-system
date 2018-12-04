@@ -10,9 +10,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -40,7 +42,6 @@ public class AcademicQualificationController{
 	public HttpStatus addAcademicQualification(@Valid @RequestBody AcademicQualificationDTO academicQualificationDTO) {
 		User userobj=userService.findByUserId(academicQualificationDTO.getUser());
 		ExamType examTypeObj=examTypeService.findByExamTypeId(academicQualificationDTO.getExamTypeId());
-		
 		AcademicQualification academicQualification=AcademicQualificationDTOToAcademicQualification.map(academicQualificationDTO);
 		
 		boolean test = academicQualificationService.addAcademicQualification(academicQualification, examTypeObj,userobj);
@@ -66,8 +67,23 @@ public class AcademicQualificationController{
 		}
 
 		
-	
-	
+		@PutMapping("/academicQualification/{id}")
+		public HttpStatus editAcademicQualification(@PathVariable Integer id,@RequestBody AcademicQualification academicQualification) {
+			boolean editTest=academicQualificationService.editAcademicQualification(academicQualification, id);
+			if(editTest) {
+				return HttpStatus.ACCEPTED;
+			}
+			return HttpStatus.BAD_REQUEST;
+		}
+		
+		@DeleteMapping("/academicQualification/{id}")
+		public HttpStatus deleteAcademicQualification(@PathVariable Integer id,@RequestBody AcademicQualification academicQualification) {
+			boolean deleteTest=academicQualificationService.deleteAcademicQualification(id);
+			if(deleteTest) {
+				return HttpStatus.ACCEPTED;
+			}
+			return HttpStatus.BAD_REQUEST;
+		}
 	}
 	
 
