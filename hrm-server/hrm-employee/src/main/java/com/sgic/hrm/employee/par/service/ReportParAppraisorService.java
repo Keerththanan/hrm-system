@@ -5,4 +5,7 @@ import com.sgic.hrm.commons.entity.par.ReportParAppraisor;
 
 public interface ReportParAppraisorService {
 	public void createReportParAppraise(ReportParAppraisor reportParAppraisor,Par par);
+
+	public ReportParAppraisor findReportParAppraisorById(Integer reportId);
+	
 }

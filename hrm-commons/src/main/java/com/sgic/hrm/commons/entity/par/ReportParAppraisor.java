@@ -1,5 +1,6 @@
 package com.sgic.hrm.commons.entity.par;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -26,7 +27,7 @@ public class ReportParAppraisor {
 	
 	private String appraisorId;
 	
-	private Double appraisorScore;
+	private Date appraisedDate;
 	
 	
 //	@OneToMany(mappedBy="reportParAppraisor",cascade=CascadeType.ALL,fetch=FetchType.LAZY)
@@ -35,15 +36,15 @@ public class ReportParAppraisor {
  
 	
 
-	public ReportParAppraisor(Integer id, String appraisorId, Double appraisorScore) {
+	public ReportParAppraisor(Integer id, String appraisorId) {
 		this.id = id;
 		this.appraisorId = appraisorId;
-		this.appraisorScore = appraisorScore;
+		
 	}
 	
-	public ReportParAppraisor(String appraisorId, Double appraisorScore) {
+	public ReportParAppraisor(String appraisorId) {
 		this.appraisorId = appraisorId;
-		this.appraisorScore = appraisorScore;
+		
 	}
 
 	public ReportParAppraisor() {
@@ -75,14 +76,16 @@ public class ReportParAppraisor {
 		this.appraisorId = appraisorId;
 	}
 
-	
-	public Double getAppraisorScore() {
-		return appraisorScore;
+	public Date getAppraisedDate() {
+		return appraisedDate;
 	}
 
-	public void setAppraisorScore(Double appraisorScore) {
-		this.appraisorScore = appraisorScore;
+	public void setAppraisedDate(Date appraisedDate) {
+		this.appraisedDate = appraisedDate;
 	}
+
+	
+
 
 //	public List<ScoreParAppraisor> getScoreParAppraisors() {
 //		return scoreParAppraisors;

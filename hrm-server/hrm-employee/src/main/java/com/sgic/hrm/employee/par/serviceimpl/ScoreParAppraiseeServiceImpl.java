@@ -1,5 +1,7 @@
 package com.sgic.hrm.employee.par.serviceimpl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,6 +20,12 @@ public class ScoreParAppraiseeServiceImpl implements ScoreParAppraiseeService {
 		scoreParAppraisee.setReportParAppraise(reportParAppraise);
 		scoreParAppraiseeRepo.save(scoreParAppraisee);
 
+	}
+
+	@Override
+	public List<ScoreParAppraisee> getScore(ReportParAppraise reportParAppraise) {
+		// TODO Auto-generated method stub
+		return scoreParAppraiseeRepo.findScoreParAppraiseeByReportParAppraise(reportParAppraise);
 	}
 
 }

@@ -27,20 +27,25 @@ public class ParContentServiceImpl implements ParContentService {
 
 	}
 
+//	@Override
+//	public void updateParContent(ParContent parContent, String id) {
+//		ParContent existParContent = parContentRepository.getOne(id);
+//
+//		if (existParContent.getId() != null) {
+//			parContent.setId(id);
+//			parContentRepository.save(parContent);
+//		}
+//
+//	}
+//
+//	@Override
+//	public void deleteParContent(Integer id) {
+//		parContentRepository.deleteById(id);
+//	}
+
 	@Override
-	public void updateParContent(ParContent parContent, Integer id) {
-		ParContent existParContent = parContentRepository.getOne(id);
-
-		if (existParContent.getId() != null) {
-			parContent.setId(id);
-			parContentRepository.save(parContent);
-		}
-
-	}
-
-	@Override
-	public void deleteParContent(Integer id) {
-		parContentRepository.deleteById(id);
+	public ParContent findParContentById(String id) {
+		return parContentRepository.findParContentById(id);
 	}
 
 }

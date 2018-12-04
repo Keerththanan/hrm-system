@@ -2,6 +2,7 @@ package com.sgic.hrm.employee.par.serviceCombined;
 
 import java.util.List;
 
+import com.sgic.hrm.commons.dto.par.ReportParAppraisorDtoPost;
 import com.sgic.hrm.commons.entity.par.ReportParAppraisor;
 import com.sgic.hrm.commons.entity.par.ScoreParAppraisor;
 
@@ -13,5 +14,7 @@ public interface ParReportForAppraisorService {
 	 */
 	public void saveReportAndScoreAppraisor(Integer parId, ReportParAppraisor reportParAppraisor,
 			List<ScoreParAppraisor> scoreParAppraisorList);
+	
+	public String saveReportAndScoreAppraisor(ReportParAppraisorDtoPost reportParAppraisorDtoPost);
 
 }

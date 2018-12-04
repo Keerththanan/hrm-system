@@ -9,7 +9,7 @@ public class ReportParAppraiseeDtoPost {
 	private Integer reportId;
 	private Integer parId;
 	private List<ScoreParAppraiseeDtoPost> scoreParAppraiseeList;
-	
+
 	public Integer getReportId() {
 		return reportId;
 	}

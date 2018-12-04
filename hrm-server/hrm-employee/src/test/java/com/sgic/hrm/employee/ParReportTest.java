@@ -13,10 +13,8 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import com.sgic.hrm.commons.dto.par.ReportParAppraiseeDtoPost;
 import com.sgic.hrm.commons.dto.par.ScoreParAppraiseeDtoPost;
-import com.sgic.hrm.commons.entity.par.ReportParAppraise;
-import com.sgic.hrm.commons.entity.par.ScoreParAppraisee;
-import com.sgic.hrm.employee.par.service.ParReportForAppraiseeService;
 import com.sgic.hrm.employee.par.service.ReportParAppraiseeService;
+import com.sgic.hrm.employee.par.serviceCombined.ParReportForAppraiseeService;
 
 
 

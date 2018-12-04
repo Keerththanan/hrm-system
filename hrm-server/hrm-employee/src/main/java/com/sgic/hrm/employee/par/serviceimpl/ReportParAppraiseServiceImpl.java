@@ -29,4 +29,10 @@ public class ReportParAppraiseServiceImpl implements ReportParAppraiseeService
 		// TODO Auto-generated method stub
 		return reportParAppraiseRepo.findReportParAppraiseById(id);
 	}
+
+	@Override
+	public ReportParAppraise findReportParAppraiseeByParId(Par par) {
+		// TODO Auto-generated method stub
+		return reportParAppraiseRepo.findReportParAppraiseByPar(par);
+	}
 }

@@ -21,4 +21,10 @@ public class ReportParAppraisorServiceImpl implements ReportParAppraisorService 
 
 	}
 
+	@Override
+	public ReportParAppraisor findReportParAppraisorById(Integer reportId) {
+		
+		return reportParAppraisorRepo.findReportParAppraiseById(reportId);
+	}
+
 }

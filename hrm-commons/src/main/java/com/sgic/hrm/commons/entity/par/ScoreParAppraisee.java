@@ -15,15 +15,19 @@ public class ScoreParAppraisee {
 	@Id
 //	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private String id;
-	private String parContentId;
+	
+	@ManyToOne
+	@JoinColumn(name ="ParContent_id")
+	private ParContent parContent;
+	
 	private Double score;
 
 	@ManyToOne
 	@JoinColumn(name = "report_par_appraise_id")
 	private ReportParAppraise reportParAppraise;
 
-	public ScoreParAppraisee(String parContentId, Double score) {
-		this.parContentId = parContentId;
+	public ScoreParAppraisee(Double score) {
+		
 		this.score = score;
 	}
 
@@ -39,12 +43,14 @@ public class ScoreParAppraisee {
 		this.id = id;
 	}
 
-	public String getParContentId() {
-		return parContentId;
+	
+
+	public ParContent getParContent() {
+		return parContent;
 	}
 
-	public void setParContentId(String parContentId) {
-		this.parContentId = parContentId;
+	public void setParContent(ParContent parContent) {
+		this.parContent = parContent;
 	}
 
 	public Double getScore() {

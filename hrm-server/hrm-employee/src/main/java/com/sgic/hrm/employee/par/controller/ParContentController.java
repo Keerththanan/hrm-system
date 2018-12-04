@@ -34,14 +34,14 @@ public class ParContentController {
 		parContentService.createParContent(parContent);
 	}
 
-	@PutMapping("/parcontent/{id}")
-	public void updateParContent(@RequestBody ParContent parContent, @PathVariable Integer id) {
-		parContentService.updateParContent(parContent, id);
-	}
-
-	@DeleteMapping("/parcontent/{id}")
-	public void deleteParContent(@PathVariable Integer id) {
-		parContentService.deleteParContent(id);
-	}
+//	@PutMapping("/parcontent/{id}")
+//	public void updateParContent(@RequestBody ParContent parContent, @PathVariable Integer id) {
+//		parContentService.updateParContent(parContent, id);
+//	}
+//
+//	@DeleteMapping("/parcontent/{id}")
+//	public void deleteParContent(@PathVariable Integer id) {
+//		parContentService.deleteParContent(id);
+//	}
 	
 }

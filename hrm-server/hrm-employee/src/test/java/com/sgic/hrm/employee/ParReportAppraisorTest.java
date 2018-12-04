@@ -1,6 +1,7 @@
 package com.sgic.hrm.employee;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.junit.Test;
@@ -9,10 +10,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.sgic.hrm.commons.entity.par.ReportParAppraisor;
-import com.sgic.hrm.commons.entity.par.ScoreParAppraisor;
-import com.sgic.hrm.employee.par.service.ParReportForAppraisorService;
-
+import com.sgic.hrm.commons.dto.par.ReportParAppraisorDtoPost;
+import com.sgic.hrm.commons.dto.par.ScoreParAppraiserDtoPost;
+import com.sgic.hrm.employee.par.serviceCombined.ParReportForAppraisorService;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -21,12 +21,12 @@ public class ParReportAppraisorTest {
 	ParReportForAppraisorService parReportForAppraisorService;
 	@Test
 	public void  ParReportAppraisor() {
-		ReportParAppraisor objParReport =new ReportParAppraisor(1,"A001",3.5);
-		List<ScoreParAppraisor> scoreParAppraisorList=new ArrayList<ScoreParAppraisor>();
-		scoreParAppraisorList.add(new ScoreParAppraisor(1,"C001",3));
-		scoreParAppraisorList.add(new ScoreParAppraisor(2,"C002",2));
-		scoreParAppraisorList.add(new ScoreParAppraisor(3,"C003",1));
-		parReportForAppraisorService.saveReportAndScoreAppraisor(1, objParReport, scoreParAppraisorList);
+		ReportParAppraisorDtoPost objParReport =new ReportParAppraisorDtoPost(1,12,"EMP001",new Date());
+		List<ScoreParAppraiserDtoPost> scoreParAppraisorList=new ArrayList<>();
+		scoreParAppraisorList.add(new ScoreParAppraiserDtoPost("C001",3.5));
+		scoreParAppraisorList.add(new ScoreParAppraiserDtoPost("C002",2.5));
+		scoreParAppraisorList.add(new ScoreParAppraiserDtoPost("C003",1.5));
+		parReportForAppraisorService.saveReportAndScoreAppraisor(objParReport);
 	}
 
 }

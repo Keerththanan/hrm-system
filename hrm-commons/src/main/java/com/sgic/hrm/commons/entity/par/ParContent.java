@@ -9,13 +9,14 @@ import javax.persistence.Table;
 public class ParContent {
 	
 	@Id
-	private Integer id;
+	private String id;
 	private String contentName;
 	
-	public Integer getId() {
+
+	public String getId() {
 		return id;
 	}
-	public void setId(Integer id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 	public String getContentName() {
@@ -25,7 +26,7 @@ public class ParContent {
 		this.contentName = contentName;
 	}
 	
-	public ParContent(Integer id, String contentName) {
+	public ParContent(String id, String contentName) {
 		this.id = id;
 		this.contentName = contentName;
 	}

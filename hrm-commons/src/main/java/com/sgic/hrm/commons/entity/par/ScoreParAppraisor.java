@@ -11,30 +11,31 @@ import javax.persistence.Table;
 public class ScoreParAppraisor {
 	
 	@Id
-	private Integer id;
+	private String id;
 	private String parContentId;
-	private Integer Score;
+	private Double Score;
 	
 	@ManyToOne
 	@JoinColumn(name="report_par_appraisor_id")
 	private ReportParAppraisor reportParAppraisor;
 
-	public Integer getId() {
-		return id;
-	}
-
-	public ScoreParAppraisor(Integer id, String parContentId, Integer score) {
-		
+	
+	
+	
+	public ScoreParAppraisor(String id, String parContentId, Double score) {
 		this.id = id;
 		this.parContentId = parContentId;
-		this.Score=score;
+		Score = score;	
 	}
-	
 	public ScoreParAppraisor() {
 		
 	}
 
-	public void setId(Integer id) {
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
 		this.id = id;
 	}
 
@@ -46,11 +47,11 @@ public class ScoreParAppraisor {
 		this.parContentId = parContentId;
 	}
 
-	public Integer getScore() {
+	public Double getScore() {
 		return Score;
 	}
 
-	public void setScore(Integer score) {
+	public void setScore(Double score) {
 		Score = score;
 	}
 
@@ -61,6 +62,8 @@ public class ScoreParAppraisor {
 	public void setReportParAppraisor(ReportParAppraisor reportParAppraisor) {
 		this.reportParAppraisor = reportParAppraisor;
 	}
+
 	
 
+	
 }
