@@ -45,10 +45,10 @@ public class RolesAndResponsibilitesController {
 
 	@PostMapping("/rolesandresponsibilities")
 	public HttpStatus AddRolesAndResponsibilities(@RequestBody RolesAndResponsibilityDto rolesAndResponsibilityDto) {
-		User userObj = userService.findByUserId(rolesAndResponsibilityDto.getUserId());
-		Job jobObj = jobService.findByJobId(rolesAndResponsibilityDto.getJobId());
-		Location locationObj = locationService.findByLocationId(rolesAndResponsibilityDto.getLocatioId());
-		KeyActivity keyActivityObj = keyActivityService.findByActivityId(rolesAndResponsibilityDto.getKeyActivityId());
+		User userObj = userService.findByUserId(rolesAndResponsibilityDto.getUser());
+		Job jobObj = jobService.findByJobId(rolesAndResponsibilityDto.getJob());
+		Location locationObj = locationService.findByLocationId(rolesAndResponsibilityDto.getLocation());
+		KeyActivity keyActivityObj = keyActivityService.findByActivityId(rolesAndResponsibilityDto.getKeyActivity());
 
 		RolesAndResponsibilites rolesAndResponsibilites = RolesAndResponsibilitesDtoToRolesAndResponsibilites
 				.map(rolesAndResponsibilityDto);

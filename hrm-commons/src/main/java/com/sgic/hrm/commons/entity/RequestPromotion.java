@@ -6,6 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.CreationTimestamp;
@@ -19,16 +21,17 @@ public class RequestPromotion {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
-//	@ManyToOne
-//	@JoinColumn(name = "user_id")
-	private int userId;
+	@ManyToOne
+	@JoinColumn(name = "user_id")
+	private User userId;
 	
-//	@OneToOne
-//	@JoinColumn(name = "id")
-	private int designationId;
+	@ManyToOne
+	@JoinColumn(name = "designation_id")
+	private Designation designationId;
 	
 	private String promotionRemark;
-	private int recommendedBy;
+
+	private String recommendedBy;
 	
 	@CreationTimestamp
 	private Date createdAt;
@@ -44,11 +47,11 @@ public class RequestPromotion {
 		this.updatedAt = updatedAt;
 	}
 
-	public int getDesignationId() {
+	public Designation getDesignationId() {
 		return designationId;
 	}
 
-	public void setDesignationId(int designationId) {
+	public void setDesignationId(Designation designationId) {
 		this.designationId = designationId;
 	}
 
@@ -60,11 +63,11 @@ public class RequestPromotion {
 		this.id = id;
 	}
 
-	public int getUserId() {
+	public User getUserId() {
 		return userId;
 	}
 
-	public void setUserId(int userId) {
+	public void setUserId(User userId) {
 		this.userId = userId;
 	}
 
@@ -76,11 +79,11 @@ public class RequestPromotion {
 		this.promotionRemark = promotionRemark;
 	}
 
-	public int getRecommendedBy() {
+	public String getRecommendedBy() {
 		return recommendedBy;
 	}
 
-	public void setRecommendedBy(int recommendedBy) {
+	public void setRecommendedBy(String recommendedBy) {
 		this.recommendedBy = recommendedBy;
 	}
 

@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.sgic.hrm.commons.dto.ResponseDto;
 import com.sgic.hrm.commons.dto.ResponseSaveDto;
 import com.sgic.hrm.commons.dto.mapper.ResponseDtoMapper;
 import com.sgic.hrm.commons.entity.Response;
@@ -30,8 +32,8 @@ public class ResponseController {
 	}
 
 	@PostMapping("/response")
-	public HttpStatus addResponse(@RequestBody ResponseSaveDto responseSaveDto) {
-		boolean test = responseService.addResponse(ResponseDtoMapper.mapResponseDtoToResponse(responseSaveDto));
+	public HttpStatus addResponse(@RequestBody ResponseDto responseDto) {
+		boolean test = responseService.addResponse(ResponseDtoMapper.mapResponseDtoJsonToResponseJson(responseDto));
 		if (test) {
 			return HttpStatus.CREATED;
 		}

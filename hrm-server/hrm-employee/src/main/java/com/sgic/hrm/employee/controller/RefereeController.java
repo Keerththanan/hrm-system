@@ -31,7 +31,7 @@ public class RefereeController {
 
 	@PostMapping("/referee")
 	public HttpStatus addReferee(@Valid @RequestBody RefereesDto refereesDto) {
-		User userObj = userService.findByUserId(refereesDto.getUserId());
+		User userObj = userService.findByUserId(refereesDto.getUser());
 		Referee referee = RefeereeDtoToReferee.map(refereesDto);
 		boolean test = refereeService.addReferee(referee, userObj);
 		if (test) {

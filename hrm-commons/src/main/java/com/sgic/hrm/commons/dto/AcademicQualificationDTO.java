@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class AcademicQualificationDTO {
 
-	private Integer userId;
+	private Integer user;
 	private Integer examTypeId;
 	private Integer periodYearFrom;
 	private Integer periodYearTo;
@@ -26,14 +26,14 @@ public class AcademicQualificationDTO {
 	public void setUpdatedAt(Date updatedAt) {
 		this.updatedAt = updatedAt;
 	}
-	public Integer getUserId() {
-		return userId;
-	}
-	public void setUserId(Integer userId) {
-		this.userId = userId;
-	}
 	
 	
+	public Integer getUser() {
+		return user;
+	}
+	public void setUserId(Integer user) {
+		this.user = user;
+	}
 	public Integer getExamTypeId() {
 		return examTypeId;
 	}

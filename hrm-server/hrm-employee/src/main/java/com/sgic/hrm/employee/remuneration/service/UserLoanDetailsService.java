@@ -8,4 +8,5 @@ public interface UserLoanDetailsService {
 
 	public List<UserLoanDetails> getAllUserLoanDetails();
 	public List<UserLoanDetails> getSpecificUser(Integer id);
+	public List<UserLoanDetails> getSpecificUserByName(String name);
 }
