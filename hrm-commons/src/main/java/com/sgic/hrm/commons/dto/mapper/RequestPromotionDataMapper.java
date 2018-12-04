@@ -4,7 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.sgic.hrm.commons.dto.RequestPromotionData;
+import com.sgic.hrm.commons.dto.RequestPromotionSaveData;
+import com.sgic.hrm.commons.entity.Designation;
 import com.sgic.hrm.commons.entity.RequestPromotion;
+import com.sgic.hrm.commons.entity.User;
 
 public class RequestPromotionDataMapper {
 	public static RequestPromotion mapToRequestPromotion(RequestPromotionData requestPromotionData) {
@@ -36,4 +39,27 @@ public class RequestPromotionDataMapper {
 		return requestpromotionList;
 	}
 	
+	public static RequestPromotion mapRequestPromotionSaveDataToRequestPromotion(RequestPromotionSaveData reqprosavedata) {
+		RequestPromotion reqpro = new RequestPromotion();
+//	    Department dep = new Department();
+	    User user = new User();
+	    Designation desig = new Designation();
+	    
+	    reqpro.setId(reqprosavedata.getId());
+	    
+	    user.setId(reqprosavedata.getUserId());
+	    reqpro.setUserId(user);
+	    
+	    reqpro.setPromotionRemark(reqprosavedata.getPromotionRemark());
+	    
+	    desig.setId(reqprosavedata.getDesignationId());
+	    reqpro.setDesignationId(desig);
+	    
+	    reqpro.setRecommendedBy(reqprosavedata.getRecommendedBy());
+	   
+	    reqpro.setUpdatedAt(reqpro.getCreatedAt());
+	    reqpro.setCreatedAt(reqpro.getCreatedAt());
+	    
+	    return reqpro;
+	  }
 }
