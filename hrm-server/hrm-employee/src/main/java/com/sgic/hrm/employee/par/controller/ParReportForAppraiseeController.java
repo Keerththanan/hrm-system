@@ -9,12 +9,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.sgic.hrm.commons.dto.par.ReportParAppraiseeDTO;
+import com.sgic.hrm.commons.dto.par.ReportParAppraiseeDtoGet;
+import com.sgic.hrm.commons.dto.par.ReportParAppraiseeDtoPost;
+import com.sgic.hrm.commons.dto.par.ScoreParAppraiseeDtoGet;
+import com.sgic.hrm.commons.dto.par.ScoreParAppraiseeDtoPost;
 import com.sgic.hrm.commons.entity.par.ReportParAppraise;
 import com.sgic.hrm.commons.entity.par.ScoreParAppraisee;
 import com.sgic.hrm.employee.par.service.ParReportForAppraiseeService;
-
-
 
 @RestController
 public class ParReportForAppraiseeController {
@@ -22,22 +23,33 @@ public class ParReportForAppraiseeController {
 	ParReportForAppraiseeService parReportForAppraiseeService;
 
 	@PostMapping("/parreportappraisee")
-	public void createParReportForAppraisee(@RequestBody ReportParAppraiseeDTO reportParAppraiseeDTO) {
-	ReportParAppraise objParReport = new ReportParAppraise(reportParAppraiseeDTO.getId());
-	List<ScoreParAppraisee> scheduleParAppraisorList=reportParAppraiseeDTO.getScoreParAppraiseeList();
-	parReportForAppraiseeService.saveReportAndScore(reportParAppraiseeDTO.getParId(), objParReport, scheduleParAppraisorList);
+	public String createParReportForAppraisee(@RequestBody ReportParAppraiseeDtoPost reportParAppraiseeDtoPost) {
+		
+		return parReportForAppraiseeService.saveReportAndScore(reportParAppraiseeDtoPost);
+	}
+
+	@GetMapping("/parReportTemplatePost")
+	public ReportParAppraiseeDtoPost getParReportForAppraiseePost() {
+		ReportParAppraiseeDtoPost reportParAppraiseeDtoPost = new ReportParAppraiseeDtoPost();
+		
+		List<ScoreParAppraiseeDtoPost> scheduleParAppraisorList = new ArrayList<ScoreParAppraiseeDtoPost>();
+		scheduleParAppraisorList.add(new ScoreParAppraiseeDtoPost());
+		scheduleParAppraisorList.add(new ScoreParAppraiseeDtoPost());
+		scheduleParAppraisorList.add(new ScoreParAppraiseeDtoPost());
+		reportParAppraiseeDtoPost.setScoreParAppraiseeList(scheduleParAppraisorList);
+		return reportParAppraiseeDtoPost;
 	}
 	
-	@GetMapping("/parreportappraisee")
-	public ReportParAppraiseeDTO getParReportForAppraisee() {
-		ReportParAppraiseeDTO reportParAppraiseeDTO=new ReportParAppraiseeDTO();
-		ReportParAppraise objParReport = new ReportParAppraise(1);
-		List<ScoreParAppraisee> scheduleParAppraisorList=new ArrayList<ScoreParAppraisee>();
-		scheduleParAppraisorList.add(new ScoreParAppraisee(1,"C001",3.00));
-		scheduleParAppraisorList.add(new ScoreParAppraisee(2,"C002",4.00));
-		scheduleParAppraisorList.add(new ScoreParAppraisee(3,"C003",5.00));
-		reportParAppraiseeDTO.setScoreParAppraiseeList(scheduleParAppraisorList);
-		return reportParAppraiseeDTO; 
+	@GetMapping("/parReportTemplateGet")
+	public ReportParAppraiseeDtoGet getParReportForAppraiseeGet() {
+		ReportParAppraiseeDtoGet reportParAppraiseeDtoGet = new ReportParAppraiseeDtoGet();
+		
+		List<ScoreParAppraiseeDtoGet> scheduleParAppraiseeList = new ArrayList<ScoreParAppraiseeDtoGet>();
+		scheduleParAppraiseeList.add(new ScoreParAppraiseeDtoGet());
+		scheduleParAppraiseeList.add(new ScoreParAppraiseeDtoGet());
+		scheduleParAppraiseeList.add(new ScoreParAppraiseeDtoGet());
+		reportParAppraiseeDtoGet.setScoreParAppraiseeList(scheduleParAppraiseeList);
+		return reportParAppraiseeDtoGet;
 	}
-	
+
 }

@@ -3,6 +3,8 @@ package com.sgic.hrm.commons.entity.par;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -10,6 +12,7 @@ import javax.persistence.Table;
 @Table(name = "par", schema = "employee")
 public class Par {
 	@Id
+	//@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 	private String empId;
 	private Double overAllScore;

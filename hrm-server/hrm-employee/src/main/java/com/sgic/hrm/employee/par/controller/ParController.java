@@ -12,8 +12,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.sgic.hrm.commons.entity.par.Par;
 import com.sgic.hrm.employee.par.service.ParService;
 
-
-
 @RestController
 @CrossOrigin
 public class ParController {

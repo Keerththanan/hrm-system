@@ -32,7 +32,7 @@ public interface ParScheduleService {
 			List<ScheduleParContentDTO> scheduleParContentList);
 	// get schedule par
 	
-		public ScheduleParDTO getSchedulePar(Integer parId);
+	public ScheduleParDTO getSchedulePar(Integer parId);
 		
 		//add par content 
 		// remove par content

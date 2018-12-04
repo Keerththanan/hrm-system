@@ -1,39 +1,41 @@
 package com.sgic.hrm.commons.entity.par;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "ScoreParAppraisee", schema = "employee")
+@Table(name = "scoreParAppraisee", schema = "employee")
 public class ScoreParAppraisee {
-	
+
 	@Id
-	private Integer id;
+//	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private String id;
 	private String parContentId;
 	private Double score;
-	
+
 	@ManyToOne
-	@JoinColumn(name="report_par_appraise_id")
+	@JoinColumn(name = "report_par_appraise_id")
 	private ReportParAppraise reportParAppraise;
-	
-	public ScoreParAppraisee(int id, String parContentId,Double score) {
-	this.id= id;
-	this.parContentId =parContentId;
-	this.score =score;
-	}
-	
-	public ScoreParAppraisee() {
-		
+
+	public ScoreParAppraisee(String parContentId, Double score) {
+		this.parContentId = parContentId;
+		this.score = score;
 	}
 
-	public Integer getId() {
+	public ScoreParAppraisee() {
+
+	}
+
+	public String getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
@@ -60,7 +62,5 @@ public class ScoreParAppraisee {
 	public void setReportParAppraise(ReportParAppraise reportParAppraise) {
 		this.reportParAppraise = reportParAppraise;
 	}
-
-	
 
 }

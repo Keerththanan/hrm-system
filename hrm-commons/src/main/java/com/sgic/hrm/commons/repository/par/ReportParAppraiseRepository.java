@@ -7,5 +7,6 @@ import com.sgic.hrm.commons.entity.par.ReportParAppraise;
 
 @Repository
 public interface ReportParAppraiseRepository extends JpaRepository<ReportParAppraise, Integer> {
+	ReportParAppraise findReportParAppraiseById(Integer id);
 
 }

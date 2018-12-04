@@ -23,4 +23,10 @@ public class ReportParAppraiseServiceImpl implements ReportParAppraiseeService
 			reportParAppraiseRepo.save(reportParAppraise);
 		
 	}
+
+	@Override
+	public ReportParAppraise findReportParAppraiseeById(Integer id) {
+		// TODO Auto-generated method stub
+		return reportParAppraiseRepo.findReportParAppraiseById(id);
+	}
 }
