@@ -2,70 +2,55 @@ package com.sgic.hrm.commons.dto;
 
 import java.sql.Date;
 
-public class PromotionData {
-
+public class PromotionSaveData {
 	private Integer id;
-	private UserData usertId;
-	private DesignationData designationId;
+	private Integer userId;
+	private Integer designationId;
 	private Date promotedDate;
 	private String remark;
-	private int salary;
-	private int promotedBy;
-
+	private Integer salary;
+	private Integer promotedBy;
 	public Integer getId() {
 		return id;
 	}
-
 	public void setId(Integer id) {
 		this.id = id;
 	}
-
-	public DesignationData getDesignationId() {
+	public Integer getUserId() {
+		return userId;
+	}
+	public void setUserId(Integer userId) {
+		this.userId = userId;
+	}
+	public Integer getDesignationId() {
 		return designationId;
 	}
-
-	public void setDesignationId(DesignationData designationId) {
+	public void setDesignationId(Integer designationId) {
 		this.designationId = designationId;
 	}
-
-	public UserData getUsertId() {
-		return usertId;
-	}
-
-	public void setUsertId(UserData usertId) {
-		this.usertId = usertId;
-	}
-
 	public Date getPromotedDate() {
 		return promotedDate;
 	}
-
 	public void setPromotedDate(Date promotedDate) {
 		this.promotedDate = promotedDate;
 	}
-
 	public String getRemark() {
 		return remark;
 	}
-
 	public void setRemark(String remark) {
 		this.remark = remark;
 	}
-
-	public int getSalary() {
+	public Integer getSalary() {
 		return salary;
 	}
-
-	public void setSalary(int salary) {
+	public void setSalary(Integer salary) {
 		this.salary = salary;
 	}
-
-	public int getPromotedBy() {
+	public Integer getPromotedBy() {
 		return promotedBy;
 	}
-
-	public void setPromotedBy(int promotedBy) {
+	public void setPromotedBy(Integer promotedBy) {
 		this.promotedBy = promotedBy;
 	}
-
+	
 }

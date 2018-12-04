@@ -41,7 +41,7 @@ public class GeneralWelfareController {
 	  }
 
 	@PostMapping("/generalWelfare")
-	//public ResponseEntity<String> createGeneralWelfare(@RequestBody GeneralWelfareData generalWelfareData) {
+	public ResponseEntity<String> createGeneralWelfare(@RequestBody GeneralWelfareData generalWelfareData) {
 
 		if (generalWelfareService.createGeneralWelfare(GeneralWelfareDataToGeneralWelfare.maptoGeneralWelfare(generalWelfareData))) {
 			return new ResponseEntity<>("GeneralWelfare Create Succesfully ", HttpStatus.OK);
