@@ -63,7 +63,7 @@ public class AcademicQualificationServiceImpl implements AcademicQualificationSe
 	@Override
 	public boolean addAcademicQualification(AcademicQualification academicqualification, ExamType examType, User user) {
 		academicqualification.setUser(user);
-		academicqualification.setExamTypeId(examType);
+		academicqualification.setExamType(examType);
 		academicQualificationRepository.save(academicqualification);
 		return true;
 	}

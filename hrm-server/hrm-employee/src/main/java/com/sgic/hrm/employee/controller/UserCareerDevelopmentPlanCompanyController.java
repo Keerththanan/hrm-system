@@ -4,6 +4,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,11 +13,13 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import com.sgic.hrm.commons.dto.UserCareerDevelopmentPlanCompanyData;
+import com.sgic.hrm.commons.dto.UserCareerDevelopmentPlanCompanySaveData;
 import com.sgic.hrm.commons.dto.mapper.UserCareerDevelopmentPlanCompanyDataMapper;
 import com.sgic.hrm.commons.entity.UserCareerDevelopmentPlanCompany;
 import com.sgic.hrm.employee.service.UserCareerDevelopmentPlanCompanyService;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
 public class UserCareerDevelopmentPlanCompanyController {
   
   @Autowired
@@ -31,6 +34,17 @@ public class UserCareerDevelopmentPlanCompanyController {
       }
       return HttpStatus.BAD_REQUEST;
     }
+  
+  @PostMapping("/usercareerdevelopmentplancompanysave")
+  public HttpStatus postCDPCompany(@RequestBody  UserCareerDevelopmentPlanCompanySaveData userCareerDevelopmentPlanCompanySaveData) {
+
+    boolean testadd=userCareerDevelopmentPlanCompanyService.addUserCareerDevelopmentPlanCompany(UserCareerDevelopmentPlanCompanyDataMapper.userCareerDevelopmentPlanCompanySaveDataMapper(userCareerDevelopmentPlanCompanySaveData));
+    if(testadd) {
+      
+      return HttpStatus.CREATED;
+    }
+    return HttpStatus.BAD_REQUEST;
+  }
   
   @GetMapping("/usercareerdevelopmentplancompany")
   public ResponseEntity<List<UserCareerDevelopmentPlanCompany>> getCareerDevelopemntPlan() {
