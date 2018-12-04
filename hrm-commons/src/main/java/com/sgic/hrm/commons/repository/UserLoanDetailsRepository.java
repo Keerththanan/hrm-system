@@ -13,4 +13,8 @@ public interface UserLoanDetailsRepository extends JpaRepository<UserLoanDetails
 	@Query("SELECT ul from UserLoanDetails ul WHERE ul.user.id = ?1")
 	List<UserLoanDetails> findByUserId(Integer id);
 	
+	@Query("SELECT u from UserLoanDetails u WHERE u.user.fullName LIKE ?1%")
+	List<UserLoanDetails> findByUserName(String name);
+	
+	
 }
