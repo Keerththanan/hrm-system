@@ -73,8 +73,7 @@ public class LeaveAllocationServiceImpl implements LeaveAllocationService {
   @Override
   public boolean updateLeaveCount(LeaveRequest leaveRequest) {
 
-    LeaveAllocation allocation = leaveAllocationRepository
-        .findByUserAndLeaveType(leaveRequest.getUser(), leaveRequest.getLeaveType());
+    LeaveAllocation allocation = leaveRequest.getLeaveAllocation();
     long diffInMillies =
         Math.abs(leaveRequest.getStartDate().getTime() - leaveRequest.getEndDate().getTime());
     double days = TimeUnit.DAYS.convert(diffInMillies, TimeUnit.MILLISECONDS);

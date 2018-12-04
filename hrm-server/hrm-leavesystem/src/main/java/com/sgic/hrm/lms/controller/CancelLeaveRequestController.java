@@ -28,7 +28,7 @@ public class CancelLeaveRequestController {
   CancelLeaveRequestService cancelLeaveRequestService;
 
   @PostMapping
-  public HttpStatus addLeaveRequest(@RequestBody CancelLeaveRequestData cancelLeaveRequestData) {
+  public HttpStatus addCancelLeaveRequest(@RequestBody CancelLeaveRequestData cancelLeaveRequestData) {
 
     if (cancelLeaveRequestService.addCancelLeaveRequest(CancelLeaveRequestDataToCancelLeaveRequest
         .mapToCancelLeaveRequest(cancelLeaveRequestData))) {
