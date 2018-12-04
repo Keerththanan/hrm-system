@@ -7,7 +7,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -39,5 +41,23 @@ public class AppointmentTypeController {
 		response =  new ResponseEntity<>(appointmentType,HttpStatus.OK);
 		return response;
 		
+	}
+	
+	@PutMapping("/appointmentType/{id}")
+	public HttpStatus editAppointmentType(@PathVariable Integer id,@RequestBody AppointmentType appointmentType) {
+		boolean editTest=appointmentTypeService.editAppointmentType(appointmentType, id);
+		if(editTest) {
+			return HttpStatus.ACCEPTED;
+		}
+		return HttpStatus.BAD_REQUEST;
+	}
+	
+	@PutMapping("/appointmentType/{id}")
+	public HttpStatus deleteAppointmentType(@PathVariable Integer id,@RequestBody AppointmentType appointmentType) {
+		boolean deleteTest=appointmentTypeService.deleteAppointmentType(id);
+		if(deleteTest) {
+			return HttpStatus.ACCEPTED;
+		}
+		return HttpStatus.BAD_REQUEST;
 	}
 }
