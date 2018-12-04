@@ -9,8 +9,10 @@ import org.springframework.stereotype.Service;
 
 import com.sgic.hrm.commons.entity.DiscussionParticipants;
 import com.sgic.hrm.commons.entity.DiscussionSchedule;
+import com.sgic.hrm.commons.entity.TerminationRequest;
 import com.sgic.hrm.commons.repository.DiscussionParticipantsRepository;
 import com.sgic.hrm.commons.repository.DiscussionScheduleRepository;
+import com.sgic.hrm.commons.repository.TerminationRequestRepository;
 import com.sgic.hrm.employee.service.DiscussionScheduleService;
 
 @Service
@@ -19,6 +21,8 @@ public class DiscussionScheduleServiceImpl implements DiscussionScheduleService 
 	DiscussionScheduleRepository discussionScheduleRepository;
 	@Autowired
 	DiscussionParticipantsRepository discussionParticipantsRepository;
+	@Autowired
+	TerminationRequestRepository terminationRequestRepository;
 
 	@Transactional
 	@Override
