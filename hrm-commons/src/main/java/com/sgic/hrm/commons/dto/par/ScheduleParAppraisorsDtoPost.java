@@ -1,17 +1,17 @@
 package com.sgic.hrm.commons.dto.par;
 
-public class ScheduleParAppraisorsDTO {
+public class ScheduleParAppraisorsDtoPost {
 	
 	
 	private String appraisorId;
 
 
-	public ScheduleParAppraisorsDTO(String appraisorId) {
+	public ScheduleParAppraisorsDtoPost(String appraisorId) {
 		
 		this.appraisorId = appraisorId;
 	}
 
-	public ScheduleParAppraisorsDTO() {
+	public ScheduleParAppraisorsDtoPost() {
 	
 	}
 

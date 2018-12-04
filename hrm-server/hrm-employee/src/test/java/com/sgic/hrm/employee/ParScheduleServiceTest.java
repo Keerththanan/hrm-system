@@ -9,8 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.sgic.hrm.commons.dto.par.ScheduleParAppraisorsDTO;
-import com.sgic.hrm.commons.dto.par.ScheduleParContentDTO;
+import com.sgic.hrm.commons.dto.par.ScheduleParAppraisorsDtoPost;
+import com.sgic.hrm.commons.dto.par.ScheduleParContentDtoPost;
 import com.sgic.hrm.commons.entity.par.Par;
 import com.sgic.hrm.employee.par.serviceCombined.ParScheduleService;
 
@@ -25,14 +25,14 @@ public class ParScheduleServiceTest {
 	@Test
 	public void createParScheduleService() {
 		Par parObj = new Par(1, "EM002", null);
-		List<ScheduleParAppraisorsDTO> scheduleParAppraisorList = new ArrayList<ScheduleParAppraisorsDTO>();
-		scheduleParAppraisorList.add(new ScheduleParAppraisorsDTO("A001"));
-		scheduleParAppraisorList.add(new ScheduleParAppraisorsDTO("A002"));
+		List<ScheduleParAppraisorsDtoPost> scheduleParAppraisorList = new ArrayList<ScheduleParAppraisorsDtoPost>();
+		scheduleParAppraisorList.add(new ScheduleParAppraisorsDtoPost("A001"));
+		scheduleParAppraisorList.add(new ScheduleParAppraisorsDtoPost("A002"));
 
-		List<ScheduleParContentDTO> scheduleParContentList = new ArrayList<ScheduleParContentDTO>();
-		scheduleParContentList.add(new ScheduleParContentDTO("C001"));
-		scheduleParContentList.add(new ScheduleParContentDTO("C002"));
-		scheduleParContentList.add(new ScheduleParContentDTO("C003"));
+		List<ScheduleParContentDtoPost> scheduleParContentList = new ArrayList<ScheduleParContentDtoPost>();
+		scheduleParContentList.add(new ScheduleParContentDtoPost("C001"));
+		scheduleParContentList.add(new ScheduleParContentDtoPost("C002"));
+		scheduleParContentList.add(new ScheduleParContentDtoPost("C003"));
 
 		parScheduleService.createSchedulePar(parObj, scheduleParAppraisorList, scheduleParContentList);
 	}

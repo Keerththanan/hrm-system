@@ -13,9 +13,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.sgic.hrm.commons.dto.par.ScheduleParAppraisorsDTO;
-import com.sgic.hrm.commons.dto.par.ScheduleParContentDTO;
-import com.sgic.hrm.commons.dto.par.ScheduleParDTO;
+import com.sgic.hrm.commons.dto.par.ScheduleParAppraisorsDtoGet;
+import com.sgic.hrm.commons.dto.par.ScheduleParAppraisorsDtoPost;
+import com.sgic.hrm.commons.dto.par.ScheduleParContentDtoGet;
+import com.sgic.hrm.commons.dto.par.ScheduleParContentDtoPost;
+import com.sgic.hrm.commons.dto.par.ScheduleParDtoGet;
+import com.sgic.hrm.commons.dto.par.ScheduleParDtoPost;
 import com.sgic.hrm.commons.entity.par.Par;
 import com.sgic.hrm.employee.par.service.ParService;
 import com.sgic.hrm.employee.par.serviceCombined.ParScheduleService;
@@ -29,29 +32,46 @@ public class ScheduleParController {
 	@Autowired
 	ParService parservice;
 
-	@GetMapping("/schedulepartemp")
-	public ScheduleParDTO getSchedulePar() {
-		ScheduleParDTO objScheduleParDTO = new ScheduleParDTO();
+	@GetMapping("/scheduleparPostTemp")
+	public ScheduleParDtoPost getScheduleParPost() {
+		ScheduleParDtoPost objScheduleParDTO = new ScheduleParDtoPost();
 
-		List<ScheduleParAppraisorsDTO> scheduleParAppraisorList = new ArrayList<ScheduleParAppraisorsDTO>();
-		scheduleParAppraisorList.add(new ScheduleParAppraisorsDTO("A001"));
-		scheduleParAppraisorList.add(new ScheduleParAppraisorsDTO("A002"));
-		scheduleParAppraisorList.add(new ScheduleParAppraisorsDTO("A003"));
+		List<ScheduleParAppraisorsDtoPost> scheduleParAppraisorList = new ArrayList<>();
+		scheduleParAppraisorList.add(new ScheduleParAppraisorsDtoPost("A001"));
+		scheduleParAppraisorList.add(new ScheduleParAppraisorsDtoPost("A002"));
+		scheduleParAppraisorList.add(new ScheduleParAppraisorsDtoPost("A003"));
 
-		List<ScheduleParContentDTO> scheduleParContentList = new ArrayList<ScheduleParContentDTO>();
-		scheduleParContentList.add(new ScheduleParContentDTO("C001"));
-		scheduleParContentList.add(new ScheduleParContentDTO("C002"));
+		List<ScheduleParContentDtoPost> scheduleParContentList = new ArrayList<>();
+		scheduleParContentList.add(new ScheduleParContentDtoPost("C001"));
+		scheduleParContentList.add(new ScheduleParContentDtoPost("C002"));
 
 		objScheduleParDTO.setScheduleParAppraisorsList(scheduleParAppraisorList);
 		objScheduleParDTO.setScheduleParContentList(scheduleParContentList);
 		return objScheduleParDTO;
 	}
+	
+	@GetMapping("/scheduleparGetTemp")
+	public ScheduleParDtoGet getScheduleParGet() {
+		ScheduleParDtoGet scheduleParDtoGet = new ScheduleParDtoGet();
+
+		List<ScheduleParAppraisorsDtoGet> scheduleParAppraisorList = new ArrayList<>();
+		scheduleParAppraisorList.add(new ScheduleParAppraisorsDtoGet());
+		scheduleParAppraisorList.add(new ScheduleParAppraisorsDtoGet());
+
+		List<ScheduleParContentDtoGet> scheduleParContentList = new ArrayList<>();
+		scheduleParContentList.add(new ScheduleParContentDtoGet());
+		scheduleParContentList.add(new ScheduleParContentDtoGet());
+
+		scheduleParDtoGet.setScheduleParAppraisorsList(scheduleParAppraisorList);
+		scheduleParDtoGet.setScheduleParContentList(scheduleParContentList);
+		return scheduleParDtoGet;
+	}
 
 	@PostMapping("/schedulepar")
-	public void createSchedulePar(@RequestBody ScheduleParDTO objScheduleParDTO) {
+	public void createSchedulePar(@RequestBody ScheduleParDtoPost objScheduleParDTO) {
 		// boolean=
 		Par par = new Par();
-		par.setId(objScheduleParDTO.getId());
+		par.setId(objScheduleParDTO.getParId());
 		par.setEmpId(objScheduleParDTO.getEmpId());
 		par.setScheduleDate(objScheduleParDTO.getScheduleDate());
 		parScheduleService.createSchedulePar(par, objScheduleParDTO.getScheduleParAppraisorsList(),
@@ -64,7 +84,7 @@ public class ScheduleParController {
 	}
 
 	@GetMapping("/schedulepar/par/{parId}")
-	public ResponseEntity<ScheduleParDTO> findByParId(@PathVariable("parId") Integer parId) {
+	public ResponseEntity<ScheduleParDtoPost> findByParId(@PathVariable("parId") Integer parId) {
 		return new ResponseEntity<>(parScheduleService.getSchedulePar(parId), HttpStatus.OK);
 	}
 

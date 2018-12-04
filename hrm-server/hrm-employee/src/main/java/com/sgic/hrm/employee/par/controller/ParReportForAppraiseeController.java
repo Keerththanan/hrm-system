@@ -32,7 +32,7 @@ public class ParReportForAppraiseeController {
 	public ReportParAppraiseeDtoPost getParReportForAppraiseePost() {
 		ReportParAppraiseeDtoPost reportParAppraiseeDtoPost = new ReportParAppraiseeDtoPost();
 		
-		List<ScoreParAppraiseeDtoPost> scheduleParAppraisorList = new ArrayList<ScoreParAppraiseeDtoPost>();
+		List<ScoreParAppraiseeDtoPost> scheduleParAppraisorList = new ArrayList<>();
 		scheduleParAppraisorList.add(new ScoreParAppraiseeDtoPost());
 		scheduleParAppraisorList.add(new ScoreParAppraiseeDtoPost());
 		scheduleParAppraisorList.add(new ScoreParAppraiseeDtoPost());
@@ -44,7 +44,7 @@ public class ParReportForAppraiseeController {
 	public ReportParAppraiseeDtoGet getParReportForAppraiseeGet() {
 		ReportParAppraiseeDtoGet reportParAppraiseeDtoGet = new ReportParAppraiseeDtoGet();
 		
-		List<ScoreParAppraiseeDtoGet> scheduleParAppraiseeList = new ArrayList<ScoreParAppraiseeDtoGet>();
+		List<ScoreParAppraiseeDtoGet> scheduleParAppraiseeList = new ArrayList<>();
 		scheduleParAppraiseeList.add(new ScoreParAppraiseeDtoGet());
 		scheduleParAppraiseeList.add(new ScoreParAppraiseeDtoGet());
 		scheduleParAppraiseeList.add(new ScoreParAppraiseeDtoGet());

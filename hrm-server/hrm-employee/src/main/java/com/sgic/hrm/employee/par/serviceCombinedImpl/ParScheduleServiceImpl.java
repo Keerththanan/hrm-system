@@ -9,9 +9,9 @@ import org.springframework.stereotype.Service;
 
 import com.sgic.hrm.commons.dto.mapper.par.ScheduleParAppraisorsMapper;
 import com.sgic.hrm.commons.dto.mapper.par.ScheduleParContentMapper;
-import com.sgic.hrm.commons.dto.par.ScheduleParAppraisorsDTO;
-import com.sgic.hrm.commons.dto.par.ScheduleParContentDTO;
-import com.sgic.hrm.commons.dto.par.ScheduleParDTO;
+import com.sgic.hrm.commons.dto.par.ScheduleParAppraisorsDtoPost;
+import com.sgic.hrm.commons.dto.par.ScheduleParContentDtoPost;
+import com.sgic.hrm.commons.dto.par.ScheduleParDtoPost;
 import com.sgic.hrm.commons.entity.par.Par;
 import com.sgic.hrm.commons.entity.par.ScheduleParAppraisor;
 import com.sgic.hrm.commons.entity.par.ScheduleParContent;
@@ -36,12 +36,12 @@ public class ParScheduleServiceImpl implements ParScheduleService {
 
 
 	@Override
-	public ScheduleParDTO getSchedulePar(Integer parId) {
+	public ScheduleParDtoPost getSchedulePar(Integer parId) {
 		Par par = parService.findParById(parId);
 		Iterator<ScheduleParAppraisor> iteratorScheduledAppraisor = scheduleParAppraisorService
 				.findScheduleParAppraisorByParId(par).iterator();
 	
-		List<ScheduleParAppraisorsDTO> listScheduleParAppraisorDTO = new ArrayList<>();
+		List<ScheduleParAppraisorsDtoPost> listScheduleParAppraisorDTO = new ArrayList<>();
 		while (iteratorScheduledAppraisor.hasNext()) {
 
 			listScheduleParAppraisorDTO.add(ScheduleParAppraisorsMapper.entityToDto(iteratorScheduledAppraisor.next()));
@@ -49,26 +49,26 @@ public class ParScheduleServiceImpl implements ParScheduleService {
 		
 		Iterator<ScheduleParContent> iteratorScheduleParContent = scheduleParContentService
 				.findScheduleParContentByParId(par).iterator();
-		List<ScheduleParContentDTO> listScheduleParContentDTO = new ArrayList<>();
+		List<ScheduleParContentDtoPost> listScheduleParContentDTO = new ArrayList<>();
 		while (iteratorScheduleParContent.hasNext()) {
 			listScheduleParContentDTO.add(ScheduleParContentMapper.entityToDto(iteratorScheduleParContent.next()));
 		}
 
-		ScheduleParDTO scheduleParDTO = new ScheduleParDTO();
-		scheduleParDTO.setScheduleParAppraisorsList(listScheduleParAppraisorDTO);
-		scheduleParDTO.setScheduleParContentList(listScheduleParContentDTO);
-		return scheduleParDTO;
+		ScheduleParDtoPost scheduleParDtoPost = new ScheduleParDtoPost();
+		scheduleParDtoPost.setScheduleParAppraisorsList(listScheduleParAppraisorDTO);
+		scheduleParDtoPost.setScheduleParContentList(listScheduleParContentDTO);
+		return scheduleParDtoPost;
 	}
 
 
 	@Override
-	public void createSchedulePar(Par par, List<ScheduleParAppraisorsDTO> scheduleParAppraisorList,
-			List<ScheduleParContentDTO> scheduleParContentList) {
+	public void createSchedulePar(Par par, List<ScheduleParAppraisorsDtoPost> scheduleParAppraisorList,
+			List<ScheduleParContentDtoPost> scheduleParContentList) {
 		// save par object
 		parService.createPar(par);
 
 		// save Appraisor List
-		Iterator<ScheduleParAppraisorsDTO> iteratorScheduledAppraisor = scheduleParAppraisorList.iterator();
+		Iterator<ScheduleParAppraisorsDtoPost> iteratorScheduledAppraisor = scheduleParAppraisorList.iterator();
 		while (iteratorScheduledAppraisor.hasNext()) {
 
 			scheduleParAppraisorService.createScheduleParAppraisor(
@@ -76,7 +76,7 @@ public class ParScheduleServiceImpl implements ParScheduleService {
 		}
 
 		// save Content List
-		Iterator<ScheduleParContentDTO> iteratorScheduledContent = scheduleParContentList.iterator();
+		Iterator<ScheduleParContentDtoPost> iteratorScheduledContent = scheduleParContentList.iterator();
 		while (iteratorScheduledContent.hasNext()) {
 			scheduleParContentService.createScheduleParContent(
 					ScheduleParContentMapper.dtoToEntity(iteratorScheduledContent.next()), par);
