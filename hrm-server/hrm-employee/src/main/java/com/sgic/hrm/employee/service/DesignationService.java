@@ -8,9 +8,9 @@ public interface DesignationService {
 	
 	boolean addDesignation(Designation designation);
 	List<Designation> getDesignation();
-//	boolean editDesignation(Designation designation,Integer id);
+	boolean editDesignation(Designation designation,Integer id);
 //	Optional<Designation> getDesignationId(Integer id);
-//	boolean deleteDesignation(Integer id);
+	boolean deleteDesignation(Integer id);
 	Designation findByDesignationId(Integer id);
 	
 }

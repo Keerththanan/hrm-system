@@ -17,7 +17,7 @@ import org.springframework.security.web.authentication.WebAuthenticationDetailsS
 import org.springframework.web.filter.OncePerRequestFilter;
 
 
-import com.sgic.hrm.login.serviceimpl.LoginPrincipleImpl;
+import com.sgic.hrm.login.serviceimpl.UserDetailsServiceImpl;
 
 public class JwtAuthTokenFilter extends OncePerRequestFilter {
 
@@ -25,7 +25,7 @@ public class JwtAuthTokenFilter extends OncePerRequestFilter {
 	private JwtProvider tokenProvider;
 
 	@Autowired
-	private LoginPrincipleImpl userDetailsService;
+	private UserDetailsServiceImpl userDetailsService;
 
 	private static final Logger logger = LoggerFactory.getLogger(JwtAuthTokenFilter.class);
 

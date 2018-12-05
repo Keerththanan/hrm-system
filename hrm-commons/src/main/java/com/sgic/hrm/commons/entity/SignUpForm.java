@@ -21,12 +21,16 @@ public class SignUpForm {
 //    @NotBlank
 //    @Size(min = 6, max = 40)
     private String password;
-
+ 
     public User getUser() {
-        return user;
-    }
+		return user;
+	}
 
-    public void setName(User user) {
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public void setName(User user) {
         this.user = user;
     }
 

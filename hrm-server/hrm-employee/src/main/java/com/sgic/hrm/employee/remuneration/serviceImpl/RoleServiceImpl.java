@@ -13,7 +13,7 @@ public class RoleServiceImpl implements RoleService{
 @Autowired
 private RoleRepository roleRepository;
 	@Override
-	public List<Role> getAllRole() {
+	public List<Role> getAllRole() { 
 		// TODO Auto-generated method stub
 		return roleRepository.findAll();
 	}

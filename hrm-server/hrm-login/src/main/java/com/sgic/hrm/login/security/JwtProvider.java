@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Component;
 
-import com.sgic.hrm.login.service.LoginPrinciple;
+import com.sgic.hrm.login.serviceimpl.UserDetailsImpl;
 
 import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.Jwts;
@@ -30,7 +30,7 @@ public class JwtProvider {
 
     public String generateJwtToken(Authentication authentication) {
 
-        LoginPrinciple userPrincipal = (LoginPrinciple) authentication.getPrincipal();
+        UserDetailsImpl userPrincipal = (UserDetailsImpl) authentication.getPrincipal();
 
         return Jwts.builder()
 		                .setSubject((userPrincipal.getUsername()))
