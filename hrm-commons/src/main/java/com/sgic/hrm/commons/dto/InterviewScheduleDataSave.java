@@ -1,35 +1,14 @@
-package com.sgic.hrm.commons.entity;
+package com.sgic.hrm.commons.dto;
 
-import java.io.Serializable;
 import java.sql.Date;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
-
-
-@Entity
-@Table(schema = "employee", name = "interviewSchedule")
-public class InterviewSchedule implements Serializable {
-	
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1267621997962471573L;
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+public class InterviewScheduleDataSave {
 	private Integer id;
-	@ManyToOne
-	@JoinColumn(name="applicant_id")
-	private Applicant applicantId;
-	
+	private Integer applicantId;
 	private String interviewVenue;
 	private String interviewTime;
 	private Date interviewDate;
+	
 	public Integer getId() {
 		return id;
 	}
@@ -37,11 +16,10 @@ public class InterviewSchedule implements Serializable {
 		this.id = id;
 	}
 	
-	
-	public Applicant getApplicantId() {
+	public Integer getApplicantId() {
 		return applicantId;
 	}
-	public void setApplicantId(Applicant applicantId) {
+	public void setApplicantId(Integer applicantId) {
 		this.applicantId = applicantId;
 	}
 	public String getInterviewVenue() {
@@ -62,6 +40,5 @@ public class InterviewSchedule implements Serializable {
 	public void setInterviewDate(Date interviewDate) {
 		this.interviewDate = interviewDate;
 	}
-	
 
 }
