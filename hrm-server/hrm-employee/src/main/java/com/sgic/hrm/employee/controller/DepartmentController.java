@@ -6,8 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -43,6 +46,23 @@ public class DepartmentController {
 		response =  new ResponseEntity<>(departments,HttpStatus.OK);
 		return response;
 		
+	}
+	@PutMapping("/department/{id}")
+	public ResponseEntity<String> updateDepartment(@PathVariable(name="id") Integer id,@RequestBody DepartmentData departmentData){
+		Department department=DepartmentDataMapper.departmentDataMapper(departmentData);
+		if(departmentService.editDepartment(department, id))
+		{
+			return new ResponseEntity<>("updated",HttpStatus.OK);
+		}
+		return new ResponseEntity<>("upadte failed", HttpStatus.BAD_REQUEST);
+	}
+	@DeleteMapping("/department/{id}")
+	public HttpStatus DeleteDepartment(@PathVariable Integer id) {
+		boolean test=departmentService.deleteDepartment(id);
+		if(test) {
+			return HttpStatus.ACCEPTED;
+		}
+		return HttpStatus.BAD_REQUEST;
 	}
 	
 }

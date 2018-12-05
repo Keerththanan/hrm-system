@@ -12,8 +12,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-
-@Table(schema = "employee", name = "general_welfare")
+@Table(schema="employee")
 public class GeneralWelfare implements Serializable {
 	/**
 	 * 
