@@ -7,7 +7,7 @@ import java.sql.Date;
 public class InterviewScheduleData {
 	
 	private Integer id;
-	private ApplicantData applicantid;
+	private ApplicantData applicant;
 	private String interviewVenue;
 	private String interviewTime;
 	private Date interviewDate;
@@ -17,11 +17,12 @@ public class InterviewScheduleData {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public ApplicantData getApplicantid() {
-		return applicantid;
+	
+	public ApplicantData getApplicant() {
+		return applicant;
 	}
-	public void setApplicantid(ApplicantData applicantid) {
-		this.applicantid = applicantid;
+	public void setApplicant(ApplicantData applicant) {
+		this.applicant = applicant;
 	}
 	public String getInterviewVenue() {
 		return interviewVenue;

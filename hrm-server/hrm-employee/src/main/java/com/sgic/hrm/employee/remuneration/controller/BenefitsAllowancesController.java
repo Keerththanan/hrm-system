@@ -5,9 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -29,16 +27,11 @@ public class BenefitsAllowancesController {
 				benefitsAllowancesService.getBenefitsAllowances());
 	}
 
-//	@GetMapping
-//	public BenefitsAllowancesDto viewBenefits(@RequestParam("id") Integer id) {
-//		return BenefitsAllowancesEntityMapper
-//				.mapBenefitsAllowancesEntityToBenefitsAllowancesDto(benefitsAllowancesService.viewById(id));
-//	}
-
-	@GetMapping("/{id}")
-	public List<BenefitsAllowancesDto> viewbysalarychartId(@PathVariable Integer id) {
+	@GetMapping(path = "/search", params = { "id" })
+	public BenefitsAllowancesDto viewBenefits(@RequestParam("id") Integer id) {
 		return BenefitsAllowancesEntityMapper
-				.mapBenefitsAllowancesEntityListToBenefitsAllowancesDtoList(benefitsAllowancesService.viewByChatId(id));
+				.mapBenefitsAllowancesEntityToBenefitsAllowancesDto(benefitsAllowancesService.viewById(id));
 	}
 
 }
+	

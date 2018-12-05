@@ -11,10 +11,10 @@ public class VacancyData {
 	private ZonedDateTime interviewDate;
 	private String keyRecuitment;
 	
-	private UserData userid;
-	private JobData jobid;
-	private DepartmentData departmentid;
-	private RecruitmentTypeData recruitmentid;
+	private UserData user;
+	private JobData job;
+	private DepartmentData department;
+	private RecruitmentTypeData recruitment;
 	
 	
 	public Integer getId() {
@@ -59,29 +59,29 @@ public class VacancyData {
 	public void setKeyRecuitment(String keyRecuitment) {
 		this.keyRecuitment = keyRecuitment;
 	}
-	public UserData getUserid() {
-		return userid;
+	public UserData getUser() {
+		return user;
 	}
-	public void setUserid(UserData userid) {
-		this.userid = userid;
+	public void setUser(UserData user) {
+		this.user = user;
 	}
-	public JobData getJobid() {
-		return jobid;
+	public JobData getJob() {
+		return job;
 	}
-	public void setJobid(JobData jobid) {
-		this.jobid = jobid;
+	public void setJob(JobData job) {
+		this.job = job;
 	}
-	public DepartmentData getDepartmentid() {
-		return departmentid;
+	public DepartmentData getDepartment() {
+		return department;
 	}
-	public void setDepartmentid(DepartmentData departmentid) {
-		this.departmentid = departmentid;
+	public void setDepartment(DepartmentData department) {
+		this.department = department;
 	}
-	public RecruitmentTypeData getRecruitmentid() {
-		return recruitmentid;
+	public RecruitmentTypeData getRecruitment() {
+		return recruitment;
 	}
-	public void setRecruitmentid(RecruitmentTypeData recruitmentid) {
-		this.recruitmentid = recruitmentid;
+	public void setRecruitment(RecruitmentTypeData recruitment) {
+		this.recruitment = recruitment;
 	}
 	
 	

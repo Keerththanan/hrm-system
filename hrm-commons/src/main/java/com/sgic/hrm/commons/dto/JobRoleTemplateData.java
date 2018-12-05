@@ -13,8 +13,8 @@ public class JobRoleTemplateData {
 	private String personalCheracteristics;
 	private String certification;
 	
-	private JobData jobid;
-	private HighestQualificationData highestQualificationid;
+	private JobData job;
+	private HighestQualificationData highestQualification;
 	public Integer getId() {
 		return id;
 	}
@@ -69,19 +69,19 @@ public class JobRoleTemplateData {
 	public void setCertification(String certification) {
 		this.certification = certification;
 	}
+	public JobData getJob() {
+		return job;
+	}
+	public void setJob(JobData job) {
+		this.job = job;
+	}
+	public HighestQualificationData getHighestQualification() {
+		return highestQualification;
+	}
+	public void setHighestQualification(HighestQualificationData highestQualification) {
+		this.highestQualification = highestQualification;
+	}
 	
-	public JobData getJobid() {
-		return jobid;
-	}
-	public void setJobid(JobData jobid) {
-		this.jobid = jobid;
-	}
-	public HighestQualificationData getHighestQualificationid() {
-		return highestQualificationid;
-	}
-	public void setHighestQualificationid(HighestQualificationData highestQualificationid) {
-		this.highestQualificationid = highestQualificationid;
-	}
 	
 	
 }

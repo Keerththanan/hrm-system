@@ -1,12 +1,16 @@
 package com.sgic.hrm.commons.entity;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.sql.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+import org.hibernate.annotations.CreationTimestamp;
 
 @Entity
 public class DeniedPromotion implements Serializable {
@@ -18,12 +22,25 @@ public class DeniedPromotion implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	private int requsetId;
-	private int designationId;
+	
+	@ManyToOne
+	@JoinColumn(name ="user_id")
+	private User userId;
+	
+	@CreationTimestamp
 	private Date deniedDate;
+	
+	public void setDeniedBy(Integer deniedBy) {
+		this.deniedBy = deniedBy;
+	}
+
 	private String deniedRemark;
-	private String position;
-	private int deniedBy;
+	
+	@ManyToOne
+	@JoinColumn(name="designation_id")
+	private Designation desinationId;
+	
+	private Integer deniedBy;
 
 	public Integer getId() {
 		return id;
@@ -33,20 +50,14 @@ public class DeniedPromotion implements Serializable {
 		this.id = id;
 	}
 
-	public int getRequsetId() {
-		return requsetId;
+	
+
+	public User getUserId() {
+		return userId;
 	}
 
-	public void setRequsetId(int requsetId) {
-		this.requsetId = requsetId;
-	}
-
-	public int getDesignationId() {
-		return designationId;
-	}
-
-	public void setDesignationId(int designationId) {
-		this.designationId = designationId;
+	public void setUserId(User userId) {
+		this.userId = userId;
 	}
 
 	public Date getDeniedDate() {
@@ -65,20 +76,23 @@ public class DeniedPromotion implements Serializable {
 		this.deniedRemark = deniedRemark;
 	}
 
-	public String getPosition() {
-		return position;
+	
+
+	public Designation getDesinationId() {
+		return desinationId;
 	}
 
-	public void setPosition(String position) {
-		this.position = position;
+	public void setDesinationId(Designation desinationId) {
+		this.desinationId = desinationId;
 	}
 
-	public int getDeniedBy() {
+	public Integer getDeniedBy() {
 		return deniedBy;
 	}
 
-	public void setDeniedBy(int deniedBy) {
-		this.deniedBy = deniedBy;
-	}
+	
+	
+
+	
 
 }

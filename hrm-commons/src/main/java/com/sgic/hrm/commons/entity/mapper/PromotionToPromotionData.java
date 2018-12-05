@@ -13,8 +13,8 @@ public class PromotionToPromotionData {
 		if (promotion != null) {
 			promotionData.setId(promotion.getId());
 			promotionData.setPromotedBy(promotion.getPromotedBy());
-			promotionData.setRequestId(promotion.getRequestId());
-			promotionData.setDesignationId(promotion.getDesignationId());
+			promotionData.setUsertId(UserMapper.userMapper(promotion.getUserId()));
+			promotionData.setDesignationId(DesignationMapper.designationMapper(promotion.getDesignationId()));
 			promotionData.setPromotedDate(promotion.getPromotedDate());
 			promotionData.setRemark(promotion.getRemark());
 			promotionData.setSalary(promotion.getSalary());

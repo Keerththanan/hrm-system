@@ -25,7 +25,8 @@ public class InterviewSchedule implements Serializable {
 	private Integer id;
 	@ManyToOne
 	@JoinColumn(name="applicant_id")
-	private Applicant applicantid;
+	private Applicant applicant;
+	
 	private String interviewVenue;
 	private String interviewTime;
 	private Date interviewDate;
@@ -35,11 +36,12 @@ public class InterviewSchedule implements Serializable {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public Applicant getApplicantid() {
-		return applicantid;
+	
+	public Applicant getApplicant() {
+		return applicant;
 	}
-	public void setApplicantid(Applicant applicantid) {
-		this.applicantid = applicantid;
+	public void setApplicant(Applicant applicant) {
+		this.applicant = applicant;
 	}
 	public String getInterviewVenue() {
 		return interviewVenue;
