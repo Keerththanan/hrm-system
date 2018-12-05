@@ -1,12 +1,11 @@
 package com.sgic.hrm.commons.dto;
 
-public class GeneralWelfareData {
-	
+public class GeneralWelfareSaveData {
+
 	 Integer Id;
 	 String generalWelfare_name;
 	 String details;
-	 WelfareEventDto welfareEvent;
-	
+	 Integer welfareEvent;
 	public Integer getId() {
 		return Id;
 	}
@@ -25,13 +24,10 @@ public class GeneralWelfareData {
 	public void setDetails(String details) {
 		this.details = details;
 	}
-	public WelfareEventDto getWelfareEvent() {
+	public Integer getWelfareEvent() {
 		return welfareEvent;
 	}
-	public void setWelfareEvent(WelfareEventDto welfareEvent) {
+	public void setWelfareEvent(Integer welfareEvent) {
 		this.welfareEvent = welfareEvent;
 	}
-	
-
-
 }

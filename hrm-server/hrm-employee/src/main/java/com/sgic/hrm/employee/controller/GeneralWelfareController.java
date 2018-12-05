@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.sgic.hrm.commons.dto.GeneralWelfareData;
+import com.sgic.hrm.commons.dto.GeneralWelfareSaveData;
 import com.sgic.hrm.commons.dto.mapper.GeneralWelfareDataToGeneralWelfare;
 import com.sgic.hrm.commons.entity.GeneralWelfare;
 import com.sgic.hrm.commons.entity.mapper.GeneralWelfareToGneralWelfareData;
@@ -47,6 +48,15 @@ public class GeneralWelfareController {
 		}
 		return new ResponseEntity<>("GeneralWelfare Create Failed ", HttpStatus.BAD_REQUEST);
 	}
+	
+	@PostMapping("/generalWelfaresave")
+	public ResponseEntity<String> postGeneralWelfare(@RequestBody GeneralWelfareSaveData generalWelfareSaveData) {
+		if (generalWelfareService.createGeneralWelfare(GeneralWelfareDataToGeneralWelfare.GeneralWelfareSaveDataMapper(generalWelfareSaveData))) {
+		return new ResponseEntity<>("GeneralWelfare Create Succesfully ", HttpStatus.OK);
+		}
+		return new ResponseEntity<>("GeneralWelfare Create Failed ", HttpStatus.BAD_REQUEST);
+	}
+	
 
 	@PutMapping("/generalWelfare/{id}")
 	public ResponseEntity<String> updateGeneralWelfare(@PathVariable(name = "id") Integer id,
