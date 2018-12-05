@@ -12,12 +12,11 @@ public class DeniedPromotionToDeniedPromotionData {
 		DeniedPromotionData deniedPromotionData = new DeniedPromotionData();
 		if (deniedPromotion != null) {
 			deniedPromotionData.setId(deniedPromotion.getId());
-			deniedPromotionData.setRequsetId(deniedPromotion.getRequsetId());
-			deniedPromotionData.setDesignationId(deniedPromotion.getDesignationId());
+			deniedPromotionData.setUserId(UserMapper.userMapper(deniedPromotion.getUserId()));
 			deniedPromotionData.setDeniedDate(deniedPromotion.getDeniedDate());
 			deniedPromotionData.setDeniedRemark(deniedPromotion.getDeniedRemark());
 			deniedPromotionData.setDeniedBy(deniedPromotion.getDeniedBy());
-			deniedPromotionData.setPosition(deniedPromotion.getPosition());
+			deniedPromotionData.setDesinationId(DesignationMapper.designationMapper(deniedPromotion.getDesinationId()));
 
 		}
 		return deniedPromotionData;

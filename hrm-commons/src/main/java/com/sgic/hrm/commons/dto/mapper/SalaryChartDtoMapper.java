@@ -11,7 +11,9 @@ public class SalaryChartDtoMapper {
 		salaryChartEntity.setId(salaryChartDto.getId());
 		salaryChartEntity.setBasicSalary(salaryChartDto.getBasicSalary());
 		salaryChartEntity.setEmpName(salaryChartDto.getEmpName());
-		salaryChartEntity.setEpf(salaryChartDto.getEpf());
+		salaryChartEntity.setEpf8(salaryChartDto.getEpf8());
+		salaryChartEntity.setEpf12(salaryChartDto.getEpf12());
+		salaryChartEntity.setEtf3(salaryChartDto.getEtf3());
 		salaryChartEntity.setLoan(salaryChartDto.getLoan());
 		salaryChartEntity.setNetSalary(salaryChartDto.getNetSalary());
 		salaryChartEntity.setStampDuty(salaryChartDto.getStampDuty());
