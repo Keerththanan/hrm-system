@@ -11,10 +11,10 @@ import com.sgic.hrm.employee.remuneration.service.RoleService;
 
 @RestController
 public class RoleController {
-@Autowired
-private RoleService roleService;
-@GetMapping("/role")
-public List<RoleEntity> viewall(){
-	return roleService.getAllRole();
-}
+//@Autowired
+//private RoleService roleService;
+//@GetMapping("/role")
+//public List<RoleEntity> viewall(){
+//	return roleService.getAllRole();
+//}
 }
