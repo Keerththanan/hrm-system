@@ -2,7 +2,7 @@ package com.sgic.hrm.commons.dto;
 
 public class RecruitmentTypeData {
 	private Integer id;
-	private String recruitmentTypeName;
+	private String recruitmentType;
 	
 	public Integer getId() {
 		return id;
@@ -10,11 +10,11 @@ public class RecruitmentTypeData {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public String getRecruitmentTypeName() {
-		return recruitmentTypeName;
+	public String getRecruitmentType() {
+		return recruitmentType;
 	}
-	public void setRecruitmentTypeName(String recruitmentTypeName) {
-		this.recruitmentTypeName = recruitmentTypeName;
+	public void setRecruitmentType(String recruitmentType) {
+		this.recruitmentType = recruitmentType;
 	}
 	
 	

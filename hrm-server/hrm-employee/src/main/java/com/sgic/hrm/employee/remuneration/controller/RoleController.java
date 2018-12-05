@@ -1,3 +1,4 @@
+
 //package com.sgic.hrm.employee.remuneration.controller;
 //
 //import java.util.List;
@@ -11,6 +12,13 @@
 //
 //@RestController
 //public class RoleController {
+
+package com.sgic.hrm.employee.remuneration.controller;
+
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class RoleController {
 //@Autowired
 //private RoleService roleService;
 //@GetMapping("/role")
@@ -18,3 +26,5 @@
 //	return roleService.getAllRole();
 //}
 //}
+
+}

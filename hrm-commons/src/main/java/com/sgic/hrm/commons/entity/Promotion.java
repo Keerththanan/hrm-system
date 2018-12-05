@@ -15,7 +15,7 @@ import javax.persistence.Table;
 import org.springframework.data.annotation.CreatedDate;
 
 @Entity
-@Table
+@Table(schema = "employee", name = "promotion")
 public class Promotion implements Serializable {
 
 	/**
