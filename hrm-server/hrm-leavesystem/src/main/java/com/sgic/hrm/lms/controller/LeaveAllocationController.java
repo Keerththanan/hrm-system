@@ -48,10 +48,10 @@ public class LeaveAllocationController {
   }
 
   @GetMapping("/{username}")
-  public ResponseEntity<List<LeaveAllocationData>> viewLeaveAllocationByUser(@PathVariable(name = "username") String userName) {
+  public ResponseEntity<List<LeaveAllocationData>> viewLeaveAllocationByUser(@PathVariable(name = "username") String username) {
 
     List<LeaveAllocation> leaveAllocationList =
-        leaveAllocationService.viewLeaveAllocationByUser(loginService.getUser(userName));
+        leaveAllocationService.viewLeaveAllocationByUser(loginService.getUser(username));
     return new ResponseEntity<>(
         LeaveAllocationToLeaveAllocationData.mapToLeaveAllocationDataList(leaveAllocationList),
         HttpStatus.OK);

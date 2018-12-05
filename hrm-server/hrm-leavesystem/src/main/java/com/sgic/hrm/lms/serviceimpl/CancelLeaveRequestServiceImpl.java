@@ -64,7 +64,7 @@ public class CancelLeaveRequestServiceImpl implements CancelLeaveRequestService 
         AcceptCancelRequest acceptCancelRequest = new AcceptCancelRequest();
         acceptCancelRequest.setCancelLeaveRequest(cancelLeaveRequest);
         acceptCancelRequest.setAcceptedBy(
-            loginRepository.findByUserName(acceptCancelRequestDto.getUserName()).getUser());
+            loginRepository.findByUsername(acceptCancelRequestDto.getUserName()).get().getUser());
         acceptCancelRequestRepository.save(acceptCancelRequest);
         return true;
       }
@@ -101,7 +101,7 @@ public class CancelLeaveRequestServiceImpl implements CancelLeaveRequestService 
         RejectCancelRequest rejectCancelRequest = new RejectCancelRequest();
         rejectCancelRequest.setCancelLeaveRequest(cancelLeaveRequest);
         rejectCancelRequest.setRejectedBy(
-            loginRepository.findByUserName(rejectCancelRequestDto.getUserName()).getUser());
+            loginRepository.findByUsername(rejectCancelRequestDto.getUserName()).get().getUser());
         rejectCancelRequest.setReason(rejectCancelRequestDto.getRejectReason());
         rejectCancelRequestRepository.save(rejectCancelRequest);
         return true;
