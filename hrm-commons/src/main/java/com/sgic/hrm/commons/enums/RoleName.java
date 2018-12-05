@@ -1,6 +1,5 @@
 package com.sgic.hrm.commons.enums;
 
 public enum RoleName {
-HR,
-EMPLOYEE
+	ADMIN, DIRECTOR, HR_MANAGER, MANAGER, ACCOUNTANT, HR, EMPLOYEE, TRAINEE, TRAINER
 }

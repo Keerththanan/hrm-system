@@ -17,7 +17,7 @@ public class SignUpForm {
     private String email;
     
     private Set<String> role;
-//    
+
 //    @NotBlank
 //    @Size(min = 6, max = 40)
     private String password;
@@ -29,10 +29,6 @@ public class SignUpForm {
 	public void setUser(User user) {
 		this.user = user;
 	}
-
-	public void setName(User user) {
-        this.user = user;
-    }
 
     public String getUsername() {
         return username;

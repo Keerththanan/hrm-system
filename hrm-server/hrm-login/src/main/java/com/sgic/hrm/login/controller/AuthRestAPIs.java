@@ -87,11 +87,51 @@ public class AuthRestAPIs {
 		strRoles.forEach(role -> {
 			switch (role) {
 			case "admin":
-				Role adminRole = roleRepository.findByName(RoleName.HR)
+				Role adminRole = roleRepository.findByName(RoleName.ADMIN)
 						.orElseThrow(() -> new RuntimeException("Fail! -> Cause: User Role not find."));
 				roles.add(adminRole);
-
 				break;
+			case "director":
+				Role directorRole = roleRepository.findByName(RoleName.DIRECTOR)
+						.orElseThrow(() -> new RuntimeException("Fail! -> Cause: User Role not find."));
+				roles.add(directorRole);
+				break;
+			case "hr_manager":
+				Role hrManagerRole = roleRepository.findByName(RoleName.HR_MANAGER)
+						.orElseThrow(() -> new RuntimeException("Fail! -> Cause: User Role not find."));
+				roles.add(hrManagerRole);
+				break;
+			case "manager":
+				Role managerRole = roleRepository.findByName(RoleName.MANAGER)
+						.orElseThrow(() -> new RuntimeException("Fail! -> Cause: User Role not find."));
+				roles.add(managerRole);
+				break;
+			case "accountant":
+				Role accountantRole = roleRepository.findByName(RoleName.ACCOUNTANT)
+						.orElseThrow(() -> new RuntimeException("Fail! -> Cause: User Role not find."));
+				roles.add(accountantRole);
+				break;
+			case "hr":
+				Role hrRole = roleRepository.findByName(RoleName.HR)
+						.orElseThrow(() -> new RuntimeException("Fail! -> Cause: User Role not find."));
+				roles.add(hrRole);
+				break;
+			case "employee":
+				Role employeeRole = roleRepository.findByName(RoleName.EMPLOYEE)
+						.orElseThrow(() -> new RuntimeException("Fail! -> Cause: User Role not find."));
+				roles.add(employeeRole);
+				break;
+			case "trainee":
+				Role traineeRole = roleRepository.findByName(RoleName.TRAINEE)
+						.orElseThrow(() -> new RuntimeException("Fail! -> Cause: User Role not find."));
+				roles.add(traineeRole);
+				break;
+			case "trainer":
+				Role trainerRole = roleRepository.findByName(RoleName.TRAINER)
+						.orElseThrow(() -> new RuntimeException("Fail! -> Cause: User Role not find."));
+				roles.add(trainerRole);
+				break;
+				
 			default:
 				Role userRole = roleRepository.findByName(RoleName.EMPLOYEE)
 						.orElseThrow(() -> new RuntimeException("Fail! -> Cause: User Role not find."));

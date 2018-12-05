@@ -28,122 +28,96 @@ import org.hibernate.annotations.UpdateTimestamp;
 @Table(name = "login", schema = "login")
 public class Login implements Serializable {
 
-  /**
-   * 
-   */
-  private static final long serialVersionUID = -3992467423727977421L;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -3992467423727977421L;
 
-  @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Long id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
 
-//    @NotBlank
-//  @Size(min=3, max = 50)
-  private String name;
+	@Column(name = "username", unique = true)
+	@NaturalId
+	private String username;
 
- 
-@Column(name = "username", unique = true)
-  @NaturalId
-  private String username;
-  
+	@OneToOne
+	@JoinColumn(name = "user_id")
+	private User user;
 
-  @OneToOne
-  @JoinColumn(name = "user_id")
-  private User user;
+	@NaturalId
+	@NotBlank
+	@Size(max = 50)
+	@Email
+	private String email;
 
-  @NaturalId
-//  @NotBlank
-//  @Size(max = 50)
-//  @Email
-  private String email;
+	@Column(name = "password")
+	private String password;
 
-@Column(name = "password")
-  private String password;
+	@CreationTimestamp
+	@Column(name = "created_at", updatable = false, nullable = false)
+	private ZonedDateTime createdAt;
 
-  @CreationTimestamp
-  @Column(name = "created_at", updatable = false, nullable = false)
-  private ZonedDateTime createdAt;
+	@UpdateTimestamp
+	@Column(name = "updated_at", nullable = false)
+	private ZonedDateTime updatedAt;
 
-  @UpdateTimestamp
-  @Column(name = "updated_at", nullable = false)
-  private ZonedDateTime updatedAt;
-  
-  @ManyToMany(fetch = FetchType.LAZY)
-  @JoinTable(name = "login_roles", 
-  	joinColumns = @JoinColumn(name = "login_id"), 
-  	inverseJoinColumns = @JoinColumn(name = "role_id"))
-  private Set<Role> roles = new HashSet<Role>();
-  
-  public Login() {
-	  
-  }
+	@ManyToMany(fetch = FetchType.LAZY)
+	@JoinTable(name = "login_roles", joinColumns = @JoinColumn(name = "login_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
+	private Set<Role> roles = new HashSet<Role>();
 
-  public Login(User user, String username, String email, String password) {
-      this.user = user;
-      this.username = username;
-      this.email = email;
-      this.password = password;
-  }
-  
+	public Login() {
 
-  public Long getId() {
-    return id;
-  }
-
-  public void setId(Long id) {
-    this.id = id;
-  }
-
-  public String getName() {
-		return name;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public Login(User user, String username, String email, String password) {
+		this.user = user;
+		this.username = username;
+		this.email = email;
+		this.password = password;
 	}
 
-	
-  public String getUserName() {
-    return username;
-  }
+	public Integer getId() {
+		return id;
+	}
 
-  public void setUserName(String userName) {
-    this.username = userName;
-  }
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
-  public User getUser() {
-    return user;
-  }
+	public User getUser() {
+		return user;
+	}
 
-  public void setUser(User user) {
-    this.user = user;
-  }
+	public void setUser(User user) {
+		this.user = user;
+	}
 
-  public String getPassword() {
-    return password;
-  }
+	public String getPassword() {
+		return password;
+	}
 
-  public void setPassword(String password) {
-    this.password = password;
-  }
+	public void setPassword(String password) {
+		this.password = password;
+	}
 
-  public ZonedDateTime getCreatedAt() {
-    return createdAt;
-  }
+	public ZonedDateTime getCreatedAt() {
+		return createdAt;
+	}
 
-  public void setCreatedAt(ZonedDateTime createdAt) {
-    this.createdAt = createdAt;
-  }
+	public void setCreatedAt(ZonedDateTime createdAt) {
+		this.createdAt = createdAt;
+	}
 
-  public ZonedDateTime getUpdatedAt() {
-    return updatedAt;
-  }
+	public ZonedDateTime getUpdatedAt() {
+		return updatedAt;
+	}
 
-  public void setUpdatedAt(ZonedDateTime updatedAt) {
-    this.updatedAt = updatedAt;
-  }
-  
-  public String getUsername() {
+	public void setUpdatedAt(ZonedDateTime updatedAt) {
+		this.updatedAt = updatedAt;
+	}
+
+	public String getUsername() {
 		return username;
 	}
 
