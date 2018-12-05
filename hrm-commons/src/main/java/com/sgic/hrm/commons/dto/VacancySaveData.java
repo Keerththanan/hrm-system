@@ -1,8 +1,8 @@
 package com.sgic.hrm.commons.dto;
 
-
 import java.sql.Date;
-public class VacancyData {
+
+public class VacancySaveData {
 	private Integer id;
 	private Integer noOfVacancy;
 	private Integer salaryScale;
@@ -11,10 +11,10 @@ public class VacancyData {
 	private Date interviewDate;
 	private String keyRecuitment;
 	
-	private UserData user;
-	private JobData job;
-	private DepartmentData department;
-	private RecruitmentTypeData recruitmentType;
+	private Integer user;
+	private Integer job;
+	private Integer department;
+	private Integer recruitment;
 	public Integer getId() {
 		return id;
 	}
@@ -33,6 +33,7 @@ public class VacancyData {
 	public void setSalaryScale(Integer salaryScale) {
 		this.salaryScale = salaryScale;
 	}
+	
 	public Date getVacancyOpenDate() {
 		return vacancyOpenDate;
 	}
@@ -57,30 +58,31 @@ public class VacancyData {
 	public void setKeyRecuitment(String keyRecuitment) {
 		this.keyRecuitment = keyRecuitment;
 	}
-	public UserData getUser() {
+	public Integer getUser() {
 		return user;
 	}
-	public void setUser(UserData user) {
+	public void setUser(Integer user) {
 		this.user = user;
 	}
-	public JobData getJob() {
+	public Integer getJob() {
 		return job;
 	}
-	public void setJob(JobData job) {
+	public void setJob(Integer job) {
 		this.job = job;
 	}
-	public DepartmentData getDepartment() {
+	public Integer getDepartment() {
 		return department;
 	}
-	public void setDepartment(DepartmentData department) {
+	public void setDepartment(Integer department) {
 		this.department = department;
 	}
-	public RecruitmentTypeData getRecruitmentType() {
-		return recruitmentType;
+	public Integer getRecruitment() {
+		return recruitment;
 	}
-	public void setRecruitmentType(RecruitmentTypeData recruitmentType) {
-		this.recruitmentType = recruitmentType;
+	public void setRecruitment(Integer recruitment) {
+		this.recruitment = recruitment;
 	}
+	
 	
 	
 }
