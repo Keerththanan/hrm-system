@@ -11,6 +11,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -21,7 +23,9 @@ public class User implements Serializable {
   private static final long serialVersionUID = 8918656601415434315L;
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
+//  @NotBlank
   private Integer id;
+  
   private String fullName;
   
 	
