@@ -15,7 +15,9 @@ public InterviewScheduleDataMapper() {
 		interviewSchedule.setInterviewVenue(InterviewScheduleData.getInterviewVenue());
 		interviewSchedule.setInterviewTime(InterviewScheduleData.getInterviewTime());
 		interviewSchedule.setInterviewDate(InterviewScheduleData.getInterviewDate());
+
 		interviewSchedule.setApplicantId(ApplicantDataMapper.applicantDataMapper(InterviewScheduleData.getApplicant()));
+
 	    
 		
 	    return interviewSchedule;
