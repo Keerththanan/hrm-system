@@ -1,3 +1,4 @@
+
 package com.sgic.hrm.commons.entity;
 
 import java.io.Serializable;
@@ -8,8 +9,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 @Entity
+
+@Table(schema = "employee", name = "general_welfare")
 public class GeneralWelfare implements Serializable {
 	/**
 	 * 
@@ -30,8 +34,6 @@ public class GeneralWelfare implements Serializable {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	
-	
 	
 	public WelfareEvent getWelfareEvent() {
 		return welfareEvent;
