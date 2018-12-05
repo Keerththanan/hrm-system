@@ -2,20 +2,30 @@ package com.sgic.hrm.commons.entity;
 
 import java.io.Serializable;
 import java.time.ZonedDateTime;
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
+
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.NaturalId;
 import org.hibernate.annotations.UpdateTimestamp;
 
 @Entity
-@Table(name = "login", schema = "employee")
+@Table(name = "login", schema = "login")
 public class Login implements Serializable {
 
   /**
@@ -25,41 +35,80 @@ public class Login implements Serializable {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  Integer id;
+  private Long id;
 
-  @Column(name = "user_name", unique = true)
+//    @NotBlank
+//  @Size(min=3, max = 50)
+  private String name;
+
+ 
+@Column(name = "username", unique = true)
   @NaturalId
-  String userName;
+  private String username;
+  
 
   @OneToOne
   @JoinColumn(name = "user_id")
-  User user;
+  private User user;
 
-  @Column(name = "password")
-  String password;
+  @NaturalId
+//  @NotBlank
+//  @Size(max = 50)
+//  @Email
+  private String email;
+
+@Column(name = "password")
+  private String password;
 
   @CreationTimestamp
   @Column(name = "created_at", updatable = false, nullable = false)
-  ZonedDateTime createdAt;
+  private ZonedDateTime createdAt;
 
   @UpdateTimestamp
   @Column(name = "updated_at", nullable = false)
-  ZonedDateTime updatedAt;
+  private ZonedDateTime updatedAt;
+  
+  @ManyToMany(fetch = FetchType.LAZY)
+  @JoinTable(name = "login_roles", 
+  	joinColumns = @JoinColumn(name = "login_id"), 
+  	inverseJoinColumns = @JoinColumn(name = "role_id"))
+  private Set<Role> roles = new HashSet<Role>();
+  
+  public Login() {
+	  
+  }
 
-  public Integer getId() {
+  public Login(User user, String username, String email, String password) {
+      this.user = user;
+      this.username = username;
+      this.email = email;
+      this.password = password;
+  }
+  
+
+  public Long getId() {
     return id;
   }
 
-  public void setId(Integer id) {
+  public void setId(Long id) {
     this.id = id;
   }
 
+  public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	
   public String getUserName() {
-    return userName;
+    return username;
   }
 
   public void setUserName(String userName) {
-    this.userName = userName;
+    this.username = userName;
   }
 
   public User getUser() {
@@ -93,4 +142,28 @@ public class Login implements Serializable {
   public void setUpdatedAt(ZonedDateTime updatedAt) {
     this.updatedAt = updatedAt;
   }
+  
+  public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public Set<Role> getRoles() {
+		return roles;
+	}
+
+	public void setRoles(Set<Role> roles) {
+		this.roles = roles;
+	}
 }
