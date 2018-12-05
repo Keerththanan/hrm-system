@@ -27,5 +27,29 @@ public class ExamTypeServiceImpl implements ExamTypeService{
 		
 		return examTypeRepository.findAll();
 	}
+
+	@Override
+	public ExamType findByExamTypeId(Integer id) {
+		
+		return examTypeRepository.findExamTypeById(id);
+	}
+
+	@Override
+	public boolean editExamType(ExamType examtype, Integer id) {
+		if(examTypeRepository.getOne(id)!=null) {
+			examtype.setId(id);
+			examTypeRepository.save(examtype);
+			return true;
+		}
+		return false;
+	}
+
+	@Override
+	public boolean deleteExamType(Integer id) {
+		if(examTypeRepository.getOne(id)!=null) {
+			examTypeRepository.deleteById(id);
+		}
+		return false;
+	}
 	
 }

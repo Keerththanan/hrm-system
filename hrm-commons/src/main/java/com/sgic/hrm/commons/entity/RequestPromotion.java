@@ -7,9 +7,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 
 @Entity
@@ -18,21 +20,38 @@ public class RequestPromotion {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	private int userId;
 	
-	@JoinColumn(name = "id")
-	private String designationId;
+	@ManyToOne
+	@JoinColumn(name = "user_id")
+	private User userId;
+	
+	@ManyToOne
+	@JoinColumn(name = "designation_id")
+	private Designation designationId;
+	
 	private String promotionRemark;
+
 	private String recommendedBy;
 	
 	@CreationTimestamp
 	private Date createdAt;
+	
+	@UpdateTimestamp
+	private Date updatedAt;
 
-	public String getDesignationId() {
+	public Date getUpdatedAt() {
+		return updatedAt;
+	}
+
+	public void setUpdatedAt(Date updatedAt) {
+		this.updatedAt = updatedAt;
+	}
+
+	public Designation getDesignationId() {
 		return designationId;
 	}
 
-	public void setDesignationId(String designationId) {
+	public void setDesignationId(Designation designationId) {
 		this.designationId = designationId;
 	}
 
@@ -44,11 +63,11 @@ public class RequestPromotion {
 		this.id = id;
 	}
 
-	public int getUserId() {
+	public User getUserId() {
 		return userId;
 	}
 
-	public void setUserId(int userId) {
+	public void setUserId(User userId) {
 		this.userId = userId;
 	}
 

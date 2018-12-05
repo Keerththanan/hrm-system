@@ -26,6 +26,33 @@ public class AppointmentTypeServiceImpl implements AppointmentTypeService{
 	{
 		return appointmentTypeRepository.findAll();
 	}
+
+	@Override
+	public AppointmentType findByAppointmentTypeId(Integer id) {
+		// TODO Auto-generated method stub
+		return appointmentTypeRepository.findAppointmentTypeById(id);
+	}
+
+	@Override
+	public boolean editAppointmentType(AppointmentType appointmentType, Integer id) {
+		boolean editSucess=false;
+		if (appointmentTypeRepository.getOne(id)!=null) {
+			appointmentType.setId(id);
+			appointmentTypeRepository.save(appointmentType);
+			editSucess=true;
+		}
+		return editSucess;
+	}
+
+	@Override
+	public boolean deleteAppointmentType(Integer id) {
+		AppointmentType appointmentType=appointmentTypeRepository.getOne(id);
+		if(appointmentType.getId()== id) {
+			appointmentTypeRepository.deleteById(id);
+			return true;
+		}
+		return false;
+	}
 	
 	
 }

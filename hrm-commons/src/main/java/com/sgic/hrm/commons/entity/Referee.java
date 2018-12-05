@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -23,9 +24,12 @@ public class Referee implements Serializable {
 	private String refereeName;
 	
 	@ManyToOne
-	private User userId;
+	@JoinColumn(name="user_id")
+	private User user;
 	
 	private String Address;
+	private String email;
+	
 	private String contactNo;
 	private String relationship;
 	
@@ -41,11 +45,18 @@ public class Referee implements Serializable {
 	public void setRefereeName(String refereeName) {
 		this.refereeName = refereeName;
 	}
-	public User getUserId() {
-		return userId;
+	
+	public User getUser() {
+		return user;
 	}
-	public void setUserId(User userId) {
-		this.userId = userId;
+	public void setUser(User user) {
+		this.user = user;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
 	}
 	public String getAddress() {
 		return Address;

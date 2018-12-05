@@ -11,7 +11,7 @@ public interface RequestPromotionService {
 
 	boolean updateRequestPromotion(RequestPromotion equestPromotion, Integer id);
 
-	RequestPromotion getRequestPromotionByUserId(int userId);
-
 	boolean deleteRequstPromotion(Integer id);
+
+	RequestPromotion getRequestPromotionById(int id);
 }

@@ -117,6 +117,5 @@ public class UserData {
   public void setMaritalStatus(String maritalStatus) {
     this.maritalStatus = maritalStatus;
   }
-
 	
 }

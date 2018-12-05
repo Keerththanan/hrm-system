@@ -16,19 +16,29 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.sgic.hrm.commons.dto.ProfessionalQualificationDto;
+import com.sgic.hrm.commons.dto.mapper.ProfessionalQualificationDtoToProfessionalQualification;
 import com.sgic.hrm.commons.entity.ProfessionalQualification;
+import com.sgic.hrm.commons.entity.User;
 import com.sgic.hrm.employee.service.ProfessionalQualificationService;
+import com.sgic.hrm.employee.service.UserService;
 
-@CrossOrigin(origins= "",maxAge=3600)
+@CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
 @RestController
 public class ProfessionalQualificationController {
 
 	@Autowired
 	private ProfessionalQualificationService professionalQualificationService;
+	
+	@Autowired
+	private UserService userService;
 
 	@PostMapping("/professionalQualification")
-	public HttpStatus addProfessionalQualification(@Valid @RequestBody ProfessionalQualification professionalQualification) {
-		boolean test = professionalQualificationService.addProfessionalQualification(professionalQualification);
+	public HttpStatus addProfessionalQualification(@Valid @RequestBody ProfessionalQualificationDto professionalQualificationDto) {
+		User userobj=userService.findByUserId(professionalQualificationDto.getUser());
+		ProfessionalQualification professionalQualification=ProfessionalQualificationDtoToProfessionalQualification.map(professionalQualificationDto);
+		
+		boolean test = professionalQualificationService.addProfessionalQualification(professionalQualification, userobj);
 		if (test) {
 			return HttpStatus.CREATED;
 		}
@@ -40,6 +50,13 @@ public class ProfessionalQualificationController {
 		List<ProfessionalQualification> professionalQualifications=professionalQualificationService.getAllProfessionalQualifications();
 		ResponseEntity<List<ProfessionalQualification>> response=new ResponseEntity<>(professionalQualifications,HttpStatus.OK);
 		return response;
+	}
+	@GetMapping("/professionalQualification/{uid}")
+	public  ResponseEntity<List<ProfessionalQualification>>findProfessionalQualificationByUserId(@PathVariable("uid") Integer id)
+	{
+		List<ProfessionalQualification> 
+		professionalQualifications = professionalQualificationService.getProfessionalQualificationByUserId(id);
+		return new ResponseEntity<>(professionalQualifications,HttpStatus.OK);
 	}
 	@PutMapping("/professionalQualification/{id}")
 	public HttpStatus ModifyProfessionalQualification(@PathVariable Integer id,@RequestBody ProfessionalQualification professionalQualification) {
@@ -58,4 +75,5 @@ public class ProfessionalQualificationController {
 		}
 		return HttpStatus.BAD_REQUEST;
 	}
+	
 }

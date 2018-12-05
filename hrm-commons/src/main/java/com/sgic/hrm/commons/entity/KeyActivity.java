@@ -4,6 +4,8 @@ import java.io.Serializable;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 @Entity
 @Table(name="key_activity",schema="employee")
@@ -17,7 +19,10 @@ public class KeyActivity implements Serializable {
 	@Id
 	private Integer id;
 	private String name;
-	private User userId;
+	
+	@ManyToOne
+	@JoinColumn(name="user_id")
+	private User user;
 	public Integer getId() {
 		return id;
 	}
@@ -30,12 +35,11 @@ public class KeyActivity implements Serializable {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public User getUserId() {
-		return userId;
+	public User getUser() {
+		return user;
 	}
-	public void setUserId(User userId) {
-		this.userId = userId;
+	public void setUser(User user) {
+		this.user = user;
 	}
-	
 	
 }

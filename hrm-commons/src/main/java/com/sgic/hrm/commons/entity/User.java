@@ -1,177 +1,196 @@
 package com.sgic.hrm.commons.entity;
 
 import java.io.Serializable;
-
 import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
 import org.hibernate.annotations.UpdateTimestamp;
 
 @Entity
-@Table(name="user",schema="employee")
+@Table(name = "user", schema = "employee")
 public class User implements Serializable {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 8918656601415434315L;
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
-	private String fullName;
-	private String gender;
-	private String telephoneNumber;
-	private String mobileNumber;
-	private String email;
-	private String permenentAddress;
-	private Date joinDate;
-	private Integer servicePeriod;
-	private String profilePhoto;
-	private String nationality;
-	private String nic;
-	private String religion;
-	private Date dateOfBirth;
-	private String residentialAddress;
-	private String maritalStatus;
+ 
+  private static final long serialVersionUID = 8918656601415434315L;
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Integer id;
+  private String fullName;
+  
 	
-	@UpdateTimestamp
-	private Date updateAt;
 
-	public Integer getId() {
-		return id;
-	}
+  private String gender;
+  private String telephoneNumber;
+  private String mobileNumber;
+  private String email;
+  private String permenentAddress;
+  private Date joinDate;
+  private Integer servicePeriod;
+  private String profilePhoto;
+  private String nationality;
+  private String nic;
+  private String religion;
+  private Date dateOfBirth;
+  private String residentialAddress;
+  private String maritalStatus;
 
-	public void setId(Integer id) {
-		this.id = id;
-	}
+  @ManyToOne
+  private Department department;
 
-	public String getFullName() {
-		return fullName;
-	}
+  @UpdateTimestamp
+  private Date updateAt;
 
-	public void setFullName(String fullName) {
-		this.fullName = fullName;
-	}
 
-	public String getGender() {
-		return gender;
-	}
 
-	public void setGender(String gender) {
-		this.gender = gender;
-	}
+  public Integer getId() {
+    return id;
+  }
 
-	public String getTelephoneNumber() {
-		return telephoneNumber;
-	}
+  public void setId(Integer id) {
+    this.id = id;
+  }
 
-	public void setTelephoneNumber(String telephoneNumber) {
-		this.telephoneNumber = telephoneNumber;
-	}
+  public String getFullName() {
+    return fullName;
+  }
 
-	public String getMobileNumber() {
-		return mobileNumber;
-	}
+  public void setFullName(String fullName) {
+    this.fullName = fullName;
+  }
 
-	public void setMobileNumber(String mobileNumber) {
-		this.mobileNumber = mobileNumber;
-	}
+  public String getGender() {
+    return gender;
+  }
 
-	public String getEmail() {
-		return email;
-	}
+  public void setGender(String gender) {
+    this.gender = gender;
+  }
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
+  public String getTelephoneNumber() {
+    return telephoneNumber;
+  }
 
-	public String getPermenentAddress() {
-		return permenentAddress;
-	}
+  public void setTelephoneNumber(String telephoneNumber) {
+    this.telephoneNumber = telephoneNumber;
+  }
 
-	public void setPermenentAddress(String permenentAddress) {
-		this.permenentAddress = permenentAddress;
-	}
+  public String getMobileNumber() {
+    return mobileNumber;
+  }
 
-	public Date getJoinDate() {
-		return joinDate;
-	}
+  public void setMobileNumber(String mobileNumber) {
+    this.mobileNumber = mobileNumber;
+  }
 
-	public void setJoinDate(Date joinDate) {
-		this.joinDate = joinDate;
-	}
+  public String getEmail() {
+    return email;
+  }
 
-	public Integer getServicePeriod() {
-		return servicePeriod;
-	}
+  public void setEmail(String email) {
+    this.email = email;
+  }
 
-	public void setServicePeriod(Integer servicePeriod) {
-		this.servicePeriod = servicePeriod;
-	}
+  public String getPermenentAddress() {
+    return permenentAddress;
+  }
 
-	public String getProfilePhoto() {
-		return profilePhoto;
-	}
+  public void setPermenentAddress(String permenentAddress) {
+    this.permenentAddress = permenentAddress;
+  }
 
-	public void setProfilePhoto(String profilePhoto) {
-		this.profilePhoto = profilePhoto;
-	}
+  public Date getJoinDate() {
+    return joinDate;
+  }
 
-	public String getNationality() {
-		return nationality;
-	}
+  public void setJoinDate(Date joinDate) {
+    this.joinDate = joinDate;
+  }
 
-	public void setNationality(String nationality) {
-		this.nationality = nationality;
-	}
+  public Integer getServicePeriod() {
+    return servicePeriod;
+  }
 
-	public String getNic() {
-		return nic;
-	}
+  public void setServicePeriod(Integer servicePeriod) {
+    this.servicePeriod = servicePeriod;
+  }
 
-	public void setNic(String nic) {
-		this.nic = nic;
-	}
+  public String getProfilePhoto() {
+    return profilePhoto;
+  }
 
-	public String getReligion() {
-		return religion;
-	}
+  public void setProfilePhoto(String profilePhoto) {
+    this.profilePhoto = profilePhoto;
+  }
 
-	public void setReligion(String religion) {
-		this.religion = religion;
-	}
+  public String getNationality() {
+    return nationality;
+  }
 
-	public Date getDateOfBirth() {
-		return dateOfBirth;
-	}
+  public void setNationality(String nationality) {
+    this.nationality = nationality;
+  }
 
-	public void setDateOfBirth(Date dateOfBirth) {
-		this.dateOfBirth = dateOfBirth;
-	}
+  public String getNic() {
+    return nic;
+  }
 
-	public String getResidentialAddress() {
-		return residentialAddress;
-	}
+  public void setNic(String nic) {
+    this.nic = nic;
+  }
 
-	public void setResidentialAddress(String residentialAddress) {
-		this.residentialAddress = residentialAddress;
-	}
+  public String getReligion() {
+    return religion;
+  }
 
-	public String getMaritalStatus() {
-		return maritalStatus;
-	}
+  public void setReligion(String religion) {
+    this.religion = religion;
+  }
 
-	public void setMaritalStatus(String maritalStatus) {
-		this.maritalStatus = maritalStatus;
-	}
+  public Date getDateOfBirth() {
+    return dateOfBirth;
+  }
 
-	public Date getUpdateAt() {
-		return updateAt;
-	}
+  public void setDateOfBirth(Date dateOfBirth) {
+    this.dateOfBirth = dateOfBirth;
+  }
 
-	public void setUpdateAt(Date updateAt) {
-		this.updateAt = updateAt;
-	}
+  public String getResidentialAddress() {
+    return residentialAddress;
+  }
+
+  public void setResidentialAddress(String residentialAddress) {
+    this.residentialAddress = residentialAddress;
+  }
+
+  public String getMaritalStatus() {
+    return maritalStatus;
+  }
+
+  public void setMaritalStatus(String maritalStatus) {
+    this.maritalStatus = maritalStatus;
+  }
+
+  public Date getUpdateAt() {
+    return updateAt;
+  }
+
+  public void setUpdateAt(Date updateAt) {
+    this.updateAt = updateAt;
+  }
+
+  public Department getDepartment() {
+    return department;
+  }
+
+  public void setDepartment(Department department) {
+    this.department = department;
+  }
+
 }

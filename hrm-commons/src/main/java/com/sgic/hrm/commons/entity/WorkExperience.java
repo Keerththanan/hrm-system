@@ -6,6 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 
@@ -20,6 +22,18 @@ public class WorkExperience implements Serializable{
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Id
 	private Integer id;
+	
+	@ManyToOne
+	@JoinColumn(name="user_id")
+	private User user;
+	
+	
+	public User getUser() {
+		return user;
+	}
+	public void setUser(User user) {
+		this.user = user;
+	}
 	private String workName;
 	private String workPlace;
 	private Integer periodYearFrom;

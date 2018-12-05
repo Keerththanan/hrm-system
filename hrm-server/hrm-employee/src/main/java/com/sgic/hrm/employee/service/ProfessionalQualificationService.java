@@ -4,12 +4,13 @@ import java.util.List;
 import java.util.Optional;
 
 import com.sgic.hrm.commons.entity.ProfessionalQualification;
+import com.sgic.hrm.commons.entity.User;
 
 
 
 public interface ProfessionalQualificationService {
 
-	boolean addProfessionalQualification(ProfessionalQualification professionalQualification);
+	boolean addProfessionalQualification(ProfessionalQualification professionalQualification,User user);
 	
 	List<ProfessionalQualification> getAllProfessionalQualifications();
 	
@@ -18,4 +19,5 @@ public interface ProfessionalQualificationService {
 	Optional<ProfessionalQualification> getProfessionalQualificationById(int id);
 	
 	boolean deleteProfessionalQualification(Integer id);
+	List<ProfessionalQualification> getProfessionalQualificationByUserId(Integer uid);
 }

@@ -1,17 +1,48 @@
 package com.sgic.hrm.commons.dto;
 
+import java.sql.Date;
+
+
+
 public class RequestPromotionData {
 	private Integer id;
-	private int userId;
-	private String designationId;
+	private UserData userId;
+	private DesignationData designationId;
 	private String promotionRemark;
 	private String recommendedBy;
 
-	public String getDesignationId() {
+	public String getRecommendedBy() {
+		return recommendedBy;
+	}
+
+	public void setRecommendedBy(String recommendedBy) {
+		this.recommendedBy = recommendedBy;
+	}
+
+	private Date createdAt;
+	private Date updatedAt;
+
+	public Date getUpdatedAt() {
+		return updatedAt;
+	}
+
+	public void setUpdatedAt(Date updatedAt) {
+		this.updatedAt = updatedAt;
+	}
+
+	public Date getCreatedAt() {
+		return createdAt;
+	}
+
+	public void setCreatedAt(Date createdAt) {
+		this.createdAt = createdAt;
+	}
+
+	public DesignationData getDesignationId() {
 		return designationId;
 	}
 
-	public void setDesignationId(String designationId) {
+	public void setDesignationId(DesignationData designationId) {
 		this.designationId = designationId;
 	}
 
@@ -23,11 +54,11 @@ public class RequestPromotionData {
 		this.id = id;
 	}
 
-	public int getUserId() {
+	public UserData getUserId() {
 		return userId;
 	}
 
-	public void setUserId(int userId) {
+	public void setUserId(UserData userId) {
 		this.userId = userId;
 	}
 
@@ -37,14 +68,6 @@ public class RequestPromotionData {
 
 	public void setPromotionRemark(String promotionRemark) {
 		this.promotionRemark = promotionRemark;
-	}
-
-	public String getRecommendedBy() {
-		return recommendedBy;
-	}
-
-	public void setRecommendedBy(String recommendedBy) {
-		this.recommendedBy = recommendedBy;
 	}
 
 }

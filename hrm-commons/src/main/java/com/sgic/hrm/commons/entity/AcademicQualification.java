@@ -29,11 +29,11 @@ public class AcademicQualification implements Serializable{
 
 	@ManyToOne
 	@JoinColumn(name="user_id")
-	private User userId;
+	private User user;
 	
 	@ManyToOne
 	@JoinColumn(name = "exam_type_id")
-	private ExamType examTypeId;
+	private ExamType examType;
 	
 	private Integer periodYearFrom;
 	private Integer periodYearTo;
@@ -57,20 +57,22 @@ public class AcademicQualification implements Serializable{
 
 	
 
-	public User getUserId() {
-		return userId;
+	public User getUser() {
+		return user;
 	}
 
-	public void setUserId(User userId) {
-		this.userId = userId;
+	public void setUser(User user) {
+		this.user = user;
 	}
 
-	public ExamType getExamTypeId() {
-		return examTypeId;
+
+
+	public ExamType getExamType() {
+		return examType;
 	}
 
-	public void setExamTypeId(ExamType examTypeId) {
-		this.examTypeId = examTypeId;
+	public void setExamType(ExamType examType) {
+		this.examType = examType;
 	}
 
 	public Integer getPeriodYearFrom() {
