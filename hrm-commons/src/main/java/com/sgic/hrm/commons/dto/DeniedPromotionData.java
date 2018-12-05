@@ -2,15 +2,16 @@ package com.sgic.hrm.commons.dto;
 
 import java.sql.Date;
 
+
+
 public class DeniedPromotionData {
 	
 	private Integer id;
-	private int requsetId;
-	private int designationId;
+	private UserData userId;
 	private Date deniedDate;
 	private String deniedRemark;
-	private String position;
-	private int deniedBy;
+	private DesignationData desinationId;
+	private Integer deniedBy;
 	
 	public Integer getId() {
 		return id;
@@ -18,17 +19,12 @@ public class DeniedPromotionData {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public int getRequsetId() {
-		return requsetId;
+	
+	public UserData getUserId() {
+		return userId;
 	}
-	public void setRequsetId(int requsetId) {
-		this.requsetId = requsetId;
-	}
-	public int getDesignationId() {
-		return designationId;
-	}
-	public void setDesignationId(int designationId) {
-		this.designationId = designationId;
+	public void setUserId(UserData userId) {
+		this.userId = userId;
 	}
 	public Date getDeniedDate() {
 		return deniedDate;
@@ -42,19 +38,19 @@ public class DeniedPromotionData {
 	public void setDeniedRemark(String deniedRemark) {
 		this.deniedRemark = deniedRemark;
 	}
-	public String getPosition() {
-		return position;
+	
+	public DesignationData getDesinationId() {
+		return desinationId;
 	}
-	public void setPosition(String position) {
-		this.position = position;
+	public void setDesinationId(DesignationData desinationId) {
+		this.desinationId = desinationId;
 	}
-	public int getDeniedBy() {
+	public Integer getDeniedBy() {
 		return deniedBy;
 	}
-	public void setDeniedBy(int deniedBy) {
+	public void setDeniedBy(Integer deniedBy) {
 		this.deniedBy = deniedBy;
 	}
 	
 	
-
 }
