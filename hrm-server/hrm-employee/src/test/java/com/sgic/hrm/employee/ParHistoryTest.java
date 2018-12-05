@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.sgic.hrm.employee.service.ParService;
+import com.sgic.hrm.employee.par.service.ParService;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest

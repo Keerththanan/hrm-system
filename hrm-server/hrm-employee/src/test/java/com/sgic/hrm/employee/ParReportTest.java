@@ -1,5 +1,7 @@
 package com.sgic.hrm.employee;
 
+import static org.junit.Assert.assertNotNull;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,9 +11,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.sgic.hrm.commons.entity.ReportParAppraise;
-import com.sgic.hrm.commons.entity.ScoreParAppraisee;
-import com.sgic.hrm.employee.service.ParReportForAppraiseeService;
+import com.sgic.hrm.commons.dto.par.ReportParAppraiseeDtoPost;
+import com.sgic.hrm.commons.dto.par.ScoreParAppraiseeDtoPost;
+import com.sgic.hrm.employee.par.service.ReportParAppraiseeService;
+import com.sgic.hrm.employee.par.serviceCombined.ParReportForAppraiseeService;
 
 
 
@@ -20,14 +23,31 @@ import com.sgic.hrm.employee.service.ParReportForAppraiseeService;
 public class ParReportTest {
 	@Autowired
 	ParReportForAppraiseeService parReportForAppraiseeService;
+	@Autowired
+	ReportParAppraiseeService reportParAppraiseeService;
 	
 	@Test
 	public void parReportTest1() {
-	ReportParAppraise objParReport = new ReportParAppraise(1);
-	List<ScoreParAppraisee> scheduleParAppraisorList=new ArrayList<ScoreParAppraisee>();
-	scheduleParAppraisorList.add(new ScoreParAppraisee(1,"C001",3.00));
-	scheduleParAppraisorList.add(new ScoreParAppraisee(2,"C002",4.00));
-	scheduleParAppraisorList.add(new ScoreParAppraisee(3,"C003",5.00));
-	parReportForAppraiseeService.saveReportAndScore(1, objParReport, scheduleParAppraisorList);
+		ReportParAppraiseeDtoPost objParReport = new ReportParAppraiseeDtoPost(2,1);
+	List<ScoreParAppraiseeDtoPost> scheduleParAppraisorList=new ArrayList<ScoreParAppraiseeDtoPost>();
+	scheduleParAppraisorList.add(new ScoreParAppraiseeDtoPost("C001",3.00));
+	scheduleParAppraisorList.add(new ScoreParAppraiseeDtoPost("C002",4.00));
+	scheduleParAppraisorList.add(new ScoreParAppraiseeDtoPost("C003",5.00));
+	scheduleParAppraisorList.add(new ScoreParAppraiseeDtoPost("C004",5.00));
+	objParReport.setScoreParAppraiseeList(scheduleParAppraisorList);
+	parReportForAppraiseeService.saveReportAndScore(objParReport);
+	
+	}
+	
+	@Test 
+	public void parReportTest2() {
+		assertNotNull(reportParAppraiseeService.findReportParAppraiseeById(1));
+		
+	}
+	
+	@Test 
+	public void parReportTest3() {
+		assertNotNull(reportParAppraiseeService.findReportParAppraiseeById(4));
+		
 	}
 }
