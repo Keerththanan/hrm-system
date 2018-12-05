@@ -30,6 +30,8 @@ public class InterviewSchedule implements Serializable {
 	private String interviewVenue;
 	private String interviewTime;
 	private Date interviewDate;
+	private String email;
+	
 	public Integer getId() {
 		return id;
 	}

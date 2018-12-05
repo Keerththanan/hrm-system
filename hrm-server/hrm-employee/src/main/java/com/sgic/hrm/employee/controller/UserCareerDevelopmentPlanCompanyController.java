@@ -54,7 +54,7 @@ public class UserCareerDevelopmentPlanCompanyController {
   
   @PutMapping("/usercareerdevelopmentplancompany/{id}")
   public HttpStatus updateCareerDevelopemntPlanCompany(@RequestBody UserCareerDevelopmentPlanCompanyData userCareerDevelopmentPlanCompanyData, @PathVariable Integer id) {
-      boolean testedit=userCareerDevelopmentPlanCompanyService.editCareerDevelopmentPlanSelf(UserCareerDevelopmentPlanCompanyDataMapper.userCareerDevelopmentPlanCompanyDataMapper(userCareerDevelopmentPlanCompanyData), id);
+      boolean testedit=userCareerDevelopmentPlanCompanyService.editCareerDevelopmentPlanCompany(UserCareerDevelopmentPlanCompanyDataMapper.userCareerDevelopmentPlanCompanyDataMapper(userCareerDevelopmentPlanCompanyData), id);
       if(testedit) {
           return HttpStatus.ACCEPTED;
       }
@@ -71,9 +71,15 @@ public class UserCareerDevelopmentPlanCompanyController {
   }
   
   @GetMapping("/usercareerdevelopmentplancompany/{id}")
-  public UserCareerDevelopmentPlanCompany getCareerDevelopemntPlanById(@PathVariable Integer id){
+  public UserCareerDevelopmentPlanCompany getCareerDevelopemntPlanById(@PathVariable int id){
     return userCareerDevelopmentPlanCompanyService.getUserCareerDevelopmentPlanCompanyById(id);
     
   }
+  
+//  @GetMapping("/usercareerdevelopmentplancompany/{id}")
+//  public ResponseEntity<UserCareerDevelopmentPlanCompany> getById(@PathVariable(name = "id") Integer id) {
+//      return new ResponseEntity<>(CareerDevelopmentPlanMapper.careerDevelopmentPlanDataMapper(userCareerDevelopmentPlanCompanyService.getUserCareerDevelopmentPlanCompanyById(id)(id)),
+//              HttpStatus.OK);
+//  }
   
 }
