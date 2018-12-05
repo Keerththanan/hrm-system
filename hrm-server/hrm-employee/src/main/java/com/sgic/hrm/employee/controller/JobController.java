@@ -55,7 +55,7 @@ public class JobController {
 		}
 		return new ResponseEntity<>("upadte failed", HttpStatus.BAD_REQUEST);
 	}
-	@DeleteMapping("job/{id}")
+	@DeleteMapping("/job/{id}")
 	public HttpStatus DeleteUser(@PathVariable Integer id) {
 		boolean test=jobService.deleteJob(id);
 		if(test) {

@@ -15,7 +15,8 @@ private RoleRepository roleRepository;
 	@Override
 	public List<RoleEntity> getAllRole() {
 		// TODO Auto-generated method stub
-		return roleRepository.findAll();
+//		return roleRepository.findAll();
+		return null;
 	}
 
 }
