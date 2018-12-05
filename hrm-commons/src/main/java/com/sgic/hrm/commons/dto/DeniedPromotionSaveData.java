@@ -2,17 +2,13 @@ package com.sgic.hrm.commons.dto;
 
 import java.sql.Date;
 
-
-
-public class DeniedPromotionData {
-	
+public class DeniedPromotionSaveData {
 	private Integer id;
-	private UserData userId;
+	private Integer userId;
 	private Date deniedDate;
 	private String deniedRemark;
-	private DesignationData desinationId;
+	private Integer desinationId;
 	private Integer deniedBy;
-	
 	public Integer getId() {
 		return id;
 	}
@@ -20,10 +16,10 @@ public class DeniedPromotionData {
 		this.id = id;
 	}
 	
-	public UserData getUserId() {
+	public Integer getUserId() {
 		return userId;
 	}
-	public void setUserId(UserData userId) {
+	public void setUserId(Integer userId) {
 		this.userId = userId;
 	}
 	public Date getDeniedDate() {
@@ -39,10 +35,10 @@ public class DeniedPromotionData {
 		this.deniedRemark = deniedRemark;
 	}
 	
-	public DesignationData getDesinationId() {
+	public Integer getDesinationId() {
 		return desinationId;
 	}
-	public void setDesinationId(DesignationData desinationId) {
+	public void setDesinationId(Integer desinationId) {
 		this.desinationId = desinationId;
 	}
 	public Integer getDeniedBy() {
@@ -52,5 +48,5 @@ public class DeniedPromotionData {
 		this.deniedBy = deniedBy;
 	}
 	
-	
+
 }
