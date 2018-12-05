@@ -6,6 +6,7 @@ public class RequestPromotionSaveData {
 	private Integer designationId;
 	private String promotionRemark;
 	private String recommendedBy;
+	
 	public Integer getId() {
 		return id;
 	}
