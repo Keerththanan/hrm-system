@@ -11,4 +11,6 @@ public interface ParService {
 	public boolean createPar(Par par);
 	List<Par>parHistory();
 	public List<Par> findByEmployeeId(String id);
+
+	public void deleteParById(Integer parId);
 }

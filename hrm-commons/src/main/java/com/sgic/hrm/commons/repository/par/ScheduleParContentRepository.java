@@ -9,7 +9,7 @@ import com.sgic.hrm.commons.entity.par.Par;
 import com.sgic.hrm.commons.entity.par.ScheduleParContent;
 
 @Repository
-public interface ScheduleParContentRepository extends JpaRepository<ScheduleParContent, Integer> {
+public interface ScheduleParContentRepository extends JpaRepository<ScheduleParContent, String> {
 	public List<ScheduleParContent>findByParId(Par parId);
 }
 

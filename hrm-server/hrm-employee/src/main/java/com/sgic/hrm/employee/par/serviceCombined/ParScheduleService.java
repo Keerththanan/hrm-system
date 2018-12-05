@@ -1,11 +1,7 @@
 package com.sgic.hrm.employee.par.serviceCombined;
 
-import java.util.List;
-
-import com.sgic.hrm.commons.dto.par.ScheduleParAppraisorsDtoPost;
-import com.sgic.hrm.commons.dto.par.ScheduleParContentDtoPost;
+import com.sgic.hrm.commons.dto.par.ScheduleParDtoGet;
 import com.sgic.hrm.commons.dto.par.ScheduleParDtoPost;
-import com.sgic.hrm.commons.entity.par.Par;
 
 
 
@@ -27,12 +23,12 @@ public interface ParScheduleService {
 	 	content id]
 	 */
 	
-	public void createSchedulePar(Par par,
-			List<ScheduleParAppraisorsDtoPost> scheduleParAppraisorList,
-			List<ScheduleParContentDtoPost> scheduleParContentList);
+	public void createSchedulePar(ScheduleParDtoPost objScheduleParDTO);
 	// get schedule par
 	
-	public ScheduleParDtoPost getSchedulePar(Integer parId);
+	public ScheduleParDtoGet getSchedulePar(Integer parId);
+
+	public void deleteSchedulePar(Integer parId);
 		
 		//add par content 
 		// remove par content

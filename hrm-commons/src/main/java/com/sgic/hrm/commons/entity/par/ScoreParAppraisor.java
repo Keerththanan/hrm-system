@@ -9,26 +9,27 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "ScoreParAppraisor", schema = "employee")
 public class ScoreParAppraisor {
-	
+
 	@Id
 	private String id;
-	private String parContentId;
-	private Double Score;
-	
+
 	@ManyToOne
-	@JoinColumn(name="report_par_appraisor_id")
+	@JoinColumn(name = "ParContent_id")
+	private ParContent parContent;
+
+	private Double score;
+
+	@ManyToOne
+	@JoinColumn(name = "report_par_appraisor_id")
 	private ReportParAppraisor reportParAppraisor;
 
-	
-	
-	
-	public ScoreParAppraisor(String id, String parContentId, Double score) {
+	public ScoreParAppraisor(String id, Double score) {
 		this.id = id;
-		this.parContentId = parContentId;
-		Score = score;	
+		this.score = score;
 	}
+
 	public ScoreParAppraisor() {
-		
+
 	}
 
 	public String getId() {
@@ -39,20 +40,21 @@ public class ScoreParAppraisor {
 		this.id = id;
 	}
 
-	public String getParContentId() {
-		return parContentId;
+	
+	public ParContent getParContent() {
+		return parContent;
 	}
 
-	public void setParContentId(String parContentId) {
-		this.parContentId = parContentId;
+	public void setParContent(ParContent parContent) {
+		this.parContent = parContent;
 	}
 
 	public Double getScore() {
-		return Score;
+		return score;
 	}
 
 	public void setScore(Double score) {
-		Score = score;
+		this.score = score;
 	}
 
 	public ReportParAppraisor getReportParAppraisor() {
@@ -63,7 +65,4 @@ public class ScoreParAppraisor {
 		this.reportParAppraisor = reportParAppraisor;
 	}
 
-	
-
-	
 }

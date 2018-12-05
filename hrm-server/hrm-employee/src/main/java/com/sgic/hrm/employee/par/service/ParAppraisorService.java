@@ -10,8 +10,10 @@ public interface ParAppraisorService {
 
 	public void createParAppraisor(ParAppraisor parAppraisor);
 
-	public void updateParAppraisor(ParAppraisor parAppraisor, Integer id);
+	public void updateParAppraisor(ParAppraisor parAppraisor, String id);
 
-	public void deleteParAppraisor(Integer id);
+	public void deleteParAppraisor(String id);
+	
+	public ParAppraisor findParAppraisorByAppraiserId(String appraiserId);
 
 }

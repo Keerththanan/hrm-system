@@ -8,7 +8,7 @@ public class ScoreParAppraiserMapper {
 
 		ScoreParAppraisor scoreParAppraiser = new ScoreParAppraisor();
 		scoreParAppraiser.setId(pk);
-		scoreParAppraiser.setParContentId(scoreParAppraiserDtoPost.getParContentId());
+		//scoreParAppraiser.setParContentId(scoreParAppraiserDtoPost.getParContentId());
 		scoreParAppraiser.setScore(scoreParAppraiserDtoPost.getScore());
 		return scoreParAppraiser;
 

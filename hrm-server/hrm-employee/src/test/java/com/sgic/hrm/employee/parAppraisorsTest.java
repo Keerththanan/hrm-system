@@ -18,7 +18,22 @@ public class parAppraisorsTest {
 	ParAppraisorService  parAppraisorService;
 	
 	@Test
-	public void saveParAppraisorTest() {
-		parAppraisorService.createParAppraisor(new ParAppraisor(1,"appraisor1"));
+	public void saveParAppraisorTest1() {
+		parAppraisorService.createParAppraisor(new ParAppraisor("A1","EMX001","Alan"));
+	}
+	
+	@Test
+	public void saveParAppraisorTest2() {
+		parAppraisorService.createParAppraisor(new ParAppraisor("A2","EMX002","Suja"));
+	}
+	
+	@Test
+	public void saveParAppraisorTest3() {
+		parAppraisorService.createParAppraisor(new ParAppraisor("A3","EMX003","Betsy"));
+	}
+	
+	@Test
+	public void saveParAppraisorTest4() {
+		parAppraisorService.createParAppraisor(new ParAppraisor("A4","EMX004","Noel"));
 	}
 }

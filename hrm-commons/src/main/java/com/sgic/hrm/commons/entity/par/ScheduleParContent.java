@@ -1,8 +1,6 @@
 package com.sgic.hrm.commons.entity.par;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -11,34 +9,33 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "ScheduleParContent", schema = "employee")
 public class ScheduleParContent {
-	
+
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Integer id;
-	
+	private String id;
+
 	@ManyToOne
-	@JoinColumn(name="par_id")
+	@JoinColumn(name = "par_id")
 	private Par parId;
-	
-	private String parContentId;
-	
-	
 
-	public ScheduleParContent(Integer id, String parContentId) {
-	
+	@ManyToOne
+	@JoinColumn(name = "ParContent_id")
+	private ParContent parContent;
+
+	public ScheduleParContent(String id) {
 		this.id = id;
-		this.parContentId = parContentId;
-	}
-	
-	public ScheduleParContent() {
-	
 	}
 
-	public Integer getId() {
+	public ScheduleParContent() {
+
+	}
+
+
+
+	public String getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
@@ -50,16 +47,13 @@ public class ScheduleParContent {
 		this.parId = parId;
 	}
 
-	public String getParContentId() {
-		return parContentId;
+	public ParContent getParContent() {
+		return parContent;
 	}
 
-	public void setParContentId(String parContentId) {
-		this.parContentId = parContentId;
+	public void setParContent(ParContent parContent) {
+		this.parContent = parContent;
 	}
-
 	
-	
-
 
 }

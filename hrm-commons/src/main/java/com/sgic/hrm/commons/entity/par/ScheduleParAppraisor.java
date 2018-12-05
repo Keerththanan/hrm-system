@@ -13,33 +13,22 @@ import javax.persistence.Table;
 public class ScheduleParAppraisor {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Integer id;
+	private String id;
 	
 	@ManyToOne
 	@JoinColumn(name="par_id")
 	private Par parId;
 	
-	// to be enhanced
-	private String appraisor_id;
+	@ManyToOne
+	@JoinColumn(name="ParAppraisor_id")
+	private ParAppraisor parAppraisor;
 	
-	
-
-	public ScheduleParAppraisor(Integer id,String appraisor_id) {
+	public ScheduleParAppraisor(String id) {
 		this.id = id;
-		this.appraisor_id = appraisor_id;
 	}
 
 	public ScheduleParAppraisor() {
 		
-	}
-
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
 	}
 
 	public Par getParId() {
@@ -50,13 +39,25 @@ public class ScheduleParAppraisor {
 		this.parId = parId;
 	}
 
-	public String getAppraisor_id() {
-		return appraisor_id;
+	public String getId() {
+		return id;
 	}
 
-	public void setAppraisor_id(String appraisor_id) {
-		this.appraisor_id = appraisor_id;
+	public void setId(String id) {
+		this.id = id;
 	}
+
+	public ParAppraisor getParAppraisor() {
+		return parAppraisor;
+	}
+
+	public void setParAppraisor(ParAppraisor parAppraisor) {
+		this.parAppraisor = parAppraisor;
+	}
+	
+	
+
+	
 
 	
 

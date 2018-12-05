@@ -9,4 +9,5 @@ public interface ScheduleParContentService {
 
 	public void createScheduleParContent(ScheduleParContent scheduleParContent,Par par);
 	public List<ScheduleParContent>findScheduleParContentByParId(Par parId);
+	public void deleteScheduleParContent(String id);
 }

@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -70,12 +71,8 @@ public class ScheduleParController {
 	@PostMapping("/schedulepar")
 	public void createSchedulePar(@RequestBody ScheduleParDtoPost objScheduleParDTO) {
 		// boolean=
-		Par par = new Par();
-		par.setId(objScheduleParDTO.getParId());
-		par.setEmpId(objScheduleParDTO.getEmpId());
-		par.setScheduleDate(objScheduleParDTO.getScheduleDate());
-		parScheduleService.createSchedulePar(par, objScheduleParDTO.getScheduleParAppraisorsList(),
-				objScheduleParDTO.getScheduleParContentList());
+		
+		parScheduleService.createSchedulePar(objScheduleParDTO);
 	}
 
 	@GetMapping("/schedulepar/emp/{empid}")
@@ -83,16 +80,23 @@ public class ScheduleParController {
 		return new ResponseEntity<>(parservice.findByEmployeeId(id), HttpStatus.OK);
 	}
 
+	// this is done to pull par schedule par details
 	@GetMapping("/schedulepar/par/{parId}")
-	public ResponseEntity<ScheduleParDtoPost> findByParId(@PathVariable("parId") Integer parId) {
+	public ResponseEntity<ScheduleParDtoGet> findByParId(@PathVariable("parId") Integer parId) {
 		return new ResponseEntity<>(parScheduleService.getSchedulePar(parId), HttpStatus.OK);
 	}
 
+	// done to show the records of par
 	@GetMapping("/schedulepar")
 	public ResponseEntity<List<Par>> parHistory() {
 		List<Par> par = parservice.parHistory();
 		ResponseEntity<List<Par>> response = new ResponseEntity<>(par, HttpStatus.OK);
 		return response;
+	}
+	
+	@DeleteMapping("/schedulepar/par/{parId}")
+	public void deleteSchedulePar(@PathVariable("parId") Integer parId) {
+		parScheduleService.deleteSchedulePar(parId);
 	}
 
 }

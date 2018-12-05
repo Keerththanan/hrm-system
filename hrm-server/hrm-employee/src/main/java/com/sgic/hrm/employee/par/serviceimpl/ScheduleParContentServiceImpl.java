@@ -29,4 +29,10 @@ public class ScheduleParContentServiceImpl implements ScheduleParContentService{
 		// TODO Auto-generated method stub
 		return scheduleParContentRepo.findByParId(parId);
 	}
+
+	@Override
+	public void deleteScheduleParContent(String id) {
+		// TODO Auto-generated method stub
+		scheduleParContentRepo.deleteById(id);
+	}
 }

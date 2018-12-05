@@ -10,4 +10,6 @@ public interface ScheduleParAppraisorService {
 	public void createScheduleParAppraisor(ScheduleParAppraisor scheduleParAppraisor,Par par);
 	
 	public List<ScheduleParAppraisor>findScheduleParAppraisorByParId(Par parId);
+
+	public void deleteScheduleParAppraisorById(String id);
 }

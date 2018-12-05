@@ -10,9 +10,9 @@ public interface ParContentService {
 
 	public void createParContent(ParContent parContent);
 
-//	public void updateParContent(ParContent parContent, String id);
-//
-//	public void deleteParContent(String id);
+	public void updateParContent(ParContent parContent, String id);
+
+	public void deleteParContent(String id);
 	
 	public ParContent findParContentById(String id);
 

@@ -26,5 +26,11 @@ public class ScheduleParAppraisorServiceImpl implements ScheduleParAppraisorServ
 		// TODO Auto-generated method stub
 		return scheduleParAppraisorRepo.findByParId(parId);
 	}
+
+	@Override
+	public void deleteScheduleParAppraisorById(String id) {
+		// TODO Auto-generated method stub
+		scheduleParAppraisorRepo.deleteById(id);
+	}
 	
 }

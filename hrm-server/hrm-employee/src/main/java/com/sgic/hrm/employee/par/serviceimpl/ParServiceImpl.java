@@ -40,4 +40,10 @@ public class ParServiceImpl implements ParService {
 		return parRepo.findByEmployeeId(id);
 	}
 
+	@Override
+	public void deleteParById(Integer parId) {
+		// TODO Auto-generated method stub
+		parRepo.deleteById(parId);
+	}
+
 }

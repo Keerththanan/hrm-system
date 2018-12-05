@@ -27,19 +27,25 @@ public class ParAppraisorServiceImpl implements ParAppraisorService {
 	}
 
 	@Override
-	public void updateParAppraisor(ParAppraisor parAppraisor, Integer id) {
-		ParAppraisor existParAppraisor = parAppraisorRepository.getOne(id);
+	public void updateParAppraisor(ParAppraisor parAppraisor, String id) {
+		ParAppraisor existParAppraisor = findParAppraisorByAppraiserId(id);
 
-		if (existParAppraisor.getId() != null) {
-			parAppraisor.setId(id);
+		if (existParAppraisor != null) {
+			parAppraisor.setAppraiserId(id);
 			parAppraisorRepository.save(parAppraisor);
 		}
 	}
 
 	@Override
-	public void deleteParAppraisor(Integer id) {
+	public void deleteParAppraisor(String id) {
 		parAppraisorRepository.deleteById(id);
 
+	}
+
+	@Override
+	public ParAppraisor findParAppraisorByAppraiserId(String appraiserId) {
+		// TODO Auto-generated method stub
+		return parAppraisorRepository.findParAppraisorByAppraiserId(appraiserId);
 	}
 
 }

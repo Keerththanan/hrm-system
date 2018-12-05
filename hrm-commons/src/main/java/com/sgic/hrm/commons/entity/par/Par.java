@@ -12,51 +12,28 @@ import javax.persistence.Table;
 @Table(name = "par", schema = "employee")
 public class Par {
 	@Id
-	//@GeneratedValue(strategy=GenerationType.IDENTITY)
+	// @GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 	private String empId;
 	private Double overAllScore;
 	private Date scheduleDate;
-	
-//	@OneToOne(mappedBy="par")
-//	private ReportParAppraise reportParAppraise;
-//	
-//	@OneToMany(mappedBy="parId",cascade=CascadeType.ALL,fetch=FetchType.LAZY)
-//	@JsonIgnore
-//	private List<ReportParAppraisor> reportParAppraisors;
-//	
-//	@OneToMany(mappedBy="parId",cascade=CascadeType.ALL,fetch=FetchType.EAGER)
-//	@JsonIgnore
-//	private List<ScheduleParAppraisor> scheduleParAppraisorsList;
-//	
-//	@OneToMany(mappedBy="parId",cascade=CascadeType.ALL,fetch=FetchType.LAZY)
-//	@JsonIgnore
-//	private List<ScheduleParContent> scheduleParContentList;
 
-	
-	
 	public Par(Integer id, String empId, Double overAllScore, Date scheduleDate) {
 		this.id = id;
 		this.empId = empId;
 		this.overAllScore = overAllScore;
 		this.scheduleDate = scheduleDate;
 	}
-	
-	
-	
-	
+
 	public Par(Integer id, String empId, Date scheduleDate) {
-		
+
 		this.id = id;
 		this.empId = empId;
 		this.scheduleDate = scheduleDate;
 	}
 
-
-
-
 	public Par() {
-		
+
 	}
 
 	public Integer getId() {
@@ -122,8 +99,5 @@ public class Par {
 //	public void setScheduleParContentList(List<ScheduleParContent> scheduleParContentList) {
 //		this.scheduleParContentList = scheduleParContentList;
 //	}
-	
-	
-	
 
 }

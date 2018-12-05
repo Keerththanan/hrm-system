@@ -10,7 +10,7 @@ import com.sgic.hrm.commons.entity.par.ScheduleParAppraisor;
 
 @Repository
 
-public interface ScheduleParAppraisorRepository extends JpaRepository<ScheduleParAppraisor, Integer> {
+public interface ScheduleParAppraisorRepository extends JpaRepository<ScheduleParAppraisor, String> {
 	public List<ScheduleParAppraisor>findByParId(Par parId);
 
 }

@@ -4,7 +4,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.sgic.hrm.commons.entity.par.ScoreParAppraisor;
 
-public interface ScoreParAppraisorRepository extends JpaRepository<ScoreParAppraisor, Integer> {
+public interface ScoreParAppraisorRepository extends JpaRepository<ScoreParAppraisor, String> {
 
 }
 

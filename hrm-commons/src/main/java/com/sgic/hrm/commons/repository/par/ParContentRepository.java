@@ -4,7 +4,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.sgic.hrm.commons.entity.par.ParContent;
 
-public interface ParContentRepository extends JpaRepository<ParContent,Integer>{
+public interface ParContentRepository extends JpaRepository<ParContent,String>{
 
 	ParContent findParContentById(String id);
 }

@@ -9,15 +9,19 @@ import javax.persistence.Table;
 public class ParAppraisor {
 
 	@Id
-	private Integer id;
+	private String appraiserId;
 	private String empId;
+	private String empName;
 
-	public Integer getId() {
-		return id;
+	public ParAppraisor(String id, String empId,String empName) {
+
+		this.appraiserId = id;
+		this.empId = empId;
+		this.empName=empName;
 	}
 
-	public void setId(Integer id) {
-		this.id = id;
+	public ParAppraisor() {
+
 	}
 
 	public String getEmpId() {
@@ -28,14 +32,23 @@ public class ParAppraisor {
 		this.empId = empId;
 	}
 
-	public ParAppraisor(Integer id, String empId) {
-
-		this.id = id;
-		this.empId = empId;
+	public String getAppraiserId() {
+		return appraiserId;
 	}
 
-	public ParAppraisor() {
-
+	public void setAppraiserId(String appraiserId) {
+		this.appraiserId = appraiserId;
 	}
 
+	public String getEmpName() {
+		return empName;
+	}
+
+	public void setEmpName(String empName) {
+		this.empName = empName;
+	}
+
+
+
+	
 }
