@@ -3,16 +3,19 @@ package com.sgic.hrm.commons.entity;
 import java.io.Serializable;
 import java.sql.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 import org.hibernate.annotations.CreationTimestamp;
 
 @Entity
+@Table(schema = "employee", name = "denied_promotion")
 public class DeniedPromotion implements Serializable {
 
 	/**
@@ -36,7 +39,7 @@ public class DeniedPromotion implements Serializable {
 
 	private String deniedRemark;
 	
-	@ManyToOne
+	@ManyToOne(cascade= {CascadeType.ALL})
 	@JoinColumn(name="designation_id")
 	private Designation desinationId;
 	
