@@ -43,8 +43,8 @@ public class ApplicantDataMapper {
 		applicant.setAddress(applicantDataSave.getAddress());
 		applicant.setCvFile(applicantDataSave.getCvFile());
 
-		hightqulification.setId(applicantDataSave.getHighestQualificationId());
-		applicant.setHighestQualification(hightqulification);
+//		hightqulification.setId(applicantDataSave.getHighestQualificationId());
+//		applicant.setHighestQualification(hightqulification);
 
 		job.setId(applicantDataSave.getJobId());
 		applicant.setJob(job);
