@@ -10,7 +10,7 @@ public class RecruitmentTypeMapper {
 
 		if (recruitment != null) {
 			recruitmentData.setId(recruitment.getId());
-			recruitmentData.setRecruitmentTypeName(recruitment.getRecruitmentTypeName());
+			recruitmentData.setRecruitmentType(recruitment.getRecruitmentType());
 			
 			return recruitmentData;
 		}

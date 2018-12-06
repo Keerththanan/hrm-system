@@ -3,16 +3,19 @@ package com.sgic.hrm.commons.entity;
 import java.io.Serializable;
 import java.sql.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.springframework.data.annotation.CreatedDate;
 
 @Entity
-@Table
+@Table(schema = "employee", name = "promotion")
 public class Promotion implements Serializable {
 
 	/**
@@ -24,10 +27,14 @@ public class Promotion implements Serializable {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 	
-//	@OneToOne(fetch = FetchType.EAGER)
+	@ManyToOne(cascade = {CascadeType.ALL})
+	@JoinColumn(name = "user_id")
+	private User userId;
 	
-	private int requestId;
-	private int designationId;
+//	@ManyToOne(cascade = {CascadeType.ALL})
+	@JoinColumn(name = "designation_id")
+	private Designation designationId;
+	
 	@CreatedDate
 	private Date promotedDate;
 	private String remark;
@@ -39,16 +46,17 @@ public class Promotion implements Serializable {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public int getRequestId() {
-		return requestId;
+	
+	public User getUserId() {
+		return userId;
 	}
-	public void setRequestId(int requestId) {
-		this.requestId = requestId;
+	public void setUserId(User userId) {
+		this.userId = userId;
 	}
-	public int getDesignationId() {
+	public Designation getDesignationId() {
 		return designationId;
 	}
-	public void setDesignationId(int designationId) {
+	public void setDesignationId(Designation designationId) {
 		this.designationId = designationId;
 	}
 	public Date getPromotedDate() {

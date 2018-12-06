@@ -31,6 +31,25 @@ private DepartmentRepository departmentRepo;
 			
 	}
 
+	@Override
+	public boolean editDepartment(Department department, Integer id) {
+		if(departmentRepo.getOne(id)!=null) {
+			department.setId(id);
+			departmentRepo.save(department);
+			return true;
+		}
+		return false;
+	}
+
+	@Override
+	public boolean deleteDepartment(Integer id) {
+	if(departmentRepo.getOne(id)!=null) {
+		departmentRepo.deleteById(id);
+		return true;
+	}
+		return false;
+	}
+
 	
 	
 }
