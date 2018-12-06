@@ -59,6 +59,11 @@ public class LeaveRequestServiceImpl implements LeaveRequestService {
 		}
 		return false;
 	}
+	
+	@Override
+	public List<LeaveRequest> getLeaveRequestByUserName(String userName) {
+		return leaveRequestRepository.findByUser(loginService.getUser(userName));
+	}
 
 	@Transactional
 	@Override
@@ -71,7 +76,8 @@ public class LeaveRequestServiceImpl implements LeaveRequestService {
 			leaveRequestRepository.save(leaveRequest);
 			AcceptLeaveRequest acceptLeaveRequest = new AcceptLeaveRequest();
 			acceptLeaveRequest.setLeaveRequest(leaveRequest);
-			acceptLeaveRequest.setAcceptedBy(loginRepository.findByUsername(acceptLeaveDto.getUserName()).get().getUser());
+			acceptLeaveRequest
+					.setAcceptedBy(loginRepository.findByUsername(acceptLeaveDto.getUserName()).get().getUser());
 			acceptLeaveRequestRepository.save(acceptLeaveRequest);
 			return true;
 		}
@@ -120,11 +126,13 @@ public class LeaveRequestServiceImpl implements LeaveRequestService {
 			leaveRequestRepository.save(leaveRequest);
 			RejectLeaveRequest rejectLeaveRequest = new RejectLeaveRequest();
 			rejectLeaveRequest.setLeaveRequest(leaveRequest);
-			rejectLeaveRequest.setRejectedBy(loginRepository.findByUsername(rejectLeaveDto.getUserName()).get().getUser());
+			rejectLeaveRequest
+					.setRejectedBy(loginRepository.findByUsername(rejectLeaveDto.getUserName()).get().getUser());
 			rejectLeaveRequest.setReason(rejectLeaveDto.getRejectReason());
 			rejectLeaveRequestRepository.save(rejectLeaveRequest);
 			return true;
 		}
 		return false;
 	}
+
 }

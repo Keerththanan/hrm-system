@@ -18,6 +18,8 @@ public interface LeaveRequestService {
   boolean deleteLeaveRequest(Integer id);
 
   List<LeaveRequest> getLeaveRequestByUser(Integer userId);
+  
+  List<LeaveRequest> getLeaveRequestByUserName(String  userName);
 
   List<LeaveRequest> getAllLeaveRequest();
 
