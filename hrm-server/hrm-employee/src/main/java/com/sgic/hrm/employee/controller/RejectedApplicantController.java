@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.sgic.hrm.commons.dto.RejectedApplicantData;
+import com.sgic.hrm.commons.dto.RejectedApplicantDataSave;
 import com.sgic.hrm.commons.dto.mapper.RejectedApplicantDataMapper;
 import com.sgic.hrm.commons.entity.RejectedApplicant;
 import com.sgic.hrm.employee.service.RejectedApplicantService;
@@ -23,14 +24,14 @@ import com.sgic.hrm.employee.service.RejectedApplicantService;
 
 @RestController
 public class RejectedApplicantController {
-	
+
 	@Autowired
 	private RejectedApplicantService rejectedApplicantService;
 
-	
 	@PostMapping("/rejectedApplicant")
-	public HttpStatus createRejectedApplicant( @RequestBody RejectedApplicantData rejectedApplicantData) {
-		boolean test = rejectedApplicantService.addRejectedApplicant(RejectedApplicantDataMapper.rejectedApplicantDataMapper(rejectedApplicantData));
+	public HttpStatus createRejectedApplicant(@RequestBody RejectedApplicantDataSave rejectedApplicantDataSave) {
+		boolean test = rejectedApplicantService
+				.addRejectedApplicant(RejectedApplicantDataMapper.rejectedApplicantDataSaveMapper(rejectedApplicantDataSave));
 		if (test) {
 			return HttpStatus.CREATED;
 
@@ -38,6 +39,7 @@ public class RejectedApplicantController {
 
 		return HttpStatus.BAD_REQUEST;
 	}
+
 	@GetMapping("/rejectedApplicant")
 	public ResponseEntity<List<RejectedApplicant>> getRejectedApplicant() {
 		List<RejectedApplicant> rejectedApplicant = rejectedApplicantService.getAllRejectedApplicant();
@@ -51,11 +53,12 @@ public class RejectedApplicantController {
 //	}
 
 	@PutMapping("/rejectedApplicant/{id}")
-	public ResponseEntity<String> updateRejectedApplicant(@PathVariable(name="id") Integer id,@RequestBody RejectedApplicantData rejectedApplicantData){
-		RejectedApplicant rejectedApplicant=RejectedApplicantDataMapper.rejectedApplicantDataMapper(rejectedApplicantData);
-		if(rejectedApplicantService.editRejectedApplicant(rejectedApplicant, id))
-		{
-			return new ResponseEntity<>("updated",HttpStatus.OK);
+	public ResponseEntity<String> updateRejectedApplicant(@PathVariable(name = "id") Integer id,
+			@RequestBody RejectedApplicantData rejectedApplicantData) {
+		RejectedApplicant rejectedApplicant = RejectedApplicantDataMapper
+				.rejectedApplicantDataMapper(rejectedApplicantData);
+		if (rejectedApplicantService.editRejectedApplicant(rejectedApplicant, id)) {
+			return new ResponseEntity<>("updated", HttpStatus.OK);
 		}
 		return new ResponseEntity<>("upadte failed", HttpStatus.BAD_REQUEST);
 	}
@@ -71,6 +74,5 @@ public class RejectedApplicantController {
 		}
 		return status;
 	}
-
 
 }
