@@ -1,9 +1,9 @@
---
-----
-----INSERT INTO employee.self_service_type(self_service_type_name) VALUES('Complain');
-----INSERT INTO employee.self_service_type(self_service_type_name) VALUES('Request');
-----INSERT INTO employee.self_service_type(self_service_type_name) VALUES('Feedback');
-----
+
+
+INSERT INTO employee.self_service_type(self_service_type_name) VALUES('Complain');
+INSERT INTO employee.self_service_type(self_service_type_name) VALUES('Request');
+INSERT INTO employee.self_service_type(self_service_type_name) VALUES('Feedback');
+
 INSERT INTO employee.department(department_name) VALUES('hrm');
 INSERT INTO employee.department(department_name) VALUES('manager');
 INSERT INTO employee.exam_type(exam_type_name) VALUES('O/L');
@@ -19,8 +19,8 @@ INSERT INTO employee.job(id,job_name,job_reference_no) VALUES(2,'QA',2);
 INSERT INTO employee.location(location_name) VALUES('Jaffna');
 INSERT INTO employee.location(location_name) VALUES('Colombo');
 
---
---INSERT INTO employee.self_service_type(self_service_type_name) VALUES('Complain');
---INSERT INTO employee.self_service_type(self_service_type_name) VALUES('Request');
---INSERT INTO employee.self_service_type(self_service_type_name) VALUES('Feedback');
---
+
+INSERT INTO employee.self_service_type(self_service_type_name) VALUES('Complain');
+INSERT INTO employee.self_service_type(self_service_type_name) VALUES('Request');
+INSERT INTO employee.self_service_type(self_service_type_name) VALUES('Feedback');
+

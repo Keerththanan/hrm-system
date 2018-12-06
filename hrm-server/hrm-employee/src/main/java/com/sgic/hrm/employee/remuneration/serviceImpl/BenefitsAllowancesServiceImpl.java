@@ -31,7 +31,8 @@ public class BenefitsAllowancesServiceImpl implements BenefitsAllowancesService 
 	@Override
 	public List<BenefitsAllowancesEntity> viewByChatId(Integer id) {
 		// TODO Auto-generated method stub
-		return benefitsAllowancesRepository.findByBenefitsId(id);
+		return null;
+//		return benefitsAllowancesRepository.findByBenefitsId(id);
 	}
 
 
