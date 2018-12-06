@@ -5,7 +5,7 @@ import java.sql.Date;
 public class PromotionData {
 
 	private Integer id;
-	private UserData usertId;
+	private UserData userId;
 	private DesignationData designationId;
 	private Date promotedDate;
 	private String remark;
@@ -28,12 +28,13 @@ public class PromotionData {
 		this.designationId = designationId;
 	}
 
-	public UserData getUsertId() {
-		return usertId;
+	
+	public UserData getUserId() {
+		return userId;
 	}
 
-	public void setUsertId(UserData usertId) {
-		this.usertId = usertId;
+	public void setUserId(UserData userId) {
+		this.userId = userId;
 	}
 
 	public Date getPromotedDate() {
