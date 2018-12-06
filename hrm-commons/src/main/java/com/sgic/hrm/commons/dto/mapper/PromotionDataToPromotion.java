@@ -15,7 +15,7 @@ public class PromotionDataToPromotion {
 	    Promotion promotion = new Promotion();
 	    if (promotionData != null) {
 	      promotion.setId(promotionData.getId());
-	      promotion.setUserId(UserDataMapper.userDataMapper(promotionData.getUsertId()));
+	      promotion.setUserId(UserDataMapper.userDataMapper(promotionData.getUserId()));
 	      promotion.setDesignationId(DesignationDataMapper.designationDataMapper(promotionData.getDesignationId()));
 	      promotion.setPromotedDate(promotionData.getPromotedDate());
 	      promotion.setRemark(promotionData.getRemark());
