@@ -7,8 +7,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -22,9 +20,9 @@ public class InterviewSchedule implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	@ManyToOne
-	@JoinColumn(name = "applicant_id")
-	private Applicant applicant;
+//	@ManyToOne
+//	@JoinColumn(name = "applicant_id")
+//	private Applicant applicant;
 
 	private String interviewVenue;
 	private String interviewTime;
@@ -47,13 +45,13 @@ public class InterviewSchedule implements Serializable {
 		this.id = id;
 	}
 
-	public Applicant getApplicant() {
-		return applicant;
-	}
-
-	public void setApplicant(Applicant applicant) {
-		this.applicant = applicant;
-	}
+//	public Applicant getApplicant() {
+//		return applicant;
+//	}
+//
+//	public void setApplicant(Applicant applicant) {
+//		this.applicant = applicant;
+//	}
 
 	public String getInterviewVenue() {
 		return interviewVenue;

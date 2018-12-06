@@ -14,21 +14,22 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.sgic.hrm.commons.dto.ApplicantData;
 import com.sgic.hrm.commons.dto.ApplicantDataSave;
+import com.sgic.hrm.commons.dto.RequestPromotionData;
 import com.sgic.hrm.commons.dto.mapper.ApplicantDataMapper;
+import com.sgic.hrm.commons.dto.mapper.RequestPromotionDataMapper;
 import com.sgic.hrm.commons.entity.Applicant;
 import com.sgic.hrm.employee.service.ApplicantService;
-
 
 @CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
 
 @RestController
 public class ApplicantController {
-	
+
 	@Autowired
 	private ApplicantService applicantService;
 
-	
 //	@PostMapping("/applicant")
 //	public HttpStatus createApplicant( @RequestBody ApplicantData applicantData) {
 //		boolean test = applicantService.addApplicant(ApplicantDataMapper.applicantDataMapper(applicantData));
@@ -39,27 +40,38 @@ public class ApplicantController {
 //
 //		return HttpStatus.BAD_REQUEST;
 //	}
-	
+
 	@PostMapping("/applicant")
 	public HttpStatus postRequestPromotion(@RequestBody ApplicantDataSave applicantDataSave) {
 
-		boolean test = applicantService.addApplicant(
-				ApplicantDataMapper.applicantDataSaveMapper(applicantDataSave));
-				
+		boolean test = applicantService.addApplicant(ApplicantDataMapper.applicantDataSaveMapper(applicantDataSave));
+
 		if (test) {
 			return HttpStatus.CREATED;
 		}
 		return HttpStatus.BAD_REQUEST;
 	}
 
+//	@PutMapping("/applicant/{id}")
+//	public ResponseEntity<String> updateApplicant(@PathVariable(name = "id") Integer id,
+//			@RequestBody ApplicantData applicantData) {
+//		Applicant applicant = ApplicantDataMapper.applicantDataMapper(applicantData);
+//		if (applicantService.editApplicant(applicant, id)) {
+//			return new ResponseEntity<>("updated", HttpStatus.OK);
+//		}
+//		return new ResponseEntity<>("upadte failed", HttpStatus.BAD_REQUEST);
+//	}
+
 	@PutMapping("/applicant/{id}")
-	public ResponseEntity<String> updateApplicant(@PathVariable(name="id") Integer id,@RequestBody ApplicantDataSave applicantDataSave){
-		Applicant applicant=ApplicantDataMapper.applicantDataSaveMapper(applicantDataSave);
-		if(applicantService.editApplicant(applicant, id))
-		{
-			return new ResponseEntity<>("updated",HttpStatus.OK);
+	public ResponseEntity<String> updateApplicant(@PathVariable(name = "id") Integer id,
+			@RequestBody ApplicantData applicantData) {
+		boolean reqApli = applicantService
+				.editApplicant(ApplicantDataMapper.applicantDataMapper(applicantData), id);
+
+		if (reqApli) {
+			return new ResponseEntity<>("Update Successfully", HttpStatus.ACCEPTED);
 		}
-		return new ResponseEntity<>("upadte failed", HttpStatus.BAD_REQUEST);
+		return new ResponseEntity<>("Update failed", HttpStatus.BAD_REQUEST);
 	}
 
 	@GetMapping("/applicant")
@@ -74,7 +86,6 @@ public class ApplicantController {
 //		return applicantService.getById(applicant_id);
 //	}
 
-	
 	@DeleteMapping("/applicant/{id}")
 	public HttpStatus deleteApplicant(@PathVariable("id") Integer id) {
 		boolean test = applicantService.deleteApplicant(id);
@@ -86,6 +97,5 @@ public class ApplicantController {
 		}
 		return status;
 	}
-
 
 }
