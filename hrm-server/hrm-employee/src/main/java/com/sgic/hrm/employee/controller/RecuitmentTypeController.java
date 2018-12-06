@@ -26,7 +26,7 @@ public class RecuitmentTypeController {
 	@Autowired
 	private RecruitmentTypeService recruitmentService;
 
-	@PostMapping("/recruitment")
+	@PostMapping("/recruitmentType")
 	public HttpStatus createRecuitment(@RequestBody RecruitmentTypeData recruitmentData) {
 		boolean test = recruitmentService.addRecruitment(RecruitmentTypeDataMapper.recruitmentDataMapper(recruitmentData));
 		if (test) {
@@ -37,7 +37,7 @@ public class RecuitmentTypeController {
 		return HttpStatus.BAD_REQUEST;
 	}
 
-	@GetMapping("/recruitment")
+	@GetMapping("/recruitmentType")
 	public ResponseEntity<List<RecruitmentType>> getRecuitment() {
 		List<RecruitmentType> recuitment = recruitmentService.getAllRecruitment();
 		ResponseEntity<List<RecruitmentType>> response = new ResponseEntity<>(recuitment, HttpStatus.OK);
@@ -53,7 +53,7 @@ public class RecuitmentTypeController {
 //		return HttpStatus.BAD_REQUEST;
 //
 //	}
-	@PutMapping("/recruitment/{id}")
+	@PutMapping("/recruitmentType/{id}")
 	public ResponseEntity<String> updateRecuitment(@PathVariable(name="id") Integer id,@RequestBody RecruitmentTypeData recruitmentData){
 		RecruitmentType recruitment=RecruitmentTypeDataMapper.recruitmentDataMapper(recruitmentData);
 		if(recruitmentService.editRecruitment(recruitment, id))
@@ -63,7 +63,7 @@ public class RecuitmentTypeController {
 		return new ResponseEntity<>("upadte failed", HttpStatus.BAD_REQUEST);
 	}
 
-	@DeleteMapping("/recruitment/{id}")
+	@DeleteMapping("/recruitmentType/{id}")
 	public HttpStatus deleteRecuitment(@PathVariable("id") Integer id) {
 		boolean test = recruitmentService.deleteRecruitment(id);
 		HttpStatus status;
