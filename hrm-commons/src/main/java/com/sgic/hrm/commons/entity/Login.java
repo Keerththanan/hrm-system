@@ -46,9 +46,9 @@ public class Login implements Serializable {
 	private User user;
 
 	@NaturalId
-	@NotBlank
-	@Size(max = 50)
-	@Email
+//	@NotBlank
+//	@Size(max = 50)
+//	@Email
 	private String email;
 
 	@Column(name = "password")
