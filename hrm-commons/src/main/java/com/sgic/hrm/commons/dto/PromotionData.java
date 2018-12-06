@@ -10,7 +10,7 @@ public class PromotionData {
 	private Date promotedDate;
 	private String remark;
 	private int salary;
-	private int promotedBy;
+	private String promotedBy;
 
 	public Integer getId() {
 		return id;
@@ -60,11 +60,11 @@ public class PromotionData {
 		this.salary = salary;
 	}
 
-	public int getPromotedBy() {
+	public String getPromotedBy() {
 		return promotedBy;
 	}
 
-	public void setPromotedBy(int promotedBy) {
+	public void setPromotedBy(String promotedBy) {
 		this.promotedBy = promotedBy;
 	}
 
