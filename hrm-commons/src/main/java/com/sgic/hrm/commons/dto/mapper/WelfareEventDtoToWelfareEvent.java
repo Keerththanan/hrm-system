@@ -5,7 +5,6 @@ import java.util.List;
 
 import com.sgic.hrm.commons.dto.WelfareEventDto;
 import com.sgic.hrm.commons.entity.WelfareEvent;
-import com.sgic.hrm.commons.entity.WelfareType;
 
 public class WelfareEventDtoToWelfareEvent {
 	public static WelfareEvent WelfareEventDtoToWelfareEvent(WelfareEventDto welfareEventDto) {
