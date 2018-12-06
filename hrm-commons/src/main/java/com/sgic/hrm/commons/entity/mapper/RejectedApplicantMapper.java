@@ -14,7 +14,7 @@ public class RejectedApplicantMapper {
 			rejectedApplicantData.setReason(rejectedApplicant.getReason());
 			
 			
-			rejectedApplicantData.setApplicant(ApplicantMapper.applicantMapper(rejectedApplicant.getApplicant()));
+			//rejectedApplicantData.setApplicant(ApplicantMapper.applicantMapper(rejectedApplicant.getApplicant()));
 			
 			return rejectedApplicantData;
 		}

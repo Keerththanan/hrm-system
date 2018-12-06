@@ -2,36 +2,26 @@ package com.sgic.hrm.commons.dto;
 
 import java.sql.Date;
 
-
-
-public class InterviewScheduleData {
-	
+public class InterviewSchduleDataSave {
 	private Integer id;
-	//private ApplicantData applicant;
+	private Integer applicant;
 	private String interviewVenue;
 	private String interviewTime;
 	private Date interviewDate;
-	//private String email;
+	private String email;
 	
-//	public String getEmail() {
-//		return email;
-//	}
-//	public void setEmail(String email) {
-//		this.email = email;
-//	}
 	public Integer getId() {
 		return id;
 	}
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	
-//	public ApplicantData getApplicant() {
-//		return applicant;
-//	}
-//	public void setApplicant(ApplicantData applicant) {
-//		this.applicant = applicant;
-//	}
+	public Integer getApplicant() {
+		return applicant;
+	}
+	public void setApplicant(Integer applicant) {
+		this.applicant = applicant;
+	}
 	public String getInterviewVenue() {
 		return interviewVenue;
 	}
@@ -50,6 +40,11 @@ public class InterviewScheduleData {
 	public void setInterviewDate(Date interviewDate) {
 		this.interviewDate = interviewDate;
 	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
 
-	
 }
