@@ -14,12 +14,13 @@ public class InterviewScheduleMapper {
 			interviewScheduleData.setInterviewTime(interviewSchedule.getInterviewTime());
 			interviewScheduleData.setInterviewDate(interviewSchedule.getInterviewDate());
 
-			interviewScheduleData.setApplicant(ApplicantMapper.applicantMapper(interviewSchedule.getApplicant()));
+			//interviewScheduleData.setApplicant(ApplicantMapper.applicantMapper(interviewSchedule.getApplicant()));
 
 
 			return interviewScheduleData;
 		}
 		return null;
+		
 
 	}
 }

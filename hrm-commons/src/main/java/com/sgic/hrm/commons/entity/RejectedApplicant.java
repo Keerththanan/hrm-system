@@ -26,6 +26,7 @@ public class RejectedApplicant implements Serializable {
 	@JoinColumn(name="applicant_id")
 	private Applicant applicant;
 	private String email;
+	//private String Reason;
 	
 	public String getEmail() {
 		return email;
