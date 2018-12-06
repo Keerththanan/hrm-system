@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,7 +16,7 @@ import com.sgic.hrm.commons.dto.par.ReportParAppraiseeDtoPost;
 import com.sgic.hrm.commons.dto.par.ScoreParAppraiseeDtoGet;
 import com.sgic.hrm.commons.dto.par.ScoreParAppraiseeDtoPost;
 import com.sgic.hrm.employee.par.serviceCombined.ParReportForAppraiseeService;
-
+@CrossOrigin
 @RestController
 public class ParReportForAppraiseeController {
 	@Autowired
