@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.sgic.hrm.commons.dto.ApplicantData;
 import com.sgic.hrm.commons.dto.ApplicantDataSave;
 import com.sgic.hrm.commons.dto.mapper.ApplicantDataMapper;
 import com.sgic.hrm.commons.entity.Applicant;
@@ -53,6 +52,16 @@ public class ApplicantController {
 		return HttpStatus.BAD_REQUEST;
 	}
 
+	@PutMapping("/applicant/{id}")
+	public ResponseEntity<String> updateApplicant(@PathVariable(name="id") Integer id,@RequestBody ApplicantDataSave applicantDataSave){
+		Applicant applicant=ApplicantDataMapper.applicantDataSaveMapper(applicantDataSave);
+		if(applicantService.editApplicant(applicant, id))
+		{
+			return new ResponseEntity<>("updated",HttpStatus.OK);
+		}
+		return new ResponseEntity<>("upadte failed", HttpStatus.BAD_REQUEST);
+	}
+
 	@GetMapping("/applicant")
 	public ResponseEntity<List<Applicant>> getApplicant() {
 		List<Applicant> applicant = applicantService.getAllApplicant();
@@ -65,16 +74,7 @@ public class ApplicantController {
 //		return applicantService.getById(applicant_id);
 //	}
 
-	@PutMapping("/applicant/{id}")
-	public ResponseEntity<String> updateApplicant(@PathVariable(name="id") Integer id,@RequestBody ApplicantData applicantData){
-		Applicant applicant=ApplicantDataMapper.applicantDataMapper(applicantData);
-		if(applicantService.editApplicant(applicant, id))
-		{
-			return new ResponseEntity<>("updated",HttpStatus.OK);
-		}
-		return new ResponseEntity<>("upadte failed", HttpStatus.BAD_REQUEST);
-	}
-
+	
 	@DeleteMapping("/applicant/{id}")
 	public HttpStatus deleteApplicant(@PathVariable("id") Integer id) {
 		boolean test = applicantService.deleteApplicant(id);

@@ -1,7 +1,7 @@
 package com.sgic.hrm.commons.entity;
 
 import java.io.Serializable;
-import java.time.ZonedDateTime;
+import java.sql.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -18,7 +18,7 @@ public class WelfareEvent  implements Serializable{
 	private Integer welfareTypeId;
 	private String welfareName;
 	private Float welfareBudget;
-	private  ZonedDateTime promoteDate;
+	private  Date promoteDate;
 	private String status;
 	
 	public Integer getId() {
@@ -45,10 +45,10 @@ public class WelfareEvent  implements Serializable{
 	public void setWelfareBudget(Float welfareBudget) {
 		this.welfareBudget = welfareBudget;
 	}
-	public ZonedDateTime getPromoteDate() {
+	public Date getPromoteDate() {
 		return promoteDate;
 	}
-	public void setPromoteDate(ZonedDateTime promoteDate) {
+	public void setPromoteDate(Date promoteDate) {
 		this.promoteDate = promoteDate;
 	}
 	public String getStatus() {

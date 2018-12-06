@@ -1,13 +1,13 @@
 package com.sgic.hrm.commons.dto;
 
-import java.time.ZonedDateTime;
+import java.sql.Date;
 
 public class WelfareEventDto {
 	private Integer id;
 	private Integer welfareTypeId;
 	private String welfareName;
 	private Float welfareBudget;
-	private ZonedDateTime promoteDate;
+	private Date promoteDate;
 	private String status;
 
 	public Integer getId() {
@@ -42,11 +42,13 @@ public class WelfareEventDto {
 		this.welfareBudget = welfareBudget;
 	}
 
-	public ZonedDateTime getPromoteDate() {
+	
+
+	public Date getPromoteDate() {
 		return promoteDate;
 	}
 
-	public void setPromoteDate(ZonedDateTime promoteDate) {
+	public void setPromoteDate(Date promoteDate) {
 		this.promoteDate = promoteDate;
 	}
 
