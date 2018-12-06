@@ -7,18 +7,18 @@ import java.sql.Date;
 public class InterviewScheduleData {
 	
 	private Integer id;
-	private ApplicantData applicant;
+	//private ApplicantData applicant;
 	private String interviewVenue;
 	private String interviewTime;
 	private Date interviewDate;
-	private String email;
+	//private String email;
 	
-	public String getEmail() {
-		return email;
-	}
-	public void setEmail(String email) {
-		this.email = email;
-	}
+//	public String getEmail() {
+//		return email;
+//	}
+//	public void setEmail(String email) {
+//		this.email = email;
+//	}
 	public Integer getId() {
 		return id;
 	}
@@ -26,12 +26,12 @@ public class InterviewScheduleData {
 		this.id = id;
 	}
 	
-	public ApplicantData getApplicant() {
-		return applicant;
-	}
-	public void setApplicant(ApplicantData applicant) {
-		this.applicant = applicant;
-	}
+//	public ApplicantData getApplicant() {
+//		return applicant;
+//	}
+//	public void setApplicant(ApplicantData applicant) {
+//		this.applicant = applicant;
+//	}
 	public String getInterviewVenue() {
 		return interviewVenue;
 	}

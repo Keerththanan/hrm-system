@@ -63,7 +63,7 @@ public class Login implements Serializable {
 	private ZonedDateTime updatedAt;
 
 	@ManyToMany(fetch = FetchType.LAZY)
-	@JoinTable(name = "login_roles", joinColumns = @JoinColumn(name = "login_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
+	@JoinTable(name = "login_roles",schema="login", joinColumns = @JoinColumn(name = "login_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
 	private Set<Role> roles = new HashSet<Role>();
 
 	public Login() {

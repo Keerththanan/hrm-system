@@ -47,8 +47,5 @@ public class ParAppraisor {
 	public void setEmpName(String empName) {
 		this.empName = empName;
 	}
-
-
-
 	
 }
