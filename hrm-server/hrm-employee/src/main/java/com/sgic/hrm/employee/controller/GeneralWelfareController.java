@@ -40,14 +40,14 @@ public class GeneralWelfareController {
 	    return new ResponseEntity<>(generalWelfares, HttpStatus.OK);  
 	  }
 
-	@PostMapping("/generalWelfare")
-	//public ResponseEntity<String> createGeneralWelfare(@RequestBody GeneralWelfareData generalWelfareData) {
-
-		if (generalWelfareService.createGeneralWelfare(GeneralWelfareDataToGeneralWelfare.maptoGeneralWelfare(generalWelfareData))) {
-			return new ResponseEntity<>("GeneralWelfare Create Succesfully ", HttpStatus.OK);
-		}
-		return new ResponseEntity<>("GeneralWelfare Create Failed ", HttpStatus.BAD_REQUEST);
-	}
+//	@PostMapping("/generalWelfare")
+//	//public ResponseEntity<String> createGeneralWelfare(@RequestBody GeneralWelfareData generalWelfareData) {
+//
+//		if (generalWelfareService.createGeneralWelfare(GeneralWelfareDataToGeneralWelfare.maptoGeneralWelfare(generalWelfareData))) {
+//			return new ResponseEntity<>("GeneralWelfare Create Succesfully ", HttpStatus.OK);
+//		}
+//		return new ResponseEntity<>("GeneralWelfare Create Failed ", HttpStatus.BAD_REQUEST);
+//	}
 
 	@PutMapping("/generalWelfare/{id}")
 //	public ResponseEntity<String> updateGeneralWelfare(@PathVariable(name = "id") Integer id,
