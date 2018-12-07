@@ -52,6 +52,13 @@ public class LeaveRequestController {
     }
     return HttpStatus.BAD_REQUEST;
   }
+  
+  @GetMapping("/{userName}")
+  public ResponseEntity<List<LeaveRequestData>> getAllLeaveRequestByUserName(
+      @PathVariable(name = "userName") String userName) {
+    return new ResponseEntity<>(LeaveRequestToLeaveRequestData
+        .mapLeaveRequestDataList(leaveRequestService.getLeaveRequestByUserName(userName)), HttpStatus.OK);
+  }
 
   @GetMapping("/user/{id}")
   public ResponseEntity<List<LeaveRequestData>> getAllLeaveRequestByUser(
