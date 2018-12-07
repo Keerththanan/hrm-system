@@ -20,7 +20,4 @@ public class ColorsController {
 	public List<ColorsData> getAllColors() {
 		return ColorsToColorsData.mapToColorsDataList(colorsService.getAllColors());
 	}
-	
-	
-
 }

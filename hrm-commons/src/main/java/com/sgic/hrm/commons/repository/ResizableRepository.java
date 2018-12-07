@@ -6,4 +6,5 @@ import com.sgic.hrm.commons.entity.Resizable;
 
 public interface ResizableRepository extends JpaRepository<Resizable, Integer>{
 
+  Resizable findByBeforeStartAndAfterEnd(boolean beforeStart , boolean afterEnd);
 }

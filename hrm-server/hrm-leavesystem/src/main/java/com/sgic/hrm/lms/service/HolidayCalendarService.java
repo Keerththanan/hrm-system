@@ -6,7 +6,7 @@ import com.sgic.hrm.commons.entity.HolidayCalendar;
 
 public interface HolidayCalendarService {
 	
-	boolean createHoliday(HolidayCalendar holidayCalendar);
+	boolean createHoliday(HolidayCalendar holidayCalendar, String username);
 	List<HolidayCalendar> viewAllHoliday();
 	boolean updateHoliday(Integer id,HolidayCalendar holidayCalendar);
 	boolean deleteholiday(Integer id);

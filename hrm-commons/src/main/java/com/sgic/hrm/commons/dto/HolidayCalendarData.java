@@ -13,6 +13,7 @@ public class HolidayCalendarData {
   private ResizableData resizable;
   private boolean draggable;
   private UserData enteredBy;
+  private String postedBy;
   
   public Integer getId() {
     return id;
@@ -85,4 +86,13 @@ public class HolidayCalendarData {
   public void setEnteredBy(UserData enteredBy) {
     this.enteredBy = enteredBy;
   }
+
+  public String getPostedBy() {    
+    return postedBy;
+  }
+
+  public void setPostedBy(String postedBy) {
+    this.postedBy = postedBy;
+  }
+  
 }
