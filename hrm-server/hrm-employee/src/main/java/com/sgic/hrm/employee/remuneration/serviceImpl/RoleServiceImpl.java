@@ -18,5 +18,4 @@ public class RoleServiceImpl implements RoleService {
 
     return null;
   }
-
 }

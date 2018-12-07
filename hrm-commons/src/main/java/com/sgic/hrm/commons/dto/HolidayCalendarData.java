@@ -4,41 +4,85 @@ import java.util.Date;
 
 public class HolidayCalendarData {
 
-	private Integer id;
-	private Date date;
-	private String description;
-	private UserData enteredBy;
+  private Integer id;
+  private Date start;
+  private Date end;
+  private String title;
+  private ColorsData color;
+  private boolean allDay;
+  private ResizableData resizable;
+  private boolean draggable;
+  private UserData enteredBy;
+  
+  public Integer getId() {
+    return id;
+  }
 
-	public Integer getId() {
-		return id;
-	}
+  public void setId(Integer id) {
+    this.id = id;
+  }
 
-	public void setId(Integer id) {
-		this.id = id;
-	}
+  public Date getStart() {
+    return start;
+  }
 
-	public Date getDate() {
-		return date;
-	}
+  public void setStart(Date start) {
+    this.start = start;
+  }
 
-	public void setDate(Date date) {
-		this.date = date;
-	}
+  public Date getEnd() {
+    return end;
+  }
 
-	public String getDescription() {
-		return description;
-	}
+  public void setEnd(Date end) {
+    this.end = end;
+  }
 
-	public void setDescription(String description) {
-		this.description = description;
-	}
+  public String getTitle() {
+    return title;
+  }
 
-	public UserData getEnteredBy() {
-		return enteredBy;
-	}
+  public void setTitle(String title) {
+    this.title = title;
+  }
 
-	public void setEnteredBy(UserData enteredBy) {
-		this.enteredBy = enteredBy;
-	}
+  public ColorsData getColor() {
+    return color;
+  }
 
+  public void setColor(ColorsData color) {
+    this.color = color;
+  }
+
+  public boolean isAllDay() {
+    return allDay;
+  }
+
+  public void setAllDay(boolean allDay) {
+    this.allDay = allDay;
+  }
+
+  public ResizableData getResizable() {
+    return resizable;
+  }
+
+  public void setResizable(ResizableData resizable) {
+    this.resizable = resizable;
+  }
+
+  public boolean isDraggable() {
+    return draggable;
+  }
+
+  public void setDraggable(boolean draggable) {
+    this.draggable = draggable;
+  }
+
+  public UserData getEnteredBy() {
+    return enteredBy;
+  }
+
+  public void setEnteredBy(UserData enteredBy) {
+    this.enteredBy = enteredBy;
+  }
 }

@@ -16,7 +16,7 @@ public class HolidayCalendarServiceImpl implements HolidayCalendarService {
 	HolidayCalendarRepository holidayCalendarRepository;
 
 	@Override
-	public boolean createHolidayCalendar(HolidayCalendar holidayCalendar) {
+	public boolean createHoliday(HolidayCalendar holidayCalendar) {
 		if (holidayCalendar != null) {
 			holidayCalendarRepository.save(holidayCalendar);
 			return true;
@@ -25,12 +25,12 @@ public class HolidayCalendarServiceImpl implements HolidayCalendarService {
 	}
 
 	@Override
-	public List<HolidayCalendar> viewAllHolixdayCalendar() {
+	public List<HolidayCalendar> viewAllHoliday() {
 		return holidayCalendarRepository.findAll();
 	}
 
 	@Override
-	public boolean updateHolidayCalendar(Integer id, HolidayCalendar holidayCalendar) {
+	public boolean updateHoliday(Integer id, HolidayCalendar holidayCalendar) {
 		if(holidayCalendarRepository.getOne(id)!= null) {
 			holidayCalendar.setId(id);
 			holidayCalendarRepository.save(holidayCalendar);
@@ -40,7 +40,7 @@ public class HolidayCalendarServiceImpl implements HolidayCalendarService {
 	}
 
 	@Override
-	public boolean deleteholidayCalendar(Integer id) {
+	public boolean deleteholiday(Integer id) {
 		if(holidayCalendarRepository.getOne(id)!= null) {
 			holidayCalendarRepository.deleteById(id);
 			return true;
