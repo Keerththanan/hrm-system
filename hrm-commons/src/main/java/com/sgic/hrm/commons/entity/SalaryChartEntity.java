@@ -6,6 +6,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -29,6 +32,18 @@ public class SalaryChartEntity implements Serializable {
 	private Integer etf3;
 	private Integer epf12;
 	private Integer stampDuty;
+	
+	@ManyToOne
+	@JoinColumn(name="user_salarychart")
+	private User user;
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
 
 	public Integer getEpf8() {
 		return epf8;
@@ -119,8 +134,6 @@ public class SalaryChartEntity implements Serializable {
 		this.stampDuty = stampDuty;
 	}
 
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
+
 
 }

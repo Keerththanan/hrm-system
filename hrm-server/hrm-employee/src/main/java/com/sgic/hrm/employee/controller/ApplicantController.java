@@ -52,27 +52,28 @@ public class ApplicantController {
 		return HttpStatus.BAD_REQUEST;
 	}
 
-//	@PutMapping("/applicant/{id}")
-//	public ResponseEntity<String> updateApplicant(@PathVariable(name = "id") Integer id,
-//			@RequestBody ApplicantData applicantData) {
-//		Applicant applicant = ApplicantDataMapper.applicantDataMapper(applicantData);
-//		if (applicantService.editApplicant(applicant, id)) {
-//			return new ResponseEntity<>("updated", HttpStatus.OK);
-//		}
-//		return new ResponseEntity<>("upadte failed", HttpStatus.BAD_REQUEST);
-//	}
-
+	
 	@PutMapping("/applicant/{id}")
 	public ResponseEntity<String> updateApplicant(@PathVariable(name = "id") Integer id,
 			@RequestBody ApplicantData applicantData) {
-		boolean reqApli = applicantService
-				.editApplicant(ApplicantDataMapper.applicantDataMapper(applicantData), id);
-
-		if (reqApli) {
-			return new ResponseEntity<>("Update Successfully", HttpStatus.ACCEPTED);
+		Applicant applicant = ApplicantDataMapper.applicantDataMapper(applicantData);
+		if (applicantService.editApplicant(applicant, id)) {
+			return new ResponseEntity<>("updated", HttpStatus.OK);
 		}
-		return new ResponseEntity<>("Update failed", HttpStatus.BAD_REQUEST);
+		return new ResponseEntity<>("upadte failed", HttpStatus.BAD_REQUEST);
 	}
+
+//	@PutMapping("/applicant/{id}")
+//	public ResponseEntity<String> updateApplicant(@PathVariable(name = "id") Integer id,
+//			@RequestBody ApplicantData applicantData) {
+//		boolean reqApli = applicantService
+//				.editApplicant(ApplicantDataMapper.applicantDataMapper(applicantData), id);
+//
+//		if (reqApli) {
+//			return new ResponseEntity<>("Update Successfully", HttpStatus.ACCEPTED);
+//		}
+//		return new ResponseEntity<>("Update failed", HttpStatus.BAD_REQUEST);
+//	}
 
 	@GetMapping("/applicant")
 	public ResponseEntity<List<Applicant>> getApplicant() {
