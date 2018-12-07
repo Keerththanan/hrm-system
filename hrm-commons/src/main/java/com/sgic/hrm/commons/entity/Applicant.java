@@ -29,9 +29,9 @@ public class Applicant implements Serializable {
 	@ManyToOne
 	@JoinColumn(name="job_id")
 	private Job job;
-	@ManyToOne
-	@JoinColumn(name="district_id")
-	private District district;
+//	@ManyToOne
+//	@JoinColumn(name="district_id")
+//	private District district;
 	
 	private String fullName;
 	private String nic;
@@ -47,12 +47,12 @@ public class Applicant implements Serializable {
 	public void setJob(Job job) {
 		this.job = job;
 	}
-	public District getDistrict() {
-		return district;
-	}
-	public void setDistrict(District district) {
-		this.district = district;
-	}
+//	public District getDistrict() {
+//		return district;
+//	}
+//	public void setDistrict(District district) {
+//		this.district = district;
+//	}
 	public Integer getId() {
 		return id;
 	}
