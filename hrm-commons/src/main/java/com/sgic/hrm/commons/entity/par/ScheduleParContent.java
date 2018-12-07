@@ -1,6 +1,7 @@
 package com.sgic.hrm.commons.entity.par;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -13,11 +14,11 @@ public class ScheduleParContent {
 	@Id
 	private String id;
 
-	@ManyToOne
+	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name = "par_id")
 	private Par parId;
 
-	@ManyToOne
+	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name = "ParContent_id")
 	private ParContent parContent;
 
@@ -28,9 +29,6 @@ public class ScheduleParContent {
 	public ScheduleParContent() {
 
 	}
-
-
-
 	public String getId() {
 		return id;
 	}
