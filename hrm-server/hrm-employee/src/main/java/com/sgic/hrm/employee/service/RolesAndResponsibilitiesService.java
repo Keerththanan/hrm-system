@@ -15,7 +15,8 @@ public interface RolesAndResponsibilitiesService {
 
 	List<RolesAndResponsibilites> getRolesAndResponsibilites();
 
-	boolean editRolesAndResponsibilites(RolesAndResponsibilites rolesAndResponsibilites, Integer id);
+	boolean editRolesAndResponsibilites(RolesAndResponsibilites rolesAndResponsibilites,
+			User user,Job job,Location location,KeyActivity keyActivity, Integer id);
 
 	Optional<RolesAndResponsibilites> getReloAndResponsibilities(Integer id);
 

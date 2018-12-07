@@ -38,9 +38,13 @@ public class RolesAndResponsibilitesServiceImpl implements RolesAndResponsibilit
 	}
 
 	@Override
-	public boolean editRolesAndResponsibilites(RolesAndResponsibilites rolesAndResponsibilites, Integer id) {
+	public boolean editRolesAndResponsibilites(RolesAndResponsibilites rolesAndResponsibilites, User user,Job job, Location location,KeyActivity keyActivity, Integer id) {
 		if (rolesAndResponsibilitesRepository.getOne(id) != null) {
 			rolesAndResponsibilites.setId(id);
+			rolesAndResponsibilites.setUser(user);
+			rolesAndResponsibilites.setJob(job);
+			rolesAndResponsibilites.setLocation(location);
+			rolesAndResponsibilites.setKeyActivity(keyActivity);
 			rolesAndResponsibilitesRepository.save(rolesAndResponsibilites);
 			return true;
 		}
