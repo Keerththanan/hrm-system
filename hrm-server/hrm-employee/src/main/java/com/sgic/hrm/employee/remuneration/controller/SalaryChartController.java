@@ -33,8 +33,14 @@ public class SalaryChartController {
 		return SalaryChartEntityMapper.mapSalaryChartEntityListToSalaryChartDtoList(salaryChartService.viewByEmpName(name));
 	}
 	
-	@GetMapping(path = "/{id}")
-	public SalaryChartDto getSalaryChartEmployee(@PathVariable("id") Integer id) {
-		return SalaryChartEntityMapper.mapSalaryChartEntityToSalartChartDto(salaryChartService.viewSalaryChartEmployee(id));
+//	@GetMapping(path = "/{id}")
+//	public SalaryChartDto getSalaryChartEmployee(@PathVariable("id") Integer id) {
+//		return SalaryChartEntityMapper.mapSalaryChartEntityToSalartChartDto(salaryChartService.viewSalaryChartEmployee(id));
+//	}
+	
+	@GetMapping("/{name}")
+	public SalaryChartDto getSalaryChartByUserName(@PathVariable String name) {
+		return SalaryChartEntityMapper.mapSalaryChartEntityToSalartChartDto(salaryChartService.viewByName(name));
+	
 	}
 }
