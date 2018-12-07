@@ -8,13 +8,15 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="permission", schema="employee")
+@Table(name = "permission", schema = "employee")
 public class Permission {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	private String permissionName;
+
+	@ManyToOne
+	private AuthorizeType authorizeType;
 
 	@ManyToOne
 	private Module module;
@@ -23,8 +25,8 @@ public class Permission {
 		return id;
 	}
 
-	public String getPermissionName() {
-		return permissionName;
+	public AuthorizeType getAuthorizeType() {
+		return authorizeType;
 	}
 
 	public Module getModule() {
@@ -35,8 +37,8 @@ public class Permission {
 		this.id = id;
 	}
 
-	public void setPermissionName(String permissionName) {
-		this.permissionName = permissionName;
+	public void setAuthorizeType(AuthorizeType authorizeType) {
+		this.authorizeType = authorizeType;
 	}
 
 	public void setModule(Module module) {

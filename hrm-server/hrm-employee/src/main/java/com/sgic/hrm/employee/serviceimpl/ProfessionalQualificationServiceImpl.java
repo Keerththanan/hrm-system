@@ -35,9 +35,10 @@ public class ProfessionalQualificationServiceImpl implements ProfessionalQualifi
 	}
 
 	@Override
-	public boolean editProfessionalQualification(ProfessionalQualification professionalQualification, Integer id) {
+	public boolean editProfessionalQualification(ProfessionalQualification professionalQualification,User user, Integer id) {
 		if(professionalQualificationRepository.getOne(id)!=null) {
 			professionalQualification.setId(id);
+			professionalQualification.setUser(user);
 			professionalQualificationRepository.save(professionalQualification);
 			return true;
 		}

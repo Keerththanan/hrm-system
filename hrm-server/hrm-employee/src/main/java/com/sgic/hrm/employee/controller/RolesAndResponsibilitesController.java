@@ -61,6 +61,20 @@ public class RolesAndResponsibilitesController {
 		return HttpStatus.BAD_REQUEST;
 	}
 
+	@PutMapping("/rolesandresponsibilities/edit/{id}")
+	public HttpStatus ModifyRolesAndResponsibilities(@RequestBody RolesAndResponsibilityDto rolesAndResponsibilityDto,@PathVariable Integer id) {
+		User userObj = userService.findByUserId(rolesAndResponsibilityDto.getUser());
+		Job jobObj = jobService.findByJobId(rolesAndResponsibilityDto.getJob());
+		Location locationObj = locationService.findByLocationId(rolesAndResponsibilityDto.getLocation());
+		KeyActivity keyActivityObj = keyActivityService.findByActivityId(rolesAndResponsibilityDto.getKeyActivity());
+		RolesAndResponsibilites rolesAndResponsibilitesObj = RolesAndResponsibilitesDtoToRolesAndResponsibilites.map(rolesAndResponsibilityDto);
+		boolean test = responsibilitiesService.editRolesAndResponsibilites(rolesAndResponsibilitesObj,userObj,jobObj,locationObj,keyActivityObj, id);
+		if (test) {
+			return HttpStatus.CREATED;
+		}
+		return HttpStatus.BAD_REQUEST;
+	}
+	
 	@GetMapping("/rolesandresponsibilities")
 	public ResponseEntity<List<RolesAndResponsibilites>> GetRolesAndResponsibilities() {
 		List<RolesAndResponsibilites> rolesAndResponsibilites = responsibilitiesService.getRolesAndResponsibilites();
@@ -78,15 +92,7 @@ public class RolesAndResponsibilitesController {
 	}
 
 
-	@PutMapping("/rolesandresponsibilities/{id}")
-	public HttpStatus ModifyRolesAndResponsibilities(@RequestBody RolesAndResponsibilites rolesAndResponsibilites,
-			@PathVariable Integer id) {
-		boolean test = responsibilitiesService.editRolesAndResponsibilites(rolesAndResponsibilites, id);
-		if (test) {
-			return HttpStatus.CREATED;
-		}
-		return HttpStatus.BAD_REQUEST;
-	}
+	
 
 	@DeleteMapping("/rolesandresponsibilities/{id}")
 	public HttpStatus DeleteRolesAndResponsibilities(@PathVariable Integer id) {

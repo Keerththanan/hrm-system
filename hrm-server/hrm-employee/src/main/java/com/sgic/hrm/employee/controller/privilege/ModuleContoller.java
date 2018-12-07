@@ -1,4 +1,4 @@
-package com.sgic.hrm.employee.par.controller.privilege;
+package com.sgic.hrm.employee.controller.privilege;
 
 import java.util.List;
 

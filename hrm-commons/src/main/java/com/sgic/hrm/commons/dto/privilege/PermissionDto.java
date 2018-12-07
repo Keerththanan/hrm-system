@@ -1,19 +1,20 @@
 package com.sgic.hrm.commons.dto.privilege;
 
+import com.sgic.hrm.commons.entity.privilege.AuthorizeType;
 import com.sgic.hrm.commons.entity.privilege.Module;
 
 public class PermissionDto {
 
 	private Integer id;
-	private String permissionName;
+	private AuthorizeType authorizeType;
 	private Module module;
 
 	public Integer getId() {
 		return id;
 	}
 
-	public String getPermissionName() {
-		return permissionName;
+	public AuthorizeType getAuthorizeType() {
+		return authorizeType;
 	}
 
 	public Module getModule() {
@@ -24,8 +25,8 @@ public class PermissionDto {
 		this.id = id;
 	}
 
-	public void setPermissionName(String permissionName) {
-		this.permissionName = permissionName;
+	public void setAuthorizeType(AuthorizeType authorizeType) {
+		this.authorizeType = authorizeType;
 	}
 
 	public void setModule(Module module) {
