@@ -19,7 +19,8 @@ public class SalaryChartDtoMapper {
 		salaryChartEntity.setStampDuty(salaryChartDto.getStampDuty());
 		salaryChartEntity.setStatutoryPayment(salaryChartDto.getStatutoryPayment());
 		salaryChartEntity.setPayee(salaryChartDto.getPayee());
-
+		salaryChartEntity.setUser(salaryChartDto.getUser());
+		
 		return salaryChartEntity;
 	}
 

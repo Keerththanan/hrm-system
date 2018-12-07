@@ -9,6 +9,6 @@ import com.sgic.hrm.commons.entity.BenefitsAllowancesEntity;
 
 public interface BenefitsAllowancesRepository extends JpaRepository<BenefitsAllowancesEntity, Integer>{
 
-	@Query("SELECT ba FROM BenefitsAllowancesEntity ba WHERE ba.chartEntity.id = ?1 ")
-	List<BenefitsAllowancesEntity> findByBenefitsId(Integer id);
+//	@Query("SELECT ba FROM BenefitsAllowancesEntity ba WHERE ba.chartEntity.id = ?1 ")
+//	List<BenefitsAllowancesEntity> findByBenefitsId(Integer id);
 }

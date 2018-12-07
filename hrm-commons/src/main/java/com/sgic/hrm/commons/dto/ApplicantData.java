@@ -9,16 +9,16 @@ import com.sgic.hrm.commons.dto.DistrictData;
 
 public class ApplicantData {
 	
-	 Integer id;
-	 HighestQualificationData highestQualification;
-	 DistrictData district;
-	 JobData job;
-	 String fullName;
-	 String nic;
-	 String email;
-	 Date dateOfBirth;
-	 String address;
-	 File cvFile;
+	private Integer id;
+	private HighestQualificationData highestQualification;
+	 //DistrictData district;
+	private JobData job;
+	private String fullName;
+	private String nic;
+	private String email;
+	private Date dateOfBirth;
+	private String address;
+	private File cvFile;
 	 
 	public Integer getId() {
 		return id;
@@ -33,12 +33,12 @@ public class ApplicantData {
 	public void setHighestQualification(HighestQualificationData highestQualification) {
 		this.highestQualification = highestQualification;
 	}
-	public DistrictData getDistrict() {
-		return district;
-	}
-	public void setDistrict(DistrictData district) {
-		this.district = district;
-	}
+//	public DistrictData getDistrict() {
+//		return district;
+//	}
+//	public void setDistrict(DistrictData district) {
+//		this.district = district;
+//	}
 
 	public JobData getJob() {
 		return job;

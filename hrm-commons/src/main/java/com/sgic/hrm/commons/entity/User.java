@@ -7,7 +7,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.UpdateTimestamp;
@@ -38,9 +40,10 @@ public class User implements Serializable {
 
 	@ManyToOne
 	private Department department;
-
+	
 	@UpdateTimestamp
 	private Date updateAt;
+
 
 	public Integer getId() {
 		return id;

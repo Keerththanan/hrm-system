@@ -24,7 +24,7 @@ public class ApplicantDataMapper {
 
 		applicant.setHighestQualification(
 				HighestQualificationDataMapper.highestQualificationDataMapper(applicantData.getHighestQualification()));
-		applicant.setDistrict(DistrictDataMapper.districtDataMapper(applicantData.getDistrict()));
+		//applicant.setDistrict(DistrictDataMapper.districtDataMapper(applicantData.getDistrict()));
 		applicant.setJob(JobDataMapper.jobDataMapper(applicantData.getJob()));
 
 		return applicant;

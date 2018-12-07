@@ -34,12 +34,12 @@ public class WelfareEventController {
 	private WelfareEventService welfareEventService;
 
 	@PostMapping("/welfareEvent")
-	public ResponseEntity<String> createWelfareEvent(@RequestBody WelfareEventDto welfareEventDto) {
+	public HttpStatus createWelfareEvent(@RequestBody WelfareEventDto welfareEventDto) {
 		WelfareEvent welfareEvent = WelfareEventDtoToWelfareEvent.WelfareEventDtoToWelfareEvent(welfareEventDto);
 		if (welfareEventService.addWelfareEvent(welfareEvent)) {
-			return new ResponseEntity<>("welfareEvent added succesfully", HttpStatus.OK);
+			return HttpStatus.OK;
 		}
-		return new ResponseEntity<>("welfareEvent adding failed", HttpStatus.BAD_REQUEST);
+		return HttpStatus.BAD_REQUEST;
 	}
 
 	@GetMapping("/welfareEvent")
@@ -57,21 +57,21 @@ public class WelfareEventController {
 	}
 
 	@PutMapping("/welfareEvent/{id}")
-	public ResponseEntity<String> updateWelfareEvent(@PathVariable(name = "id") Integer id,
+	public HttpStatus updateWelfareEvent(@PathVariable(name = "id") Integer id,
 			@RequestBody WelfareEventDto welfareEventDto) {
 		WelfareEvent welfareEvent = WelfareEventDtoToWelfareEvent.WelfareEventDtoToWelfareEvent(welfareEventDto);
 		if (welfareEventService.updateWelfareEvent(id, welfareEvent)) {
-			return new ResponseEntity<>("WelfareEvent updated succesfully", HttpStatus.OK);
+			return HttpStatus.OK;
 		}
-		return new ResponseEntity<>("WelfareEvent update failed", HttpStatus.BAD_REQUEST);
+		return HttpStatus.BAD_REQUEST;
 	}
 
 	@DeleteMapping("/welfareEvent/{id}")
-	public ResponseEntity<String> deleteWelfareEvent(@PathVariable(name = "id") Integer id) {
+	public HttpStatus deleteWelfareEvent(@PathVariable(name = "id") Integer id) {
 		if (welfareEventService.deleteWelfareEvent(id)) {
-			return new ResponseEntity<>("welfareEvent deleted succesfully", HttpStatus.OK);
+			return HttpStatus.OK;
 		}
-		return new ResponseEntity<>("failed to delete the welfareEvent", HttpStatus.BAD_REQUEST);
+		return HttpStatus.BAD_REQUEST;
 	}
 
 }
