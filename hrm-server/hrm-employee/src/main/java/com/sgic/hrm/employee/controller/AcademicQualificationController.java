@@ -41,7 +41,7 @@ public class AcademicQualificationController{
 	@PostMapping("/academicQualification")
 	public HttpStatus addAcademicQualification(@Valid @RequestBody AcademicQualificationDTO academicQualificationDTO) {
 		User userobj=userService.findByUserId(academicQualificationDTO.getUser());
-		ExamType examTypeObj=examTypeService.findByExamTypeId(academicQualificationDTO.getExamTypeId());
+		ExamType examTypeObj=examTypeService.findByExamTypeId(academicQualificationDTO.getExamType());
 		AcademicQualification academicQualification=AcademicQualificationDTOToAcademicQualification.map(academicQualificationDTO);
 		
 		boolean test = academicQualificationService.addAcademicQualification(academicQualification, examTypeObj,userobj);
@@ -67,9 +67,12 @@ public class AcademicQualificationController{
 		}
 
 		
-		@PutMapping("/academicQualification/{id}")
-		public HttpStatus editAcademicQualification(@PathVariable Integer id,@RequestBody AcademicQualification academicQualification) {
-			boolean editTest=academicQualificationService.editAcademicQualification(academicQualification, id);
+		@PutMapping("/academicQualification/edit/{id}")
+		public HttpStatus editAcademicQualification(@PathVariable Integer id,@Valid @RequestBody AcademicQualificationDTO academicQualificationDTO) {
+			ExamType examTypeObj=examTypeService.findByExamTypeId(academicQualificationDTO.getExamType());
+			User userObj=userService.findByUserId(academicQualificationDTO.getUser());
+			AcademicQualification academicQualification=AcademicQualificationDTOToAcademicQualification.map(academicQualificationDTO);
+			boolean editTest=academicQualificationService.editAcademicQualification(academicQualification,examTypeObj,userObj, id);
 			if(editTest) {
 				return HttpStatus.ACCEPTED;
 			}
@@ -77,7 +80,7 @@ public class AcademicQualificationController{
 		}
 		
 		@DeleteMapping("/academicQualification/{id}")
-		public HttpStatus deleteAcademicQualification(@PathVariable Integer id,@RequestBody AcademicQualification academicQualification) {
+		public HttpStatus deleteAcademicQualification(@PathVariable Integer id) {
 			boolean deleteTest=academicQualificationService.deleteAcademicQualification(id);
 			if(deleteTest) {
 				return HttpStatus.ACCEPTED;

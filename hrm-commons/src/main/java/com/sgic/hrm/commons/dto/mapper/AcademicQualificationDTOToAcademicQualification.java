@@ -19,7 +19,7 @@ public class AcademicQualificationDTOToAcademicQualification {
 		academicQualification.setResult(academicQualificationDto.getResult());
 		academicQualification.setSchoolName(academicQualificationDto.getSchoolName());
 		user.setId(academicQualificationDto.getUser());
-		examType.setId(academicQualificationDto.getExamTypeId());
+		examType.setId(academicQualificationDto.getExamType());
 		return academicQualification;
 	}
 }

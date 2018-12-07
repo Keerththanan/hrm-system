@@ -12,7 +12,7 @@ public interface RefereeService {
 	
 	boolean addReferee(Referee referee,User user);
 	List<Referee> getAllReferee();
-	boolean editReferee(Referee referee,int id);
+	 boolean editReferee(Referee referee, int id ,User user);
 	Optional<Referee> getRefereeById(int id);
 	boolean deleteReferee(int id);
 
