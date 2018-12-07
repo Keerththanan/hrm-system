@@ -1,4 +1,4 @@
-package com.sgic.hrm.employee.par.controller.privilege;
+package com.sgic.hrm.employee.controller.privilege;
 
 import java.util.List;
 
@@ -22,7 +22,7 @@ import com.sgic.hrm.employee.service.privilege.PermissionService;
 
 @RestController
 @RequestMapping("/permission")
-@CrossOrigin(origins="http://localhost:4200", maxAge=4200)
+@CrossOrigin(origins = "http://localhost:4200", maxAge = 4200)
 public class PermissionController {
 	@Autowired
 	private PermissionService permissionService;
@@ -30,31 +30,34 @@ public class PermissionController {
 	@GetMapping
 	public ResponseEntity<List<PermissionDto>> getAllPermissions() {
 		return new ResponseEntity<>(
-				PermissionMapper.mapPermissionListToPermissionDtoList(permissionService.getAllPermissions()), HttpStatus.OK);
+				PermissionMapper.mapPermissionListToPermissionDtoList(permissionService.getAllPermissions()),
+				HttpStatus.OK);
 	}
-	
+
 	@PostMapping
 	public HttpStatus addPermission(@RequestBody PermissionDto permissionDto) {
-		boolean flag = permissionService.createPermission(PermissionDtoMapper.mapPermissionDtoToPermission(permissionDto));
-		if(flag) {
+		boolean flag = permissionService
+				.createPermission(PermissionDtoMapper.mapPermissionDtoToPermission(permissionDto));
+		if (flag) {
 			return HttpStatus.ACCEPTED;
 		}
 		return HttpStatus.BAD_REQUEST;
 	}
-	
+
 	@PutMapping("/{id}")
 	public HttpStatus editPermission(@RequestBody PermissionDto permissionDto, @PathVariable Integer id) {
-		boolean flag = permissionService.editPermission((PermissionDtoMapper.mapPermissionDtoToPermission(permissionDto)), id);
-		if(flag) {
+		boolean flag = permissionService
+				.editPermission((PermissionDtoMapper.mapPermissionDtoToPermission(permissionDto)), id);
+		if (flag) {
 			return HttpStatus.ACCEPTED;
 		}
 		return HttpStatus.BAD_REQUEST;
 	}
-	
+
 	@DeleteMapping("/{id}")
 	public HttpStatus deletePermission(@PathVariable Integer id) {
 		boolean flag = permissionService.deletePermission(id);
-		if(flag) {
+		if (flag) {
 			return HttpStatus.ACCEPTED;
 		}
 		return HttpStatus.BAD_REQUEST;
