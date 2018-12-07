@@ -5,37 +5,37 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.sgic.hrm.commons.entity.BenefitsAllowancesEntity;
-import com.sgic.hrm.commons.repository.BenefitsAllowancesRepository;
+import com.sgic.hrm.commons.entity.IndividualWelfare;
+import com.sgic.hrm.commons.repository.IndividualWelfareRepository;
 import com.sgic.hrm.employee.remuneration.service.BenefitsAllowancesService;
 
 @Service
 public class BenefitsAllowancesServiceImpl implements BenefitsAllowancesService {
 
+//	@Autowired
+//	BenefitsAllowancesRepository benefitsAllowancesRepository;
+
 	@Autowired
-	BenefitsAllowancesRepository benefitsAllowancesRepository;
+	IndividualWelfareRepository individualWelfareRepository;
 
-	
 	@Override
-	public List<BenefitsAllowancesEntity> getBenefitsAllowances() {
+	public List<IndividualWelfare> getBenefitsAllowances() {
 		// TODO Auto-generated method stub
-		return benefitsAllowancesRepository.findAll();
+		return individualWelfareRepository.findAll();
 	}
 
 	@Override
-	public BenefitsAllowancesEntity viewById(Integer id) {
+	public IndividualWelfare viewById(Integer id) {
 		// TODO Auto-generated method stub
-		return benefitsAllowancesRepository.getOne(id);
+		return individualWelfareRepository.getOne(id);
 	}
 
 	@Override
-	public List<BenefitsAllowancesEntity> viewByChatId(Integer id) {
+	public IndividualWelfare viewByWelfareEventId(Integer id) {
 		// TODO Auto-generated method stub
-		return null;
-//		return benefitsAllowancesRepository.findByBenefitsId(id);
+
+		return individualWelfareRepository.findByWelfareEventId(id);
 	}
-
-
 
 
 
