@@ -26,9 +26,11 @@ public class AcademicQualificationServiceImpl implements AcademicQualificationSe
 	}
 
 	@Override
-	public boolean editAcademicQualification(AcademicQualification academicQualification, Integer id) {
+	public boolean editAcademicQualification(AcademicQualification academicQualification, ExamType examType,User user,Integer id) {
 		boolean editsucess=false;
 		if(academicQualificationRepository.getOne(id) != null) {
+			academicQualification.setExamType(examType);
+			academicQualification.setUser(user);
 			academicQualification.setId(id);
 			academicQualificationRepository.save(academicQualification);
 			editsucess=true;

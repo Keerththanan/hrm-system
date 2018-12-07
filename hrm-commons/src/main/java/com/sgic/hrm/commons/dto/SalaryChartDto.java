@@ -1,5 +1,7 @@
 package com.sgic.hrm.commons.dto;
 
+import com.sgic.hrm.commons.entity.User;
+
 public class SalaryChartDto {
 
 	private Integer id;
@@ -13,6 +15,15 @@ public class SalaryChartDto {
 	private Integer etf3;
 	private Integer epf12;
 	private Integer stampDuty;
+	private User user;
+	
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
 
 	public Integer getEpf8() {
 		return epf8;

@@ -3,6 +3,7 @@ package com.sgic.hrm.commons.entity;
 import java.io.Serializable;
 import java.sql.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -38,7 +39,7 @@ public class DeniedPromotion implements Serializable {
 
 	private String deniedRemark;
 	
-	@ManyToOne
+	@ManyToOne(cascade= {CascadeType.ALL})
 	@JoinColumn(name="designation_id")
 	private Designation desinationId;
 	

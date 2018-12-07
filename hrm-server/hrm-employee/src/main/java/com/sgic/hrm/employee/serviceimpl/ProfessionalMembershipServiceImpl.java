@@ -33,9 +33,10 @@ public class ProfessionalMembershipServiceImpl implements ProfessionalMembership
 	}
 
 	@Override
-	public boolean editProfessionalMembership(ProfessionalMembership professionalMembership, Integer id) {
+	public boolean editProfessionalMembership(ProfessionalMembership professionalMembership,User user, Integer id) {
 		if(professionalMembershipRepository.getOne(id)!=null) {
 			professionalMembership.setId(id);
+			professionalMembership.setUser(user);
 			professionalMembershipRepository.save(professionalMembership);
 			return true;
 		}
