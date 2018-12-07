@@ -55,10 +55,13 @@ public class ProfessionalMembershipController {
 
 	}
 
-	@PutMapping("/professionalMembership/{uid}")
+	@PutMapping("/professionalMembership/edit/{id}")
 	public HttpStatus ModifyProfessionalMembership(@PathVariable Integer id,
-			@RequestBody ProfessionalMembership professionalMembership) {
-		boolean editTest = professionalMembershipService.editProfessionalMembership(professionalMembership, id);
+			@RequestBody ProfessionalMembershipDto professionalMembershipDto) {
+		User userObj = userService.findByUserId(professionalMembershipDto.getUser());
+		ProfessionalMembership professionalMembership = ProfessionalMembershipDtoToProfessionalMembership
+				.map(professionalMembershipDto);
+		boolean editTest = professionalMembershipService.editProfessionalMembership(professionalMembership,userObj, id);
 		if (editTest) {
 			return HttpStatus.ACCEPTED;
 		}
