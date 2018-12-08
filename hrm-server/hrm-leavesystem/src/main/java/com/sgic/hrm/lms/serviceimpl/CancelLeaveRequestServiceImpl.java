@@ -1,6 +1,9 @@
 package com.sgic.hrm.lms.serviceimpl;
 
 import java.util.List;
+
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.sgic.hrm.commons.dto.AcceptCancelRequestDto;
@@ -48,6 +51,7 @@ public class CancelLeaveRequestServiceImpl implements CancelLeaveRequestService 
     return true;
   }
 
+  @Transactional
   @Override
   public boolean acceptCancelLeaveRequest(AcceptCancelRequestDto acceptCancelRequestDto) {
 

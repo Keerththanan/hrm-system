@@ -76,7 +76,7 @@ public class LeaveRequestController {
   @DeleteMapping("/{id}")
   public HttpStatus deleteLeaveRequest(@PathVariable("id") Integer id) {
     if (leaveRequestService.deleteLeaveRequest(id)) {
-      return  HttpStatus.OK;
+      return HttpStatus.OK;
     }
     return HttpStatus.BAD_REQUEST;
   }
