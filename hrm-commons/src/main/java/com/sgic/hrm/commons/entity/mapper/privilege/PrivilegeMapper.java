@@ -12,7 +12,8 @@ public class PrivilegeMapper {
 		PrivilegeDto privilegeDto = new PrivilegeDto();
 
 		privilegeDto.setId(privilege.getId());
-		privilegeDto.setPermission(privilege.getPermission());
+		privilegeDto.setAuthorizeType(privilege.getAuthorizeType());
+		privilegeDto.setModule(privilege.getModule());
 		privilegeDto.setRole(privilege.getRole());
 		privilegeDto.setEnabled(privilege.isEnabled());
 

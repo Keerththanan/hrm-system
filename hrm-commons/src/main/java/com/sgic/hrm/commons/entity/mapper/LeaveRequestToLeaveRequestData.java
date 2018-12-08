@@ -19,8 +19,8 @@ public class LeaveRequestToLeaveRequestData {
       leaveRequestData.setReason(leaveRequest.getReason());
       leaveRequestData.setUpdatedAt(leaveRequest.getUpdatedAt());
       leaveRequestData.setUser(UserToUserData.mapToUserData(leaveRequest.getUser()));
-      leaveRequestData
-          .setLeaveType(LeaveTypeToLeaveTypeData.mapToLeaveTypeData(leaveRequest.getLeaveType()));
+      leaveRequestData.setLeaveAllocation(LeaveAllocationToLeaveAllocationData
+          .mapToLeaveAllocationData(leaveRequest.getLeaveAllocation()));
       leaveRequestData.setStatus(leaveRequest.getStatus());
       leaveRequestData.setNoOfDays(leaveRequest.getNoOfDays());
     }

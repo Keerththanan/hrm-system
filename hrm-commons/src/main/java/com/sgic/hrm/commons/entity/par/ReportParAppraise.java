@@ -16,7 +16,7 @@ public class ReportParAppraise {
 
 	@Id
 //	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Integer id;
+	private String id;
 	
 	@OneToOne(cascade=CascadeType.ALL,fetch=FetchType.EAGER)
 	@JoinColumn(name="par_id")
@@ -26,21 +26,21 @@ public class ReportParAppraise {
 //	@JsonIgnore
 //	private List<ScoreParAppraisee> scoreParAppraiseeList;
 
-	public ReportParAppraise(int id) {
+	public ReportParAppraise(String id) {
 		this.id =id;
 	}
 	public ReportParAppraise() {
 		
 	}
 
-	public Integer getId() {
+	
+
+	public String getId() {
 		return id;
 	}
-
-	public void setId(Integer id) {
+	public void setId(String id) {
 		this.id = id;
 	}
-
 	public Par getPar() {
 		return par;
 	}

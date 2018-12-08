@@ -2,13 +2,15 @@ package com.sgic.hrm.employee.remuneration.service;
 
 import java.util.List;
 
-import com.sgic.hrm.commons.entity.BenefitsAllowancesEntity;
+import com.sgic.hrm.commons.entity.IndividualWelfare;
 
 public interface BenefitsAllowancesService {
 
-	List<BenefitsAllowancesEntity> getBenefitsAllowances();
+	List<IndividualWelfare> getBenefitsAllowances();
 
-	BenefitsAllowancesEntity viewById(Integer id);
+	IndividualWelfare viewById(Integer id);
+
+//	List<IndividualWelfare> viewByChatId(Integer id);
 	
-	List<BenefitsAllowancesEntity> viewByChatId(Integer id);
+	IndividualWelfare viewByWelfareEventId(Integer id);
 }

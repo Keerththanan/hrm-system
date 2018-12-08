@@ -16,4 +16,6 @@ public interface DeniedPromotionService {
 
 	DeniedPromotion getById(Integer id);
 
+	List<DeniedPromotion> getDeniedPromotionByUserId(int id);
+
 }

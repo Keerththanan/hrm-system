@@ -32,9 +32,9 @@ public class SalaryChartEntity implements Serializable {
 	private Integer etf3;
 	private Integer epf12;
 	private Integer stampDuty;
-	
+
 	@ManyToOne
-	@JoinColumn(name="user_salarychart")
+	@JoinColumn(name = "user_salarychart")
 	private User user;
 
 	public User getUser() {
@@ -102,7 +102,7 @@ public class SalaryChartEntity implements Serializable {
 	}
 
 	public Integer getNetSalary() {
-		return netSalary=basicSalary-epf12;
+		return netSalary;
 	}
 
 	public void setNetSalary(Integer netSalary) {
@@ -125,7 +125,6 @@ public class SalaryChartEntity implements Serializable {
 		this.loan = loan;
 	}
 
-
 	public Integer getStampDuty() {
 		return stampDuty;
 	}
@@ -133,7 +132,5 @@ public class SalaryChartEntity implements Serializable {
 	public void setStampDuty(Integer stampDuty) {
 		this.stampDuty = stampDuty;
 	}
-
-
 
 }

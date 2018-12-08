@@ -7,7 +7,7 @@ public class ReportParAppraisorDtoGet {
 
 	private Integer reportId;
 	private Integer parId;
-	private AppraisorDto appraisedBy;
+	private ParAppraisorDto appraisedBy;
 	private Date appraisedDate;
 	private List<ScoreParAppraiserDtoGet> scoreParAppraiserList;
 
@@ -36,11 +36,11 @@ public class ReportParAppraisorDtoGet {
 		this.parId = parId;
 	}
 
-	public AppraisorDto getAppraisedBy() {
+	public ParAppraisorDto getAppraisedBy() {
 		return appraisedBy;
 	}
 
-	public void setAppraisedBy(AppraisorDto appraisedBy) {
+	public void setAppraisedBy(ParAppraisorDto appraisedBy) {
 		this.appraisedBy = appraisedBy;
 	}
 

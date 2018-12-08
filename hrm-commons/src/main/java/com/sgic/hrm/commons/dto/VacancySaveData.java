@@ -15,6 +15,7 @@ public class VacancySaveData {
 	private Integer job;
 	private Integer department;
 	private Integer recruitment;
+	
 	public Integer getId() {
 		return id;
 	}

@@ -4,14 +4,15 @@ import java.util.List;
 
 public class ReportParAppraiseeDtoGet{
 
-	private Integer reportId;
+	private String reportId;
 	private Integer parId;
 	private List<ScoreParAppraiseeDtoGet> scoreParAppraiseeList;
 	
-	public Integer getReportId() {
+	
+	public String getReportId() {
 		return reportId;
 	}
-	public void setReportId(Integer reportId) {
+	public void setReportId(String reportId) {
 		this.reportId = reportId;
 	}
 	public Integer getParId() {
@@ -27,7 +28,7 @@ public class ReportParAppraiseeDtoGet{
 	public void setScoreParAppraiseeList(List<ScoreParAppraiseeDtoGet> scoreParAppraiseeList) {
 		this.scoreParAppraiseeList = scoreParAppraiseeList;
 	}
-	public ReportParAppraiseeDtoGet (Integer reportId,Integer parId) {
+	public ReportParAppraiseeDtoGet (String reportId,Integer parId) {
 		this.reportId=reportId;
 		this.parId=parId;	
 	}

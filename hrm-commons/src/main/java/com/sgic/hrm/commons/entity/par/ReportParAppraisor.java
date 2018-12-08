@@ -23,7 +23,7 @@ public class ReportParAppraisor {
 	
 	@ManyToOne()
 	@JoinColumn(name="par_id")
-	private Par parId;
+	private Par par;
 	
 	private String appraisorId;
 	
@@ -60,12 +60,14 @@ public class ReportParAppraisor {
 		this.id = id;
 	}
 
-	public Par getParId() {
-		return parId;
+	
+
+	public Par getPar() {
+		return par;
 	}
 
-	public void setParId(Par parId) {
-		this.parId = parId;
+	public void setPar(Par par) {
+		this.par = par;
 	}
 
 	public String getAppraisorId() {

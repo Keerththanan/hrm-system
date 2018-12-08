@@ -59,6 +59,11 @@ public class LeaveRequestServiceImpl implements LeaveRequestService {
 		}
 		return false;
 	}
+	
+	@Override
+	public List<LeaveRequest> getLeaveRequestByUserName(String userName) {
+		return leaveRequestRepository.findByUserOrderByIdDesc(loginService.getUser(userName));
+	}
 
 	@Transactional
 	@Override
@@ -71,7 +76,8 @@ public class LeaveRequestServiceImpl implements LeaveRequestService {
 			leaveRequestRepository.save(leaveRequest);
 			AcceptLeaveRequest acceptLeaveRequest = new AcceptLeaveRequest();
 			acceptLeaveRequest.setLeaveRequest(leaveRequest);
-			acceptLeaveRequest.setAcceptedBy(loginRepository.findByUserName(acceptLeaveDto.getUserName()).getUser());
+			acceptLeaveRequest
+					.setAcceptedBy(loginRepository.findByUsername(acceptLeaveDto.getUserName()).get().getUser());
 			acceptLeaveRequestRepository.save(acceptLeaveRequest);
 			return true;
 		}
@@ -95,18 +101,18 @@ public class LeaveRequestServiceImpl implements LeaveRequestService {
 	@Override
 	public List<LeaveRequest> getLeaveRequestByUser(Integer userId) {
 
-		return leaveRequestRepository.findByUser(userRepository.getOne(userId));
+		return leaveRequestRepository.findByUserOrderByIdDesc(userRepository.getOne(userId));
 	}
 
 	@Override
 	public List<LeaveRequest> getAllLeaveRequest() {
-		return leaveRequestRepository.findAll();
+		return leaveRequestRepository.findAllByOrderByIdDesc();
 	}
 
 	@Override
 	public List<LeaveRequest> getAllLeaveRequestByStatus(Status status) {
 
-		return leaveRequestRepository.findByStatus(status);
+		return leaveRequestRepository.findByStatusOrderByIdDesc(status);
 	}
 
 	@Transactional
@@ -120,7 +126,8 @@ public class LeaveRequestServiceImpl implements LeaveRequestService {
 			leaveRequestRepository.save(leaveRequest);
 			RejectLeaveRequest rejectLeaveRequest = new RejectLeaveRequest();
 			rejectLeaveRequest.setLeaveRequest(leaveRequest);
-			rejectLeaveRequest.setRejectedBy(loginRepository.findByUserName(rejectLeaveDto.getUserName()).getUser());
+			rejectLeaveRequest
+					.setRejectedBy(loginRepository.findByUsername(rejectLeaveDto.getUserName()).get().getUser());
 			rejectLeaveRequest.setReason(rejectLeaveDto.getRejectReason());
 			rejectLeaveRequestRepository.save(rejectLeaveRequest);
 			return true;

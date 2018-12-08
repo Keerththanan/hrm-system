@@ -27,11 +27,11 @@ public class LeaveTypeController {
   LeaveTypeService leaveTypeService;
 
   @PostMapping
-  public ResponseEntity<String> createLeaveType(@RequestBody LeaveTypeData leaveTypeData) {
+  public HttpStatus createLeaveType(@RequestBody LeaveTypeData leaveTypeData) {
     if (leaveTypeService.createLeaveType(LeaveTypeDataToLeaveType.mapToLeaveType(leaveTypeData))) {
-      return new ResponseEntity<>("Leave type created succesfully", HttpStatus.CREATED);
+      return HttpStatus.CREATED;
     }
-    return new ResponseEntity<>("Faild to create Leave type", HttpStatus.BAD_REQUEST);
+    return HttpStatus.BAD_REQUEST;
   }
 
   @GetMapping
@@ -42,21 +42,20 @@ public class LeaveTypeController {
   }
 
   @DeleteMapping("/{id}")
-  public ResponseEntity<String> deleteLeaveType(@PathVariable(name = "id") Integer id) {
+  public HttpStatus deleteLeaveType(@PathVariable(name = "id") Integer id) {
     if (leaveTypeService.deleteLeaveType(id)) {
-      return new ResponseEntity<>("Leave Type deleted Successfully", HttpStatus.OK);
+      return HttpStatus.OK;
     }
-    return new ResponseEntity<>("Faild to delete Leave Type", HttpStatus.BAD_REQUEST);
+    return HttpStatus.BAD_REQUEST;
   }
 
   @PutMapping("/{id}")
-  public ResponseEntity<String> editLeaveType(@RequestBody LeaveTypeData leaveTypeData,
+  public HttpStatus editLeaveType(@RequestBody LeaveTypeData leaveTypeData,
       @PathVariable(name = "id") Integer id) {
     if (leaveTypeService.updateLeaveType(id,
         LeaveTypeDataToLeaveType.mapToLeaveType(leaveTypeData))) {
-      return new ResponseEntity<>("Leave Type updated Successfully", HttpStatus.OK);
+      return HttpStatus.OK;
     }
-    return new ResponseEntity<>("Faild to update Leave Type", HttpStatus.BAD_REQUEST);
+    return HttpStatus.BAD_REQUEST;
   }
-
 }

@@ -19,5 +19,10 @@ public class SalaryDetailsEmpViewServiceImpl implements SalaryDetailsEmpViewServ
 		// TODO Auto-generated method stub
 		return salaryDetailsEmpViewRepository.findAll();
 	}
+	@Override
+	public SalaryDetailsEmpViewEntity getSalaryDetailsForEmployee(Integer id) {
+		// TODO Auto-generated method stub
+		return salaryDetailsEmpViewRepository.findDetailsByEmpId(id);
+	}
 
 }
