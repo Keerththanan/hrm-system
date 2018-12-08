@@ -4,7 +4,7 @@ import java.util.HashSet;
 import java.util.Optional;
 import java.util.Set;
 
-import javax.validation.Valid;
+import javax.validation.Valid; 
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -144,7 +144,7 @@ public class AuthRestAPIs {
 
 		login.setRoles(roles);
 		loginRepository.save(login);
-
+ 
 		return new ResponseEntity<>(new ResponseMessage("User registered successfully!"), HttpStatus.OK);
 	}
 	

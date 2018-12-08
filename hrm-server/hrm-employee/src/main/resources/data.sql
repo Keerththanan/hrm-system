@@ -1,5 +1,6 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 INSERT INTO employee.role(role_name) VALUES('HR');
 INSERT INTO employee.role(role_name) VALUES('EMPLOYEE');
@@ -14,11 +15,15 @@ INSERT INTO employee.self_service_type(self_service_type_name) VALUES('Feedback'
 <<<<<<< HEAD
 INSERT INTO employee.department(department_name) VALUES('hrm');
 INSERT INTO employee.department(department_name) VALUES('manager');
+=======
+
+>>>>>>> pasindu
 
 INSERT INTO employee.self_service_type(self_service_type_name) VALUES('Complain');
 INSERT INTO employee.self_service_type(self_service_type_name) VALUES('Request');
 INSERT INTO employee.self_service_type(self_service_type_name) VALUES('Feedback');
 
+<<<<<<< HEAD
 =======
 --
 ----
@@ -28,6 +33,8 @@ INSERT INTO employee.self_service_type(self_service_type_name) VALUES('Feedback'
 ----
 =======
 >>>>>>> 594565839691a7766f24d27bd22ada9812f6a78b
+=======
+>>>>>>> pasindu
 INSERT INTO employee.department(department_name) VALUES('hrm');
 INSERT INTO employee.department(department_name) VALUES('manager');
 INSERT INTO employee.exam_type(exam_type_name) VALUES('O/L');
@@ -44,6 +51,7 @@ INSERT INTO employee.location(location_name) VALUES('Jaffna');
 INSERT INTO employee.location(location_name) VALUES('Colombo');
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 --
 --INSERT INTO employee.self_service_type(self_service_type_name) VALUES('Complain');
 --INSERT INTO employee.self_service_type(self_service_type_name) VALUES('Request');
@@ -51,9 +59,14 @@ INSERT INTO employee.location(location_name) VALUES('Colombo');
 --
 >>>>>>> 968c9d6397eca21a8c3652a71aa3891094f5fe0b
 =======
+=======
+>>>>>>> pasindu
 
 INSERT INTO employee.self_service_type(self_service_type_name) VALUES('Complain');
 INSERT INTO employee.self_service_type(self_service_type_name) VALUES('Request');
 INSERT INTO employee.self_service_type(self_service_type_name) VALUES('Feedback');
 
+<<<<<<< HEAD
 >>>>>>> 594565839691a7766f24d27bd22ada9812f6a78b
+=======
+>>>>>>> pasindu

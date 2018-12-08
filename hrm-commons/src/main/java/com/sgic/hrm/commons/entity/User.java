@@ -44,7 +44,7 @@ public class User implements Serializable {
 	@JoinColumn(name="join_user_role")
 	private Role role;
 	
-	 
+	  
 
 	@UpdateTimestamp
 	private Date updateAt;

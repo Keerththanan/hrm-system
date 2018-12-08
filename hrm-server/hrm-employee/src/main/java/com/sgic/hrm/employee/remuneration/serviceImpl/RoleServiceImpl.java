@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import com.sgic.hrm.commons.entity.Role;
 import com.sgic.hrm.commons.repository.RoleRepository;
 import com.sgic.hrm.employee.remuneration.service.RoleService;
-@Service
+@Service 
 public class RoleServiceImpl implements RoleService{
 @Autowired
 private RoleRepository roleRepository;
