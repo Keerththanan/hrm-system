@@ -1,7 +1,5 @@
 package com.sgic.hrm.commons.dto;
 
-import com.sgic.hrm.commons.entity.SalaryChartEntity;
-
 public class BenefitsAllowancesDto {
 	private Integer id;
 	private String name;
@@ -11,14 +9,6 @@ public class BenefitsAllowancesDto {
 	private Integer housing;
 	private Integer mobile;
 	private Integer medical;
-	private SalaryChartEntity chartEntity;
-	public SalaryChartEntity getChartEntity() {
-		return chartEntity;
-	}
-
-	public void setChartEntity(SalaryChartEntity chartEntity) {
-		this.chartEntity = chartEntity;
-	}
 
 	public Integer getId() {
 		return id;

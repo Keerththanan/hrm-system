@@ -22,7 +22,8 @@ public class SalaryChartEntityMapper {
 		salaryChartDto.setPayee(salaryChartEntity.getPayee());
 		salaryChartDto.setStampDuty(salaryChartEntity.getStampDuty());
 		salaryChartDto.setStatutoryPayment(salaryChartEntity.getStatutoryPayment());
-
+		salaryChartDto.setUser(salaryChartEntity.getUser());
+		
 		return salaryChartDto;
 	}
 

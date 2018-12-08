@@ -48,4 +48,11 @@ public class RequestPromotionServiceImp implements RequestPromotionService {
 		return false;
 	}
 
+	@Override
+	public List<RequestPromotion> getPromotionByUserId(int id) {
+		return requestPromotionRepository.findById(id);
+	}
+	
+	
+
 }

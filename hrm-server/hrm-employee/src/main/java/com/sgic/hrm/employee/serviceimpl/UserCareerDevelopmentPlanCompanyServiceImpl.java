@@ -48,7 +48,11 @@ public class UserCareerDevelopmentPlanCompanyServiceImpl implements UserCareerDe
 
   @Override
   public UserCareerDevelopmentPlanCompany getUserCareerDevelopmentPlanCompanyById(int id) {
+    return userCareerDevelopmentPlanCompanyRepository.getOne(id);
+  }
+
+  @Override
+  public List<UserCareerDevelopmentPlanCompany> getUserCareerDevelopmentPlanByUserId(int id) {
     return userCareerDevelopmentPlanCompanyRepository.findById(id);
   }
-  
 }
