@@ -4,7 +4,7 @@ import java.util.HashSet;
 import java.util.Optional;
 import java.util.Set;
 
-import javax.validation.Valid;
+import javax.validation.Valid; 
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -34,7 +34,7 @@ import com.sgic.hrm.commons.repository.LoginRepository;
 import com.sgic.hrm.commons.repository.RoleRepository;
 import com.sgic.hrm.login.security.JwtProvider;
 
-@CrossOrigin(origins = "*", maxAge = 3600)
+@CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
 @RestController
 @RequestMapping("/api/auth")
 public class AuthRestAPIs {
@@ -144,12 +144,16 @@ public class AuthRestAPIs {
 
 		login.setRoles(roles);
 		loginRepository.save(login);
-
+ 
 		return new ResponseEntity<>(new ResponseMessage("User registered successfully!"), HttpStatus.OK);
 	}
 	
-	@GetMapping("/{username}")
-	public Optional<Login> findByUsername(@PathVariable String username){
-		return loginRepository.findByUsername(username);
+//	@GetMapping("/{username}")
+//	public Optional<Login> findByUsername(@PathVariable String username){
+//		return loginRepository.findByUsername(username);
+//	}
+	@GetMapping("/userid/{id}")
+	public Optional<Login> findByUserId(@PathVariable Integer id){
+		return loginRepository.findUserById(id);
 	}
 }
