@@ -48,7 +48,7 @@ public class LeaveAllocationServiceImpl implements LeaveAllocationService {
 
   @Override
   public List<LeaveAllocation> viewLeaveAllocationByUser(User user) {
-    return leaveAllocationRepository.findByUser(user);
+    return leaveAllocationRepository.findAllByUserOrderByIdAsc(user);
   }
 
   @Override
