@@ -29,17 +29,6 @@ import com.sgic.hrm.employee.service.VacancyService;
 public class VacancyController {
 	@Autowired
 	private VacancyService vacancyService;
-	
-//	@PostMapping("/vacancy")
-//	public HttpStatus createVacancy(@RequestBody VacancyData vacancyData) {
-//		boolean test = vacancyService.addVacancy(VacancyDataMapper.vacancyDataMapper(vacancyData));
-//		if (test) {
-//			return HttpStatus.CREATED;
-//
-//		}
-//
-//		return HttpStatus.BAD_REQUEST;
-//	}
 
 	@GetMapping("/vacancy")
 	public ResponseEntity<List<Vacancy>> getVacancy() {
