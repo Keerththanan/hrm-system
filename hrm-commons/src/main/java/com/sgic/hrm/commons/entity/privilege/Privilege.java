@@ -16,7 +16,7 @@ import com.sgic.hrm.commons.entity.Role;
 
 @Entity
 @Table(name = "privilege", schema = "employee")
-@JsonPropertyOrder({"id", "authorizeType", "module"})
+@JsonPropertyOrder({"id", "authorizeType"})
 public class Privilege {
 
 	@Id
@@ -31,7 +31,6 @@ public class Privilege {
 	@JsonIgnore
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "module_id", nullable = false)
-	@JsonProperty("module")
 	private Module module;
 
 	@ManyToOne(fetch = FetchType.EAGER)
