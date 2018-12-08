@@ -93,7 +93,6 @@ public class PrivilegeController {
 				}
 			}
 		}
-
 		return HttpStatus.BAD_REQUEST;
 	}
 
