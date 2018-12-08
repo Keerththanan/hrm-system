@@ -18,6 +18,7 @@ public class ScoreParAppraisor {
 	private ParContent parContent;
 
 	private Double score;
+	private String comment;
 
 	@ManyToOne
 	@JoinColumn(name = "report_par_appraisor_id")
@@ -40,7 +41,6 @@ public class ScoreParAppraisor {
 		this.id = id;
 	}
 
-	
 	public ParContent getParContent() {
 		return parContent;
 	}
@@ -55,6 +55,14 @@ public class ScoreParAppraisor {
 
 	public void setScore(Double score) {
 		this.score = score;
+	}
+
+	public String getComment() {
+		return comment;
+	}
+
+	public void setComment(String comment) {
+		this.comment = comment;
 	}
 
 	public ReportParAppraisor getReportParAppraisor() {

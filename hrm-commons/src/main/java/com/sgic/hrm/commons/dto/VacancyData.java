@@ -15,6 +15,7 @@ public class VacancyData {
 	private JobData job;
 	private DepartmentData department;
 	private RecruitmentTypeData recruitmentType;
+	
 	public Integer getId() {
 		return id;
 	}

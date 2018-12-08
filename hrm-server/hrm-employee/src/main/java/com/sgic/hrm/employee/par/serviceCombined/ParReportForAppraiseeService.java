@@ -17,7 +17,7 @@ public interface ParReportForAppraiseeService {
 	 */
 	public void saveReportAndScore(Integer parId,List<ScoreParAppraiseeDtoPost> scheduleParAppraisorList,ReportParAppraise reportParAppraise);
 
-	public String saveReportAndScore(ReportParAppraiseeDtoPost reportParAppraiseeDtoPost);
+	public String saveReportAndScore(ReportParAppraiseeDtoPost reportParAppraiseeDtoPost,Integer parId);
 
 	// update one par score
 	public boolean updateParScore();

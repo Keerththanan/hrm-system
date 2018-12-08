@@ -1,20 +1,20 @@
 package com.sgic.hrm.commons.dto.par;
 
-public class AppraisorDto {
+public class ParAppraisorDto {
 
 	private String appraiserId;
 	private String appraiserEmpId;
 	private String appraiserName;
 	
 	
-	public AppraisorDto(String appraiserId, String appraiserEmpId, String appraiserName) {
+	public ParAppraisorDto(String appraiserId, String appraiserEmpId, String appraiserName) {
 		this.appraiserId = appraiserId;
 		this.appraiserEmpId = appraiserEmpId;
 		this.appraiserName = appraiserName;
 	}
 	
 	
-	public AppraisorDto() {
+	public ParAppraisorDto() {
 	
 	}
 

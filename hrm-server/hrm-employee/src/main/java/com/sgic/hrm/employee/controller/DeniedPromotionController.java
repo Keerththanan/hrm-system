@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.sgic.hrm.commons.dto.DeniedPromotionData;
 import com.sgic.hrm.commons.dto.mapper.DeniedPromotionDataToDeniedPromotion;
+import com.sgic.hrm.commons.entity.DeniedPromotion;
 import com.sgic.hrm.commons.entity.mapper.DeniedPromotionToDeniedPromotionData;
 import com.sgic.hrm.employee.service.DeniedPromotionService;
 
@@ -43,13 +44,13 @@ public class DeniedPromotionController {
 	}
 
 	@PostMapping
-	public ResponseEntity<String> addDeniedPromotion(@RequestBody DeniedPromotionData deniedPromotionData) {
+	public HttpStatus addDeniedPromotion(@RequestBody DeniedPromotionData deniedPromotionData) {
 
 		if (deniedPromotionService
 				.addDeniedPromotion(DeniedPromotionDataToDeniedPromotion.mapToDeniedPromotion(deniedPromotionData))) {
-			return new ResponseEntity<>("DeniedPromotion Create Succesfully ", HttpStatus.OK);
+			return HttpStatus.OK;
 		}
-		return new ResponseEntity<>("DeniedPromotion Create Failed ", HttpStatus.BAD_REQUEST);
+		return HttpStatus.BAD_REQUEST;
 	}
 
 	@PutMapping("/{id}")
@@ -81,6 +82,10 @@ public class DeniedPromotionController {
 //		return HttpStatus.BAD_REQUEST;
 //	}
 	
+	@GetMapping("/deniedpromotionUser/{id}")
+	public List<DeniedPromotion> getAllRequestPromotionsByUserId(@PathVariable int id) {
+		return deniedPromotionService.getDeniedPromotionByUserId(id);
+	}
 
 }
 

@@ -4,6 +4,8 @@ public class ScoreParAppraiserDtoPost {
 
 	private String parContentId;
 	private Double score;
+	private String comment;
+	private String parContentName;
 
 	public ScoreParAppraiserDtoPost(String parContentId, Double score) {
 		this.parContentId = parContentId;
@@ -12,6 +14,23 @@ public class ScoreParAppraiserDtoPost {
 
 	public ScoreParAppraiserDtoPost() {
 
+	}
+	
+
+	public String getComment() {
+		return comment;
+	}
+
+	public void setComment(String comment) {
+		this.comment = comment;
+	}
+
+	public String getParContentName() {
+		return parContentName;
+	}
+
+	public void setParContentName(String parContentName) {
+		this.parContentName = parContentName;
 	}
 
 	public String getParContentId() {
