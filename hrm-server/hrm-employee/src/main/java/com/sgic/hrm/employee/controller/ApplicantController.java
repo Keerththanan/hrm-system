@@ -41,37 +41,16 @@ public class ApplicantController {
 		}
 		return HttpStatus.BAD_REQUEST;
 	}
+
 	@PutMapping("/applicant/{id}")
-	public ResponseEntity<String> updateApplicant(@PathVariable(name="id") Integer id,@RequestBody ApplicantDataSave applicantDataSave){
-		Applicant applicant=ApplicantDataMapper.applicantDataSaveMapper(applicantDataSave);
-		if(applicantService.editApplicant(applicant, id))
-		{
-			return new ResponseEntity<>("updated",HttpStatus.OK);
+	public ResponseEntity<String> updateApplicant(@PathVariable(name = "id") Integer id,
+			@RequestBody ApplicantDataSave applicantDataSave) {
+		Applicant applicant = ApplicantDataMapper.applicantDataSaveMapper(applicantDataSave);
+		if (applicantService.editApplicant(applicant, id)) {
+			return new ResponseEntity<>("updated", HttpStatus.OK);
 		}
 		return new ResponseEntity<>("upadte failed", HttpStatus.BAD_REQUEST);
 	}
-
-//	@PutMapping("/applicant/{id}")
-//	public ResponseEntity<String> updateApplicant(@PathVariable(name = "id") Integer id,
-//			@RequestBody ApplicantDataSave applicantDataSave) {
-//		Applicant applicant = ApplicantDataMapper.applicantDataSaveMapper(applicantDataSave);
-//		if (applicantService.editApplicant(applicant, id)) {
-//			return new ResponseEntity<>("updated", HttpStatus.OK);
-//		}
-//		return new ResponseEntity<>("upadte failed", HttpStatus.BAD_REQUEST);
-//	}
-
-//	@PutMapping("/applicant/{id}")
-//	public ResponseEntity<String> updateApplicant(@PathVariable(name = "id") Integer id,
-//			@RequestBody ApplicantData applicantData) {
-//		boolean reqApli = applicantService
-//				.editApplicant(ApplicantDataMapper.applicantDataMapper(applicantData), id);
-//
-//		if (reqApli) {
-//			return new ResponseEntity<>("Update Successfully", HttpStatus.ACCEPTED);
-//		}
-//		return new ResponseEntity<>("Update failed", HttpStatus.BAD_REQUEST);
-//	}
 
 	@GetMapping("/applicant")
 	public ResponseEntity<List<Applicant>> getApplicant() {
@@ -79,7 +58,6 @@ public class ApplicantController {
 		ResponseEntity<List<Applicant>> response = new ResponseEntity<>(applicant, HttpStatus.OK);
 		return response;
 	}
-
 
 	@DeleteMapping("/applicant/{id}")
 	public HttpStatus deleteApplicant(@PathVariable("id") Integer id) {
