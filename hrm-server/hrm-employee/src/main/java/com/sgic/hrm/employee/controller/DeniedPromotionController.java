@@ -43,13 +43,13 @@ public class DeniedPromotionController {
 	}
 
 	@PostMapping
-	public ResponseEntity<String> addDeniedPromotion(@RequestBody DeniedPromotionData deniedPromotionData) {
+	public HttpStatus addDeniedPromotion(@RequestBody DeniedPromotionData deniedPromotionData) {
 
 		if (deniedPromotionService
 				.addDeniedPromotion(DeniedPromotionDataToDeniedPromotion.mapToDeniedPromotion(deniedPromotionData))) {
-			return new ResponseEntity<>("DeniedPromotion Create Succesfully ", HttpStatus.OK);
+			return HttpStatus.OK;
 		}
-		return new ResponseEntity<>("DeniedPromotion Create Failed ", HttpStatus.BAD_REQUEST);
+		return HttpStatus.BAD_REQUEST;
 	}
 
 	@PutMapping("/{id}")
