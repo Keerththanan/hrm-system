@@ -29,7 +29,6 @@ public class Login implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = -3992467423727977421L;
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;

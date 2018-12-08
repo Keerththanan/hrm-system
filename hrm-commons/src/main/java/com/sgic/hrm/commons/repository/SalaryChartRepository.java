@@ -11,4 +11,7 @@ public interface SalaryChartRepository extends JpaRepository<SalaryChartEntity, 
 
 	@Query("SELECT sc FROM SalaryChartEntity sc WHERE sc.empName LIKE ?1%")
 	List<SalaryChartEntity> findByEmpName(String name);
+	
+	@Query("SELECT sc FROM SalaryChartEntity sc WHERE sc.user.id=?1")
+	SalaryChartEntity findByUserName(String name);
 }

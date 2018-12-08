@@ -3,10 +3,7 @@ package com.sgic.hrm.commons.entity;
 import java.io.Serializable;
 import java.util.Date;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -47,7 +44,7 @@ public class User implements Serializable {
 	@JoinColumn(name="join_user_role")
 	private Role role;
 	
-	
+	 
 
 	@UpdateTimestamp
 	private Date updateAt;

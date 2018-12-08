@@ -18,14 +18,15 @@ public class UserLoanDetailsController {
 	@Autowired
 	private UserLoanDetailsService userLoanDetailsService;
 
+
 	@GetMapping("/userloandetails")
 	public List<UserLoanDetails> viewAll() {
 		return userLoanDetailsService.getAllUserLoanDetails();
 	}
 
-	@GetMapping("/userloandetails/{userId}")
-	public List<UserLoanDetails> viewOneById(@PathVariable Integer userId) {
-		return userLoanDetailsService.getSpecificUser(userId);
+	@GetMapping("/userloandetails/{username}")
+	public List<UserLoanDetails> viewOneById(@PathVariable String username) {		
+		return userLoanDetailsService.getSpecificUser(username);
 	}
 	
 	@GetMapping(path = "/userloandetails/search", params= {"name"})
