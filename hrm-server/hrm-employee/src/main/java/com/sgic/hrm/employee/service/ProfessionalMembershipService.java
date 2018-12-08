@@ -15,7 +15,7 @@ public interface ProfessionalMembershipService {
 
 	List<ProfessionalMembership> getAllProfessionalMembership();
 	
-	boolean editProfessionalMembership(ProfessionalMembership professionalMembership,Integer id);
+	boolean editProfessionalMembership(ProfessionalMembership professionalMembership,User user,Integer id);
 	
 	Optional<ProfessionalMembership> getProfessionalMembershipById(int id);
 	

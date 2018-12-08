@@ -14,10 +14,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.sgic.hrm.commons.dto.RequestPromotionSaveData;
 import com.sgic.hrm.commons.dto.VacancyData;
 import com.sgic.hrm.commons.dto.VacancySaveData;
-import com.sgic.hrm.commons.dto.mapper.RequestPromotionDataMapper;
 import com.sgic.hrm.commons.dto.mapper.VacancyDataMapper;
 import com.sgic.hrm.commons.entity.Vacancy;
 import com.sgic.hrm.employee.service.VacancyService;
@@ -29,17 +27,6 @@ import com.sgic.hrm.employee.service.VacancyService;
 public class VacancyController {
 	@Autowired
 	private VacancyService vacancyService;
-	
-//	@PostMapping("/vacancy")
-//	public HttpStatus createVacancy(@RequestBody VacancyData vacancyData) {
-//		boolean test = vacancyService.addVacancy(VacancyDataMapper.vacancyDataMapper(vacancyData));
-//		if (test) {
-//			return HttpStatus.CREATED;
-//
-//		}
-//
-//		return HttpStatus.BAD_REQUEST;
-//	}
 
 	@GetMapping("/vacancy")
 	public ResponseEntity<List<Vacancy>> getVacancy() {

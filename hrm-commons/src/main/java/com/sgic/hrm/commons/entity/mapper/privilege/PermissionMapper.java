@@ -12,7 +12,7 @@ public class PermissionMapper {
 		PermissionDto permissionDto = new PermissionDto();
 
 		permissionDto.setId(permission.getId());
-		permissionDto.setPermissionName(permission.getPermissionName());
+		permissionDto.setAuthorizeType(permission.getAuthorizeType());
 		permissionDto.setModule(permission.getModule());
 
 		return permissionDto;

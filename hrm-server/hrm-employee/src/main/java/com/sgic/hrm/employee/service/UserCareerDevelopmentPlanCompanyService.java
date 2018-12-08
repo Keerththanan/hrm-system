@@ -14,4 +14,6 @@ public interface UserCareerDevelopmentPlanCompanyService {
   boolean deleteUserCareerDevelopmentPlanCompany(Integer id);
 
   UserCareerDevelopmentPlanCompany getUserCareerDevelopmentPlanCompanyById(int id);
+  
+  List<UserCareerDevelopmentPlanCompany> getUserCareerDevelopmentPlanByUserId(int id);
 }

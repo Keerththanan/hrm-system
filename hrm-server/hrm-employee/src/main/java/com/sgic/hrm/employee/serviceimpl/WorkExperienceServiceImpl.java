@@ -31,11 +31,12 @@ public class WorkExperienceServiceImpl implements WorkExperienceService{
 	}
 
 	@Override
-	public boolean editWorkExperience(WorkExperience workExperience, Integer id) {
+	public boolean editWorkExperience(WorkExperience workExperience, User user ,Integer id) {
 		boolean editworkex =false;
 		if(experienceRepository.getOne(id) != null)
 		{
 			workExperience.setId(id);
+			workExperience.setUser(user);
 			experienceRepository.save(workExperience);
 			editworkex=true;
 		}
