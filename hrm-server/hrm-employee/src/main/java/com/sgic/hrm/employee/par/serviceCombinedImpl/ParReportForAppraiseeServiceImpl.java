@@ -44,10 +44,12 @@ public class ParReportForAppraiseeServiceImpl implements ParReportForAppraiseeSe
 			int i = 0;
 			while (iteratorDTO.hasNext()) {
 				String pk = reportParAppraise.getId() + "_" + i;
-				ScoreParAppraiseeDtoPost scoreParAppraiseeDtoPost=iteratorDTO.next();
-				ParContent parContent=parContentService.findParContentById(scoreParAppraiseeDtoPost.getParContentId());
+				ScoreParAppraiseeDtoPost scoreParAppraiseeDtoPost = iteratorDTO.next();
+				ParContent parContent = parContentService
+						.findParContentById(scoreParAppraiseeDtoPost.getParContentId());
 				scoreParAppraiseeService.createScoreParAppraisee(
-						ScoreParAppraiseeMapper.dtoToEntity(pk,parContent,scoreParAppraiseeDtoPost ), reportParAppraise);
+						ScoreParAppraiseeMapper.dtoToEntity(pk, parContent, scoreParAppraiseeDtoPost),
+						reportParAppraise);
 				i++;
 			}
 
@@ -55,30 +57,37 @@ public class ParReportForAppraiseeServiceImpl implements ParReportForAppraiseeSe
 	}
 
 	@Override
-	public String saveReportAndScore(ReportParAppraiseeDtoPost reportParAppraiseeDtoPost) {
+	public String saveReportAndScore(ReportParAppraiseeDtoPost reportParAppraiseeDtoPost, Integer parId) {
 
 		String msg = new String();
-		ReportParAppraise reportParAppraise = new ReportParAppraise();
-		reportParAppraise.setId(reportParAppraiseeDtoPost.getReportId());
+		
+		Par parObj = parservice.findParById(parId);
+		if (parObj != null) {
+			if (reportParAppraiseService.findReportParAppraiseeByPar(parObj) == null) {
+				
 
-		if (parservice.findParById(reportParAppraiseeDtoPost.getParId()) != null) {
-			if (reportParAppraiseService.findReportParAppraiseeById(reportParAppraiseeDtoPost.getReportId()) == null) {
+					ReportParAppraise reportParAppraise = new ReportParAppraise();
+					String reportParAppraisePk=parId+"_"+1;
+					reportParAppraise.setId(reportParAppraisePk);
+					
+					reportParAppraiseService.createReportParAppraise(reportParAppraise, parObj);
+					Iterator<ScoreParAppraiseeDtoPost> iteratorDTO = reportParAppraiseeDtoPost
+							.getScoreParAppraiseeList().iterator();
+					int i = 0;
+					while (iteratorDTO.hasNext()) {
+						String pk = reportParAppraise.getId() + "_" + i;
+						ScoreParAppraiseeDtoPost scoreParAppraiseeDtoPost = iteratorDTO.next();
+						ParContent parContent = parContentService
+								.findParContentById(scoreParAppraiseeDtoPost.getParContentId());
 
-				Par parObj = parservice.findParById(reportParAppraiseeDtoPost.getParId());
-				reportParAppraiseService.createReportParAppraise(reportParAppraise, parObj);
-				Iterator<ScoreParAppraiseeDtoPost> iteratorDTO = reportParAppraiseeDtoPost.getScoreParAppraiseeList()
-						.iterator();
-				int i = 0;
-				while (iteratorDTO.hasNext()) {
-					String pk = reportParAppraise.getId() + "_" + i;
-					ScoreParAppraiseeDtoPost scoreParAppraiseeDtoPost=iteratorDTO.next();
-					ParContent parContent=parContentService.findParContentById(scoreParAppraiseeDtoPost.getParContentId());
-					scoreParAppraiseeService.createScoreParAppraisee(
-							ScoreParAppraiseeMapper.dtoToEntity(pk,parContent,scoreParAppraiseeDtoPost ), reportParAppraise);
-					i++;
-				}
+						scoreParAppraiseeService.createScoreParAppraisee(
+								ScoreParAppraiseeMapper.dtoToEntity(pk, parContent, scoreParAppraiseeDtoPost),
+								reportParAppraise);
+						i++;
+					}
+				
 			} else {
-				msg = "report id is already exist";
+				msg = "alredy scored";
 			}
 
 		} else {
@@ -95,39 +104,40 @@ public class ParReportForAppraiseeServiceImpl implements ParReportForAppraiseeSe
 
 	@Override
 	public ReportParAppraiseeDtoGet getReportAndScore(Integer parId) {
-		//creating a ReportParAppraiseeDtoGet object
-		ReportParAppraiseeDtoGet reportParAppraiseeDtoGet=new ReportParAppraiseeDtoGet();
-		
+		// creating a ReportParAppraiseeDtoGet object
+		ReportParAppraiseeDtoGet reportParAppraiseeDtoGet = new ReportParAppraiseeDtoGet();
+
 		// find par by id
-		Par par=parservice.findParById(parId);
+		Par par = parservice.findParById(parId);
 		// set the par id at dto
 		reportParAppraiseeDtoGet.setParId(par.getId());
-		
+
 		// find the report by par id and the dto
-		ReportParAppraise reportParAppraise=reportParAppraiseService.findReportParAppraiseeByParId(par);
+		ReportParAppraise reportParAppraise = reportParAppraiseService.findReportParAppraiseeByPar(par);
 		reportParAppraiseeDtoGet.setReportId(reportParAppraise.getId());
-		
+
 		// score par appraisee have the iterator
 		Iterator<ScoreParAppraisee> iteratorDTO = scoreParAppraiseeService.getScore(reportParAppraise).iterator();
 //		
-	// dto score list 
-		List<ScoreParAppraiseeDtoGet> scoreParAppraiseeDtoGetList=new ArrayList<>();
+		// dto score list
+		List<ScoreParAppraiseeDtoGet> scoreParAppraiseeDtoGetList = new ArrayList<>();
 //		
 //		// loop to pull values and set to dto list
 		while (iteratorDTO.hasNext()) {
-			ScoreParAppraiseeDtoGet scoreParAppraiseeDtoGet=new ScoreParAppraiseeDtoGet();
-			
-			ScoreParAppraisee scoreParAppraisee=iteratorDTO.next();
-			
+			ScoreParAppraiseeDtoGet scoreParAppraiseeDtoGet = new ScoreParAppraiseeDtoGet();
+
+			ScoreParAppraisee scoreParAppraisee = iteratorDTO.next();
+
 			scoreParAppraiseeDtoGet.setParContentId(scoreParAppraisee.getParContent().getId());
 			// par content name
-			//ParContent parContent=parContentService.findParContentById(scoreParAppraisee.getParContentId());
+			// ParContent
+			// parContent=parContentService.findParContentById(scoreParAppraisee.getParContentId());
 			scoreParAppraiseeDtoGet.setParContentName(scoreParAppraisee.getParContent().getContentName());
-			
+
 			scoreParAppraiseeDtoGet.setScore(scoreParAppraisee.getScore());
-			
+
 			scoreParAppraiseeDtoGetList.add(scoreParAppraiseeDtoGet);
-			
+
 		}
 		reportParAppraiseeDtoGet.setScoreParAppraiseeList(scoreParAppraiseeDtoGetList);
 		return reportParAppraiseeDtoGet;
