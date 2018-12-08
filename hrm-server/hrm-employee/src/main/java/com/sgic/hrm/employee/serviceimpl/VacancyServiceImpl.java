@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.sgic.hrm.commons.entity.Vacancy;
 import com.sgic.hrm.commons.repository.VacancyRepository;
 import com.sgic.hrm.employee.service.VacancyService;
