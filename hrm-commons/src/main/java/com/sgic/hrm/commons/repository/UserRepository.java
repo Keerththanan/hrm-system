@@ -13,7 +13,7 @@ import com.sgic.hrm.commons.entity.User;
 public interface UserRepository extends JpaRepository<User, Integer> {
 
 	User findUserById(Integer id);
-
+	User findByfullName(String fullName);
 //
 //	@Query("select usr from User as usr where usr.fullName LIKE '%'|| ?1 ||'%' ")
 //  public List<User> findAllUsersByName(String name);

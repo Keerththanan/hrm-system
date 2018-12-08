@@ -2,9 +2,7 @@ package com.sgic.hrm.employee.service;
 
 import java.util.List;
 
-
 import com.sgic.hrm.commons.entity.User;
-import com.sgic.hrm.commons.entity.UserEntity;
 
 
 
@@ -15,4 +13,5 @@ public interface UserService {
 	
 	boolean deleteUser(Integer id);
 	public User findByUserId(Integer id);
+	public User findByUserName(String fullName);
 }

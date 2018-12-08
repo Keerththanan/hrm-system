@@ -1,6 +1,7 @@
 package com.sgic.hrm.employee.controller;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -39,6 +40,19 @@ public class UserController {
 		List<User> user = userService.getUser();
 		ResponseEntity<List<User>> response = new ResponseEntity<>(user, HttpStatus.OK);
 		return response;
+	}
+	
+	@GetMapping("/user/{id}")
+	public User getUserById(@PathVariable Integer id) {
+		
+			return userService.findByUserId(id);
+		
+	}
+	@GetMapping("/userget/{fullName}")
+	public User getUserByName(@PathVariable String fullName) {
+		
+			return userService.findByUserName(fullName);
+		
 	}
 //	@PutMapping("user/{id}")
 //	public HttpStatus ModifyUser(@PathVariable Integer id,@RequestBody User user) {
