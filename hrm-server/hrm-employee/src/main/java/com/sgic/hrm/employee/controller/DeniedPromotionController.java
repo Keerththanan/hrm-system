@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.sgic.hrm.commons.dto.DeniedPromotionData;
 import com.sgic.hrm.commons.dto.mapper.DeniedPromotionDataToDeniedPromotion;
+import com.sgic.hrm.commons.entity.DeniedPromotion;
 import com.sgic.hrm.commons.entity.mapper.DeniedPromotionToDeniedPromotionData;
 import com.sgic.hrm.employee.service.DeniedPromotionService;
 
@@ -81,6 +82,10 @@ public class DeniedPromotionController {
 //		return HttpStatus.BAD_REQUEST;
 //	}
 	
+	@GetMapping("/deniedpromotionUser/{id}")
+	public List<DeniedPromotion> getAllRequestPromotionsByUserId(@PathVariable int id) {
+		return deniedPromotionService.getDeniedPromotionByUserId(id);
+	}
 
 }
 

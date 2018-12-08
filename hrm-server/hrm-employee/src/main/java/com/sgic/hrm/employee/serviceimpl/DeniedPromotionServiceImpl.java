@@ -9,11 +9,9 @@ import com.sgic.hrm.commons.entity.DeniedPromotion;
 import com.sgic.hrm.commons.repository.DeniedPromotionRepository;
 import com.sgic.hrm.employee.service.DeniedPromotionService;
 
-
-
 @Service
 public class DeniedPromotionServiceImpl implements DeniedPromotionService {
-	
+
 	@Autowired
 	private DeniedPromotionRepository deniedPromotionRepository;
 
@@ -30,8 +28,8 @@ public class DeniedPromotionServiceImpl implements DeniedPromotionService {
 
 	@Override
 	public boolean editDeniedPromotion(DeniedPromotion deniedPromotion, Integer id) {
-		boolean success=false;
-		if(deniedPromotionRepository.getOne(deniedPromotion.getId())!=null) {
+		boolean success = false;
+		if (deniedPromotionRepository.getOne(deniedPromotion.getId()) != null) {
 			deniedPromotionRepository.save(deniedPromotion);
 			success = true;
 		}
@@ -40,7 +38,7 @@ public class DeniedPromotionServiceImpl implements DeniedPromotionService {
 
 	@Override
 	public boolean deleteDeniedPromotion(Integer id) {
-		DeniedPromotion deniedPromotion=deniedPromotionRepository.getOne(id);
+		DeniedPromotion deniedPromotion = deniedPromotionRepository.getOne(id);
 		if (deniedPromotion.getId() == (id)) {
 			deniedPromotionRepository.deleteById(id);
 			return true;
@@ -51,6 +49,11 @@ public class DeniedPromotionServiceImpl implements DeniedPromotionService {
 	@Override
 	public DeniedPromotion getById(Integer id) {
 		return deniedPromotionRepository.getOne(id);
+	}
+
+	@Override
+	public List<DeniedPromotion> getDeniedPromotionByUserId(int id) {
+		return deniedPromotionRepository.findByUserId(id);
 	}
 
 }
