@@ -2,202 +2,191 @@ package com.sgic.hrm.commons.entity;
 
 import java.io.Serializable;
 import java.util.Date;
-import javax.persistence.CascadeType;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
 import org.hibernate.annotations.UpdateTimestamp;
 
 @Entity
 @Table(name = "user", schema = "employee")
 public class User implements Serializable {
- 
-  private static final long serialVersionUID = 8918656601415434315L;
-  @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Integer id;
-  private String fullName;
-  
-	@OneToOne
-	@JoinColumn(name = "appintment_id")
-	private Appointment appointmentId;
+
+	private static final long serialVersionUID = 8918656601415434315L;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
+	private String fullName;
+	private String gender;
+	private String telephoneNumber;
+	private String mobileNumber;
+	private String email;
+	private String permenentAddress;
+	private Date joinDate;
+	private Integer servicePeriod;
+	private String profilePhoto;
+	private String nationality;
+	private String nic;
+	private String religion;
+	private Date dateOfBirth;
+	private String residentialAddress;
+	private String maritalStatus;
+
+	@ManyToOne
+	private Department department;
 	
-  private String gender;
-  private String telephoneNumber;
-  private String mobileNumber;
-  private String email;
-  private String permenentAddress;
-  private Date joinDate;
-  private Integer servicePeriod;
-  private String profilePhoto;
-  private String nationality;
-  private String nic;
-  private String religion;
-  private Date dateOfBirth;
-  private String residentialAddress;
-  private String maritalStatus;
+	@UpdateTimestamp
+	private Date updateAt;
 
-  @ManyToOne
-  private Department department;
 
-  @UpdateTimestamp
-  private Date updateAt;
-
-  public Appointment getAppointmentId() {
-		return appointmentId;
+	public Integer getId() {
+		return id;
 	}
 
-	public void setAppointmentId(Appointment appointmentId) {
-		this.appointmentId = appointmentId;
+	public String getFullName() {
+		return fullName;
 	}
-	
-  public Integer getId() {
-    return id;
-  }
 
-  public void setId(Integer id) {
-    this.id = id;
-  }
+	public String getGender() {
+		return gender;
+	}
 
-  public String getFullName() {
-    return fullName;
-  }
+	public String getTelephoneNumber() {
+		return telephoneNumber;
+	}
 
-  public void setFullName(String fullName) {
-    this.fullName = fullName;
-  }
+	public String getMobileNumber() {
+		return mobileNumber;
+	}
 
-  public String getGender() {
-    return gender;
-  }
+	public String getEmail() {
+		return email;
+	}
 
-  public void setGender(String gender) {
-    this.gender = gender;
-  }
+	public String getPermenentAddress() {
+		return permenentAddress;
+	}
 
-  public String getTelephoneNumber() {
-    return telephoneNumber;
-  }
+	public Date getJoinDate() {
+		return joinDate;
+	}
 
-  public void setTelephoneNumber(String telephoneNumber) {
-    this.telephoneNumber = telephoneNumber;
-  }
+	public Integer getServicePeriod() {
+		return servicePeriod;
+	}
 
-  public String getMobileNumber() {
-    return mobileNumber;
-  }
+	public String getProfilePhoto() {
+		return profilePhoto;
+	}
 
-  public void setMobileNumber(String mobileNumber) {
-    this.mobileNumber = mobileNumber;
-  }
+	public String getNationality() {
+		return nationality;
+	}
 
-  public String getEmail() {
-    return email;
-  }
+	public String getNic() {
+		return nic;
+	}
 
-  public void setEmail(String email) {
-    this.email = email;
-  }
+	public String getReligion() {
+		return religion;
+	}
 
-  public String getPermenentAddress() {
-    return permenentAddress;
-  }
+	public Date getDateOfBirth() {
+		return dateOfBirth;
+	}
 
-  public void setPermenentAddress(String permenentAddress) {
-    this.permenentAddress = permenentAddress;
-  }
+	public String getResidentialAddress() {
+		return residentialAddress;
+	}
 
-  public Date getJoinDate() {
-    return joinDate;
-  }
+	public String getMaritalStatus() {
+		return maritalStatus;
+	}
 
-  public void setJoinDate(Date joinDate) {
-    this.joinDate = joinDate;
-  }
+	public Department getDepartment() {
+		return department;
+	}
 
-  public Integer getServicePeriod() {
-    return servicePeriod;
-  }
+	public Date getUpdateAt() {
+		return updateAt;
+	}
 
-  public void setServicePeriod(Integer servicePeriod) {
-    this.servicePeriod = servicePeriod;
-  }
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
-  public String getProfilePhoto() {
-    return profilePhoto;
-  }
+	public void setFullName(String fullName) {
+		this.fullName = fullName;
+	}
 
-  public void setProfilePhoto(String profilePhoto) {
-    this.profilePhoto = profilePhoto;
-  }
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
 
-  public String getNationality() {
-    return nationality;
-  }
+	public void setTelephoneNumber(String telephoneNumber) {
+		this.telephoneNumber = telephoneNumber;
+	}
 
-  public void setNationality(String nationality) {
-    this.nationality = nationality;
-  }
+	public void setMobileNumber(String mobileNumber) {
+		this.mobileNumber = mobileNumber;
+	}
 
-  public String getNic() {
-    return nic;
-  }
+	public void setEmail(String email) {
+		this.email = email;
+	}
 
-  public void setNic(String nic) {
-    this.nic = nic;
-  }
+	public void setPermenentAddress(String permenentAddress) {
+		this.permenentAddress = permenentAddress;
+	}
 
-  public String getReligion() {
-    return religion;
-  }
+	public void setJoinDate(Date joinDate) {
+		this.joinDate = joinDate;
+	}
 
-  public void setReligion(String religion) {
-    this.religion = religion;
-  }
+	public void setServicePeriod(Integer servicePeriod) {
+		this.servicePeriod = servicePeriod;
+	}
 
-  public Date getDateOfBirth() {
-    return dateOfBirth;
-  }
+	public void setProfilePhoto(String profilePhoto) {
+		this.profilePhoto = profilePhoto;
+	}
 
-  public void setDateOfBirth(Date dateOfBirth) {
-    this.dateOfBirth = dateOfBirth;
-  }
+	public void setNationality(String nationality) {
+		this.nationality = nationality;
+	}
 
-  public String getResidentialAddress() {
-    return residentialAddress;
-  }
+	public void setNic(String nic) {
+		this.nic = nic;
+	}
 
-  public void setResidentialAddress(String residentialAddress) {
-    this.residentialAddress = residentialAddress;
-  }
+	public void setReligion(String religion) {
+		this.religion = religion;
+	}
 
-  public String getMaritalStatus() {
-    return maritalStatus;
-  }
+	public void setDateOfBirth(Date dateOfBirth) {
+		this.dateOfBirth = dateOfBirth;
+	}
 
-  public void setMaritalStatus(String maritalStatus) {
-    this.maritalStatus = maritalStatus;
-  }
+	public void setResidentialAddress(String residentialAddress) {
+		this.residentialAddress = residentialAddress;
+	}
 
-  public Date getUpdateAt() {
-    return updateAt;
-  }
+	public void setMaritalStatus(String maritalStatus) {
+		this.maritalStatus = maritalStatus;
+	}
 
-  public void setUpdateAt(Date updateAt) {
-    this.updateAt = updateAt;
-  }
+	public void setDepartment(Department department) {
+		this.department = department;
+	}
 
-  public Department getDepartment() {
-    return department;
-  }
-
-  public void setDepartment(Department department) {
-    this.department = department;
-  }
+	public void setUpdateAt(Date updateAt) {
+		this.updateAt = updateAt;
+	}
 
 }

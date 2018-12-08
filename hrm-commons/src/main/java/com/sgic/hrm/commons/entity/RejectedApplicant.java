@@ -24,7 +24,16 @@ public class RejectedApplicant implements Serializable {
 	private Integer id;
 	@ManyToOne
 	@JoinColumn(name="applicant_id")
-	private Applicant applicantid;
+	private Applicant applicant;
+	private String email;
+	//private String Reason;
+	
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
 	private String reason;
 	public Integer getId() {
 		return id;
@@ -32,11 +41,12 @@ public class RejectedApplicant implements Serializable {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public Applicant getApplicantid() {
-		return applicantid;
+	
+	public Applicant getApplicant() {
+		return applicant;
 	}
-	public void setApplicantid(Applicant applicantid) {
-		this.applicantid = applicantid;
+	public void setApplicant(Applicant applicant) {
+		this.applicant = applicant;
 	}
 	public String getReason() {
 		return reason;

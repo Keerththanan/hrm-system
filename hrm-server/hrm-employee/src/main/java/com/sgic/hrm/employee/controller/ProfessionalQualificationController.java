@@ -35,7 +35,7 @@ public class ProfessionalQualificationController {
 
 	@PostMapping("/professionalQualification")
 	public HttpStatus addProfessionalQualification(@Valid @RequestBody ProfessionalQualificationDto professionalQualificationDto) {
-		User userobj=userService.findByUserId(professionalQualificationDto.getUserId());
+		User userobj=userService.findByUserId(professionalQualificationDto.getUser());
 		ProfessionalQualification professionalQualification=ProfessionalQualificationDtoToProfessionalQualification.map(professionalQualificationDto);
 		
 		boolean test = professionalQualificationService.addProfessionalQualification(professionalQualification, userobj);
@@ -44,7 +44,16 @@ public class ProfessionalQualificationController {
 		}
 		return HttpStatus.BAD_REQUEST;
 	}
-	 
+	@PutMapping("/professionalQualification/edit/{id}")
+	public HttpStatus ModifyProfessionalQualification(@PathVariable Integer id,@RequestBody ProfessionalQualificationDto professionalQualificationDto) {
+		User userObj=userService.findByUserId(professionalQualificationDto.getUser());
+		ProfessionalQualification professionalQualification=ProfessionalQualificationDtoToProfessionalQualification.map(professionalQualificationDto);
+		boolean editTest=professionalQualificationService.editProfessionalQualification(professionalQualification,userObj, id);
+		if(editTest) {
+			return HttpStatus.ACCEPTED;
+		}
+		return HttpStatus.BAD_REQUEST;
+	}
 	@GetMapping("/professionalQualification")
 	public ResponseEntity<List<ProfessionalQualification>> GetProfessionalQualification(){
 		List<ProfessionalQualification> professionalQualifications=professionalQualificationService.getAllProfessionalQualifications();
@@ -58,14 +67,7 @@ public class ProfessionalQualificationController {
 		professionalQualifications = professionalQualificationService.getProfessionalQualificationByUserId(id);
 		return new ResponseEntity<>(professionalQualifications,HttpStatus.OK);
 	}
-	@PutMapping("/professionalQualification/{id}")
-	public HttpStatus ModifyProfessionalQualification(@PathVariable Integer id,@RequestBody ProfessionalQualification professionalQualification) {
-		boolean editTest=professionalQualificationService.editProfessionalQualification(professionalQualification, id);
-		if(editTest) {
-			return HttpStatus.ACCEPTED;
-		}
-		return HttpStatus.BAD_REQUEST;
-	}
+	
 	
 	@DeleteMapping("/professionalQualification/{id}")
 	public HttpStatus DeleteProfessionalQualification(@PathVariable Integer id) {

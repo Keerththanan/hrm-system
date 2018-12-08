@@ -8,5 +8,9 @@ public interface SalaryChartService {
 
 	public List<SalaryChartEntity> viewSalaryChart();
 
-	public SalaryChartEntity viewOneById(Integer id);
+	public List<SalaryChartEntity> viewByEmpName(String name);
+	
+	public SalaryChartEntity viewSalaryChartEmployee(Integer id);
+	
+	public SalaryChartEntity viewByName(String name);
 }

@@ -17,37 +17,43 @@ public class IndividualWelfareServiceImpl implements IndividualWelfareService {
 	private IndividualWelfareRepository individualWelfareRepository;
 
 	@Override
-	public List<IndividualWelfare> getIndividualWelfare() {
+	public List<IndividualWelfare> getAllIndividualWelfare() {
 		return individualWelfareRepository.findAll();
 	}
 
-//	@Override
-//	public void createIndividualWelfare(IndividualWelfare individualWelfare) {
-//		individualWelfareRepository.save(individualWelfare);	
-//	}
-
+	
 	@Override
-	public void updateIndividualWelfare(IndividualWelfare individualWelfare, Integer id) {
+	public boolean createIndividualWelfare(IndividualWelfare individualWelfare) {
+		individualWelfareRepository.save(individualWelfare);
+		return true;
+		
+	}
+	
+	@Override
+	public boolean updateIndividualWelfare(IndividualWelfare individualWelfare, Integer id) {
 		IndividualWelfare existIndividualWelfare =individualWelfareRepository.getOne(id);
 		
 		if(existIndividualWelfare.getId() !=null) {
 			individualWelfare.setId(id);
 			individualWelfareRepository.save(individualWelfare);
+			return true;
 		}
+		return false;
 	}
 
 	@Override
-	public void deleteIndividualWelfare(Integer id) {
+	public boolean deleteIndividualWelfare(Integer id) {
 		individualWelfareRepository.deleteById(id);
-		
+		return true;
 		
 	}
 
+
 	@Override
-	public void createIndividualWelfare(IndividualWelfare individualWelfare, Integer id) {
-		// TODO Auto-generated method stub
-		
+	public IndividualWelfare getById(Integer id) {
+		return individualWelfareRepository.findById(id).orElse(null);
 	}
+
 
 	
 }

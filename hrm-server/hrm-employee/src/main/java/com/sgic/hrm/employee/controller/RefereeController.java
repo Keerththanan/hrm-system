@@ -1,7 +1,9 @@
 package com.sgic.hrm.employee.controller;
 
 import java.util.List;
+
 import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -31,7 +33,7 @@ public class RefereeController {
 
 	@PostMapping("/referee")
 	public HttpStatus addReferee(@Valid @RequestBody RefereesDto refereesDto) {
-		User userObj = userService.findByUserId(refereesDto.getUserId());
+		User userObj = userService.findByUserId(refereesDto.getUser());
 		Referee referee = RefeereeDtoToReferee.map(refereesDto);
 		boolean test = refereeService.addReferee(referee, userObj);
 		if (test) {
@@ -47,9 +49,11 @@ public class RefereeController {
 		return response;
 	}
 
-	@PutMapping("/referee/{id}")
-	public HttpStatus editReferee(@RequestBody Referee referee, @PathVariable("id") Integer id) {
-		boolean test = refereeService.editReferee(referee, id);
+	@PutMapping("/refereeedit/{id}")
+	public HttpStatus editReferee(@RequestBody RefereesDto refereesDto, @PathVariable("id") Integer id) {
+		User userObj = userService.findByUserId(refereesDto.getUser());
+		Referee referee = RefeereeDtoToReferee.map(refereesDto);
+		boolean test = refereeService.editReferee(referee, id ,userObj);
 		if (test) {
 			return HttpStatus.ACCEPTED;
 		}

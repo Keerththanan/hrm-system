@@ -1,7 +1,13 @@
 package com.sgic.hrm.commons.dto;
 
 public class WorkExperienceDTO {
-	private Integer userId;
+	private Integer user;
+	public Integer getUser() {
+		return user;
+	}
+	public void setUser(Integer user) {
+		this.user = user;
+	}
 	private Integer id;
 	private String workName;
 	private String workPlace;
@@ -11,12 +17,7 @@ public class WorkExperienceDTO {
 	private String workType;
 	private String reasonForLeaving;
 	private Integer leavingSalary;
-	public Integer getUserId() {
-		return userId;
-	}
-	public void setUserId(Integer userId) {
-		this.userId = userId;
-	}
+	
 	public Integer getId() {
 		return id;
 	}

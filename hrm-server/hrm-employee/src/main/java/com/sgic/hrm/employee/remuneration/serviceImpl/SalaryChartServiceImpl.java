@@ -22,11 +22,21 @@ public class SalaryChartServiceImpl implements SalaryChartService {
 	}
 
 	@Override
-	public SalaryChartEntity viewOneById(Integer id) {
+	public List<SalaryChartEntity> viewByEmpName(String name) {
+		// TODO Auto-generated method stub
+		return salaryChartRepository.findByEmpName(name);
+	}
+
+	@Override
+	public SalaryChartEntity viewSalaryChartEmployee(Integer id) {
 		// TODO Auto-generated method stub
 		return salaryChartRepository.getOne(id);
 	}
 
-
-
+	@Override
+	public SalaryChartEntity viewByName(String name) {
+		// TODO Auto-generated method stub
+		return salaryChartRepository.findByUserName(name);
+		
+	}
 }

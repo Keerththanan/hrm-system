@@ -20,6 +20,11 @@ private UserLoanDetailsRepository userLoanDetailsRepository;
 	public List<UserLoanDetails> getSpecificUser(Integer id) {
 		return userLoanDetailsRepository.findByUserId(id);
 	}
+	@Override
+	public List<UserLoanDetails> getSpecificUserByName(String name) {
+		// TODO Auto-generated method stub
+		return userLoanDetailsRepository.findByUserName(name);
+	}
 	
 	
 	

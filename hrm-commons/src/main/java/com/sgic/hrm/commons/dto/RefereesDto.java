@@ -4,11 +4,17 @@ public class RefereesDto {
 	private Integer id;
 	private String refereeName;
 	
-	private Integer userId;
-	
+	private Integer user;
+	private String email;
 	private String Address;
 	private String contactNo;
 	private String relationship;
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
 	public Integer getId() {
 		return id;
 	}
@@ -21,11 +27,11 @@ public class RefereesDto {
 	public void setRefereeName(String refereeName) {
 		this.refereeName = refereeName;
 	}
-	public Integer getUserId() {
-		return userId;
+	public Integer getUser() {
+		return user;
 	}
-	public void setUserId(Integer userId) {
-		this.userId = userId;
+	public void setUser(Integer user) {
+		this.user = user;
 	}
 	public String getAddress() {
 		return Address;

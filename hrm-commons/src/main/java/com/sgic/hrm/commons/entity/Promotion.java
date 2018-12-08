@@ -1,15 +1,21 @@
 package com.sgic.hrm.commons.entity;
 
 import java.io.Serializable;
+import java.sql.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.springframework.data.annotation.CreatedDate;
+
 @Entity
-@Table
+@Table(schema = "employee", name = "promotion")
 public class Promotion implements Serializable {
 
 	/**
@@ -21,36 +27,44 @@ public class Promotion implements Serializable {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 	
-//	@OneToOne(fetch = FetchType.EAGER)
+//	@ManyToOne(cascade = {CascadeType.ALL})
+	@ManyToOne
+	@JoinColumn(name = "user_id")
+	private User userId;
 	
-	private int requestId;
-	private int designationId;
-	private int promotedDate;
+//	@ManyToOne(cascade = {CascadeType.ALL})
+	@ManyToOne
+	@JoinColumn(name = "designation_id")
+	private Designation designationId;
+	
+	@CreatedDate
+	private Date promotedDate;
 	private String remark;
 	private int salary;
-	private int promotedBy;
+	private String promotedBy;
 	public Integer getId() {
 		return id;
 	}
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public int getRequestId() {
-		return requestId;
+	
+	public User getUserId() {
+		return userId;
 	}
-	public void setRequestId(int requestId) {
-		this.requestId = requestId;
+	public void setUserId(User userId) {
+		this.userId = userId;
 	}
-	public int getDesignationId() {
+	public Designation getDesignationId() {
 		return designationId;
 	}
-	public void setDesignationId(int designationId) {
+	public void setDesignationId(Designation designationId) {
 		this.designationId = designationId;
 	}
-	public int getPromotedDate() {
+	public Date getPromotedDate() {
 		return promotedDate;
 	}
-	public void setPromotedDate(int promotedDate) {
+	public void setPromotedDate(Date promotedDate) {
 		this.promotedDate = promotedDate;
 	}
 	public String getRemark() {
@@ -65,10 +79,10 @@ public class Promotion implements Serializable {
 	public void setSalary(int salary) {
 		this.salary = salary;
 	}
-	public int getPromotedBy() {
+	public String getPromotedBy() {
 		return promotedBy;
 	}
-	public void setPromotedBy(int promotedBy) {
+	public void setPromotedBy(String promotedBy) {
 		this.promotedBy = promotedBy;
 	}
 	

@@ -51,8 +51,12 @@ public class UserCareerDevelopmentPlanSelfServiceImpl implements UserCareerDevel
   
   @Override
   public UserCareerDevelopmentPlanSelf getCareerDevelopmentPlanSelfById(Integer id) {
-    // TODO Auto-generated method stub
-    return null;
+    return userCareerDevelopmentPlanSelfRepository.getOne(id);
+  }
+
+  @Override
+  public List<UserCareerDevelopmentPlanSelf> getCareerDevelopmentPlanSelfByUserId(int id) {
+    return userCareerDevelopmentPlanSelfRepository.findById(id);
   }
 
 }

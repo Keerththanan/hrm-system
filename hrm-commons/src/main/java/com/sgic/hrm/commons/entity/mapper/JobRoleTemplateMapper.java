@@ -20,8 +20,8 @@ public class JobRoleTemplateMapper {
 			jobRoleTemplateData.setPersonalCheracteristics(jobRoleTemplate.getPersonalCheracteristics());
 			jobRoleTemplateData.setCertification(jobRoleTemplate.getCertification());
 			
-			jobRoleTemplateData.setJobid(JobMapper.jobMapper(jobRoleTemplate.getJobid()));
-			jobRoleTemplateData.setHighestQualificationid(HighestQualificationMapper.highestQualificationMapper(jobRoleTemplate.getHighestQualificationid()));
+			jobRoleTemplateData.setJob(JobMapper.jobMapper(jobRoleTemplate.getJob()));
+			jobRoleTemplateData.setHighestQualification(HighestQualificationMapper.highestQualificationMapper(jobRoleTemplate.getHighestQualification()));
 			
 			return jobRoleTemplateData;
 		}

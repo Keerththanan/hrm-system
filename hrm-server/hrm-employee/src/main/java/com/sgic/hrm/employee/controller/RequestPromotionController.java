@@ -14,7 +14,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.sgic.hrm.commons.dto.RequestPromotionData;
+import com.sgic.hrm.commons.dto.RequestPromotionSaveData;
 import com.sgic.hrm.commons.dto.mapper.RequestPromotionDataMapper;
+import com.sgic.hrm.commons.entity.RequestPromotion;
 import com.sgic.hrm.commons.entity.mapper.RequestPromotionMapper;
 import com.sgic.hrm.employee.service.RequestPromotionService;
 
@@ -29,6 +31,8 @@ public class RequestPromotionController {
 		return new ResponseEntity<>(RequestPromotionMapper.mapToRequestPromotionDataList
 				(requestPromotionService.getAllRequestPromotion()), HttpStatus.OK);
 	}
+	
+	
 
 	@PostMapping("/requestpromotion")
 	public ResponseEntity<String> addRequestPromotion(@RequestBody RequestPromotionData requestPromotionData) {
@@ -39,6 +43,17 @@ public class RequestPromotionController {
 
 	}
 
+	@PostMapping("/requestpromotionsave")
+	public HttpStatus postRequestPromotion(@RequestBody RequestPromotionSaveData requestPromotionSaveData) {
+
+		boolean test = requestPromotionService.addRequestPromotion(
+				RequestPromotionDataMapper.mapRequestPromotionSaveDataToRequestPromotion(requestPromotionSaveData));
+		if (test) {
+			return HttpStatus.CREATED;
+		}
+		return HttpStatus.BAD_REQUEST;
+	}
+	
 	@PutMapping("/requestpromotion/{id}")
 	public ResponseEntity<String> updateRequestPromotion(@PathVariable(name="id") Integer id, @RequestBody RequestPromotionData requestPromotionData) {
 		boolean reqPro = requestPromotionService.updateRequestPromotion(RequestPromotionDataMapper.mapToRequestPromotion(requestPromotionData),id);
@@ -58,4 +73,9 @@ public class RequestPromotionController {
 		return new ResponseEntity<>("Deleted" ,HttpStatus.BAD_REQUEST);
 	}
 
+	@GetMapping("/requestpromotion/{id}")
+	public List<RequestPromotion> getAllRequestPromotionsByUserId(@PathVariable int id) {
+		return requestPromotionService.getPromotionByUserId(id);
+	}
+	
 }

@@ -7,12 +7,11 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.sgic.hrm.commons.dto.BenefitsAllowancesDto;
-import com.sgic.hrm.commons.entity.mapper.BenefitsAllowancesEntityMapper;
+import com.sgic.hrm.commons.dto.IndividualWelfareDto;
+import com.sgic.hrm.commons.entity.mapper.IndividualWelfareEntityMapper;
 import com.sgic.hrm.employee.remuneration.service.BenefitsAllowancesService;
 
 @RestController
@@ -24,21 +23,20 @@ public class BenefitsAllowancesController {
 	private BenefitsAllowancesService benefitsAllowancesService;
 
 	@GetMapping
-	public List<BenefitsAllowancesDto> viewBenefitsAllowances() {
-		return BenefitsAllowancesEntityMapper.mapBenefitsAllowancesEntityListToBenefitsAllowancesDtoList(
+	public List<IndividualWelfareDto> viewBenefitsAllowances() {
+		return IndividualWelfareEntityMapper.mapIndividualWelfareEntityListToIndividualWelfareDtoList(
 				benefitsAllowancesService.getBenefitsAllowances());
 	}
 
-//	@GetMapping
-//	public BenefitsAllowancesDto viewBenefits(@RequestParam("id") Integer id) {
-//		return BenefitsAllowancesEntityMapper
-//				.mapBenefitsAllowancesEntityToBenefitsAllowancesDto(benefitsAllowancesService.viewById(id));
-//	}
-
-	@GetMapping("/{id}")
-	public List<BenefitsAllowancesDto> viewbysalarychartId(@PathVariable Integer id) {
-		return BenefitsAllowancesEntityMapper
-				.mapBenefitsAllowancesEntityListToBenefitsAllowancesDtoList(benefitsAllowancesService.viewByChatId(id));
+	@GetMapping(path = "/search", params = { "id" })
+	public IndividualWelfareDto viewBenefits(@RequestParam("id") Integer id) {
+		return IndividualWelfareEntityMapper
+				.mapIndividualWelfareEntityToIndividualWelfareDto(benefitsAllowancesService.viewById(id));
 	}
 
+	@GetMapping("/{id}")
+	public IndividualWelfareDto getBenefitsAllowencesByWelfareEventID(@PathVariable Integer id) {
+		return IndividualWelfareEntityMapper
+				.mapIndividualWelfareEntityToIndividualWelfareDto(benefitsAllowancesService.viewByWelfareEventId(id));
+	}
 }

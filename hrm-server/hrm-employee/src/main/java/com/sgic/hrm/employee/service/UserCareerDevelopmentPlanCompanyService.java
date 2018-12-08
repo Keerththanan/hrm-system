@@ -9,9 +9,11 @@ public interface UserCareerDevelopmentPlanCompanyService {
 
   List<UserCareerDevelopmentPlanCompany> getUserCareerDevelopmentPlanCompany();
 
-  boolean editCareerDevelopmentPlanSelf(UserCareerDevelopmentPlanCompany careerDevelopmentPlanCompany, Integer id);
+  boolean editCareerDevelopmentPlanCompany(UserCareerDevelopmentPlanCompany careerDevelopmentPlanCompany, Integer id);
 
   boolean deleteUserCareerDevelopmentPlanCompany(Integer id);
 
-  UserCareerDevelopmentPlanCompany getUserCareerDevelopmentPlanCompanyById(Integer id);
+  UserCareerDevelopmentPlanCompany getUserCareerDevelopmentPlanCompanyById(int id);
+  
+  List<UserCareerDevelopmentPlanCompany> getUserCareerDevelopmentPlanByUserId(int id);
 }

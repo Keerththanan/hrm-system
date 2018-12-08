@@ -1,11 +1,18 @@
 package com.sgic.hrm.commons.dto;
 
+import java.sql.Date;
+
 public class IndividualWelfareData {
 	
 	private Integer Id;
 	private String employee_name;
 	private String individualWelfare_name;
 	private Integer amount;
+	private Date date ;
+	
+	UserData user;
+	WelfareEventDto welfareEvent;
+	
 	public Integer getId() {
 		return Id;
 	}
@@ -30,6 +37,28 @@ public class IndividualWelfareData {
 	public void setAmount(Integer amount) {
 		this.amount = amount;
 	}
+	
+	
+	public Date getDate() {
+		return date;
+	}
+	public void setDate(Date date) {
+		this.date = date;
+	}
+	public UserData getUser() {
+		return user;
+	}
+	public void setUser(UserData user) {
+		this.user = user;
+	}
+	public WelfareEventDto getWelfareEvent() {
+		return welfareEvent;
+	}
+	public void setWelfareEvent(WelfareEventDto welfareEvent) {
+		this.welfareEvent = welfareEvent;
+	}
+	
+	
 
 }
 

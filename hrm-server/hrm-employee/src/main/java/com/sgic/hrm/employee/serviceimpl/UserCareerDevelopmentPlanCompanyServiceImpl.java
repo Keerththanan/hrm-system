@@ -25,7 +25,7 @@ public class UserCareerDevelopmentPlanCompanyServiceImpl implements UserCareerDe
   }
 
   @Override
-  public boolean editCareerDevelopmentPlanSelf(
+  public boolean editCareerDevelopmentPlanCompany(
       UserCareerDevelopmentPlanCompany careerDevelopmentPlanCompany, Integer id) {
     boolean success = false;
     if (userCareerDevelopmentPlanCompanyRepository.getOne(id) != null) {
@@ -47,8 +47,12 @@ public class UserCareerDevelopmentPlanCompanyServiceImpl implements UserCareerDe
   }
 
   @Override
-  public UserCareerDevelopmentPlanCompany getUserCareerDevelopmentPlanCompanyById(Integer id) {
+  public UserCareerDevelopmentPlanCompany getUserCareerDevelopmentPlanCompanyById(int id) {
     return userCareerDevelopmentPlanCompanyRepository.getOne(id);
   }
-  
+
+  @Override
+  public List<UserCareerDevelopmentPlanCompany> getUserCareerDevelopmentPlanByUserId(int id) {
+    return userCareerDevelopmentPlanCompanyRepository.findById(id);
+  }
 }

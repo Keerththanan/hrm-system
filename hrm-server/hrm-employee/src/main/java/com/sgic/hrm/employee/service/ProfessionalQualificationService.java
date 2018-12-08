@@ -14,7 +14,7 @@ public interface ProfessionalQualificationService {
 	
 	List<ProfessionalQualification> getAllProfessionalQualifications();
 	
-	boolean editProfessionalQualification(ProfessionalQualification professionalQualification,Integer id);
+	boolean editProfessionalQualification(ProfessionalQualification professionalQualification,User user,Integer id);
 	
 	Optional<ProfessionalQualification> getProfessionalQualificationById(int id);
 	

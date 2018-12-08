@@ -1,21 +1,20 @@
 package com.sgic.hrm.commons.dto;
 
-import java.time.ZonedDateTime;
 
+import java.sql.Date;
 public class VacancyData {
 	private Integer id;
 	private Integer noOfVacancy;
 	private Integer salaryScale;
-	private ZonedDateTime vacancyOpenDate;
-	private ZonedDateTime vacancyCloseDate;
-	private ZonedDateTime interviewDate;
+	private Date vacancyOpenDate;
+	private Date vacancyCloseDate;
+	private Date interviewDate;
 	private String keyRecuitment;
 	
-	private UserData userid;
-	private JobData jobid;
-	private DepartmentData departmentid;
-	private RecruitmentTypeData recruitmentid;
-	
+	private UserData user;
+	private JobData job;
+	private DepartmentData department;
+	private RecruitmentTypeData recruitmentType;
 	
 	public Integer getId() {
 		return id;
@@ -35,22 +34,22 @@ public class VacancyData {
 	public void setSalaryScale(Integer salaryScale) {
 		this.salaryScale = salaryScale;
 	}
-	public ZonedDateTime getVacancyOpenDate() {
+	public Date getVacancyOpenDate() {
 		return vacancyOpenDate;
 	}
-	public void setVacancyOpenDate(ZonedDateTime vacancyOpenDate) {
+	public void setVacancyOpenDate(Date vacancyOpenDate) {
 		this.vacancyOpenDate = vacancyOpenDate;
 	}
-	public ZonedDateTime getVacancyCloseDate() {
+	public Date getVacancyCloseDate() {
 		return vacancyCloseDate;
 	}
-	public void setVacancyCloseDate(ZonedDateTime vacancyCloseDate) {
+	public void setVacancyCloseDate(Date vacancyCloseDate) {
 		this.vacancyCloseDate = vacancyCloseDate;
 	}
-	public ZonedDateTime getInterviewDate() {
+	public Date getInterviewDate() {
 		return interviewDate;
 	}
-	public void setInterviewDate(ZonedDateTime interviewDate) {
+	public void setInterviewDate(Date interviewDate) {
 		this.interviewDate = interviewDate;
 	}
 	public String getKeyRecuitment() {
@@ -59,29 +58,29 @@ public class VacancyData {
 	public void setKeyRecuitment(String keyRecuitment) {
 		this.keyRecuitment = keyRecuitment;
 	}
-	public UserData getUserid() {
-		return userid;
+	public UserData getUser() {
+		return user;
 	}
-	public void setUserid(UserData userid) {
-		this.userid = userid;
+	public void setUser(UserData user) {
+		this.user = user;
 	}
-	public JobData getJobid() {
-		return jobid;
+	public JobData getJob() {
+		return job;
 	}
-	public void setJobid(JobData jobid) {
-		this.jobid = jobid;
+	public void setJob(JobData job) {
+		this.job = job;
 	}
-	public DepartmentData getDepartmentid() {
-		return departmentid;
+	public DepartmentData getDepartment() {
+		return department;
 	}
-	public void setDepartmentid(DepartmentData departmentid) {
-		this.departmentid = departmentid;
+	public void setDepartment(DepartmentData department) {
+		this.department = department;
 	}
-	public RecruitmentTypeData getRecruitmentid() {
-		return recruitmentid;
+	public RecruitmentTypeData getRecruitmentType() {
+		return recruitmentType;
 	}
-	public void setRecruitmentid(RecruitmentTypeData recruitmentid) {
-		this.recruitmentid = recruitmentid;
+	public void setRecruitmentType(RecruitmentTypeData recruitmentType) {
+		this.recruitmentType = recruitmentType;
 	}
 	
 	

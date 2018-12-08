@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.sgic.hrm.commons.dto.VacancyData;
+import com.sgic.hrm.commons.dto.VacancySaveData;
 import com.sgic.hrm.commons.dto.mapper.VacancyDataMapper;
 import com.sgic.hrm.commons.entity.Vacancy;
 import com.sgic.hrm.employee.service.VacancyService;
@@ -26,17 +27,6 @@ import com.sgic.hrm.employee.service.VacancyService;
 public class VacancyController {
 	@Autowired
 	private VacancyService vacancyService;
-	
-	@PostMapping("/vacancy")
-	public HttpStatus createVacancy(@RequestBody VacancyData vacancyData) {
-		boolean test = vacancyService.addVacancy(VacancyDataMapper.vacancyDataMapper(vacancyData));
-		if (test) {
-			return HttpStatus.CREATED;
-
-		}
-
-		return HttpStatus.BAD_REQUEST;
-	}
 
 	@GetMapping("/vacancy")
 	public ResponseEntity<List<Vacancy>> getVacancy() {
@@ -45,15 +35,16 @@ public class VacancyController {
 		return response;
 	}
 
-//	@PutMapping("/vacancy/{id}")
-//	public HttpStatus editDepartment(@RequestBody Vacancy vacancy, @PathVariable("id") Integer vacancy_id) {
-//		boolean test = vacancyService.editVacancy(vacancy, vacancy_id);
-//		if (test) {
-//			return HttpStatus.ACCEPTED;
-//		}
-//		return HttpStatus.BAD_REQUEST;
-//
-//	}
+	@PostMapping("/vacancysave")
+	public HttpStatus postVacancy(@RequestBody VacancySaveData vacancySaveData) {
+
+		boolean test =vacancyService.addVacancy(
+				VacancyDataMapper.vacancySaveDataMapper(vacancySaveData));
+		if (test) {
+			return HttpStatus.CREATED;
+		}
+		return HttpStatus.BAD_REQUEST;
+	}
 	
 	@PutMapping("/vacancy/{id}")
 	public ResponseEntity<String> updateVacancy(@PathVariable(name="id") Integer id,@RequestBody VacancyData vacancyData){
