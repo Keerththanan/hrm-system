@@ -8,8 +8,10 @@ import com.sgic.hrm.commons.enums.Status;
 
 public interface LeaveRequestRepository extends JpaRepository<LeaveRequest, Integer>{
   
-  List<LeaveRequest> findByUser(User user);
+  List<LeaveRequest> findByUserOrderByIdDesc(User user);
   
-  List<LeaveRequest> findByStatus(Status status);
+  List<LeaveRequest> findByStatusOrderByIdDesc(Status status);
+  
+  List<LeaveRequest> findAllByOrderByIdDesc();
 
 }

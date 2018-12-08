@@ -12,8 +12,13 @@ public class HolidayCalendarToHolidayCalendarData {
 
     if (holidayCalendar != null) {
       holidayCalendarData.setId(holidayCalendar.getId());
-      holidayCalendarData.setDescription(holidayCalendar.getDescription());
-      holidayCalendarData.setDate(holidayCalendar.getDate());
+      holidayCalendarData.setTitle(holidayCalendar.getTitle());
+      holidayCalendarData.setStart(holidayCalendar.getStart());
+      holidayCalendarData.setEnd(holidayCalendar.getEnd());
+      holidayCalendarData.setAllDay(holidayCalendar.isAllDay());
+      holidayCalendarData.setDraggable(holidayCalendar.isDraggable());
+      holidayCalendarData.setColor(ColorsToColorsData.mapToColorsData(holidayCalendar.getColor()));
+      holidayCalendarData.setResizable(ResizableToResizableData.mapToResizableData(holidayCalendar.getResizable()));
       holidayCalendarData
           .setEnteredBy(UserToUserData.mapToUserData(holidayCalendar.getEnteredBy()));
     }
