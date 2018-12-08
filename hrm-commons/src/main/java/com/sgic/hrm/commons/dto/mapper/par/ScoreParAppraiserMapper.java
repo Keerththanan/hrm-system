@@ -11,6 +11,7 @@ public class ScoreParAppraiserMapper {
 		scoreParAppraiser.setId(pk);
 		scoreParAppraiser.setParContent(parContent);
 		scoreParAppraiser.setScore(scoreParAppraiserDtoPost.getScore());
+		scoreParAppraiser.setComment(scoreParAppraiserDtoPost.getComment());
 		return scoreParAppraiser;
 
 	}
