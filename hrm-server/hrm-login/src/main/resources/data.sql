@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-
-=======
---roles--
->>>>>>> pasindu
 INSERT INTO login.role(rolename) VALUES('ADMIN');
 INSERT INTO login.role(rolename) VALUES('DIRECTOR');
 INSERT INTO login.role(rolename) VALUES('HR_MANAGER');
