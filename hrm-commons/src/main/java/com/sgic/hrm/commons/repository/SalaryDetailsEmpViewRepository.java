@@ -7,6 +7,6 @@ import com.sgic.hrm.commons.entity.SalaryDetailsEmpViewEntity;
 
 public interface SalaryDetailsEmpViewRepository extends JpaRepository<SalaryDetailsEmpViewEntity, Integer>{
 
-	@Query("SELECT sd FROM SalaryDetailsEmpViewEntity sd WHERE sd.id=?1")
+	@Query("SELECT sd FROM SalaryDetailsEmpViewEntity sd WHERE sd.empName=?1")
 	SalaryDetailsEmpViewEntity findDetailsByEmpId(Integer id);
 }

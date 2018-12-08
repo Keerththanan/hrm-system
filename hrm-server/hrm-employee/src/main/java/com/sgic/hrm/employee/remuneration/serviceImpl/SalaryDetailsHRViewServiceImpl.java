@@ -19,5 +19,10 @@ public class SalaryDetailsHRViewServiceImpl implements SalaryDetailsHRViewServic
 		// TODO Auto-generated method stub
 		return salaryDetailsHRViewRepository.findAll();
 	}
+	@Override
+	public List<SalaryDetailsHRViewEntity> viewSalaryDetailsByName(String name) {
+		// TODO Auto-generated method stub
+		return salaryDetailsHRViewRepository.findSalaryDetailsByEmpName(name);
+	}
 
 }
