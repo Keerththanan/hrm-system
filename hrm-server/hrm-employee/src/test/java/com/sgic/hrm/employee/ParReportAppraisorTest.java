@@ -20,12 +20,24 @@ public class ParReportAppraisorTest {
 	@Autowired
 	ParReportForAppraisorService parReportForAppraisorService;
 	@Test
-	public void  ParReportAppraisor() {
-		ReportParAppraisorDtoPost objParReport =new ReportParAppraisorDtoPost(1,12,"EMP001",new Date());
+	public void  ParReportAppraisor1() {
+		ReportParAppraisorDtoPost objParReport =new ReportParAppraisorDtoPost(1,1,"c1",new Date());
 		List<ScoreParAppraiserDtoPost> scoreParAppraisorList=new ArrayList<>();
-		scoreParAppraisorList.add(new ScoreParAppraiserDtoPost("C001",3.5));
-		scoreParAppraisorList.add(new ScoreParAppraiserDtoPost("C002",2.5));
-		scoreParAppraisorList.add(new ScoreParAppraiserDtoPost("C003",1.5));
+		scoreParAppraisorList.add(new ScoreParAppraiserDtoPost("1",3.5));
+		scoreParAppraisorList.add(new ScoreParAppraiserDtoPost("2",2.5));
+		scoreParAppraisorList.add(new ScoreParAppraiserDtoPost("3",1.5));
+		objParReport.setScoreParAppraiserList(scoreParAppraisorList);
+		parReportForAppraisorService.saveReportAndScoreAppraisor(objParReport);
+	}
+	
+	@Test
+	public void  ParReportAppraisor2() {
+		ReportParAppraisorDtoPost objParReport =new ReportParAppraisorDtoPost(2,1,"c2",new Date());
+		List<ScoreParAppraiserDtoPost> scoreParAppraisorList=new ArrayList<>();
+		scoreParAppraisorList.add(new ScoreParAppraiserDtoPost("1",3.5));
+		scoreParAppraisorList.add(new ScoreParAppraiserDtoPost("2",2.5));
+		scoreParAppraisorList.add(new ScoreParAppraiserDtoPost("3",1.5));
+		objParReport.setScoreParAppraiserList(scoreParAppraisorList);
 		parReportForAppraisorService.saveReportAndScoreAppraisor(objParReport);
 	}
 

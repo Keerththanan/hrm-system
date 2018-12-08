@@ -28,14 +28,14 @@ public class ParReportTest {
 	
 	@Test
 	public void parReportTest1() {
-		ReportParAppraiseeDtoPost objParReport = new ReportParAppraiseeDtoPost(2,1);
-	List<ScoreParAppraiseeDtoPost> scheduleParAppraisorList=new ArrayList<ScoreParAppraiseeDtoPost>();
-	scheduleParAppraisorList.add(new ScoreParAppraiseeDtoPost("C001",3.00));
-	scheduleParAppraisorList.add(new ScoreParAppraiseeDtoPost("C002",4.00));
-	scheduleParAppraisorList.add(new ScoreParAppraiseeDtoPost("C003",5.00));
-	scheduleParAppraisorList.add(new ScoreParAppraiseeDtoPost("C004",5.00));
-	objParReport.setScoreParAppraiseeList(scheduleParAppraisorList);
-	parReportForAppraiseeService.saveReportAndScore(objParReport);
+//		ReportParAppraiseeDtoPost objParReport = new ReportParAppraiseeDtoPost(2,1);
+//	List<ScoreParAppraiseeDtoPost> scheduleParAppraisorList=new ArrayList<ScoreParAppraiseeDtoPost>();
+//	scheduleParAppraisorList.add(new ScoreParAppraiseeDtoPost("C001",3.00));
+//	scheduleParAppraisorList.add(new ScoreParAppraiseeDtoPost("C002",4.00));
+//	scheduleParAppraisorList.add(new ScoreParAppraiseeDtoPost("C003",5.00));
+//	scheduleParAppraisorList.add(new ScoreParAppraiseeDtoPost("C004",5.00));
+//	objParReport.setScoreParAppraiseeList(scheduleParAppraisorList);
+//	parReportForAppraiseeService.saveReportAndScore(objParReport);
 	
 	}
 	
