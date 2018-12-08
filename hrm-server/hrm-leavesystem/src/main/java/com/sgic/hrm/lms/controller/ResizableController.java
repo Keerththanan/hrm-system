@@ -32,6 +32,4 @@ public class ResizableController {
 		}
 		return HttpStatus.BAD_REQUEST;
 	}
-	
-
 }

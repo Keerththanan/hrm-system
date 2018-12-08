@@ -62,7 +62,7 @@ public class LeaveRequestServiceImpl implements LeaveRequestService {
 	
 	@Override
 	public List<LeaveRequest> getLeaveRequestByUserName(String userName) {
-		return leaveRequestRepository.findByUser(loginService.getUser(userName));
+		return leaveRequestRepository.findByUserOrderByIdDesc(loginService.getUser(userName));
 	}
 
 	@Transactional
@@ -101,18 +101,18 @@ public class LeaveRequestServiceImpl implements LeaveRequestService {
 	@Override
 	public List<LeaveRequest> getLeaveRequestByUser(Integer userId) {
 
-		return leaveRequestRepository.findByUser(userRepository.getOne(userId));
+		return leaveRequestRepository.findByUserOrderByIdDesc(userRepository.getOne(userId));
 	}
 
 	@Override
 	public List<LeaveRequest> getAllLeaveRequest() {
-		return leaveRequestRepository.findAll();
+		return leaveRequestRepository.findAllByOrderByIdDesc();
 	}
 
 	@Override
 	public List<LeaveRequest> getAllLeaveRequestByStatus(Status status) {
 
-		return leaveRequestRepository.findByStatus(status);
+		return leaveRequestRepository.findByStatusOrderByIdDesc(status);
 	}
 
 	@Transactional

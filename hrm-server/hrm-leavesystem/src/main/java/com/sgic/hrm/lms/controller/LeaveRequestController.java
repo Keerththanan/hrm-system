@@ -74,30 +74,30 @@ public class LeaveRequestController {
   }
 
   @DeleteMapping("/{id}")
-  public ResponseEntity<String> deleteLeaveRequest(@PathVariable("id") Integer id) {
+  public HttpStatus deleteLeaveRequest(@PathVariable("id") Integer id) {
     if (leaveRequestService.deleteLeaveRequest(id)) {
-      return new ResponseEntity<>("request deleted successfully", HttpStatus.OK);
+      return  HttpStatus.OK;
     }
-    return new ResponseEntity<>("faild to delete request", HttpStatus.BAD_REQUEST);
+    return HttpStatus.BAD_REQUEST;
   }
 
   @Transactional
   @PostMapping("/accept")
-  public ResponseEntity<String> acceptLeaveRequest(@RequestBody AcceptLeaveDto acceptLeaveDto) {
+  public HttpStatus acceptLeaveRequest(@RequestBody AcceptLeaveDto acceptLeaveDto) {
 
     if (leaveRequestService.acceptLeaveRequest(acceptLeaveDto)) {
-      return new ResponseEntity<>("status updated successfully", HttpStatus.OK);
+      return HttpStatus.OK;
     }
-    return new ResponseEntity<>("status update faild", HttpStatus.BAD_REQUEST);
+    return HttpStatus.BAD_REQUEST;
   }
 
 
   @PostMapping("/reject")
-  public ResponseEntity<String> rejectLeaveRequest(@RequestBody RejectLeaveDto rejectLeaveDto) {
+  public HttpStatus rejectLeaveRequest(@RequestBody RejectLeaveDto rejectLeaveDto) {
 
     if (leaveRequestService.rejectLeaveRequest(rejectLeaveDto)) {
-      return new ResponseEntity<>("status updated successfully", HttpStatus.OK);
+      return HttpStatus.OK;
     }
-    return new ResponseEntity<>("status update faild", HttpStatus.BAD_REQUEST);
+    return HttpStatus.BAD_REQUEST;
   }
 }

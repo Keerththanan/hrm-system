@@ -7,7 +7,6 @@ import com.sgic.hrm.commons.dto.AcceptCancelRequestDto;
 import com.sgic.hrm.commons.dto.RejectCancelRequestDto;
 import com.sgic.hrm.commons.entity.AcceptCancelRequest;
 import com.sgic.hrm.commons.entity.CancelLeaveRequest;
-import com.sgic.hrm.commons.entity.LeaveRequest;
 import com.sgic.hrm.commons.entity.RejectCancelRequest;
 import com.sgic.hrm.commons.enums.Status;
 import com.sgic.hrm.commons.repository.AcceptCancelRequestRepository;
@@ -37,6 +36,8 @@ public class CancelLeaveRequestServiceImpl implements CancelLeaveRequestService 
   @Override
   public boolean addCancelLeaveRequest(CancelLeaveRequest cancelLeaveRequest) {
     cancelLeaveRequest.setStatus(Status.PENDING);
+    cancelLeaveRequest.getLeaveRequest().setStatus(Status.FOR_CANCEL);
+    leaveRequestRepository.save(cancelLeaveRequest.getLeaveRequest());
     cancelLeaveRequestRepository.save(cancelLeaveRequest);
     return true;
   }
@@ -48,19 +49,18 @@ public class CancelLeaveRequestServiceImpl implements CancelLeaveRequestService 
   }
 
   @Override
-  public boolean acceptCancelLeaveRequestStatus(AcceptCancelRequestDto acceptCancelRequestDto) {
+  public boolean acceptCancelLeaveRequest(AcceptCancelRequestDto acceptCancelRequestDto) {
 
     CancelLeaveRequest cancelLeaveRequest = cancelLeaveRequestRepository
         .findById(acceptCancelRequestDto.getCancelRequestId()).orElse(null);
 
     if (cancelLeaveRequest != null) {
-      if (cancelLeaveRequest.getStatus() == Status.PENDING) {
-        LeaveRequest leaveRequest = cancelLeaveRequest.getLeaveRequest();
-        leaveRequest.setStatus(Status.CANCELED);
-        leaveAllocationService.updateLeaveCount(leaveRequest);
+      if (cancelLeaveRequest.getStatus() == Status.PENDING) {        
+        cancelLeaveRequest.getLeaveRequest().setStatus(Status.CANCELED);
+        leaveAllocationService.updateLeaveCount(cancelLeaveRequest.getLeaveRequest());
         cancelLeaveRequest.setStatus(Status.ACCEPTED);
         cancelLeaveRequestRepository.save(cancelLeaveRequest);
-        leaveRequestRepository.save(leaveRequest);
+        leaveRequestRepository.save(cancelLeaveRequest.getLeaveRequest());
         AcceptCancelRequest acceptCancelRequest = new AcceptCancelRequest();
         acceptCancelRequest.setCancelLeaveRequest(cancelLeaveRequest);
         acceptCancelRequest.setAcceptedBy(
@@ -79,7 +79,7 @@ public class CancelLeaveRequestServiceImpl implements CancelLeaveRequestService 
 
   @Override
   public List<CancelLeaveRequest> getPendingCancelRequest() {
-    return cancelLeaveRequestRepository.findByStatus(Status.PENDING);
+    return cancelLeaveRequestRepository.findByStatusOrderByIdDesc(Status.PENDING);
   }
 
   @Override
@@ -89,13 +89,15 @@ public class CancelLeaveRequestServiceImpl implements CancelLeaveRequestService 
   }
 
   @Override
-  public boolean rejectCancelLeaveRequestStatus(RejectCancelRequestDto rejectCancelRequestDto) {
+  public boolean rejectCancelLeaveRequest(RejectCancelRequestDto rejectCancelRequestDto) {
 
     CancelLeaveRequest cancelLeaveRequest = cancelLeaveRequestRepository
         .findById(rejectCancelRequestDto.getCancelRequestId()).orElse(null);
 
     if (cancelLeaveRequest != null) {
       if (cancelLeaveRequest.getStatus() == Status.PENDING) {
+        cancelLeaveRequest.getLeaveRequest().setStatus(Status.ACCEPTED);
+        leaveRequestRepository.save(cancelLeaveRequest.getLeaveRequest());
         cancelLeaveRequest.setStatus(Status.REJECTED);
         cancelLeaveRequestRepository.save(cancelLeaveRequest);
         RejectCancelRequest rejectCancelRequest = new RejectCancelRequest();
