@@ -11,4 +11,6 @@ public interface SalaryChartService {
 	public List<SalaryChartEntity> viewByEmpName(String name);
 	
 	public SalaryChartEntity viewSalaryChartEmployee(Integer id);
+	
+	public SalaryChartEntity viewByName(String name);
 }

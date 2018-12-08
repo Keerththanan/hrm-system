@@ -1,8 +1,9 @@
 package com.sgic.hrm.commons.entity;
 
 import java.io.Serializable;
-import java.time.ZonedDateTime;
+import java.sql.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -23,12 +24,11 @@ public class Vacancy implements Serializable{
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
-//	private String hiring_officer;
 	private Integer noOfVacancy;
 	private Integer salaryScale;
-	private ZonedDateTime vacancyOpenDate;
-	private ZonedDateTime vacancyCloseDate;
-	private ZonedDateTime interviewDate;
+	private Date vacancyOpenDate;
+	private Date vacancyCloseDate;
+	private Date interviewDate;
 	private String keyRecuitment;
 
 	
@@ -44,9 +44,9 @@ public class Vacancy implements Serializable{
 	@JoinColumn(name = "department_id")
 	private Department department;
 
-	@ManyToOne
+	@ManyToOne(cascade = {CascadeType.ALL})
 	@JoinColumn(name = "recuitment_id")
-	private RecruitmentType recruitment;
+	private RecruitmentType recruitmentType;
 
 	public Integer getId() {
 		return id;
@@ -72,27 +72,27 @@ public class Vacancy implements Serializable{
 		this.salaryScale = salaryScale;
 	}
 
-	public ZonedDateTime getVacancyOpenDate() {
+	public Date getVacancyOpenDate() {
 		return vacancyOpenDate;
 	}
 
-	public void setVacancyOpenDate(ZonedDateTime vacancyOpenDate) {
+	public void setVacancyOpenDate(Date vacancyOpenDate) {
 		this.vacancyOpenDate = vacancyOpenDate;
 	}
 
-	public ZonedDateTime getVacancyCloseDate() {
+	public Date getVacancyCloseDate() {
 		return vacancyCloseDate;
 	}
 
-	public void setVacancyCloseDate(ZonedDateTime vacancyCloseDate) {
+	public void setVacancyCloseDate(Date vacancyCloseDate) {
 		this.vacancyCloseDate = vacancyCloseDate;
 	}
 
-	public ZonedDateTime getInterviewDate() {
+	public Date getInterviewDate() {
 		return interviewDate;
 	}
 
-	public void setInterviewDate(ZonedDateTime interviewDate) {
+	public void setInterviewDate(Date interviewDate) {
 		this.interviewDate = interviewDate;
 	}
 
@@ -128,15 +128,14 @@ public class Vacancy implements Serializable{
 		this.department = department;
 	}
 
-	public RecruitmentType getRecruitment() {
-		return recruitment;
+	public RecruitmentType getRecruitmentType() {
+		return recruitmentType;
 	}
 
-	public void setRecruitment(RecruitmentType recruitment) {
-		this.recruitment = recruitment;
+	public void setRecruitmentType(RecruitmentType recruitmentType) {
+		this.recruitmentType = recruitmentType;
 	}
 
-	
 	
 	
 

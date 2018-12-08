@@ -9,7 +9,7 @@ public class RecruitmentTypeDataMapper {
 		RecruitmentType recruitment = new RecruitmentType();
 
 		recruitment.setId(recuitmentData.getId());
-		recruitment.setRecruitmentTypeName(recuitmentData.getRecruitmentTypeName());
+		recruitment.setRecruitmentType(recuitmentData.getRecruitmentType());
 		return recruitment;
 	}
 }

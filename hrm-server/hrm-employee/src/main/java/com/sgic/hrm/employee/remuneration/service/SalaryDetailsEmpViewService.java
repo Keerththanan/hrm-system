@@ -7,4 +7,6 @@ import com.sgic.hrm.commons.entity.SalaryDetailsEmpViewEntity;
 public interface SalaryDetailsEmpViewService {
 
 	public List<SalaryDetailsEmpViewEntity> getSalarydetails();
+	
+	public SalaryDetailsEmpViewEntity getSalaryDetailsForEmployee(Integer id);
 }

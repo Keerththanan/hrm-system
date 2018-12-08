@@ -54,12 +54,22 @@ public class UserCareerDevelopmentPlanCompanyController {
   
   @PutMapping("/usercareerdevelopmentplancompany/{id}")
   public HttpStatus updateCareerDevelopemntPlanCompany(@RequestBody UserCareerDevelopmentPlanCompanyData userCareerDevelopmentPlanCompanyData, @PathVariable Integer id) {
-      boolean testedit=userCareerDevelopmentPlanCompanyService.editCareerDevelopmentPlanSelf(UserCareerDevelopmentPlanCompanyDataMapper.userCareerDevelopmentPlanCompanyDataMapper(userCareerDevelopmentPlanCompanyData), id);
+      boolean testedit=userCareerDevelopmentPlanCompanyService.editCareerDevelopmentPlanCompany(UserCareerDevelopmentPlanCompanyDataMapper.userCareerDevelopmentPlanCompanyDataMapper(userCareerDevelopmentPlanCompanyData), id);
       if(testedit) {
           return HttpStatus.ACCEPTED;
       }
       return HttpStatus.BAD_REQUEST;
   }
+  
+  @PutMapping("/usercareerdevelopmentplancompanysave/{id}")
+  public HttpStatus putCareerDevelopemntPlanCompany(@RequestBody UserCareerDevelopmentPlanCompanySaveData userCareerDevelopmentPlanCompanySaveData, @PathVariable Integer id) {
+      boolean testedit=userCareerDevelopmentPlanCompanyService.editCareerDevelopmentPlanCompany(UserCareerDevelopmentPlanCompanyDataMapper.userCareerDevelopmentPlanCompanySaveDataMapper(userCareerDevelopmentPlanCompanySaveData), id);
+      if(testedit) {
+          return HttpStatus.ACCEPTED;
+      }
+      return HttpStatus.BAD_REQUEST;
+  }
+  
   
   @DeleteMapping("/usercareerdevelopmentplancompany/{id}")
   public HttpStatus deleteCareerDevelopemntPlan(@PathVariable Integer id) {
@@ -70,10 +80,15 @@ public class UserCareerDevelopmentPlanCompanyController {
       return HttpStatus.BAD_REQUEST;
   }
   
+//  @GetMapping("/usercareerdevelopmentplancompany/{id}")
+//  public UserCareerDevelopmentPlanCompany getCareerDevelopemntPlanById(@PathVariable int id){
+//    return userCareerDevelopmentPlanCompanyService.getUserCareerDevelopmentPlanCompanyById(id);
+//  }
+  
   @GetMapping("/usercareerdevelopmentplancompany/{id}")
-  public UserCareerDevelopmentPlanCompany getCareerDevelopemntPlanById(@PathVariable Integer id){
-    return userCareerDevelopmentPlanCompanyService.getUserCareerDevelopmentPlanCompanyById(id);
-    
+  public List<UserCareerDevelopmentPlanCompany> getCareerDevelopemntPlanByUserId(@PathVariable int id){
+    return userCareerDevelopmentPlanCompanyService.getUserCareerDevelopmentPlanByUserId(id);
   }
+  
   
 }

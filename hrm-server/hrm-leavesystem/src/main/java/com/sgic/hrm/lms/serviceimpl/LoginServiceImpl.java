@@ -1,3 +1,4 @@
+
 package com.sgic.hrm.lms.serviceimpl;
 
 import java.util.Optional;
@@ -22,5 +23,4 @@ public class LoginServiceImpl implements LoginService {
     }
     return null;
   }
-
 }

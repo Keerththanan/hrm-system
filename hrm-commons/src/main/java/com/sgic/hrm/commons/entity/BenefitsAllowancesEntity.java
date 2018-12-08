@@ -2,15 +2,10 @@ package com.sgic.hrm.commons.entity;
 
 import java.io.Serializable;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -31,17 +26,11 @@ public class BenefitsAllowancesEntity implements Serializable {
 	private Integer mobile;
 	private Integer medical;
 
-	@OneToOne(cascade=CascadeType.ALL,fetch=FetchType.EAGER)
-	@JoinColumn(name="ids")
-	private SalaryChartEntity chartEntity;
+//	@OneToOne(cascade=CascadeType.ALL,fetch=FetchType.EAGER)
+//	@JoinColumn(name="ids")
+//	private SalaryChartEntity chartEntity;
 	
-	public SalaryChartEntity getChartEntity() {
-		return chartEntity;
-	}
 
-	public void setChartEntity(SalaryChartEntity chartEntity) {
-		this.chartEntity = chartEntity;
-	}
 
 	public Integer getId() {
 		return id;

@@ -2,10 +2,10 @@ package com.sgic.hrm.commons.dto;
 
 public class GeneralWelfareData {
 	
-	private Integer Id;
-	private String generalWelfare_name;
-	private String details;
-	WelfareEventDto welfareEvent;
+	 Integer Id;
+	 String generalWelfare_name;
+	 String details;
+	 WelfareEventDto welfareEvent;
 	
 	public Integer getId() {
 		return Id;

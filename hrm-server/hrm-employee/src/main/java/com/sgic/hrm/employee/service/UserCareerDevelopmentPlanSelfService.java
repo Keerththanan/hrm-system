@@ -16,4 +16,6 @@ public interface UserCareerDevelopmentPlanSelfService {
 
   UserCareerDevelopmentPlanSelf getCareerDevelopmentPlanSelfById(Integer id);
   
+  List<UserCareerDevelopmentPlanSelf> getCareerDevelopmentPlanSelfByUserId(int id);
+  
 }

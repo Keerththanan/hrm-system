@@ -15,7 +15,7 @@ import javax.persistence.Table;
 import org.springframework.data.annotation.CreatedDate;
 
 @Entity
-@Table
+@Table(schema = "employee", name = "promotion")
 public class Promotion implements Serializable {
 
 	/**
@@ -27,11 +27,13 @@ public class Promotion implements Serializable {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 	
-	@ManyToOne(cascade = {CascadeType.ALL})
+//	@ManyToOne(cascade = {CascadeType.ALL})
+	@ManyToOne
 	@JoinColumn(name = "user_id")
 	private User userId;
 	
 //	@ManyToOne(cascade = {CascadeType.ALL})
+	@ManyToOne
 	@JoinColumn(name = "designation_id")
 	private Designation designationId;
 	
@@ -39,7 +41,7 @@ public class Promotion implements Serializable {
 	private Date promotedDate;
 	private String remark;
 	private int salary;
-	private int promotedBy;
+	private String promotedBy;
 	public Integer getId() {
 		return id;
 	}
@@ -77,10 +79,10 @@ public class Promotion implements Serializable {
 	public void setSalary(int salary) {
 		this.salary = salary;
 	}
-	public int getPromotedBy() {
+	public String getPromotedBy() {
 		return promotedBy;
 	}
-	public void setPromotedBy(int promotedBy) {
+	public void setPromotedBy(String promotedBy) {
 		this.promotedBy = promotedBy;
 	}
 	

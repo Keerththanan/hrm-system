@@ -32,4 +32,11 @@ public class SalaryChartServiceImpl implements SalaryChartService {
 		// TODO Auto-generated method stub
 		return salaryChartRepository.getOne(id);
 	}
+
+	@Override
+	public SalaryChartEntity viewByName(String name) {
+		// TODO Auto-generated method stub
+		return salaryChartRepository.findByUserName(name);
+		
+	}
 }

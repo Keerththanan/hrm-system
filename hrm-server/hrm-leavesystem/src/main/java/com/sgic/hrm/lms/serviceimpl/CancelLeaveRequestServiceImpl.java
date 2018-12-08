@@ -115,5 +115,4 @@ public class CancelLeaveRequestServiceImpl implements CancelLeaveRequestService 
     }
     return false;
   }
-
 }

@@ -11,6 +11,14 @@ public class InterviewScheduleData {
 	private String interviewVenue;
 	private String interviewTime;
 	private Date interviewDate;
+	private String email;
+	
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
 	public Integer getId() {
 		return id;
 	}
