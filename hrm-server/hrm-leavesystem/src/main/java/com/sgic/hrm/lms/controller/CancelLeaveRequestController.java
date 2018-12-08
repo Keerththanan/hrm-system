@@ -5,6 +5,7 @@ package com.sgic.hrm.lms.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -20,6 +21,8 @@ import com.sgic.hrm.lms.service.CancelLeaveRequestService;
  * @author Anushanth
  *
  */
+
+@CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
 @RestController
 @RequestMapping("/cancel")
 public class CancelLeaveRequestController {
