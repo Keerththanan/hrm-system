@@ -74,11 +74,11 @@ public class LeaveRequestController {
   }
 
   @DeleteMapping("/{id}")
-  public ResponseEntity<String> deleteLeaveRequest(@PathVariable("id") Integer id) {
+  public HttpStatus deleteLeaveRequest(@PathVariable("id") Integer id) {
     if (leaveRequestService.deleteLeaveRequest(id)) {
-      return new ResponseEntity<>("request deleted successfully", HttpStatus.OK);
+      return HttpStatus.OK;
     }
-    return new ResponseEntity<>("faild to delete request", HttpStatus.BAD_REQUEST);
+    return HttpStatus.BAD_REQUEST;
   }
 
   @Transactional
