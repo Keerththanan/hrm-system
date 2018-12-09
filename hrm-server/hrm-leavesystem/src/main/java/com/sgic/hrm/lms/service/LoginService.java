@@ -4,5 +4,5 @@ import com.sgic.hrm.commons.entity.User;
 
 public interface LoginService {
 
-  User getUser(String userName);
+  User getUser(String username);
 }

@@ -16,7 +16,6 @@ public class InterviewScheduleMapper {
 
 			//interviewScheduleData.setApplicant(ApplicantMapper.applicantMapper(interviewSchedule.getApplicant()));
 
-
 			return interviewScheduleData;
 		}
 		return null;

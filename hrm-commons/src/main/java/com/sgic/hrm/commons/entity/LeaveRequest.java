@@ -34,8 +34,8 @@ public class LeaveRequest implements Serializable {
   private User user;
 
   @ManyToOne
-  @JoinColumn(name = "leave_type_id")
-  private LeaveType leaveType;
+  @JoinColumn(name = "leave_Allocation_id")
+  private LeaveAllocation leaveAllocation;
 
   @Column(name = "start_date")
   private Date startDate;
@@ -79,12 +79,12 @@ public class LeaveRequest implements Serializable {
     this.user = user;
   }
 
-  public LeaveType getLeaveType() {
-    return leaveType;
+  public LeaveAllocation getLeaveAllocation() {
+    return leaveAllocation;
   }
 
-  public void setLeaveType(LeaveType leaveType) {
-    this.leaveType = leaveType;
+  public void setLeaveAllocation(LeaveAllocation leaveAllocation) {
+    this.leaveAllocation = leaveAllocation;
   }
 
   public Date getStartDate() {

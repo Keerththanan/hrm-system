@@ -35,9 +35,10 @@ public class RefereeServiceImpl implements RefereeService {
 	}
 
 	@Override
-	public boolean editReferee(Referee referee, int id) {
+	public boolean editReferee(Referee referee, int id,User user) {
 		if(refereeRepository.getOne(id)!=null) {
 			referee.setId(id);
+			referee.setUser(user);
 			refereeRepository.save(referee);
 			return true;
 		}

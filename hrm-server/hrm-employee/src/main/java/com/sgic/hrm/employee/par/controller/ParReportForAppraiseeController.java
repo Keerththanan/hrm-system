@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -22,9 +23,9 @@ public class ParReportForAppraiseeController {
 	@Autowired
 	ParReportForAppraiseeService parReportForAppraiseeService;
 
-	@PostMapping("/parreportappraisee")
-	public String createParReportForAppraisee(@RequestBody ReportParAppraiseeDtoPost reportParAppraiseeDtoPost) {
-		return parReportForAppraiseeService.saveReportAndScore(reportParAppraiseeDtoPost);
+	@PutMapping("/parreportappraisee/{parId}")
+	public String createParReportForAppraisee(@RequestBody ReportParAppraiseeDtoPost reportParAppraiseeDtoPost,@PathVariable("parId") Integer parId) {
+		return parReportForAppraiseeService.saveReportAndScore(reportParAppraiseeDtoPost,parId);
 	}
 
 	@GetMapping("/parreportappraisee/{parId}")

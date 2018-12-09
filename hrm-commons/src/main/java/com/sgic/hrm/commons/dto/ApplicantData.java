@@ -3,22 +3,18 @@ package com.sgic.hrm.commons.dto;
 import java.io.File;
 import java.sql.Date;
 
-
-
-import com.sgic.hrm.commons.dto.DistrictData;
-
 public class ApplicantData {
 	
-	 Integer id;
-	 HighestQualificationData highestQualification;
-	 DistrictData district;
-	 JobData job;
-	 String fullName;
-	 String nic;
-	 String email;
-	 Date dateOfBirth;
-	 String address;
-	 File cvFile;
+	private Integer id;
+	private HighestQualificationData highestQualificationId;
+	 //DistrictData district;
+	private JobData jobId;
+	private String fullName;
+	private String nic;
+	private String email;
+	private Date dateOfBirth;
+	private String address;
+	private File cvFile;
 	 
 	public Integer getId() {
 		return id;
@@ -26,26 +22,7 @@ public class ApplicantData {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	
-	public HighestQualificationData getHighestQualification() {
-		return highestQualification;
-	}
-	public void setHighestQualification(HighestQualificationData highestQualification) {
-		this.highestQualification = highestQualification;
-	}
-	public DistrictData getDistrict() {
-		return district;
-	}
-	public void setDistrict(DistrictData district) {
-		this.district = district;
-	}
-
-	public JobData getJob() {
-		return job;
-	}
-	public void setJob(JobData job) {
-		this.job = job;
-	}
+		
 	public String getFullName() {
 		return fullName;
 	}
@@ -82,6 +59,19 @@ public class ApplicantData {
 	public void setCvFile(File cvFile) {
 		this.cvFile = cvFile;
 	}
+	public HighestQualificationData getHighestQualificationId() {
+		return highestQualificationId;
+	}
+	public void setHighestQualificationId(HighestQualificationData highestQualificationId) {
+		this.highestQualificationId = highestQualificationId;
+	}
+	public JobData getJobId() {
+		return jobId;
+	}
+	public void setJobId(JobData jobId) {
+		this.jobId = jobId;
+	}
+	
 	
 	
 }

@@ -13,6 +13,7 @@ public class ModuleMapper {
 
 		moduleDto.setId(module.getId());
 		moduleDto.setModuleName(module.getModuleName());
+		moduleDto.setPrivileges(module.getPrivileges());
 
 		return moduleDto;
 	}

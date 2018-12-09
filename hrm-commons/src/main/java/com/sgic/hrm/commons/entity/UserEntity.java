@@ -28,7 +28,7 @@ public class UserEntity implements Serializable{
 	private String userName;
 	@ManyToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
 	@JoinColumn(name="role_id")
-	private RoleEntity roleId;
+	private Role roleId;
 	public Integer getUserId() {
 		return userId;
 	}
@@ -41,10 +41,10 @@ public class UserEntity implements Serializable{
 	public void setUserName(String user_name) {
 		this.userName = user_name;
 	}
-	public RoleEntity getRoleId() {
+	public Role getRoleId() {
 		return roleId;
 	}
-	public void setRoleId(RoleEntity role_id) {
+	public void setRoleId(Role role_id) {
 		this.roleId = role_id;
 	}
 	

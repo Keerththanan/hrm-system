@@ -1,17 +1,16 @@
 package com.sgic.hrm.lms.controller;
 
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 import com.sgic.hrm.commons.dto.AppointmentTypeData;
 import com.sgic.hrm.commons.dto.LeaveAllocationData;
 import com.sgic.hrm.commons.dto.UserData;
@@ -23,6 +22,7 @@ import com.sgic.hrm.lms.service.LeaveAllocationService;
 import com.sgic.hrm.lms.service.LeaveTypeService;
 import com.sgic.hrm.lms.service.LoginService;
 
+@CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
 @RestController
 @RequestMapping("/leaveallocation")
 public class LeaveAllocationController {
@@ -35,21 +35,21 @@ public class LeaveAllocationController {
   LeaveTypeService leaveTypeService;
 
   @PostMapping
-  public ResponseEntity<String> allocateLeave(UserData userData,
-      AppointmentTypeData appointmentTypeData) {
+  public HttpStatus allocateLeave(UserData userData, AppointmentTypeData appointmentTypeData) {
     if (leaveAllocationService.allocateLeave(UserDataToUser.mapToUser(userData),
         AppointmentTypeDataToAppointmentType.mapToAppointmentType(appointmentTypeData),
         leaveTypeService.viewAllLeaveType())) {
-      return new ResponseEntity<>("LeaveAllocation created successfully", HttpStatus.CREATED);
+      return HttpStatus.CREATED;
     }
-    return new ResponseEntity<>("Faild to create Leave Allocation", HttpStatus.BAD_REQUEST);
+    return HttpStatus.BAD_REQUEST;
   }
 
   @GetMapping("/{username}")
-  public ResponseEntity<List<LeaveAllocationData>> viewLeaveAllocationByUser(@PathVariable(name = "username") String userName) {
+  public ResponseEntity<List<LeaveAllocationData>> viewLeaveAllocationByUser(
+      @PathVariable(name = "username") String username) {
 
     List<LeaveAllocation> leaveAllocationList =
-        leaveAllocationService.viewLeaveAllocationByUser(loginService.getUser(userName));
+        leaveAllocationService.viewLeaveAllocationByUser(loginService.getUser(username));
     return new ResponseEntity<>(
         LeaveAllocationToLeaveAllocationData.mapToLeaveAllocationDataList(leaveAllocationList),
         HttpStatus.OK);
@@ -57,11 +57,11 @@ public class LeaveAllocationController {
 
 
   @DeleteMapping("/{id}")
-  public ResponseEntity<String> deleteLeaveAllocation(@PathVariable(name = "id") Integer id) {
+  public HttpStatus deleteLeaveAllocation(@PathVariable(name = "id") Integer id) {
     if (leaveAllocationService.deleteLeaveAllocation(id)) {
-      return new ResponseEntity<>("LeaveAllocation deleted successfully", HttpStatus.OK);
+      return HttpStatus.OK;
     }
-    return new ResponseEntity<>("Faild to deleted Leave Allocation", HttpStatus.BAD_REQUEST);
+    return HttpStatus.BAD_REQUEST;
   }
 
 }

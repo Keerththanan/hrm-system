@@ -9,7 +9,7 @@ public class LeaveRequestData {
 
   private Integer id;
   private UserData user;
-  private LeaveTypeData leaveType;
+  private LeaveAllocationData leaveAllocation;
   private Date startDate;
   private Date endDate;
   private Double noOfDays;
@@ -35,12 +35,12 @@ public class LeaveRequestData {
     this.user = user;
   }
 
-  public LeaveTypeData getLeaveType() {
-    return leaveType;
+  public LeaveAllocationData getLeaveAllocation() {
+    return leaveAllocation;
   }
 
-  public void setLeaveType(LeaveTypeData leaveType) {
-    this.leaveType = leaveType;
+  public void setLeaveAllocation(LeaveAllocationData leaveAllocation) {
+    this.leaveAllocation = leaveAllocation;
   }
 
   public Date getStartDate() {

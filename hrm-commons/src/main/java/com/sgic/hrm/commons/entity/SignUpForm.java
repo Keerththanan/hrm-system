@@ -2,9 +2,13 @@ package com.sgic.hrm.commons.entity;
 
 import java.util.Set;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
+
 public class SignUpForm {
 //    @NotBlank
-//    @Size(min = 3, max = 50)
+//    @Size(min = 3, max = 50) 
     private User user;
 
 //    @NotBlank
@@ -17,7 +21,7 @@ public class SignUpForm {
     private String email;
     
     private Set<String> role;
-
+    
 //    @NotBlank
 //    @Size(min = 6, max = 40)
     private String password;
@@ -29,6 +33,10 @@ public class SignUpForm {
 	public void setUser(User user) {
 		this.user = user;
 	}
+
+	public void setName(User user) {
+        this.user = user;
+    }
 
     public String getUsername() {
         return username;

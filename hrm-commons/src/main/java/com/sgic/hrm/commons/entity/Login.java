@@ -16,9 +16,6 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Size;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.NaturalId;
@@ -32,12 +29,11 @@ public class Login implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = -3992467423727977421L;
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 
-	@Column(name = "username", unique = true)
+	@Column(name = "username", unique = true) 
 	@NaturalId
 	private String username;
 
@@ -46,9 +42,9 @@ public class Login implements Serializable {
 	private User user;
 
 	@NaturalId
-	@NotBlank
-	@Size(max = 50)
-	@Email
+//	@NotBlank
+//	@Size(max = 50)
+//	@Email
 	private String email;
 
 	@Column(name = "password")

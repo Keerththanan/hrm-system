@@ -24,7 +24,6 @@ public class Vacancy implements Serializable{
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
-//	private String hiring_officer;
 	private Integer noOfVacancy;
 	private Integer salaryScale;
 	private Date vacancyOpenDate;

@@ -17,6 +17,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.sgic.hrm.commons.dto.PromotionData;
 import com.sgic.hrm.commons.dto.PromotionSaveData;
 import com.sgic.hrm.commons.dto.mapper.PromotionDataToPromotion;
+import com.sgic.hrm.commons.entity.Promotion;
+import com.sgic.hrm.commons.entity.RequestPromotion;
 import com.sgic.hrm.commons.entity.mapper.PromotionToPromotionData;
 import com.sgic.hrm.employee.service.PromotionService;
 
@@ -78,4 +80,8 @@ public class PromotionController {
 
 	}
 
+	@GetMapping("/promotionByUser/{id}")
+	public List<Promotion> getAllPromotionsByUserId(@PathVariable int id) {
+		return promotionService.getPromotionByUserId(id);
+	}
 }
