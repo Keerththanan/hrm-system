@@ -53,10 +53,10 @@ public class PrivilegeServiceImpl implements PrivilegeService {
 	@Override
 	public void addPrivilegeForEachModule(Module module, List<AuthorizeType> authorizeTypeList, List<Role> roleList) {
 
-		for (AuthorizeType authorizeType : authorizeTypeList) {
-			Privilege privilege = new Privilege();
-			privilege.setAuthorizeType(authorizeType);
-			for (Role role : roleList) {
+		for (Role role : roleList) {
+			for (AuthorizeType authorizeType : authorizeTypeList) {
+				Privilege privilege = new Privilege();
+				privilege.setAuthorizeType(authorizeType);
 				privilege.setModule(module);
 				privilege.setRole(role);
 				privilege.setEnabled(false);

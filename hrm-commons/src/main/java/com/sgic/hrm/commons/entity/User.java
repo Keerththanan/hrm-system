@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -40,10 +41,8 @@ public class User implements Serializable {
 	private Department department;
 
 	@ManyToOne
-	@JoinColumn(name="join_user_role")
+	@JoinColumn(name = "join_user_role")
 	private Role role;
-	
-	  
 
 	@UpdateTimestamp
 	private Date updateAt;
@@ -191,7 +190,7 @@ public class User implements Serializable {
 	public void setUpdateAt(Date updateAt) {
 		this.updateAt = updateAt;
 	}
-	
+
 	public Role getRoleId() {
 		return role;
 	}

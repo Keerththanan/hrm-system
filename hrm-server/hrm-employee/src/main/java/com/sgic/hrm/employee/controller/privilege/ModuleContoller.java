@@ -22,7 +22,9 @@ import com.sgic.hrm.commons.dto.privilege.ModuleDto;
 import com.sgic.hrm.commons.entity.Role;
 import com.sgic.hrm.commons.entity.mapper.privilege.ModuleMapper;
 import com.sgic.hrm.commons.entity.privilege.AuthorizeType;
+import com.sgic.hrm.commons.entity.privilege.Module;
 import com.sgic.hrm.commons.repository.RoleRepository;
+import com.sgic.hrm.commons.repository.privilege.ModuleRepository;
 import com.sgic.hrm.employee.service.privilege.AuthorizeTypeService;
 import com.sgic.hrm.employee.service.privilege.ModuleService;
 import com.sgic.hrm.employee.service.privilege.PrivilegeService;
@@ -33,6 +35,9 @@ import com.sgic.hrm.employee.service.privilege.PrivilegeService;
 public class ModuleContoller {
 	@Autowired
 	private ModuleService moduleService;
+	
+	@Autowired
+	private ModuleRepository moduleRepository;
 
 	@Autowired
 	private PrivilegeService privilegeService;
@@ -53,9 +58,10 @@ public class ModuleContoller {
 	@Transactional
 	public void addModule(@RequestBody ModuleDto moduleDto) {
 		moduleService.createModule(ModuleDtoMapper.mapModuleDtoToModule(moduleDto));
+		Module module = moduleRepository.findByModuleName(moduleDto.getModuleName());
 		List<AuthorizeType> authorizeTypeList = authorizeTypeService.getAllAuthorizeTypes();
 		List<Role> roleList = roleRepository.findAll();
-		privilegeService.addPrivilegeForEachModule(ModuleDtoMapper.mapModuleDtoToModule(moduleDto), authorizeTypeList, roleList);
+		privilegeService.addPrivilegeForEachModule(module, authorizeTypeList, roleList);
 	}
 
 	@PutMapping("/{id}")
