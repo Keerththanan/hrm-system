@@ -2,10 +2,10 @@ package com.sgic.hrm.commons.dto.par;
 
 public class ScheduleParContentDtoGet {
 
-	private String parContentId;
+	private Integer parContentId;
 	private String parContentName;
 
-	public ScheduleParContentDtoGet(String parContentId, String parContentName) {
+	public ScheduleParContentDtoGet(Integer parContentId, String parContentName) {
 		this.parContentId = parContentId;
 		this.parContentName = parContentName;
 	}
@@ -14,11 +14,13 @@ public class ScheduleParContentDtoGet {
 
 	}
 
-	public String getParContentId() {
+
+
+	public Integer getParContentId() {
 		return parContentId;
 	}
 
-	public void setParContentId(String parContentId) {
+	public void setParContentId(Integer parContentId) {
 		this.parContentId = parContentId;
 	}
 

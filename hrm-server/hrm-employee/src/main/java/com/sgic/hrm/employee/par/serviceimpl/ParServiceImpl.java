@@ -21,11 +21,9 @@ public class ParServiceImpl implements ParService {
 	}
 
 	// create a new par record
-	public boolean createPar(Par par) {
-		if (parRepo.save(par) != null) {
-			return true;
-		}
-		return false;
+	public Par createPar(Par par) {
+		
+		return parRepo.save(par);
 	}
 
 	@Override

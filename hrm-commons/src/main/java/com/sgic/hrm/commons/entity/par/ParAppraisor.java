@@ -1,6 +1,8 @@
 package com.sgic.hrm.commons.entity.par;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -9,11 +11,12 @@ import javax.persistence.Table;
 public class ParAppraisor {
 
 	@Id
-	private String appraiserId;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer appraiserId;
 	private String empId;
 	private String empName;
 
-	public ParAppraisor(String id, String empId,String empName) {
+	public ParAppraisor(Integer id, String empId,String empName) {
 
 		this.appraiserId = id;
 		this.empId = empId;
@@ -32,11 +35,13 @@ public class ParAppraisor {
 		this.empId = empId;
 	}
 
-	public String getAppraiserId() {
+
+
+	public Integer getAppraiserId() {
 		return appraiserId;
 	}
 
-	public void setAppraiserId(String appraiserId) {
+	public void setAppraiserId(Integer appraiserId) {
 		this.appraiserId = appraiserId;
 	}
 

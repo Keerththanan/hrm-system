@@ -2,10 +2,10 @@ package com.sgic.hrm.commons.dto.par;
 
 public class ScheduleParAppraisorsDtoGet {
 
-	private String appraiserId;
+	private Integer appraiserId;
 	private String appraiserName;
 
-	public ScheduleParAppraisorsDtoGet(String appraiserId, String appraiserName) {
+	public ScheduleParAppraisorsDtoGet(Integer appraiserId, String appraiserName) {
 		this.appraiserId = appraiserId;
 		this.appraiserName = appraiserName;
 	}
@@ -14,11 +14,11 @@ public class ScheduleParAppraisorsDtoGet {
 
 	}
 
-	public String getAppraiserId() {
+	public Integer getAppraiserId() {
 		return appraiserId;
 	}
 
-	public void setAppraiserId(String appraiserId) {
+	public void setAppraiserId(Integer appraiserId) {
 		this.appraiserId = appraiserId;
 	}
 

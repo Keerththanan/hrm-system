@@ -38,13 +38,13 @@ public class ScheduleParController {
 		ScheduleParDtoPost objScheduleParDTO = new ScheduleParDtoPost();
 
 		List<ScheduleParAppraisorsDtoPost> scheduleParAppraisorList = new ArrayList<>();
-		scheduleParAppraisorList.add(new ScheduleParAppraisorsDtoPost("A001"));
-		scheduleParAppraisorList.add(new ScheduleParAppraisorsDtoPost("A002"));
-		scheduleParAppraisorList.add(new ScheduleParAppraisorsDtoPost("A003"));
+		scheduleParAppraisorList.add(new ScheduleParAppraisorsDtoPost(1));
+		scheduleParAppraisorList.add(new ScheduleParAppraisorsDtoPost(2));
+		scheduleParAppraisorList.add(new ScheduleParAppraisorsDtoPost(3));
 
 		List<ScheduleParContentDtoPost> scheduleParContentList = new ArrayList<>();
-		scheduleParContentList.add(new ScheduleParContentDtoPost("C001"));
-		scheduleParContentList.add(new ScheduleParContentDtoPost("C002"));
+		scheduleParContentList.add(new ScheduleParContentDtoPost(1));
+		scheduleParContentList.add(new ScheduleParContentDtoPost(2));
 
 		objScheduleParDTO.setScheduleParAppraisorsList(scheduleParAppraisorList);
 		objScheduleParDTO.setScheduleParContentList(scheduleParContentList);

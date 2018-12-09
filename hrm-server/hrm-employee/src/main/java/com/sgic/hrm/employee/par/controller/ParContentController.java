@@ -35,12 +35,12 @@ public class ParContentController {
 	}
 
 	@PutMapping("/parcontent/{id}")
-	public void updateParContent(@RequestBody ParContent parContent, @PathVariable String id) {
+	public void updateParContent(@RequestBody ParContent parContent, @PathVariable Integer id) {
 		parContentService.updateParContent(parContent, id);
 	}
 
 	@DeleteMapping("/parcontent/{id}")
-	public void deleteParContent(@PathVariable String id) {
+	public void deleteParContent(@PathVariable Integer id) {
 		parContentService.deleteParContent(id);
 	}
 	

@@ -12,7 +12,7 @@ import javax.persistence.Table;
 @Table(name = "par", schema = "employee")
 public class Par {
 	@Id
-	// @GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 	private String empId;
 	private Double overAllScore;

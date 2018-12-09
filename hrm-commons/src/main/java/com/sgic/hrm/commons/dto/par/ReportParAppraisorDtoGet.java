@@ -5,35 +5,13 @@ import java.util.List;
 
 public class ReportParAppraisorDtoGet {
 
-	private Integer reportId;
-	private Integer parId;
-	private ParAppraisorDto appraisedBy;
-	private Date appraisedDate;
-	private List<ScoreParAppraiserDtoGet> scoreParAppraiserList;
 
-	public ReportParAppraisorDtoGet(Integer reportId, Integer parId) {
-		this.reportId = reportId;
-		this.parId = parId;
-	}
+	private ParAppraisorDto appraisedBy;
+
+	private List<ScoreParAppraiserDtoGet> scoreParAppraiserList;
 
 	public ReportParAppraisorDtoGet() {
 
-	}
-
-	public Integer getReportId() {
-		return reportId;
-	}
-
-	public void setReportId(Integer reportId) {
-		this.reportId = reportId;
-	}
-
-	public Integer getParId() {
-		return parId;
-	}
-
-	public void setParId(Integer parId) {
-		this.parId = parId;
 	}
 
 	public ParAppraisorDto getAppraisedBy() {
@@ -44,13 +22,7 @@ public class ReportParAppraisorDtoGet {
 		this.appraisedBy = appraisedBy;
 	}
 
-	public Date getAppraisedDate() {
-		return appraisedDate;
-	}
 
-	public void setAppraisedDate(Date appraisedDate) {
-		this.appraisedDate = appraisedDate;
-	}
 
 	public List<ScoreParAppraiserDtoGet> getScoreParAppraiserList() {
 		return scoreParAppraiserList;

@@ -33,33 +33,12 @@ public class ParReportForAppraiseeServiceImpl implements ParReportForAppraiseeSe
 	@Autowired
 	ParContentService parContentService;
 
-	@Override
-	public void saveReportAndScore(Integer parId, List<ScoreParAppraiseeDtoPost> scoreParAppraiseeList,
-			ReportParAppraise reportParAppraise) {
-
-		if (parservice.findParById(parId) != null) {
-			Par parObj = parservice.findParById(parId);
-			reportParAppraiseService.createReportParAppraise(reportParAppraise, parObj);
-			Iterator<ScoreParAppraiseeDtoPost> iteratorDTO = scoreParAppraiseeList.iterator();
-			int i = 0;
-			while (iteratorDTO.hasNext()) {
-				String pk = reportParAppraise.getId() + "_" + i;
-				ScoreParAppraiseeDtoPost scoreParAppraiseeDtoPost = iteratorDTO.next();
-				ParContent parContent = parContentService
-						.findParContentById(scoreParAppraiseeDtoPost.getParContentId());
-				scoreParAppraiseeService.createScoreParAppraisee(
-						ScoreParAppraiseeMapper.dtoToEntity(pk, parContent, scoreParAppraiseeDtoPost),
-						reportParAppraise);
-				i++;
-			}
-
-		}
-	}
+	
 
 	@Override
 	public String saveReportAndScore(ReportParAppraiseeDtoPost reportParAppraiseeDtoPost, Integer parId) {
 
-		String msg = new String();
+		String msg = null;
 		
 		Par parObj = parservice.findParById(parId);
 		if (parObj != null) {

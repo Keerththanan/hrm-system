@@ -23,12 +23,13 @@ public class ParContentServiceImpl implements ParContentService {
 
 	@Override
 	public void createParContent(ParContent parContent) {
+	
 		parContentRepository.save(parContent);
 
 	}
 
 	@Override
-	public void updateParContent(ParContent parContent, String id) {
+	public void updateParContent(ParContent parContent, Integer id) {
 		ParContent existParContent = parContentRepository.getOne(id);
 
 		if (existParContent.getId() != null) {
@@ -39,12 +40,12 @@ public class ParContentServiceImpl implements ParContentService {
 	}
 
 	@Override
-	public void deleteParContent(String id) {
+	public void deleteParContent(Integer id) {
 		parContentRepository.deleteById(id);
 	}
 
 	@Override
-	public ParContent findParContentById(String id) {
+	public ParContent findParContentById(Integer id) {
 		return parContentRepository.findParContentById(id);
 	}
 

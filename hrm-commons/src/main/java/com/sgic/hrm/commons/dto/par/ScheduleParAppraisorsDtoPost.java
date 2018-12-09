@@ -3,10 +3,10 @@ package com.sgic.hrm.commons.dto.par;
 public class ScheduleParAppraisorsDtoPost {
 	
 	
-	private String appraisorId;
+	private Integer appraisorId;
 
 
-	public ScheduleParAppraisorsDtoPost(String appraisorId) {
+	public ScheduleParAppraisorsDtoPost(Integer appraisorId) {
 		
 		this.appraisorId = appraisorId;
 	}
@@ -15,13 +15,15 @@ public class ScheduleParAppraisorsDtoPost {
 	
 	}
 
-	public String getAppraisorId() {
+	public Integer getAppraisorId() {
 		return appraisorId;
 	}
 
-	public void setAppraisorId(String appraisorId) {
+	public void setAppraisorId(Integer appraisorId) {
 		this.appraisorId = appraisorId;
 	}
+
+	
 
 	
 	 

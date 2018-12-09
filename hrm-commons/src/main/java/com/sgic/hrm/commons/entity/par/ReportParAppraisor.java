@@ -1,66 +1,43 @@
 package com.sgic.hrm.commons.entity.par;
 
 import java.util.Date;
-import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "ReportParAppraisor", schema = "employee")
 public class ReportParAppraisor {
-	
-	@Id
-	private Integer id;
-	
-	@ManyToOne()
-	@JoinColumn(name="par_id")
-	private Par par;
-	
-	private String appraisorId;
-	
-	private Date appraisedDate;
-	
-	
-//	@OneToMany(mappedBy="reportParAppraisor",cascade=CascadeType.ALL,fetch=FetchType.LAZY)
-//	@JsonIgnore
-//	private List<ScoreParAppraisor> scoreParAppraisors;
- 
-	
 
-	public ReportParAppraisor(Integer id, String appraisorId) {
+	@Id
+	private String id;
+
+	@ManyToOne()
+	@JoinColumn(name = "par_id")
+	private Par par;
+
+	@ManyToOne()
+	@JoinColumn(name = "parAppraisor_appraiserId")
+	private ParAppraisor parAppraisor;
+
+	public ReportParAppraisor(String id) {
 		this.id = id;
-		this.appraisorId = appraisorId;
-		
-	}
-	
-	public ReportParAppraisor(String appraisorId) {
-		this.appraisorId = appraisorId;
-		
 	}
 
 	public ReportParAppraisor() {
-		
+
 	}
-	
-	
-	public Integer getId() {
+
+	public String getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(String id) {
 		this.id = id;
 	}
-
-	
 
 	public Par getPar() {
 		return par;
@@ -70,34 +47,12 @@ public class ReportParAppraisor {
 		this.par = par;
 	}
 
-	public String getAppraisorId() {
-		return appraisorId;
+	public ParAppraisor getParAppraisor() {
+		return parAppraisor;
 	}
 
-	public void setAppraisorId(String appraisorId) {
-		this.appraisorId = appraisorId;
+	public void setParAppraisor(ParAppraisor parAppraisor) {
+		this.parAppraisor = parAppraisor;
 	}
-
-	public Date getAppraisedDate() {
-		return appraisedDate;
-	}
-
-	public void setAppraisedDate(Date appraisedDate) {
-		this.appraisedDate = appraisedDate;
-	}
-
-	
-
-
-//	public List<ScoreParAppraisor> getScoreParAppraisors() {
-//		return scoreParAppraisors;
-//	}
-//
-//	public void setScoreParAppraisors(List<ScoreParAppraisor> scoreParAppraisors) {
-//		this.scoreParAppraisors = scoreParAppraisors;
-//	}
-	
-	
-	
 
 }

@@ -15,8 +15,7 @@ public interface ParReportForAppraiseeService {
 	 * object by par id save the ReportParAppraise including par object write
 	 * iteratoror to save the List of ScoreParAppraisee
 	 */
-	public void saveReportAndScore(Integer parId,List<ScoreParAppraiseeDtoPost> scheduleParAppraisorList,ReportParAppraise reportParAppraise);
-
+	
 	public String saveReportAndScore(ReportParAppraiseeDtoPost reportParAppraiseeDtoPost,Integer parId);
 
 	// update one par score

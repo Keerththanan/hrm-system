@@ -80,12 +80,11 @@ public class ParScheduleServiceImpl implements ParScheduleService {
 	@Override
 	public void createSchedulePar(ScheduleParDtoPost objScheduleParDTO) {
 		Par par = new Par();
-		Integer parId = objScheduleParDTO.getParId();
-		par.setId(parId);
 		par.setEmpId(objScheduleParDTO.getEmpId());
 		par.setScheduleDate(objScheduleParDTO.getScheduleDate());
 		// save par object
-		if (parService.createPar(par)) {
+		Par parObj=parService.createPar(par);
+		if (parObj !=null) {
 
 			// save Appraisor List
 			List<ScheduleParAppraisorsDtoPost> scheduleParAppraisorList = objScheduleParDTO
@@ -94,7 +93,7 @@ public class ParScheduleServiceImpl implements ParScheduleService {
 
 			int i = 0;
 			while (iteratorScheduledAppraisor.hasNext()) {
-				String pk = parId + "_" + i;
+				String pk = parObj.getId() + "_" + i;
 				ScheduleParAppraisorsDtoPost scheduleParAppraisorsDtoPost = iteratorScheduledAppraisor.next();
 				ParAppraisor parAppraisor = parAppraiserService
 						.findParAppraisorByAppraiserId(scheduleParAppraisorsDtoPost.getAppraisorId());
@@ -109,7 +108,7 @@ public class ParScheduleServiceImpl implements ParScheduleService {
 			Iterator<ScheduleParContentDtoPost> iteratorScheduledContent = scheduleParContentList.iterator();
 			int j = 0;
 			while (iteratorScheduledContent.hasNext()) {
-				String pk = parId + "_" + j;
+				String pk = parObj.getId() + "_" + j;
 				ScheduleParContentDtoPost scheduleParContentDtoPost = iteratorScheduledContent.next();
 
 				ParContent parContent = parContentService

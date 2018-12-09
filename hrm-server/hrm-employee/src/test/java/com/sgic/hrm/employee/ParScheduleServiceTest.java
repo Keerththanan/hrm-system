@@ -28,18 +28,18 @@ public class ParScheduleServiceTest {
 	public void createParScheduleService1() {
 		
 		ScheduleParDtoPost scheduleParDtoPost=new ScheduleParDtoPost();
-		scheduleParDtoPost.setParId(1);
+		scheduleParDtoPost.setEmpId("E001");
 		scheduleParDtoPost.setEmpId("EM001");
 		scheduleParDtoPost.setScheduleDate(new Date());
 		
 		List<ScheduleParAppraisorsDtoPost> scheduleParAppraisorList = new ArrayList<ScheduleParAppraisorsDtoPost>();
-		scheduleParAppraisorList.add(new ScheduleParAppraisorsDtoPost("A1"));
-		scheduleParAppraisorList.add(new ScheduleParAppraisorsDtoPost("A2"));
+		scheduleParAppraisorList.add(new ScheduleParAppraisorsDtoPost(1));
+		scheduleParAppraisorList.add(new ScheduleParAppraisorsDtoPost(2));
 
 		List<ScheduleParContentDtoPost> scheduleParContentList = new ArrayList<ScheduleParContentDtoPost>();
-		scheduleParContentList.add(new ScheduleParContentDtoPost("c1"));
-		scheduleParContentList.add(new ScheduleParContentDtoPost("c2"));
-		scheduleParContentList.add(new ScheduleParContentDtoPost("c3"));
+		scheduleParContentList.add(new ScheduleParContentDtoPost(1));
+		scheduleParContentList.add(new ScheduleParContentDtoPost(2));
+		scheduleParContentList.add(new ScheduleParContentDtoPost(3));
 
 		scheduleParDtoPost.setScheduleParAppraisorsList(scheduleParAppraisorList);
 		scheduleParDtoPost.setScheduleParContentList(scheduleParContentList);
@@ -50,18 +50,18 @@ public class ParScheduleServiceTest {
 	public void createParScheduleService2() {
 		
 		ScheduleParDtoPost scheduleParDtoPost=new ScheduleParDtoPost();
-		scheduleParDtoPost.setParId(2);
+		scheduleParDtoPost.setEmpId("E002");
 		scheduleParDtoPost.setEmpId("EM002");
 		scheduleParDtoPost.setScheduleDate(new Date());
 		
 		List<ScheduleParAppraisorsDtoPost> scheduleParAppraisorList = new ArrayList<ScheduleParAppraisorsDtoPost>();
-		scheduleParAppraisorList.add(new ScheduleParAppraisorsDtoPost("A1"));
-		scheduleParAppraisorList.add(new ScheduleParAppraisorsDtoPost("A2"));
+		scheduleParAppraisorList.add(new ScheduleParAppraisorsDtoPost(1));
+		scheduleParAppraisorList.add(new ScheduleParAppraisorsDtoPost(2));
 
 		List<ScheduleParContentDtoPost> scheduleParContentList = new ArrayList<ScheduleParContentDtoPost>();
-		scheduleParContentList.add(new ScheduleParContentDtoPost("c1"));
-		scheduleParContentList.add(new ScheduleParContentDtoPost("c2"));
-		scheduleParContentList.add(new ScheduleParContentDtoPost("c3"));
+		scheduleParContentList.add(new ScheduleParContentDtoPost(1));
+		scheduleParContentList.add(new ScheduleParContentDtoPost(2));
+		scheduleParContentList.add(new ScheduleParContentDtoPost(3));
 
 		scheduleParDtoPost.setScheduleParAppraisorsList(scheduleParAppraisorList);
 		scheduleParDtoPost.setScheduleParContentList(scheduleParContentList);
@@ -72,18 +72,18 @@ public class ParScheduleServiceTest {
 	public void createParScheduleService3() {
 		
 		ScheduleParDtoPost scheduleParDtoPost=new ScheduleParDtoPost();
-		scheduleParDtoPost.setParId(3);
+		scheduleParDtoPost.setEmpId("E003");
 		scheduleParDtoPost.setEmpId("EM003");
 		scheduleParDtoPost.setScheduleDate(new Date());
 		
 		List<ScheduleParAppraisorsDtoPost> scheduleParAppraisorList = new ArrayList<ScheduleParAppraisorsDtoPost>();
-		scheduleParAppraisorList.add(new ScheduleParAppraisorsDtoPost("A3"));
-		scheduleParAppraisorList.add(new ScheduleParAppraisorsDtoPost("A4"));
+		scheduleParAppraisorList.add(new ScheduleParAppraisorsDtoPost(3));
+		scheduleParAppraisorList.add(new ScheduleParAppraisorsDtoPost(4));
 
 		List<ScheduleParContentDtoPost> scheduleParContentList = new ArrayList<ScheduleParContentDtoPost>();
-		scheduleParContentList.add(new ScheduleParContentDtoPost("c1"));
+		scheduleParContentList.add(new ScheduleParContentDtoPost(1));
 		//scheduleParContentList.add(new ScheduleParContentDtoPost("c2"));
-		scheduleParContentList.add(new ScheduleParContentDtoPost("c3"));
+		scheduleParContentList.add(new ScheduleParContentDtoPost(3));
 
 		scheduleParDtoPost.setScheduleParAppraisorsList(scheduleParAppraisorList);
 		scheduleParDtoPost.setScheduleParContentList(scheduleParContentList);

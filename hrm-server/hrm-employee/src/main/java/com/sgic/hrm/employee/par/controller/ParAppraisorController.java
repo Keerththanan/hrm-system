@@ -32,12 +32,12 @@ public class ParAppraisorController {
 	}
 
 	@PutMapping("/parappraisor/{id}")
-	public void updateParAppraisor(@RequestBody ParAppraisor parAppraisor, @PathVariable String id) {
+	public void updateParAppraisor(@RequestBody ParAppraisor parAppraisor, @PathVariable Integer id) {
 		parAppraisorService.updateParAppraisor(parAppraisor, id);
 	}
 
 	@DeleteMapping("/parappraisor/{id}")
-	public void deleteParAppraisor(@PathVariable String id) {
+	public void deleteParAppraisor(@PathVariable Integer id) {
 		parAppraisorService.deleteParAppraisor(id);
 	}
 

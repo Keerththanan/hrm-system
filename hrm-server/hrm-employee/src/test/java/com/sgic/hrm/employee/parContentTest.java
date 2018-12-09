@@ -18,27 +18,27 @@ public class parContentTest {
 
 	@Test
 	public void saveParContentTest1() {
-		parContentService.createParContent(new ParContent("c1", "Communication"));
+		parContentService.createParContent(new ParContent(1,"Communication"));
 
 	}
 
 	@Test
 	public void saveParContentTest2() {
-		parContentService.createParContent(new ParContent("c2", "Technical"));
+		parContentService.createParContent(new ParContent(2, "Technical"));
 	}
 
 	@Test
 	public void saveParContentTest3() {
-		parContentService.createParContent(new ParContent("c3", "Attitude"));
+		parContentService.createParContent(new ParContent(3, "Attitude"));
 	}
 
 	@Test
 	public void saveParContentTest4() {
-		parContentService.createParContent(new ParContent("c4", "Personality"));
+		parContentService.createParContent(new ParContent(4, "Personality"));
 	}
 	
 	@Test
 	public void saveParContentTest5() {
-		parContentService.createParContent(new ParContent("c5", "Punctuality"));
+		parContentService.createParContent(new ParContent(5, "Punctuality"));
 	}
 }

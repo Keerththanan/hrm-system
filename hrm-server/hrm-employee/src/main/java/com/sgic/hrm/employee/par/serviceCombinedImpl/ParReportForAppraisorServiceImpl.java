@@ -9,18 +9,14 @@ import org.springframework.stereotype.Service;
 
 import com.sgic.hrm.commons.dto.mapper.par.ScoreParAppraiserMapper;
 import com.sgic.hrm.commons.dto.par.ParAppraisorDto;
-import com.sgic.hrm.commons.dto.par.ReportParAppraiseeDtoGet;
 import com.sgic.hrm.commons.dto.par.ReportParAppraisorDtoGet;
 import com.sgic.hrm.commons.dto.par.ReportParAppraisorDtoPost;
-import com.sgic.hrm.commons.dto.par.ScoreParAppraiseeDtoGet;
 import com.sgic.hrm.commons.dto.par.ScoreParAppraiserDtoGet;
 import com.sgic.hrm.commons.dto.par.ScoreParAppraiserDtoPost;
 import com.sgic.hrm.commons.entity.par.Par;
 import com.sgic.hrm.commons.entity.par.ParAppraisor;
 import com.sgic.hrm.commons.entity.par.ParContent;
-import com.sgic.hrm.commons.entity.par.ReportParAppraise;
 import com.sgic.hrm.commons.entity.par.ReportParAppraisor;
-import com.sgic.hrm.commons.entity.par.ScoreParAppraisee;
 import com.sgic.hrm.commons.entity.par.ScoreParAppraisor;
 import com.sgic.hrm.employee.par.service.ParAppraisorService;
 import com.sgic.hrm.employee.par.service.ParContentService;
@@ -42,34 +38,27 @@ public class ParReportForAppraisorServiceImpl implements ParReportForAppraisorSe
 	@Autowired
 	ParContentService parContentService;
 
-	@Override
-	public void saveReportAndScoreAppraisor(Integer parId, ReportParAppraisor reportParAppraisor,
-			List<ScoreParAppraisor> scoreParAppraisorList) {
-		if (parService.findParById(parId) != null) {
-			Par parObj = parService.findParById(parId);
-			reportParAppraisorService.createReportParAppraise(reportParAppraisor, parObj);
-			Iterator<ScoreParAppraisor> iterator = scoreParAppraisorList.iterator();
-			while (iterator.hasNext()) {
-				scoreParAppraisorService.createScoreParAppraisor(iterator.next(), reportParAppraisor);
-			}
-
-		}
-	}
+	
 
 	@Override
-	public String saveReportAndScoreAppraisor(ReportParAppraisorDtoPost reportParAppraisorDtoPost) {
+	public String saveReportAndScoreAppraisor(ReportParAppraisorDtoPost reportParAppraisorDtoPost,Integer parId) {
 		String msg = null;
-		ReportParAppraisor reportParAppraisor = new ReportParAppraisor();
-		// Mapping goes here
-		reportParAppraisor.setId(reportParAppraisorDtoPost.getReportId());
-		reportParAppraisor.setAppraisorId(reportParAppraisorDtoPost.getAppraisedById());
-		reportParAppraisor.setAppraisedDate(reportParAppraisorDtoPost.getAppraisedDate());
-
+		
+		Par parObj = parService.findParById(parId);
 		// sequence of steps goes here with proper validation
-		if (parService.findParById(reportParAppraisorDtoPost.getParId()) != null) {
-			if (reportParAppraisorService.findReportParAppraisorById(reportParAppraisorDtoPost.getReportId()) == null) {
-
-				Par parObj = parService.findParById(reportParAppraisorDtoPost.getParId());
+		if (parObj != null) {
+			int reportsize=reportParAppraisorService.findReportParAppraiserByPar(parObj).size();
+			int newReportNo=reportsize+1;
+			String pkreport=parObj.getId()+"_"+newReportNo;
+			
+			if (reportParAppraisorService.findReportParAppraisorById(pkreport) == null) {
+				ReportParAppraisor reportParAppraisor = new ReportParAppraisor();
+				// Mapping goes here
+				ParAppraisor parAppraisor=parAppraisorService.findParAppraisorByAppraiserId(reportParAppraisorDtoPost.getAppraisedById());
+				reportParAppraisor.setId(pkreport);
+				reportParAppraisor.setParAppraisor(parAppraisor);
+				
+				
 				reportParAppraisorService.createReportParAppraise(reportParAppraisor, parObj);
 				Iterator<ScoreParAppraiserDtoPost> iteratorDTO = reportParAppraisorDtoPost.getScoreParAppraiserList()
 						.iterator();
@@ -83,7 +72,7 @@ public class ParReportForAppraisorServiceImpl implements ParReportForAppraisorSe
 					i++;
 				}
 
-				msg = "success";
+		
 			} else {
 				msg = "report id is already exist";
 			}
@@ -109,10 +98,7 @@ public class ParReportForAppraisorServiceImpl implements ParReportForAppraisorSe
 		for (ReportParAppraisor reportParAppraisor : reportParAppraiserList) {
 			ReportParAppraisorDtoGet reportParAppraisorDtoGet = new ReportParAppraisorDtoGet();
 			//to be in mapper
-			reportParAppraisorDtoGet.setParId(par.getId());
-			reportParAppraisorDtoGet.setReportId(reportParAppraisor.getId());
-			
-			ParAppraisor parAppraisor=parAppraisorService.findParAppraisorByAppraiserId(reportParAppraisor.getAppraisorId());
+			ParAppraisor parAppraisor=parAppraisorService.findParAppraisorByAppraiserId(reportParAppraisor.getParAppraisor().getAppraiserId());
 			//to be in dto map appraisor
 			ParAppraisorDto parAppraisorDto=new ParAppraisorDto();
 			parAppraisorDto.setAppraiserId(parAppraisor.getAppraiserId());
@@ -121,7 +107,7 @@ public class ParReportForAppraisorServiceImpl implements ParReportForAppraisorSe
 			
 			reportParAppraisorDtoGet.setAppraisedBy(parAppraisorDto);
 			
-			reportParAppraisorDtoGet.setAppraisedDate(reportParAppraisor.getAppraisedDate());
+			
 
 			Iterator<ScoreParAppraisor> iteratorDTO = scoreParAppraisorService.getScore(reportParAppraisor).iterator();
 

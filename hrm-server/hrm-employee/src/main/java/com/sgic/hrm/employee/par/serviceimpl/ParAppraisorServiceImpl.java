@@ -27,7 +27,7 @@ public class ParAppraisorServiceImpl implements ParAppraisorService {
 	}
 
 	@Override
-	public void updateParAppraisor(ParAppraisor parAppraisor, String id) {
+	public void updateParAppraisor(ParAppraisor parAppraisor, Integer id) {
 		ParAppraisor existParAppraisor = findParAppraisorByAppraiserId(id);
 
 		if (existParAppraisor != null) {
@@ -37,13 +37,13 @@ public class ParAppraisorServiceImpl implements ParAppraisorService {
 	}
 
 	@Override
-	public void deleteParAppraisor(String id) {
+	public void deleteParAppraisor(Integer id) {
 		parAppraisorRepository.deleteById(id);
 
 	}
 
 	@Override
-	public ParAppraisor findParAppraisorByAppraiserId(String appraiserId) {
+	public ParAppraisor findParAppraisorByAppraiserId(Integer appraiserId) {
 		// TODO Auto-generated method stub
 		return parAppraisorRepository.findParAppraisorByAppraiserId(appraiserId);
 	}

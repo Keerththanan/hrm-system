@@ -1,17 +1,17 @@
 package com.sgic.hrm.commons.dto.par;
 
 public class ScoreParAppraiseeDtoPost {
-	
-	private String parContentId;
+
+	private Integer parContentId;
 	private Double score;
 	private String comment;
 	private String parContentName;
 
-	public String getParContentId() {
+	public Integer getParContentId() {
 		return parContentId;
 	}
 
-	public void setParContentId(String parContentId) {
+	public void setParContentId(Integer parContentId) {
 		this.parContentId = parContentId;
 	}
 
@@ -22,7 +22,7 @@ public class ScoreParAppraiseeDtoPost {
 	public void setScore(Double score) {
 		this.score = score;
 	}
-	
+
 	public String getComment() {
 		return comment;
 	}
@@ -30,7 +30,6 @@ public class ScoreParAppraiseeDtoPost {
 	public void setComment(String comment) {
 		this.comment = comment;
 	}
-	
 
 	public String getParContentName() {
 		return parContentName;
@@ -40,10 +39,11 @@ public class ScoreParAppraiseeDtoPost {
 		this.parContentName = parContentName;
 	}
 
-	public  ScoreParAppraiseeDtoPost(String parContentId, Double score) {
-	this .parContentId = parContentId;
-	this.score= score;
-}
+	public ScoreParAppraiseeDtoPost(Integer parContentId, Double score) {
+		this.parContentId = parContentId;
+		this.score = score;
+	}
+
 	public ScoreParAppraiseeDtoPost() {
 	}
 }

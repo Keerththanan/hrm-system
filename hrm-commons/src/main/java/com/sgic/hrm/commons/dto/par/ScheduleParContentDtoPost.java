@@ -2,9 +2,9 @@ package com.sgic.hrm.commons.dto.par;
 
 public class ScheduleParContentDtoPost {
 
-	private String parContentId;
+	private Integer parContentId;
 
-	public ScheduleParContentDtoPost(String parContentId) {
+	public ScheduleParContentDtoPost(Integer parContentId) {
 
 		this.parContentId = parContentId;
 	}
@@ -13,13 +13,15 @@ public class ScheduleParContentDtoPost {
 
 	}
 
-	public String getParContentId() {
+	public Integer getParContentId() {
 		return parContentId;
 	}
 
-	public void setParContentId(String parContentId) {
+	public void setParContentId(Integer parContentId) {
 		this.parContentId = parContentId;
 	}
+
+	
 
 
 
