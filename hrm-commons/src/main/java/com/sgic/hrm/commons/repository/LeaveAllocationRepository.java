@@ -8,7 +8,7 @@ import com.sgic.hrm.commons.entity.User;
 
 public interface LeaveAllocationRepository extends JpaRepository<LeaveAllocation, Integer> {
 
-  List<LeaveAllocation> findByUser(User user);
+  List<LeaveAllocation> findAllByUserOrderByIdAsc(User user);
   
   LeaveAllocation findByUserAndLeaveType(User user, LeaveType leaveType);
 

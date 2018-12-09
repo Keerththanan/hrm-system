@@ -2,6 +2,7 @@ package com.sgic.hrm.employee.remuneration.serviceImpl;
 
 import java.util.List;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,5 +18,4 @@ private RoleRepository roleRepository;
 		// TODO Auto-generated  method stub
 		return roleRepository.findAll();
 	}
-
 }

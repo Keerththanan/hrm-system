@@ -11,9 +11,9 @@ public interface CancelLeaveRequestService {
   
   boolean deleteCancelLeaveRequest(Integer id);
   
-  boolean acceptCancelLeaveRequestStatus(AcceptCancelRequestDto acceptCancelRequestDto);
+  boolean acceptCancelLeaveRequest(AcceptCancelRequestDto acceptCancelRequestDto);
   
-  boolean rejectCancelLeaveRequestStatus(RejectCancelRequestDto rejectCancelRequestDto);
+  boolean rejectCancelLeaveRequest(RejectCancelRequestDto rejectCancelRequestDto);
   
   List<CancelLeaveRequest> getAllCancelRequest();
   

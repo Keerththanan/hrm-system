@@ -8,14 +8,14 @@ import com.sgic.hrm.commons.entity.LeaveRequest;
 public class LeaveRequestDataToLeaveRequest {
 
 
-public static LeaveRequest mapToLeaveRequest(LeaveRequestData leaveRequestData) {
+  public static LeaveRequest mapToLeaveRequest(LeaveRequestData leaveRequestData) {
     LeaveRequest leaveRequest = new LeaveRequest();
 
     if (leaveRequestData != null) {
       leaveRequest.setId(leaveRequestData.getId());
       leaveRequest.setUser(UserDataToUser.mapToUser(leaveRequestData.getUser()));
-      leaveRequest
-          .setLeaveType(LeaveTypeDataToLeaveType.mapToLeaveType(leaveRequestData.getLeaveType()));
+      leaveRequest.setLeaveAllocation(LeaveAllocationDataToLeaveAllocation
+          .mapToLeaveAllocation(leaveRequestData.getLeaveAllocation()));
       leaveRequest.setStartDate(leaveRequestData.getStartDate());
       leaveRequest.setEndDate(leaveRequestData.getEndDate());
       leaveRequest.setAttachment(leaveRequestData.getAttachment());
