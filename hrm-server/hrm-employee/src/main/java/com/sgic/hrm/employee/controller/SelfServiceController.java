@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.sgic.hrm.commons.dto.SelfServiceDto;
 import com.sgic.hrm.commons.dto.SelfServiceSaveDto;
 import com.sgic.hrm.commons.dto.mapper.SelfServiceDtoMapper;
+import com.sgic.hrm.commons.entity.SelfService;
 import com.sgic.hrm.commons.entity.mapper.SelfServiceMapper;
 import com.sgic.hrm.employee.service.SelfServiceService;
 
@@ -73,6 +74,11 @@ public class SelfServiceController {
       return HttpStatus.OK;
     }
     return HttpStatus.BAD_REQUEST;
+  }
+  @GetMapping("/selfservices/{username}")
+  public List<SelfService> viewComplainByUser(@PathVariable String username)
+  {
+	  return selfServiceService.getSpecificUser(username);
   }
 
 }

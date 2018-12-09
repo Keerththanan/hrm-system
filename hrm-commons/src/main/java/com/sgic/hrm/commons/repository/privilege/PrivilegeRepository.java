@@ -8,7 +8,7 @@ import com.sgic.hrm.commons.enums.RoleName;
 
 public interface PrivilegeRepository extends JpaRepository<Privilege, Integer> {
 	
-	@Query("SELECT p FROM Privilege p WHERE p.permission.authorizeType.authorizeTypeName = ?1 AND p.permission.module.moduleName = ?2 AND p.role.name = ?3")
+	@Query("SELECT p FROM Privilege p WHERE p.authorizeType.authorizeTypeName = ?1 AND p.module.moduleName = ?2 AND p.role.name = ?3")
 	public Privilege getPrivilegeState(String authorizationTypeName, String moduleName, RoleName roleName);
 
 }

@@ -10,3 +10,4 @@ public interface UserLoanDetailsService {
 	public List<UserLoanDetails> getSpecificUser(String username);
 	public List<UserLoanDetails> getSpecificUserByName(String name);
 }
+ 

@@ -33,7 +33,7 @@ public class Login implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 
-	@Column(name = "username", unique = true)
+	@Column(name = "username", unique = true) 
 	@NaturalId
 	private String username;
 

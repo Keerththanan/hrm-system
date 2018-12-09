@@ -14,5 +14,7 @@ public interface SelfServiceService {
 	
 	List<SelfService> findByUserId(Integer id);
 	
+	public List<SelfService> getSpecificUser(String name);
+	
 	List<SelfService> findByStatusNot(String status);
 }

@@ -4,6 +4,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.sgic.hrm.commons.entity.SelfService;
+import com.sgic.hrm.commons.repository.LoginRepository;
 import com.sgic.hrm.commons.repository.SelfServiceRepository;
 import com.sgic.hrm.employee.service.SelfServiceService;
 
@@ -12,6 +13,9 @@ public class SelfServiceImpl implements SelfServiceService {
 
 	@Autowired
 	private SelfServiceRepository selfServiceRepository;
+	
+	@Autowired
+	private LoginRepository loginRepository;
 
 	@Override
 	public List<SelfService> viewSelfService() {
@@ -52,5 +56,10 @@ public class SelfServiceImpl implements SelfServiceService {
   public List<SelfService> findByStatusNot(String status){
     return selfServiceRepository.findByStatus(status);
   }
+
+@Override
+public List<SelfService> getSpecificUser(String name) {
+	return selfServiceRepository.findByuser(loginRepository.findByUsername(name).get().getUser());
+}
 
 }

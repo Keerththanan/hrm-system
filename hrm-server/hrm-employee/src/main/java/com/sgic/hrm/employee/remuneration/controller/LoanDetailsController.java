@@ -13,10 +13,11 @@ import com.sgic.hrm.employee.remuneration.service.LoanDetailsService;
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
 public class LoanDetailsController {
-@Autowired
-private LoanDetailsService loanDetailsService;
-@GetMapping("/loandetails")
-public List<LoanDetailsEntity> viewAll(){
-	return loanDetailsService.getAllLoanDetails();
-}
+	@Autowired
+	private LoanDetailsService loanDetailsService;
+
+	@GetMapping("/loandetails")
+	public List<LoanDetailsEntity> viewAll() {
+		return loanDetailsService.getAllLoanDetails();
+	}
 }

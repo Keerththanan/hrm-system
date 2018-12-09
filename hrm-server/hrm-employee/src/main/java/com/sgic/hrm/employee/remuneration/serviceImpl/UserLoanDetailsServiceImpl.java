@@ -10,7 +10,7 @@ import com.sgic.hrm.commons.repository.LoginRepository;
 import com.sgic.hrm.commons.repository.UserLoanDetailsRepository;
 import com.sgic.hrm.employee.remuneration.service.UserLoanDetailsService;
 
-@Service
+@Service 
 public class UserLoanDetailsServiceImpl implements UserLoanDetailsService {
 
 	@Autowired

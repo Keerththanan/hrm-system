@@ -1,8 +1,10 @@
 package com.sgic.hrm.employee.serviceimpl;
 
 import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import com.sgic.hrm.commons.entity.User;
 import com.sgic.hrm.commons.repository.UserRepository;
 import com.sgic.hrm.employee.service.UserService;
@@ -49,4 +51,15 @@ public class UserServiceImpl implements UserService {
     // TODO Auto-generated method stub
     return userRepository.findUserById(id);
   }
+
+@Override
+public User findByUserName(String fullName) {
+	
+	return userRepository.findByfullName(fullName);
+}
+
+
+
+
+
 }
