@@ -27,12 +27,12 @@ INSERT INTO employee."user" VALUES (3, NULL, NULL, 'hr', NULL, NULL, NULL, NULL,
 INSERT INTO leavesystem.leave_allocation VALUES (7, 14, 0, 1, 2);
 INSERT INTO leavesystem.leave_allocation VALUES (8, 7, 0, 2, 2);
 INSERT INTO leavesystem.leave_allocation VALUES (9, 14, 0, 3, 2);
-INSERT INTO leavesystem.leave_allocation VALUES (2, 7, 2, 2, 1);
-INSERT INTO leavesystem.leave_allocation VALUES (4, 14, 1, 1, 3);
+INSERT INTO leavesystem.leave_allocation VALUES (2, 7, 0, 2, 1);
+INSERT INTO leavesystem.leave_allocation VALUES (4, 14, 0, 1, 3);
 INSERT INTO leavesystem.leave_allocation VALUES (5, 7, 0, 2, 3);
 INSERT INTO leavesystem.leave_allocation VALUES (3, 14, 0, 3, 1);
 INSERT INTO leavesystem.leave_allocation VALUES (1, 14, 0, 1, 1);
-INSERT INTO leavesystem.leave_allocation VALUES (6, 14, 3, 3, 3);
+INSERT INTO leavesystem.leave_allocation VALUES (6, 14, 0, 3, 3);
 
 --resizable--
 INSERT INTO leavesystem.resizable VALUES (1, true, true);
