@@ -101,7 +101,6 @@ public class PrivilegeController {
 		if (privilegeUpdateDto != null) {
 			Privilege privilege = privilegeRepository.getPrivilegeState(privilegeUpdateDto.getAuthorizeName(),
 					privilegeUpdateDto.getModuleName(), privilegeUpdateDto.getRoleName());
-
 			if (privilege != null) {
 				boolean state = privilege.isEnabled();
 				return state;

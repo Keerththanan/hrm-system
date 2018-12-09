@@ -5,6 +5,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.sgic.hrm.commons.entity.Role;
+import com.sgic.hrm.commons.entity.privilege.AuthorizeType;
+import com.sgic.hrm.commons.entity.privilege.Module;
 import com.sgic.hrm.commons.entity.privilege.Privilege;
 import com.sgic.hrm.commons.repository.privilege.PrivilegeRepository;
 import com.sgic.hrm.employee.service.privilege.PrivilegeService;
@@ -45,6 +48,21 @@ public class PrivilegeServiceImpl implements PrivilegeService {
 			return true;
 		}
 		return false;
+	}
+
+	@Override
+	public void addPrivilegeForEachModule(Module module, List<AuthorizeType> authorizeTypeList, List<Role> roleList) {
+
+		for (AuthorizeType authorizeType : authorizeTypeList) {
+			Privilege privilege = new Privilege();
+			privilege.setAuthorizeType(authorizeType);
+			for (Role role : roleList) {
+				privilege.setModule(module);
+				privilege.setRole(role);
+				privilege.setEnabled(false);
+				privilegeRepository.save(privilege);
+			}
+		}
 	}
 
 }
