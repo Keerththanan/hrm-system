@@ -19,10 +19,7 @@ INSERT INTO leavesystem.leave_type VALUES (2, '2018-10-10 00:00:00', 7, 'Casual'
 INSERT INTO leavesystem.leave_type VALUES (3, '2018-10-10 00:00:00', 14, 'Medical', '2018-10-10 00:00:00');
 
 --user--
-INSERT INTO employee."user" VALUES (1, NULL, NULL, 'user', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO employee."user" VALUES (2, NULL, NULL, 'admin', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO employee."user" VALUES (3, NULL, NULL, 'hr', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
- 
+
 --leave-allocation--
 INSERT INTO leavesystem.leave_allocation VALUES (7, 14, 0, 1, 2);
 INSERT INTO leavesystem.leave_allocation VALUES (8, 7, 0, 2, 2);
