@@ -41,7 +41,7 @@ public class User implements Serializable {
 	private Department department;
 
 	@ManyToOne
-	@JoinColumn(name = "join_user_role")
+	@JoinColumn(name = "role_id")
 	private Role role;
 
 	@UpdateTimestamp
