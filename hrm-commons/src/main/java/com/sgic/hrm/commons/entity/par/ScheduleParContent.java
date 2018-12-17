@@ -8,7 +8,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "ScheduleParContent", schema = "employee")
+@Table(name = "ScheduleParContent", schema = "par")
 public class ScheduleParContent {
 
 	@Id

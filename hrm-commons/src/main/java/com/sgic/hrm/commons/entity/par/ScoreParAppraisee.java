@@ -1,15 +1,13 @@
 package com.sgic.hrm.commons.entity.par;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "scoreParAppraisee", schema = "employee")
+@Table(name = "scoreParAppraisee", schema = "par")
 public class ScoreParAppraisee {
 
 	@Id
