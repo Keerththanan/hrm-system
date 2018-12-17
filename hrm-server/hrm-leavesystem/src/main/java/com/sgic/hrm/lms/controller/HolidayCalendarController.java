@@ -45,21 +45,21 @@ public class HolidayCalendarController {
 	}
 
 	@PutMapping("/{id}")
-	public ResponseEntity<String> updateHolidayCalendar(@PathVariable(name = "id") Integer id,
+	public HttpStatus updateHolidayCalendar(@PathVariable(name = "id") Integer id,
 			@RequestBody HolidayCalendarData holidayCalendarData) {
 		if (holidayCalendarService.updateHoliday(id,
-				HolidayCalendarDataToHolidayCalendar.mapToHolidayCalendar(holidayCalendarData))) {
-			return new ResponseEntity<>("Holiday Calendar updated successfully", HttpStatus.OK);
+				HolidayCalendarDataToHolidayCalendar.mapToHolidayCalendar(holidayCalendarData), holidayCalendarData.getPostedBy())) {
+			return HttpStatus.OK;
 		}
-		return new ResponseEntity<>("Faild to update Holiday Calendar", HttpStatus.BAD_REQUEST);
+		return HttpStatus.BAD_REQUEST;
 	}
 	
 	@DeleteMapping("/{id}")
-	public ResponseEntity<String> deleteHolidayCalendar(@PathVariable(name="id")Integer id){
+	public HttpStatus deleteHolidayCalendar(@PathVariable(name="id")Integer id){
 		if (holidayCalendarService.deleteholiday(id)){
-			return new ResponseEntity<>("Holiday Calendar deleted successfully", HttpStatus.OK);
+			return  HttpStatus.OK;
 		}
-		return new ResponseEntity<>("Faild to deleted Holiday Calendar", HttpStatus.BAD_REQUEST);
+		return HttpStatus.BAD_REQUEST;
 	}
 
 	
