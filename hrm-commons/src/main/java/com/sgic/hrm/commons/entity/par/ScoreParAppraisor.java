@@ -7,7 +7,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "ScoreParAppraisor", schema = "employee")
+@Table(name = "ScoreParAppraisor", schema = "par")
 public class ScoreParAppraisor {
 
 	@Id

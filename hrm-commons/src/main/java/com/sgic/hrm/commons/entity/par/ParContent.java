@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "ParContent", schema = "employee")
+@Table(name = "ParContent", schema = "par")
 public class ParContent {
 
 	@Id

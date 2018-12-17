@@ -1,7 +1,5 @@
 package com.sgic.hrm.commons.entity.par;
 
-import java.util.Date;
-
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -9,7 +7,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "ReportParAppraisor", schema = "employee")
+@Table(name = "ReportParAppraisor", schema = "par")
 public class ReportParAppraisor {
 
 	@Id
