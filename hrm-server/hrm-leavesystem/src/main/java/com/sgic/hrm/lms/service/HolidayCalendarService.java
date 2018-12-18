@@ -8,7 +8,7 @@ public interface HolidayCalendarService {
 	
 	boolean createHoliday(HolidayCalendar holidayCalendar, String username);
 	List<HolidayCalendar> viewAllHoliday();
-	boolean updateHoliday(Integer id,HolidayCalendar holidayCalendar);
+	boolean updateHoliday(Integer id,HolidayCalendar holidayCalendar, String username);
 	boolean deleteholiday(Integer id);
 
 }
