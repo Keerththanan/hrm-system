@@ -39,9 +39,10 @@ public class HolidayCalendarServiceImpl implements HolidayCalendarService {
   }
 
   @Override
-  public boolean updateHoliday(Integer id, HolidayCalendar holidayCalendar) {
-    if (holidayCalendarRepository.getOne(id) != null) {
+  public boolean updateHoliday(Integer id, HolidayCalendar holidayCalendar, String username) {
+    if (holidayCalendarRepository.getOne(id) != null) {    	
       holidayCalendar.setId(id);
+      holidayCalendar.setEnteredBy(loginService.getUser(username));
       holidayCalendarRepository.save(holidayCalendar);
       return true;
     }

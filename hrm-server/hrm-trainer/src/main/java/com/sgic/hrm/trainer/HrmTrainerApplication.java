@@ -4,9 +4,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class HrmTraineeApplication {
+public class HrmTrainerApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(HrmTraineeApplication.class, args);
+		SpringApplication.run(HrmTrainerApplication.class, args);
 	}
 }
