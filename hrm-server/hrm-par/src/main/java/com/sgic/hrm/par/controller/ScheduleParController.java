@@ -20,7 +20,9 @@ import com.sgic.hrm.commons.dto.par.ScheduleParContentDtoGet;
 import com.sgic.hrm.commons.dto.par.ScheduleParContentDtoPost;
 import com.sgic.hrm.commons.dto.par.ScheduleParDtoGet;
 import com.sgic.hrm.commons.dto.par.ScheduleParDtoPost;
+import com.sgic.hrm.commons.entity.par.EmployeeDetails;
 import com.sgic.hrm.commons.entity.par.Par;
+import com.sgic.hrm.par.service.EmployeeDetailsService;
 import com.sgic.hrm.par.service.ParService;
 import com.sgic.hrm.par.serviceCombined.ParScheduleService;
 
@@ -32,6 +34,8 @@ public class ScheduleParController {
 	ParScheduleService parScheduleService;
 	@Autowired
 	ParService parservice;
+	@Autowired
+	EmployeeDetailsService employeeDetailsService;
 
 	@GetMapping("/scheduleparPostTemp")
 	public ScheduleParDtoPost getScheduleParPost() {
@@ -98,5 +102,11 @@ public class ScheduleParController {
 	public void deleteSchedulePar(@PathVariable("parId") Integer parId) {
 		parScheduleService.deleteSchedulePar(parId);
 	}
-
+@GetMapping("/schedulepar/empname/{EmpName}")
+public ResponseEntity<List<EmployeeDetails>>getEmployeeName(@RequestBody EmployeeDetails employeeDetails, @PathVariable ("EmpName") String EmpName){
+	List<EmployeeDetails> employeeName = employeeDetailsService.findByEmpName(EmpName);
+	ResponseEntity<List<EmployeeDetails>> response =new ResponseEntity<>(employeeName,HttpStatus.OK);
+	return response;
+	
+}
 }
