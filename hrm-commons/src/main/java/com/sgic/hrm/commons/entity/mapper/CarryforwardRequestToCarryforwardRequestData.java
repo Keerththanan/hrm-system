@@ -7,6 +7,8 @@ import com.sgic.hrm.commons.entity.CarryforwardRequest;
 
 public class CarryforwardRequestToCarryforwardRequestData {
 
+	private CarryforwardRequestToCarryforwardRequestData() {}
+	
   public static CarryforwardRequestData mapToCarryforwardRequestData(
       CarryforwardRequest carryforwardRequest) {
     CarryforwardRequestData carryforwardRequestData = new CarryforwardRequestData();
@@ -17,8 +19,9 @@ public class CarryforwardRequestToCarryforwardRequestData {
       carryforwardRequestData.setUpdatedAt(carryforwardRequest.getUpdatedAt());
       carryforwardRequestData.setUser(UserToUserData.mapToUserData(carryforwardRequest.getUser()));
       carryforwardRequestData.setStatus(carryforwardRequest.getStatus());
+      return carryforwardRequestData;
     }
-    return carryforwardRequestData;
+    return null;
   }
 
   public static List<CarryforwardRequestData> mapToCarryforwardRequestDataList(
