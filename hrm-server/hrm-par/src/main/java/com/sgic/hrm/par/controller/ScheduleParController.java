@@ -54,7 +54,7 @@ public class ScheduleParController {
 		objScheduleParDTO.setScheduleParContentList(scheduleParContentList);
 		return objScheduleParDTO;
 	}
-	
+
 	@GetMapping("/scheduleparGetTemp")
 	public ScheduleParDtoGet getScheduleParGet() {
 		ScheduleParDtoGet scheduleParDtoGet = new ScheduleParDtoGet();
@@ -75,7 +75,7 @@ public class ScheduleParController {
 	@PostMapping("/schedulepar")
 	public void createSchedulePar(@RequestBody ScheduleParDtoPost objScheduleParDTO) {
 		// boolean=
-		
+
 		parScheduleService.createSchedulePar(objScheduleParDTO);
 	}
 
@@ -97,16 +97,18 @@ public class ScheduleParController {
 		ResponseEntity<List<Par>> response = new ResponseEntity<>(par, HttpStatus.OK);
 		return response;
 	}
-	
+
 	@DeleteMapping("/schedulepar/par/{parId}")
 	public void deleteSchedulePar(@PathVariable("parId") Integer parId) {
 		parScheduleService.deleteSchedulePar(parId);
 	}
-@GetMapping("/schedulepar/empname/{EmpName}")
-public ResponseEntity<List<EmployeeDetails>>getEmployeeName(@RequestBody EmployeeDetails employeeDetails, @PathVariable ("EmpName") String EmpName){
-	List<EmployeeDetails> employeeName = employeeDetailsService.findByEmpName(EmpName);
-	ResponseEntity<List<EmployeeDetails>> response =new ResponseEntity<>(employeeName,HttpStatus.OK);
-	return response;
-	
-}
+
+	@GetMapping("/schedulepar/empname/{EmpName}")
+	public ResponseEntity<List<EmployeeDetails>> getEmployeeName(@RequestBody EmployeeDetails employeeDetails,
+			@PathVariable("EmpName") String EmpName) {
+		List<EmployeeDetails> employeeName = employeeDetailsService.findByEmpName(EmpName);
+		ResponseEntity<List<EmployeeDetails>> response = new ResponseEntity<>(employeeName, HttpStatus.OK);
+		return response;
+
+	}
 }
