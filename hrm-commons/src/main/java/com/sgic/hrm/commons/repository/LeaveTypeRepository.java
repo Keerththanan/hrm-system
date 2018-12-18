@@ -5,4 +5,5 @@ import com.sgic.hrm.commons.entity.LeaveType;
 
 public interface LeaveTypeRepository extends JpaRepository<LeaveType, Integer>{
 
+	LeaveType findByLeaveTypeValue(String leaveTypeValue);
 }

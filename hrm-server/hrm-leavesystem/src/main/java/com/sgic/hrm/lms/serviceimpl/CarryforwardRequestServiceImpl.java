@@ -33,7 +33,8 @@ public class CarryforwardRequestServiceImpl implements CarryforwardRequestServic
 			CarryforwardRequest carryforwardRequest= new CarryforwardRequest();
 			carryforwardRequest.setStatus(Status.PENDING);
 			carryforwardRequest.setUser(loginService.getUser(carryforwardObjectData.getUserName()));
-			carryforwardRequest.setCarryForwardDays(carryforwardObjectData.getCarryforwardDays());
+			carryforwardRequest.setCarryForwardDays(carryforwardObjectData.getCarryforwardDays());			
+			
 			carryforwardRequestRepository.save(carryforwardRequest);
 			return true;
 		}
