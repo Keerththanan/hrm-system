@@ -102,8 +102,16 @@ public class LeaveAllocationServiceImpl implements LeaveAllocationService {
 
 		LeaveAllocation allocation = leaveAllocationRepository.findByUserAndLeaveType(carryforwardRequest.getUser(),
 				leaveTypeRepository.findByLeaveTypeValue("Annual"));
-		if ((allocation.getAllocatedDays() - allocation.getUtilizedDays()) > carryforwardRequest
-				.getCarryForwardDays()) {
+		if (carryforwardRequest.getStatus() == Status.PENDING) {
+			if ((allocation.getAllocatedDays() - allocation.getUtilizedDays()) > carryforwardRequest
+					.getCarryForwardDays()) {
+				allocation.setUtilizedDays(allocation.getUtilizedDays() + carryforwardRequest.getCarryForwardDays());
+				leaveAllocationRepository.save(allocation);
+				return true;
+			}
+		} else if (carryforwardRequest.getStatus() == Status.CANCELED
+				|| carryforwardRequest.getStatus() == Status.REJECTED
+				|| carryforwardRequest.getStatus() == Status.DELETED) {
 			allocation.setUtilizedDays(allocation.getUtilizedDays() - carryforwardRequest.getCarryForwardDays());
 			leaveAllocationRepository.save(allocation);
 			return true;
