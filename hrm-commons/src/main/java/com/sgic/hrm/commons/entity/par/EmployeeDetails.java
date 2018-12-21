@@ -8,36 +8,40 @@ import javax.persistence.Table;
 @Table(name = "EmployeeDetails", schema = "par")
 public class EmployeeDetails {
 @Id
-private String EmpId;
-private String EmpName;
-private String Email;
+private String empId;
+private String empName;
+private String email;
+
 
 public EmployeeDetails(String empId, String empName, String email) {
 	super();
-	EmpId = empId;
-	EmpName = empName;
-	Email = email;
+	this.empId = empId;
+	this.empName = empName;
+	this.email = email;
 }
 public EmployeeDetails() {
 	
 }
+
 public String getEmpId() {
-	return EmpId;
+	return empId;
 }
 public void setEmpId(String empId) {
-	EmpId = empId;
+	this.empId = empId;
 }
 public String getEmpName() {
-	return EmpName;
+	return empName;
 }
 public void setEmpName(String empName) {
-	EmpName = empName;
+	this.empName = empName;
 }
 public String getEmail() {
-	return Email;
+	return email;
 }
 public void setEmail(String email) {
-	Email = email;
+	this.email = email;
 }
+
+
 
 }

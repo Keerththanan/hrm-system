@@ -19,4 +19,10 @@ public class EmployeeDetailsServiceImpl implements EmployeeDetailsService  {
 		return employeeDetailsRepo.findByEmpName(empName);
 	}
 
+	@Override
+	public List<EmployeeDetails> findEmpDetails() {
+		// TODO Auto-generated method stub
+		return employeeDetailsRepo.findAll();
+	}
+
 }
