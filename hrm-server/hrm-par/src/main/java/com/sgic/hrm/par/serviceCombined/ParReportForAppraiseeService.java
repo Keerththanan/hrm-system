@@ -1,11 +1,7 @@
 package com.sgic.hrm.par.serviceCombined;
 
-import java.util.List;
-
 import com.sgic.hrm.commons.dto.par.ReportParAppraiseeDtoGet;
 import com.sgic.hrm.commons.dto.par.ReportParAppraiseeDtoPost;
-import com.sgic.hrm.commons.dto.par.ScoreParAppraiseeDtoPost;
-import com.sgic.hrm.commons.entity.par.ReportParAppraise;
 
 public interface ParReportForAppraiseeService {
 
