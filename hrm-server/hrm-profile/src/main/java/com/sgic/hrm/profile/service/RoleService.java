@@ -6,4 +6,5 @@ import com.sgic.hrm.commons.entity.Role;
 
 public interface RoleService {
 	 List<Role> getRoles();
+	 Role findByRoleId(Long id);
 }

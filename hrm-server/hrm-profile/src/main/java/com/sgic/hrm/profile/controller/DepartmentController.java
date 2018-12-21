@@ -19,8 +19,6 @@ import com.sgic.hrm.commons.dto.mapper.DepartmentDataMapper;
 import com.sgic.hrm.commons.entity.Department;
 import com.sgic.hrm.profile.service.DepartmentService;
 @CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
-
-
 @RestController
 public class DepartmentController {
 	@Autowired

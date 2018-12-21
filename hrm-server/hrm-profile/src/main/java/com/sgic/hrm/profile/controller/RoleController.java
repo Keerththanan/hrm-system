@@ -16,8 +16,9 @@ import com.sgic.hrm.profile.service.RoleService;
 public class RoleController {
 	@Autowired
 	private RoleService roleService;
+	
 	@GetMapping("/roles")
-	public ResponseEntity <List<Role>> getRoles()
+	public ResponseEntity <List<Role>> viewRoles()
 	{
 		List<Role> role = roleService.getRoles();
 		return new ResponseEntity<>(role, HttpStatus.OK);

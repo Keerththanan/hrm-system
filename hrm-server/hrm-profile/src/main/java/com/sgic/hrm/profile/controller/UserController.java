@@ -14,9 +14,13 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.sgic.hrm.commons.dto.UserData;
-import com.sgic.hrm.commons.dto.mapper.UserDataMapper;
+import com.sgic.hrm.commons.dto.mapper.profile.UserDtoToUser;
+import com.sgic.hrm.commons.dto.profile.UserDto;
+import com.sgic.hrm.commons.entity.Department;
+import com.sgic.hrm.commons.entity.Role;
 import com.sgic.hrm.commons.entity.User;
+import com.sgic.hrm.profile.service.DepartmentService;
+import com.sgic.hrm.profile.service.RoleService;
 import com.sgic.hrm.profile.service.UserService;
 
 @CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
@@ -24,10 +28,17 @@ import com.sgic.hrm.profile.service.UserService;
 public class UserController {
 	@Autowired
 	private UserService userService;
+	@Autowired
+	private DepartmentService departmentService;
+	@Autowired
+	private RoleService roleService;
 	
 	@PostMapping("/user")
-	public HttpStatus AddUser(@RequestBody User user) {
-		boolean test = userService.addUser(user);
+	public HttpStatus AddUser(@RequestBody UserDto userDto) {
+		Department department=departmentService.findByDepartmentId(userDto.getDepartment());
+		Role role=roleService.findByRoleId(userDto.getRole());
+		User user =UserDtoToUser.map(userDto);
+		boolean test = userService.addUser(user, role, department);
 		if (test) {
 			return HttpStatus.CREATED;
 		}
@@ -51,25 +62,18 @@ public class UserController {
 	public User getUserByName(@PathVariable String fullName) {
 		
 			return userService.findByUserName(fullName);
-		
 	}
-//	@PutMapping("user/{id}")
-//	public HttpStatus ModifyUser(@PathVariable Integer id,@RequestBody User user) {
-//		boolean test=userService.editUser(user, id);
-//		if(test) {
-//			return HttpStatus.ACCEPTED;
-//		}
-//		return HttpStatus.BAD_REQUEST;
-//	}
+
 	@PutMapping("/user/{id}")
-	public ResponseEntity<String> updateUser(@PathVariable(name="id") Integer id,@RequestBody UserData userData){
-		User user=UserDataMapper.userDataMapper(userData);
-		if(userService.editUser(user, id))
-		{
-			return new ResponseEntity<>("updated",HttpStatus.OK);
-		}
-		return new ResponseEntity<>("upadte failed", HttpStatus.BAD_REQUEST);
-	}
+//	public ResponseEntity<String> updateUser(@PathVariable(name="id") Integer id,@RequestBody UserData userData){
+//		User user=UserDataMapper.userDataMapper(userData);
+//		if(userService.editUser(user, id))
+//		{
+//			return new ResponseEntity<>("updated",HttpStatus.OK);
+//		}
+//		return new ResponseEntity<>("upadte failed", HttpStatus.BAD_REQUEST);
+//	}
+	
 	@DeleteMapping("user/{id}")
 	public HttpStatus DeleteUser(@PathVariable Integer id) {
 		boolean user=userService.deleteUser(id);
