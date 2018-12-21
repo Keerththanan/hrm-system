@@ -104,8 +104,7 @@ public class ScheduleParController {
 	}
 
 	@GetMapping("/schedulepar/empname/{EmpName}")
-	public ResponseEntity<List<EmployeeDetails>> getEmployeeName(@RequestBody EmployeeDetails employeeDetails,
-			@PathVariable("EmpName") String EmpName) {
+	public ResponseEntity<List<EmployeeDetails>> getEmployeeName(@PathVariable("EmpName") String EmpName) {
 		List<EmployeeDetails> employeeName = employeeDetailsService.findByEmpName(EmpName);
 		ResponseEntity<List<EmployeeDetails>> response = new ResponseEntity<>(employeeName, HttpStatus.OK);
 		return response;
