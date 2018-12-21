@@ -38,6 +38,7 @@ public class User implements Serializable {
 	private String maritalStatus;
 
 	@ManyToOne
+	@JoinColumn(name = "department_id")
 	private Department department;
 
 	@ManyToOne

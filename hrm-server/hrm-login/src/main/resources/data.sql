@@ -1,3 +1,4 @@
+
 INSERT INTO login.role(rolename) VALUES('ADMIN');
 INSERT INTO login.role(rolename) VALUES('DIRECTOR');
 INSERT INTO login.role(rolename) VALUES('HR_MANAGER');
@@ -290,3 +291,4 @@ INSERT INTO employee.request_promotion VALUES (2, '2018-12-12', 'Par score', '2'
 
 INSERT INTO employee.vacancy VALUES (1, '2018-06-07', 'Internal', 3, 10000, '2018-06-07', '2019-03-04', 1, 1, 1, 1);
 INSERT INTO employee.vacancy VALUES (2, '2018-06-07', 'External', 5, 30000, '2018-06-07', '2019-03-04', 1, 1, 1, 1);
+
