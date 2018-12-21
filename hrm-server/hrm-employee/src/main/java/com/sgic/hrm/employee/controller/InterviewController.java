@@ -14,7 +14,7 @@ import com.sgic.hrm.commons.entity.Interviewers;
 import com.sgic.hrm.employee.service.ApplicantsInterviewService;
 import com.sgic.hrm.employee.service.InterviewService;
 import com.sgic.hrm.employee.service.InterviewersServices;
-import com.sgic.hrm.employee.service.JobService;
+import com.sgic.hrm.profile.service.JobService;
 
 @RestController
 public class InterviewController {

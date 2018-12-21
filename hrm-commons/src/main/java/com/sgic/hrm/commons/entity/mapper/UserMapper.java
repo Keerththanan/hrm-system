@@ -23,7 +23,7 @@ public class UserMapper {
 		Department department = user.getDepartment();
 		if (user.getId() != null) {
 			userDto.setId(user.getId());
-			userDto.setFullname(user.getFullName());
+			userDto.setFullName(user.getFullName());
 			userDto.setDepartment(department.getDepartmentName());
 		}
 		return userDto;
