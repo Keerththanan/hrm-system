@@ -1,8 +1,8 @@
 package com.sgic.hrm.commons.dto.profile;
 
-import com.sgic.hrm.commons.entity.User;
-
-public class ProfessionalMembershipDto {
+public class ProfessionalMembershipSaveDto {
+	
+	private Integer user;
 	private Integer id;
 	private String organizationName;
 	private String eventName;
@@ -10,7 +10,13 @@ public class ProfessionalMembershipDto {
 	private Integer periodYearFrom;
 	private Integer periodYearTo;
 	private Integer award;
-	private User user;
+	
+	public Integer getUser() {
+		return user;
+	}
+	public void setUser(Integer user) {
+		this.user = user;
+	}
 	public Integer getId() {
 		return id;
 	}
@@ -53,11 +59,4 @@ public class ProfessionalMembershipDto {
 	public void setAward(Integer award) {
 		this.award = award;
 	}
-	public User getUser() {
-		return user;
-	}
-	public void setUser(User user) {
-		this.user = user;
-	}
-	
 }

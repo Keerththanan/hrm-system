@@ -1,6 +1,6 @@
-package com.sgic.hrm.commons.dto;
+package com.sgic.hrm.commons.dto.profile;
 
-public class RolesAndResponsibilityDto {
+public class RolesAndResponsibilitySaveDto {
 	private Integer id;
 	private Integer user;
 	private Integer job;
