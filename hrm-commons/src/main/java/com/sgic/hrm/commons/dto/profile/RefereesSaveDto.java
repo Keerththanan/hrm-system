@@ -1,15 +1,20 @@
 package com.sgic.hrm.commons.dto.profile;
 
-import com.sgic.hrm.commons.entity.User;
-
-public class RefereesDto {
+public class RefereesSaveDto {
 	private Integer id;
 	private String refereeName;
-	private User user;
-	private String Address;
+	
+	private Integer user;
 	private String email;
+	private String Address;
 	private String contactNo;
 	private String relationship;
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
 	public Integer getId() {
 		return id;
 	}
@@ -22,10 +27,10 @@ public class RefereesDto {
 	public void setRefereeName(String refereeName) {
 		this.refereeName = refereeName;
 	}
-	public User getUser() {
+	public Integer getUser() {
 		return user;
 	}
-	public void setUser(User user) {
+	public void setUser(Integer user) {
 		this.user = user;
 	}
 	public String getAddress() {
@@ -33,12 +38,6 @@ public class RefereesDto {
 	}
 	public void setAddress(String address) {
 		Address = address;
-	}
-	public String getEmail() {
-		return email;
-	}
-	public void setEmail(String email) {
-		this.email = email;
 	}
 	public String getContactNo() {
 		return contactNo;
@@ -54,4 +53,5 @@ public class RefereesDto {
 	}
 	
 	
+
 }

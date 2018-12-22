@@ -71,7 +71,6 @@ public class ProfessionalQualificationController {
 		return new ResponseEntity<>(professionalQualificationDtoList,HttpStatus.OK);
 	}
 	
-	
 	@DeleteMapping("/professionalQualification/{id}")
 	public HttpStatus DeleteProfessionalQualification(@PathVariable Integer id) {
 		boolean test=professionalQualificationService.deleteProfessionalQualification(id);

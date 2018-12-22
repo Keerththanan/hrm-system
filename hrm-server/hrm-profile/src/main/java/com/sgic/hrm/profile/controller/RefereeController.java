@@ -18,8 +18,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.sgic.hrm.commons.dto.mapper.profile.RefeereeDtoToReferee;
 import com.sgic.hrm.commons.dto.profile.RefereesDto;
+import com.sgic.hrm.commons.dto.profile.RefereesSaveDto;
 import com.sgic.hrm.commons.entity.Referee;
 import com.sgic.hrm.commons.entity.User;
+import com.sgic.hrm.commons.entity.mapper.profile.RefereeMapper;
 import com.sgic.hrm.profile.service.RefereeService;
 import com.sgic.hrm.profile.service.UserService;
 
@@ -32,9 +34,9 @@ public class RefereeController {
 	private UserService userService;
 
 	@PostMapping("/referee")
-	public HttpStatus addReferee(@Valid @RequestBody RefereesDto refereesDto) {
-		User userObj = userService.findByUserId(refereesDto.getUser());
-		Referee referee = RefeereeDtoToReferee.map(refereesDto);
+	public HttpStatus addReferee(@Valid @RequestBody RefereesSaveDto refereesSaveDto) {
+		User userObj = userService.findByUserId(refereesSaveDto.getUser());
+		Referee referee = RefeereeDtoToReferee.map(refereesSaveDto);
 		boolean test = refereeService.addReferee(referee, userObj);
 		if (test) {
 			return HttpStatus.CREATED;
@@ -43,16 +45,15 @@ public class RefereeController {
 	}
 
 	@GetMapping("/referee")
-	public ResponseEntity<List<Referee>> GetReferee() {
-		List<Referee> referee = refereeService.getAllReferee();
-		ResponseEntity<List<Referee>> response = new ResponseEntity<>(referee, HttpStatus.OK);
-		return response;
+	public ResponseEntity<List<RefereesDto>> GetReferee() {
+		List<RefereesDto> refereeDtoList = RefereeMapper.mapRefereeListToRefereeDtoList(refereeService.getAllReferee());
+		return new ResponseEntity<>(refereeDtoList, HttpStatus.OK);
 	}
 
 	@PutMapping("/refereeedit/{id}")
-	public HttpStatus editReferee(@RequestBody RefereesDto refereesDto, @PathVariable("id") Integer id) {
-		User userObj = userService.findByUserId(refereesDto.getUser());
-		Referee referee = RefeereeDtoToReferee.map(refereesDto);
+	public HttpStatus editReferee(@RequestBody RefereesSaveDto refereesSaveDto, @PathVariable("id") Integer id) {
+		User userObj = userService.findByUserId(refereesSaveDto.getUser());
+		Referee referee = RefeereeDtoToReferee.map(refereesSaveDto);
 		boolean test = refereeService.editReferee(referee, id ,userObj);
 		if (test) {
 			return HttpStatus.ACCEPTED;
@@ -71,8 +72,8 @@ public class RefereeController {
 	}
 
 	@GetMapping("/referee/{uid}")
-	public ResponseEntity<List<Referee>> findAcademicQualificationByUserId(@PathVariable("uid") Integer id) {
-		List<Referee> referee = refereeService.getRefereeByUserId(id);
-		return new ResponseEntity<>(referee, HttpStatus.OK);
+	public ResponseEntity<List<RefereesDto>> findAcademicQualificationByUserId(@PathVariable("uid") Integer id) {
+		List<RefereesDto> refereeDtoList = RefereeMapper.mapRefereeListToRefereeDtoList(refereeService.getRefereeByUserId(id));
+		return new ResponseEntity<>(refereeDtoList, HttpStatus.OK);
 	}
 }
