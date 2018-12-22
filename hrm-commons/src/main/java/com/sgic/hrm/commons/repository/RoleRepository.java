@@ -8,4 +8,5 @@ import com.sgic.hrm.commons.enums.RoleName;
 
 public interface RoleRepository extends JpaRepository<Role, Integer>{
 	 Optional<Role> findByName(RoleName roleName);
+	 Role findRoleById(Long id);
 }

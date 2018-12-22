@@ -103,12 +103,21 @@ public class ScheduleParController {
 		parScheduleService.deleteSchedulePar(parId);
 	}
 
-	@GetMapping("/schedulepar/empname/{EmpName}")
-	public ResponseEntity<List<EmployeeDetails>> getEmployeeName(@RequestBody EmployeeDetails employeeDetails,
-			@PathVariable("EmpName") String EmpName) {
-		List<EmployeeDetails> employeeName = employeeDetailsService.findByEmpName(EmpName);
+//find by user name 
+	@GetMapping("/schedulepar/empname/{Empname}")
+	public ResponseEntity<List<EmployeeDetails>> getEmployeeName(@PathVariable("Empname") String Empname) {
+		List<EmployeeDetails> employeeName = employeeDetailsService.findByEmpName(Empname);
 		ResponseEntity<List<EmployeeDetails>> response = new ResponseEntity<>(employeeName, HttpStatus.OK);
 		return response;
+
+	}
+
+	// find employee details Name List
+	@GetMapping("/schedulepar/empname")
+	public List<EmployeeDetails> getEmployee() {
+		List<EmployeeDetails> employeeDetailName = employeeDetailsService.findEmpDetails();
+		//ResponseEntity<List<EmployeeDetails>> response = new ResponseEntity<>(employeeDetailName, HttpStatus.OK);
+		return employeeDetailName;
 
 	}
 }

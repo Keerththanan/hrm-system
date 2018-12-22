@@ -22,6 +22,7 @@ public class Department implements Serializable {
 	@Id
 	private Integer id;
 	private String departmentName;
+	
 	public Integer getId() {
 		return id;
 	}

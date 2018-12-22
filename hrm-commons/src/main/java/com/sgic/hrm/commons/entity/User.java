@@ -38,6 +38,7 @@ public class User implements Serializable {
 	private String maritalStatus;
 
 	@ManyToOne
+	@JoinColumn(name = "department_id")
 	private Department department;
 
 	@ManyToOne
@@ -191,12 +192,13 @@ public class User implements Serializable {
 		this.updateAt = updateAt;
 	}
 
-	public Role getRoleId() {
+	public Role getRole() {
 		return role;
 	}
 
-	public void setRoleId(Role roleId) {
-		this.role = roleId;
+	public void setRole(Role role) {
+		this.role = role;
 	}
 
+	
 }

@@ -50,6 +50,11 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>com.sgic.hrm</groupId>
+			<artifactId>hrm-profile</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
 		
 		<!-- https://mvnrepository.com/artifact/com.h2database/h2 -->
 		<dependency>
@@ -58,7 +63,7 @@
 			<version>1.4.197</version>
 			<scope>test</scope>
 		</dependency>
-
+	
 	</dependencies>
 
 	<build>
