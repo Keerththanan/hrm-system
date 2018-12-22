@@ -10,11 +10,11 @@ import com.sgic.hrm.commons.entity.User;
 
 public interface ProfessionalQualificationService {
 
-	boolean addProfessionalQualification(ProfessionalQualification professionalQualification,User user);
+	boolean addProfessionalQualification(ProfessionalQualification professionalQualification,User userobj);
 	
 	List<ProfessionalQualification> getAllProfessionalQualifications();
 	
-	boolean editProfessionalQualification(ProfessionalQualification professionalQualification,User user,Integer id);
+	boolean editProfessionalQualification(ProfessionalQualification professionalQualification,User userObj,Integer id);
 	
 	Optional<ProfessionalQualification> getProfessionalQualificationById(int id);
 	

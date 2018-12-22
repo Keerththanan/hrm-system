@@ -8,9 +8,9 @@ import com.sgic.hrm.commons.entity.WorkExperience;
 
 
 public interface WorkExperienceService {
-	boolean addWorkExperience(WorkExperience workExperience,User user);
+	boolean addWorkExperience(WorkExperience workExperience,User userobj);
 	   List<WorkExperience> getAllWorkExperience();
-	   boolean editWorkExperience(WorkExperience workExperience, User user, Integer id);
+	   boolean editWorkExperience(WorkExperience workExperience, User userObj, Integer id);
 	boolean deleteWorkExperience(Integer id);
 	WorkExperience getWorkExperienceById(int id);
 	

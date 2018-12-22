@@ -11,11 +11,11 @@ import com.sgic.hrm.commons.entity.User;
 
 public interface ProfessionalMembershipService {
 	
-	boolean addProfessionalMembership(ProfessionalMembership professionalMembership,User user);
+	boolean addProfessionalMembership(ProfessionalMembership professionalMembership,User userObj);
 
 	List<ProfessionalMembership> getAllProfessionalMembership();
 	
-	boolean editProfessionalMembership(ProfessionalMembership professionalMembership,User user,Integer id);
+	boolean editProfessionalMembership(ProfessionalMembership professionalMembership,User userObj,Integer id);
 	
 	Optional<ProfessionalMembership> getProfessionalMembershipById(int id);
 	

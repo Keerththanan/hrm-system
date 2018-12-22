@@ -16,7 +16,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.sgic.hrm.commons.dto.UserData;
 import com.sgic.hrm.commons.dto.mapper.UserDataMapper;
+import com.sgic.hrm.commons.dto.profile.UserDto;
 import com.sgic.hrm.commons.entity.User;
+import com.sgic.hrm.commons.entity.mapper.profile.UserMapper;
 import com.sgic.hrm.profile.service.UserService;
 
 @CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
@@ -34,24 +36,23 @@ public class UserController {
 		return HttpStatus.BAD_REQUEST;
 	} 
 	
+
+	
 	@GetMapping("/user")
-	public ResponseEntity<List<User>> GetUser() {
-		List<User> user = userService.getUser();
-		ResponseEntity<List<User>> response = new ResponseEntity<>(user, HttpStatus.OK);
-		return response;
+	public ResponseEntity<List<UserDto>> GetUser() {
+		List<UserDto> userDtoList = UserMapper.mapUserListToUserDtoList(userService.getUser());
+		 return new ResponseEntity<>(userDtoList, HttpStatus.OK);
 	}
 	
 	@GetMapping("/user/{id}")
-	public User getUserById(@PathVariable Integer id) {
-		
-			return userService.findByUserId(id);
-		
+	public UserDto getUserById(@PathVariable Integer id) {
+		UserDto userDtoList = UserMapper.mapUserToUserDto(userService.findByUserId(id));
+		return userDtoList;
 	}
 	@GetMapping("/userget/{fullName}")
-	public User getUserByName(@PathVariable String fullName) {
-		
-			return userService.findByUserName(fullName);
-		
+	public UserDto getUserByName(@PathVariable String fullName) {
+		UserDto userDtoList = UserMapper.mapUserToUserDto(userService.findByUserName(fullName));
+		return userDtoList;
 	}
 //	@PutMapping("user/{id}")
 //	public HttpStatus ModifyUser(@PathVariable Integer id,@RequestBody User user) {

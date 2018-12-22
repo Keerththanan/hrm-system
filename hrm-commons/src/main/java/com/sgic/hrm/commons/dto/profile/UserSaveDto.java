@@ -2,10 +2,7 @@ package com.sgic.hrm.commons.dto.profile;
 
 import java.util.Date;
 
-import com.sgic.hrm.commons.entity.Department;
-import com.sgic.hrm.commons.entity.Role;
-
-public class UserDto {
+public class UserSaveDto {
 	private Integer id;
 	private String fullName;
 	private String gender;
@@ -22,9 +19,9 @@ public class UserDto {
 	private Date dateOfBirth;
 	private String residentialAddress;
 	private String maritalStatus;
-	private Department department;
-	private Role role;
-	private Date updateAt;
+	private Integer department;
+	private Long role;
+	
 	public Integer getId() {
 		return id;
 	}
@@ -121,23 +118,19 @@ public class UserDto {
 	public void setMaritalStatus(String maritalStatus) {
 		this.maritalStatus = maritalStatus;
 	}
-	public Department getDepartment() {
+	public Integer getDepartment() {
 		return department;
 	}
-	public void setDepartment(Department department) {
+	public void setDepartment(Integer department) {
 		this.department = department;
 	}
-	public Role getRole() {
+	public Long getRole() {
 		return role;
 	}
-	public void setRole(Role role) {
+	public void setRole(Long role) {
 		this.role = role;
 	}
-	public Date getUpdateAt() {
-		return updateAt;
-	}
-	public void setUpdateAt(Date updateAt) {
-		this.updateAt = updateAt;
-	}
 	
+
+ 
 }

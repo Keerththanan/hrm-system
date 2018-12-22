@@ -19,10 +19,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.sgic.hrm.commons.dto.mapper.profile.AcademicQualificationDTOToAcademicQualification;
-import com.sgic.hrm.commons.dto.profile.AcademicQualificationDTO;
+import com.sgic.hrm.commons.dto.profile.AcademicQualificationDto;
+import com.sgic.hrm.commons.dto.profile.AcademicQualificationSaveDto;
 import com.sgic.hrm.commons.entity.AcademicQualification;
 import com.sgic.hrm.commons.entity.ExamType;
 import com.sgic.hrm.commons.entity.User;
+import com.sgic.hrm.commons.entity.mapper.profile.AcademicQualificationMapper;
 import com.sgic.hrm.profile.service.AcademicQualificationService;
 import com.sgic.hrm.profile.service.ExamTypeService;
 import com.sgic.hrm.profile.service.UserService;
@@ -39,10 +41,10 @@ public class AcademicQualificationController{
 	private ExamTypeService examTypeService;
 	
 	@PostMapping("/academicQualification")
-	public HttpStatus addAcademicQualification(@Valid @RequestBody AcademicQualificationDTO academicQualificationDTO) {
-		User userobj=userService.findByUserId(academicQualificationDTO.getUser());
-		ExamType examTypeObj=examTypeService.findByExamTypeId(academicQualificationDTO.getExamType());
-		AcademicQualification academicQualification=AcademicQualificationDTOToAcademicQualification.map(academicQualificationDTO);
+	public HttpStatus addAcademicQualification(@Valid @RequestBody AcademicQualificationSaveDto academicQualificationSaveDto) {
+		User userobj=userService.findByUserId(academicQualificationSaveDto.getUser());
+		ExamType examTypeObj=examTypeService.findByExamTypeId(academicQualificationSaveDto.getExamType());
+		AcademicQualification academicQualification=AcademicQualificationDTOToAcademicQualification.map(academicQualificationSaveDto);
 		
 		boolean test = academicQualificationService.addAcademicQualification(academicQualification, examTypeObj,userobj);
 		if (test) {
@@ -52,26 +54,26 @@ public class AcademicQualificationController{
 	}
 	
 		@GetMapping("/academicQualification")
-		public ResponseEntity <List<AcademicQualification>> getAcademicQualification()
-		{
-			List<AcademicQualification> academicquali = academicQualificationService.getAllAcademicQualification();
-			return new ResponseEntity<>(academicquali, HttpStatus.OK);
+		public ResponseEntity <List<AcademicQualificationDto>> getAcademicQualification(){
+			List<AcademicQualificationDto> academicQualificationDtoList = AcademicQualificationMapper.mapAcademicQualificationListToAcademicQualificationDtoList(academicQualificationService.getAllAcademicQualification());
+			return new ResponseEntity<>(academicQualificationDtoList, HttpStatus.OK);
 			
 		}
+		
 		@GetMapping("/academicQualification/{uid}")
-		public  ResponseEntity<List<AcademicQualification>>findAcademicQualificationByUserId(@PathVariable("uid") Integer id)
+		public  ResponseEntity<List<AcademicQualificationDto>>findAcademicQualificationByUserId(@PathVariable("uid") Integer id)
 		{
-			List<AcademicQualification> 
-			academicQualifications = academicQualificationService.getAcademicQualificationByUserId(id);
-			return new ResponseEntity<>(academicQualifications,HttpStatus.OK);
+			List<AcademicQualificationDto> 
+			academicQualificationDtoList = AcademicQualificationMapper.mapAcademicQualificationListToAcademicQualificationDtoList(academicQualificationService.getAcademicQualificationByUserId(id));
+			return new ResponseEntity<>(academicQualificationDtoList,HttpStatus.OK);
 		}
 
 		
 		@PutMapping("/academicQualification/edit/{id}")
-		public HttpStatus editAcademicQualification(@PathVariable Integer id,@Valid @RequestBody AcademicQualificationDTO academicQualificationDTO) {
-			ExamType examTypeObj=examTypeService.findByExamTypeId(academicQualificationDTO.getExamType());
-			User userObj=userService.findByUserId(academicQualificationDTO.getUser());
-			AcademicQualification academicQualification=AcademicQualificationDTOToAcademicQualification.map(academicQualificationDTO);
+		public HttpStatus editAcademicQualification(@PathVariable Integer id,@Valid @RequestBody AcademicQualificationSaveDto academicQualificationSaveDto) {
+			ExamType examTypeObj=examTypeService.findByExamTypeId(academicQualificationSaveDto.getExamType());
+			User userObj=userService.findByUserId(academicQualificationSaveDto.getUser());
+			AcademicQualification academicQualification=AcademicQualificationDTOToAcademicQualification.map(academicQualificationSaveDto);
 			boolean editTest=academicQualificationService.editAcademicQualification(academicQualification,examTypeObj,userObj, id);
 			if(editTest) {
 				return HttpStatus.ACCEPTED;

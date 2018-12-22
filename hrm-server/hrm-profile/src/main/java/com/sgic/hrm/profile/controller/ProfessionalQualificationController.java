@@ -18,8 +18,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.sgic.hrm.commons.dto.mapper.profile.ProfessionalQualificationDtoToProfessionalQualification;
 import com.sgic.hrm.commons.dto.profile.ProfessionalQualificationDto;
+import com.sgic.hrm.commons.dto.profile.ProfessionalQualificationSaveDto;
 import com.sgic.hrm.commons.entity.ProfessionalQualification;
 import com.sgic.hrm.commons.entity.User;
+import com.sgic.hrm.commons.entity.mapper.profile.ProfessionalQualificationMapper;
 import com.sgic.hrm.profile.service.ProfessionalQualificationService;
 import com.sgic.hrm.profile.service.UserService;
 
@@ -34,9 +36,9 @@ public class ProfessionalQualificationController {
 	private UserService userService;
 
 	@PostMapping("/professionalQualification")
-	public HttpStatus addProfessionalQualification(@Valid @RequestBody ProfessionalQualificationDto professionalQualificationDto) {
-		User userobj=userService.findByUserId(professionalQualificationDto.getUser());
-		ProfessionalQualification professionalQualification=ProfessionalQualificationDtoToProfessionalQualification.map(professionalQualificationDto);
+	public HttpStatus addProfessionalQualification(@Valid @RequestBody ProfessionalQualificationSaveDto professionalQualificationSaveDto) {
+		User userobj=userService.findByUserId(professionalQualificationSaveDto.getUser());
+		ProfessionalQualification professionalQualification=ProfessionalQualificationDtoToProfessionalQualification.map(professionalQualificationSaveDto);
 		
 		boolean test = professionalQualificationService.addProfessionalQualification(professionalQualification, userobj);
 		if (test) {
@@ -45,27 +47,28 @@ public class ProfessionalQualificationController {
 		return HttpStatus.BAD_REQUEST;
 	}
 	@PutMapping("/professionalQualification/edit/{id}")
-	public HttpStatus ModifyProfessionalQualification(@PathVariable Integer id,@RequestBody ProfessionalQualificationDto professionalQualificationDto) {
-		User userObj=userService.findByUserId(professionalQualificationDto.getUser());
-		ProfessionalQualification professionalQualification=ProfessionalQualificationDtoToProfessionalQualification.map(professionalQualificationDto);
+	public HttpStatus ModifyProfessionalQualification(@PathVariable Integer id,@RequestBody ProfessionalQualificationSaveDto professionalQualificationSaveDto) {
+		User userObj=userService.findByUserId(professionalQualificationSaveDto.getUser());
+		ProfessionalQualification professionalQualification=ProfessionalQualificationDtoToProfessionalQualification.map(professionalQualificationSaveDto);
 		boolean editTest=professionalQualificationService.editProfessionalQualification(professionalQualification,userObj, id);
 		if(editTest) {
 			return HttpStatus.ACCEPTED;
 		}
 		return HttpStatus.BAD_REQUEST;
 	}
+	
 	@GetMapping("/professionalQualification")
-	public ResponseEntity<List<ProfessionalQualification>> GetProfessionalQualification(){
-		List<ProfessionalQualification> professionalQualifications=professionalQualificationService.getAllProfessionalQualifications();
-		ResponseEntity<List<ProfessionalQualification>> response=new ResponseEntity<>(professionalQualifications,HttpStatus.OK);
-		return response;
+	public ResponseEntity<List<ProfessionalQualificationDto>> GetProfessionalQualification(){
+		List<ProfessionalQualificationDto> professionalQualificationDtoList= ProfessionalQualificationMapper.mapProfessionalQualificationListToProfessionalQualificationDtoList(professionalQualificationService.getAllProfessionalQualifications());
+		return new ResponseEntity<>(professionalQualificationDtoList,HttpStatus.OK);
 	}
+	
 	@GetMapping("/professionalQualification/{uid}")
-	public  ResponseEntity<List<ProfessionalQualification>>findProfessionalQualificationByUserId(@PathVariable("uid") Integer id)
+	public  ResponseEntity<List<ProfessionalQualificationDto>>findProfessionalQualificationByUserId(@PathVariable("uid") Integer id)
 	{
-		List<ProfessionalQualification> 
-		professionalQualifications = professionalQualificationService.getProfessionalQualificationByUserId(id);
-		return new ResponseEntity<>(professionalQualifications,HttpStatus.OK);
+		List<ProfessionalQualificationDto> 
+		professionalQualificationDtoList =ProfessionalQualificationMapper.mapProfessionalQualificationListToProfessionalQualificationDtoList(professionalQualificationService.getProfessionalQualificationByUserId(id));
+		return new ResponseEntity<>(professionalQualificationDtoList,HttpStatus.OK);
 	}
 	
 	

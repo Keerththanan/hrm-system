@@ -10,9 +10,9 @@ import com.sgic.hrm.commons.entity.User;
 
 public interface RefereeService {
 	
-	boolean addReferee(Referee referee,User user);
+	boolean addReferee(Referee referee,User userObj);
 	List<Referee> getAllReferee();
-	 boolean editReferee(Referee referee, int id ,User user);
+	 boolean editReferee(Referee referee, int id ,User userObj);
 	Optional<Referee> getRefereeById(int id);
 	boolean deleteReferee(int id);
 
