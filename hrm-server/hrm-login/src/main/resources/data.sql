@@ -1,4 +1,3 @@
-
 INSERT INTO login.role(rolename) VALUES('ADMIN');
 INSERT INTO login.role(rolename) VALUES('DIRECTOR');
 INSERT INTO login.role(rolename) VALUES('HR_MANAGER');
@@ -236,6 +235,7 @@ INSERT INTO employee.highest_qualification VALUES (2, 'Bsc ');
 
 INSERT INTO employee.job VALUES (1, 'QA', 'QA001');
 INSERT INTO employee.job VALUES (2, 'HR', 'HR002');
+INSERT INTO employee.job VALUES (3,'Senior Software Engineer','SE002');
 
 
 --
@@ -249,9 +249,13 @@ INSERT INTO employee.applicant VALUES (9, 'Jaffna', NULL, '2018-12-01', 'yasosel
 -- Data for Name: designation; Type: TABLE DATA; Schema: employee; Owner: postgres
 --
 
-INSERT INTO employee.designation VALUES (1, 'Associate Software Engineer');
-INSERT INTO employee.designation VALUES (2, 'Software Engineer');
+--INSERT INTO employee.designation VALUES (1, 'Associate Software Engineer');
+--INSERT INTO employee.designation VALUES (2, 'Software Engineer');
 
+INSERT INTO employee.designation(designation_name) VALUES('Tec lead');
+INSERT INTO employee.designation(designation_name) VALUES('Software Engineer');
+INSERT INTO employee.designation(designation_name) VALUES('Senior Software Engineer');
+INSERT INTO employee.designation(designation_name) VALUES('Associate Software Engineer');
 
 
 --
@@ -292,3 +296,51 @@ INSERT INTO employee.request_promotion VALUES (2, '2018-12-12', 'Par score', '2'
 INSERT INTO employee.vacancy VALUES (1, '2018-06-07', 'Internal', 3, 10000, '2018-06-07', '2019-03-04', 1, 1, 1, 1);
 INSERT INTO employee.vacancy VALUES (2, '2018-06-07', 'External', 5, 30000, '2018-06-07', '2019-03-04', 1, 1, 1, 1);
 
+
+
+
+INSERT INTO employee.exam_type(exam_type_name) VALUES('O/L');
+INSERT INTO employee.exam_type(exam_type_name) VALUES('A/L');
+
+INSERT INTO employee.academic_qualification VALUES (1, NULL, 2008, 2003, 2008, 'passed', 'J/SJMV', NULL, 1, 3);
+INSERT INTO employee.academic_qualification VALUES (2, NULL, 2009, 2011, 2012, 'passed', 'J/SJMV', NULL, 2, 3);
+INSERT INTO employee.academic_qualification VALUES (3, NULL, 2008, 2003, 2008, 'passed', 'J/SJMV', NULL, 1, 4);
+INSERT INTO employee.academic_qualification VALUES (4, NULL, 2009, 2011, 2012, 'passed', 'J/SJMV', NULL, 2, 4);
+
+
+INSERT INTO employee.appointment_type(appointment_type) VALUES('Permanent');
+INSERT INTO employee.appointment_type(appointment_type) VALUES('Temperary');
+
+INSERT INTO employee.key_activity(id,name) VALUES(1,'Leader');
+INSERT INTO employee.key_activity(id,name) VALUES(2,'Team player');
+INSERT INTO employee.key_activity(id,name) VALUES(3,'Quick Leaner');
+--
+--INSERT INTO employee.job(id,job_name,job_reference_no) VALUES(1,'Software Engineer',10);
+--INSERT INTO employee.job(id,job_name,job_reference_no) VALUES(2,'QA Engineer',2);
+--INSERT INTO employee.job(id,job_name,job_reference_no) VALUES(3,'Senior Software Engineer',12);
+
+INSERT INTO employee.location(location_name) VALUES('1st Floor');
+INSERT INTO employee.location(location_name) VALUES('2nd Floor');
+INSERT INTO employee.location(location_name) VALUES('3rd Floor');
+
+--selfservice
+INSERT INTO employee.self_service_type(self_service_type_name) VALUES('Complain');
+INSERT INTO employee.self_service_type(self_service_type_name) VALUES('Feedback');
+INSERT INTO employee.self_service_type(self_service_type_name) VALUES('Request');
+
+INSERT INTO employee.appointment VALUES (1, '2018-12-30', 'Tech lead', 1, 4, 2, 3);
+INSERT INTO employee.appointment VALUES (2, '2018-12-30', 'leader', 2, 4, 3, 4);
+
+INSERT INTO employee.roles_and_responsibilites VALUES (1, 'Team player', 'lead the team', 1, 1, 2, 3);
+INSERT INTO employee.roles_and_responsibilites VALUES (2, 'Quick leaner', 'Learn new techonology', 1, 1, 2, 3);
+INSERT INTO employee.roles_and_responsibilites VALUES (4, 'Quick leaner', 'Learn new techonology', 3, 3, 3, 4);
+INSERT INTO employee.roles_and_responsibilites VALUES (3, 'Quick leaner', 'Learn new techonology', 3, 3, 3, 4);
+
+INSERT INTO employee.professional_membership VALUES (1, 2, 'Meet Up', 'IT Week', 'Yari IT hub', 2014, 2015, 3);
+INSERT INTO employee.professional_membership VALUES (2, 3, 'Meet Up', 'IT Week', 'Yari IT hub', 2014, 2015, 4);
+INSERT INTO employee.professional_membership VALUES (3, 1, 'Key Chalange', 'IT Chalange', 'Yari IT hub', 2014, 2015, 4);
+INSERT INTO employee.professional_membership VALUES (4, 1, 'Key Chalange', 'IT Chalange', 'Yari IT hub', 2014, 2015, 3);
+
+
+INSERT INTO employee.professional_qualification VALUES (1, 'Physical Science', 'Computer Science', 2016, 3.4000001, 'Jaffna University', 2013, 2016, 'Passed', 3);
+INSERT INTO employee.professional_qualification VALUES (2, 'Computer Science', 'Computer Science', 2015, 3.0999999, 'Clombo University', 2012, 2015, 'passed', 4);
