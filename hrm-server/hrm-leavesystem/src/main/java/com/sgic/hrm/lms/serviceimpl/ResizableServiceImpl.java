@@ -25,6 +25,12 @@ public class ResizableServiceImpl implements ResizableService {
 		resizableRepository.save(resizable);
 		return true;
 	}
+
+	@Override
+	public Resizable findByStartAndEnd(boolean beforeStart, boolean afterEnd) {
+
+		return resizableRepository.findByBeforeStartAndAfterEnd(beforeStart, afterEnd);
+	}
 	
 
 }

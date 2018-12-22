@@ -1,6 +1,7 @@
 package com.sgic.hrm.lms.controller;
 
 import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,15 +14,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
 import com.sgic.hrm.commons.dto.AcceptLeaveDto;
 import com.sgic.hrm.commons.dto.LeaveRequestData;
 import com.sgic.hrm.commons.dto.RejectLeaveDto;
 import com.sgic.hrm.commons.dto.mapper.LeaveRequestDataToLeaveRequest;
 import com.sgic.hrm.commons.entity.mapper.LeaveRequestToLeaveRequestData;
 import com.sgic.hrm.commons.enums.Status;
-import com.sgic.hrm.lms.service.AcceptLeaveRequestService;
 import com.sgic.hrm.lms.service.LeaveRequestService;
-import com.sgic.hrm.lms.service.RejectLeaveRequestService;
 
 @CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
 @RestController
@@ -30,11 +30,6 @@ public class LeaveRequestController {
 
   @Autowired
   LeaveRequestService leaveRequestService;
-  @Autowired
-  AcceptLeaveRequestService acceptLeaveRequestSrevice;
-  @Autowired
-  RejectLeaveRequestService rejectLeaveRequestSrevice;
-
 
   @GetMapping
   public ResponseEntity<List<LeaveRequestData>> getAllLeaveRequest() {
