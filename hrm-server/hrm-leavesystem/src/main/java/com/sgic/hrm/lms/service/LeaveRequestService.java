@@ -10,6 +10,8 @@ import com.sgic.hrm.commons.enums.Status;
 public interface LeaveRequestService {
 
   boolean addLeaveRequest(LeaveRequest leaveRequest,String userName);
+  
+  boolean updateLeaveRequest(LeaveRequest leaveRequest);
 
   boolean acceptLeaveRequest(AcceptLeaveDto acceptLeaveDto);
 

@@ -38,14 +38,14 @@ public class HolidayCalendarController {
 	}
 
 	@GetMapping
-	public ResponseEntity<List<HolidayCalendarData>> viewAllHolidayCalendar() {
+	public ResponseEntity<List<HolidayCalendarData>> viewAllHoliday() {
 		List<HolidayCalendar> holidayCalendarList = holidayCalendarService.viewAllHoliday();
 		return new ResponseEntity<>(
 				HolidayCalendarToHolidayCalendarData.mapToHolidayCalendarDataList(holidayCalendarList), HttpStatus.OK);
 	}
 
 	@PutMapping("/{id}")
-	public HttpStatus updateHolidayCalendar(@PathVariable(name = "id") Integer id,
+	public HttpStatus updateHoliday(@PathVariable(name = "id") Integer id,
 			@RequestBody HolidayCalendarData holidayCalendarData) {
 		if (holidayCalendarService.updateHoliday(id,
 				HolidayCalendarDataToHolidayCalendar.mapToHolidayCalendar(holidayCalendarData), holidayCalendarData.getPostedBy())) {
@@ -55,7 +55,7 @@ public class HolidayCalendarController {
 	}
 	
 	@DeleteMapping("/{id}")
-	public HttpStatus deleteHolidayCalendar(@PathVariable(name="id")Integer id){
+	public HttpStatus deleteHoliday(@PathVariable(name="id")Integer id){
 		if (holidayCalendarService.deleteholiday(id)){
 			return  HttpStatus.OK;
 		}
