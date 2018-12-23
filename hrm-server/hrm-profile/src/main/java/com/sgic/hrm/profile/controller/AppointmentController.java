@@ -13,11 +13,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.sgic.hrm.commons.dto.mapper.profile.AppointmentDtoToAppointment;
 import com.sgic.hrm.commons.dto.profile.AppointmentDto;
+import com.sgic.hrm.commons.dto.profile.AppointmentSaveDto;
 import com.sgic.hrm.commons.entity.Appointment;
 import com.sgic.hrm.commons.entity.AppointmentType;
 import com.sgic.hrm.commons.entity.Department;
 import com.sgic.hrm.commons.entity.Designation;
 import com.sgic.hrm.commons.entity.User;
+import com.sgic.hrm.commons.entity.mapper.profile.AppointmentMapper;
 import com.sgic.hrm.profile.service.AppointmentService;
 import com.sgic.hrm.profile.service.AppointmentTypeService;
 import com.sgic.hrm.profile.service.DepartmentService;
@@ -38,13 +40,13 @@ public class AppointmentController {
 	private DesignationService designationService;
 	
 	@PostMapping("/appointment")
-	public HttpStatus AddAppointment(@RequestBody AppointmentDto appointmentDto) {
-	User userObj=userService.findByUserId(appointmentDto.getUserId());
-	AppointmentType appointmentTypeObj=appointmentTypeService.findByAppointmentTypeId(appointmentDto.getAppointmentTypeId());
-	Department departmentObj=departmentService.findByDepartmentId(appointmentDto.getDepartmentId());
-	Designation designationObj=designationService.findByDesignationId(appointmentDto.getDesignationId());
+	public HttpStatus AddAppointment(@RequestBody AppointmentSaveDto appointmentSaveDto) {
+	User userObj=userService.findByUserId(appointmentSaveDto.getUser());
+	AppointmentType appointmentTypeObj=appointmentTypeService.findByAppointmentTypeId(appointmentSaveDto.getAppointmentType());
+	Department departmentObj=departmentService.findByDepartmentId(appointmentSaveDto.getDepartment());
+	Designation designationObj=designationService.findByDesignationId(appointmentSaveDto.getDesignation());
 	
-	Appointment appointment=AppointmentDtoToAppointment.map(appointmentDto);
+	Appointment appointment=AppointmentDtoToAppointment.map(appointmentSaveDto);
 	
 		boolean testadd= appointmentService.addAppointment(appointment, appointmentTypeObj, userObj, departmentObj, designationObj);
 		if(testadd) {
@@ -54,12 +56,10 @@ public class AppointmentController {
 	}
 	
 	@GetMapping("/appointment")
-	public ResponseEntity <List<Appointment>> GetAppointment()
+	public ResponseEntity <List<AppointmentDto>> GetAppointment()
 	{
-		List<Appointment> appointment= appointmentService.getAppointment() ;
-		ResponseEntity<List<Appointment>> 
-		response =  new ResponseEntity<>(appointment,HttpStatus.OK);
-		return response;
+		List<AppointmentDto> appointmentDtoList=AppointmentMapper.mapAppointmentListToAppointmentDtoList( appointmentService.getAppointment()) ;
+		return new ResponseEntity<>(appointmentDtoList,HttpStatus.OK);
 		
 	}
 	

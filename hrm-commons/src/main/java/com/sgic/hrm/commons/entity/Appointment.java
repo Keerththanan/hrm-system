@@ -21,6 +21,9 @@ public class Appointment implements Serializable {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 	
+	private String jobDesc;
+	private Date appoinmentDate;
+	
 	@ManyToOne
 	@JoinColumn(name="user_id")
 	private User user;
@@ -36,15 +39,7 @@ public class Appointment implements Serializable {
 	@ManyToOne
 	@JoinColumn(name="department_id")
 	private Department departmentId;
-	
-	public Department getDepartmentId() {
-		return departmentId;
-	}
-	public void setDepartmentId(Department departmentId) {
-		this.departmentId = departmentId;
-	}
-	private String jobDesc;
-	private Date appoinmentDate;
+
 	
 	public Integer getId() {
 		return id;
@@ -59,6 +54,8 @@ public class Appointment implements Serializable {
 	public void setUser(User user) {
 		this.user = user;
 	}
+	
+	
 	public Designation getDesignationId() {
 		return designationId;
 	}
@@ -70,6 +67,12 @@ public class Appointment implements Serializable {
 	}
 	public void setAppointmentTypeId(AppointmentType appointmentTypeId) {
 		this.appointmentTypeId = appointmentTypeId;
+	}
+	public Department getDepartmentId() {
+		return departmentId;
+	}
+	public void setDepartmentId(Department departmentId) {
+		this.departmentId = departmentId;
 	}
 	public String getJobDesc() {
 		return jobDesc;
