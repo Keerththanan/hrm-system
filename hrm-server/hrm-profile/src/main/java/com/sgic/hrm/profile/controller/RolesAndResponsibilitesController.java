@@ -14,13 +14,15 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.sgic.hrm.commons.dto.RolesAndResponsibilityDto;
 import com.sgic.hrm.commons.dto.mapper.RolesAndResponsibilitesDtoToRolesAndResponsibilites;
+import com.sgic.hrm.commons.dto.profile.RolesAndResponsibilityDto;
+import com.sgic.hrm.commons.dto.profile.RolesAndResponsibilitySaveDto;
 import com.sgic.hrm.commons.entity.Job;
 import com.sgic.hrm.commons.entity.KeyActivity;
 import com.sgic.hrm.commons.entity.Location;
 import com.sgic.hrm.commons.entity.RolesAndResponsibilites;
 import com.sgic.hrm.commons.entity.User;
+import com.sgic.hrm.commons.entity.mapper.profile.RolesAndResponsibilityMapper;
 import com.sgic.hrm.profile.service.JobService;
 import com.sgic.hrm.profile.service.KeyActivityService;
 import com.sgic.hrm.profile.service.LocationService;
@@ -44,14 +46,14 @@ public class RolesAndResponsibilitesController {
 	private UserService userService;
 
 	@PostMapping("/rolesandresponsibilities")
-	public HttpStatus AddRolesAndResponsibilities(@RequestBody RolesAndResponsibilityDto rolesAndResponsibilityDto) {
-		User userObj = userService.findByUserId(rolesAndResponsibilityDto.getUser());
-		Job jobObj = jobService.findByJobId(rolesAndResponsibilityDto.getJob());
-		Location locationObj = locationService.findByLocationId(rolesAndResponsibilityDto.getLocation());
-		KeyActivity keyActivityObj = keyActivityService.findByActivityId(rolesAndResponsibilityDto.getKeyActivity());
+	public HttpStatus AddRolesAndResponsibilities(@RequestBody RolesAndResponsibilitySaveDto rolesAndResponsibilitySaveDto) {
+		User userObj = userService.findByUserId(rolesAndResponsibilitySaveDto.getUser());
+		Job jobObj = jobService.findByJobId(rolesAndResponsibilitySaveDto.getJob());
+		Location locationObj = locationService.findByLocationId(rolesAndResponsibilitySaveDto.getLocation());
+		KeyActivity keyActivityObj = keyActivityService.findByActivityId(rolesAndResponsibilitySaveDto.getKeyActivity());
 
 		RolesAndResponsibilites rolesAndResponsibilites = RolesAndResponsibilitesDtoToRolesAndResponsibilites
-				.map(rolesAndResponsibilityDto);
+				.map(rolesAndResponsibilitySaveDto);
 
 		boolean test = responsibilitiesService.addRolesAndResponsibilites(rolesAndResponsibilites, jobObj, userObj,
 				keyActivityObj, locationObj);
@@ -62,12 +64,12 @@ public class RolesAndResponsibilitesController {
 	}
 
 	@PutMapping("/rolesandresponsibilities/edit/{id}")
-	public HttpStatus ModifyRolesAndResponsibilities(@RequestBody RolesAndResponsibilityDto rolesAndResponsibilityDto,@PathVariable Integer id) {
-		User userObj = userService.findByUserId(rolesAndResponsibilityDto.getUser());
-		Job jobObj = jobService.findByJobId(rolesAndResponsibilityDto.getJob());
-		Location locationObj = locationService.findByLocationId(rolesAndResponsibilityDto.getLocation());
-		KeyActivity keyActivityObj = keyActivityService.findByActivityId(rolesAndResponsibilityDto.getKeyActivity());
-		RolesAndResponsibilites rolesAndResponsibilitesObj = RolesAndResponsibilitesDtoToRolesAndResponsibilites.map(rolesAndResponsibilityDto);
+	public HttpStatus ModifyRolesAndResponsibilities(@RequestBody RolesAndResponsibilitySaveDto rolesAndResponsibilitySaveDto,@PathVariable Integer id) {
+		User userObj = userService.findByUserId(rolesAndResponsibilitySaveDto.getUser());
+		Job jobObj = jobService.findByJobId(rolesAndResponsibilitySaveDto.getJob());
+		Location locationObj = locationService.findByLocationId(rolesAndResponsibilitySaveDto.getLocation());
+		KeyActivity keyActivityObj = keyActivityService.findByActivityId(rolesAndResponsibilitySaveDto.getKeyActivity());
+		RolesAndResponsibilites rolesAndResponsibilitesObj = RolesAndResponsibilitesDtoToRolesAndResponsibilites.map(rolesAndResponsibilitySaveDto);
 		boolean test = responsibilitiesService.editRolesAndResponsibilites(rolesAndResponsibilitesObj,userObj,jobObj,locationObj,keyActivityObj, id);
 		if (test) {
 			return HttpStatus.CREATED;
@@ -76,19 +78,19 @@ public class RolesAndResponsibilitesController {
 	}
 	
 	@GetMapping("/rolesandresponsibilities")
-	public ResponseEntity<List<RolesAndResponsibilites>> GetRolesAndResponsibilities() {
-		List<RolesAndResponsibilites> rolesAndResponsibilites = responsibilitiesService.getRolesAndResponsibilites();
-		ResponseEntity<List<RolesAndResponsibilites>> responseEntity = new ResponseEntity<>(rolesAndResponsibilites,
+	public ResponseEntity<List<RolesAndResponsibilityDto>> GetRolesAndResponsibilities() {
+		List<RolesAndResponsibilityDto> rolesAndResponsibilityDtoList =RolesAndResponsibilityMapper.mapRolesAndResponsibilityListToRolesAndResponsibilityDtoList(responsibilitiesService.getRolesAndResponsibilites());
+	
+		return new ResponseEntity<>(rolesAndResponsibilityDtoList,
 				HttpStatus.OK);
-		return responseEntity;
 	}
 	
 	@GetMapping("/rolesandresponsibilities/{uid}")
-	public  ResponseEntity<List<RolesAndResponsibilites>>findRolesAndResponsibilitesByUserId(@PathVariable("uid") Integer id)
+	public  ResponseEntity<List<RolesAndResponsibilityDto>>findRolesAndResponsibilitesByUserId(@PathVariable("uid") Integer id)
 	{
-		List<RolesAndResponsibilites> 
-		responseEntity = responsibilitiesService.getRolesAndResponsibilitesByUserId(id);
-		return new ResponseEntity<>(responseEntity,HttpStatus.OK);
+		List<RolesAndResponsibilityDto> 
+		rolesAndResponsibilityDtoList =RolesAndResponsibilityMapper.mapRolesAndResponsibilityListToRolesAndResponsibilityDtoList(responsibilitiesService.getRolesAndResponsibilitesByUserId(id));
+		return new ResponseEntity<>(rolesAndResponsibilityDtoList,HttpStatus.OK);
 	}
 
 

@@ -1,43 +1,46 @@
 package com.sgic.hrm.commons.dto.profile;
 
+import com.sgic.hrm.commons.entity.Job;
+import com.sgic.hrm.commons.entity.KeyActivity;
+import com.sgic.hrm.commons.entity.Location;
+import com.sgic.hrm.commons.entity.User;
+
 public class RolesAndResponsibilityDto {
 	private Integer id;
-	private Integer user;
-	private Integer job;
-	private Integer location;
-	private Integer keyActivity;
+	private User user;
+	private Job job;
+	private Location location;
+	private KeyActivity keyActivity;
 	private String responsibility;
 	private String overAllPurpose;
-	
 	public Integer getId() {
 		return id;
 	}
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	
-	public Integer getUser() {
+	public User getUser() {
 		return user;
 	}
-	public void setUser(Integer user) {
+	public void setUser(User user) {
 		this.user = user;
 	}
-	public Integer getJob() {
+	public Job getJob() {
 		return job;
 	}
-	public void setJob(Integer job) {
+	public void setJob(Job job) {
 		this.job = job;
 	}
-	public Integer getLocation() {
+	public Location getLocation() {
 		return location;
 	}
-	public void setLocatio(Integer location) {
+	public void setLocation(Location location) {
 		this.location = location;
 	}
-	public Integer getKeyActivity() {
+	public KeyActivity getKeyActivity() {
 		return keyActivity;
 	}
-	public void setKeyActivity(Integer keyActivity) {
+	public void setKeyActivity(KeyActivity keyActivity) {
 		this.keyActivity = keyActivity;
 	}
 	public String getResponsibility() {

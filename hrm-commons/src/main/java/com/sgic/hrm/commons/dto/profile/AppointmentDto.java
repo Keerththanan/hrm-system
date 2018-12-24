@@ -1,45 +1,25 @@
 package com.sgic.hrm.commons.dto.profile;
 
 import java.sql.Date;
+import com.sgic.hrm.commons.entity.AppointmentType;
+import com.sgic.hrm.commons.entity.Department;
+import com.sgic.hrm.commons.entity.Designation;
+import com.sgic.hrm.commons.entity.User;
 
 public class AppointmentDto {
 	private Integer id;
-	private Integer userId;
-	private Integer designationId;
-	private Integer appointmentTypeId;
-	private Integer departmentId;
 	private String jobDesc;
 	private Date appoinmentDate;
+	private User user;
+	private Designation designation;
+	private AppointmentType appointmentType;
+	private Department department;
 	
-	public Integer getDepartmentId() {
-		return departmentId;
-	}
-	public void setDepartmentId(Integer departmentId) {
-		this.departmentId = departmentId;
-	}
 	public Integer getId() {
 		return id;
 	}
 	public void setId(Integer id) {
 		this.id = id;
-	}
-	public Integer getUserId() {
-		return userId;
-	}
-	public void setUserId(Integer userId) {
-		this.userId = userId;
-	}
-	public Integer getDesignationId() {
-		return designationId;
-	}
-	public void setDesignationId(Integer designationId) {
-		this.designationId = designationId;
-	}
-	public Integer getAppointmentTypeId() {
-		return appointmentTypeId;
-	}
-	public void setAppointmentTypeId(Integer appointmentTypeId) {
-		this.appointmentTypeId = appointmentTypeId;
 	}
 	public String getJobDesc() {
 		return jobDesc;
@@ -53,6 +33,31 @@ public class AppointmentDto {
 	public void setAppoinmentDate(Date appoinmentDate) {
 		this.appoinmentDate = appoinmentDate;
 	}
+	public User getUser() {
+		return user;
+	}
+	public void setUser(User user) {
+		this.user = user;
+	}
+	public Designation getDesignation() {
+		return designation;
+	}
+	public void setDesignation(Designation designation) {
+		this.designation = designation;
+	}
+	public AppointmentType getAppointmentType() {
+		return appointmentType;
+	}
+	public void setAppointmentType(AppointmentType appointmentType) {
+		this.appointmentType = appointmentType;
+	}
+	public Department getDepartment() {
+		return department;
+	}
+	public void setDepartment(Department department) {
+		this.department = department;
+	}
 	
-
+	
+	
 }

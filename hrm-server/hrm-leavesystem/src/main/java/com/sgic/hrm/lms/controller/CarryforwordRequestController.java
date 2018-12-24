@@ -18,6 +18,7 @@ import com.sgic.hrm.commons.dto.CarryforwardRequestData;
 import com.sgic.hrm.commons.dto.RejectCarryforwardData;
 import com.sgic.hrm.commons.dto.mapper.CarryforwardRequestDataToCarryforwardRequest;
 import com.sgic.hrm.commons.entity.mapper.CarryforwardRequestToCarryforwardRequestData;
+import com.sgic.hrm.commons.enums.Status;
 import com.sgic.hrm.lms.service.CarryforwardRequestService;
 
 @CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
@@ -32,6 +33,12 @@ public class CarryforwordRequestController {
 	public ResponseEntity<List<CarryforwardRequestData>> viewAllCarryforwardRequest() {
 		return new ResponseEntity<>(CarryforwardRequestToCarryforwardRequestData.mapToCarryforwardRequestDataList(
 				carryforwardRequestService.viewAllCarryforwardRequest()), HttpStatus.OK);
+	}
+	
+	@GetMapping("/pending")
+	public ResponseEntity<List<CarryforwardRequestData>> getCarryforwardRequestByStatus() {
+		return new ResponseEntity<>(CarryforwardRequestToCarryforwardRequestData.mapToCarryforwardRequestDataList(
+				carryforwardRequestService.getCarryforwardRequestByStatus(Status.PENDING)), HttpStatus.OK);
 	}
 
 	@GetMapping("/{username}")

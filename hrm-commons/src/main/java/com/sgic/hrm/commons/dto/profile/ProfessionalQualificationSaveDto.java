@@ -1,8 +1,10 @@
 package com.sgic.hrm.commons.dto.profile;
 
-import com.sgic.hrm.commons.entity.User;
-
-public class ProfessionalQualificationDto {
+public class ProfessionalQualificationSaveDto {
+	
+	private Integer user;
+	
+//	professional Qualification
 	private Integer id;
 	private String courseName;
 	private String courseType; 
@@ -12,7 +14,13 @@ public class ProfessionalQualificationDto {
 	private String insituteName;
 	private String result;
 	private Float gpa;
-	private User user;
+	
+	public Integer getUser() {
+		return user;
+	}
+	public void setUser(Integer user) {
+		this.user = user;
+	}
 	public Integer getId() {
 		return id;
 	}
@@ -67,11 +75,7 @@ public class ProfessionalQualificationDto {
 	public void setGpa(Float gpa) {
 		this.gpa = gpa;
 	}
-	public User getUser() {
-		return user;
-	}
-	public void setUser(User user) {
-		this.user = user;
-	}
+	
+	
 	
 }

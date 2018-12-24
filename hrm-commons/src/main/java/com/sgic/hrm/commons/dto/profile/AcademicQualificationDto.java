@@ -2,10 +2,13 @@ package com.sgic.hrm.commons.dto.profile;
 
 import java.util.Date;
 
-public class AcademicQualificationDTO {
+import com.sgic.hrm.commons.entity.ExamType;
+import com.sgic.hrm.commons.entity.User;
 
-	private Integer user;
-	private Integer examType;
+public class AcademicQualificationDto {
+	private Integer id;
+	private User user;
+	private ExamType examType;
 	private Integer periodYearFrom;
 	private Integer periodYearTo;
 	private String schoolName;
@@ -13,31 +16,22 @@ public class AcademicQualificationDTO {
 	private Integer examinationYear;
 	private Date createdAt;
 	private Date updatedAt;
-	
-	public Date getCreatedAt() {
-		return createdAt;
+	public Integer getId() {
+		return id;
 	}
-	public void setCreatedAt(Date createdAt) {
-		this.createdAt = createdAt;
+	public void setId(Integer id) {
+		this.id = id;
 	}
-	public Date getUpdatedAt() {
-		return updatedAt;
-	}
-	public void setUpdatedAt(Date updatedAt) {
-		this.updatedAt = updatedAt;
-	}
-	
-	
-	public Integer getUser() {
+	public User getUser() {
 		return user;
 	}
-	public void setUserId(Integer user) {
+	public void setUser(User user) {
 		this.user = user;
 	}
-	public Integer getExamType() {
+	public ExamType getExamType() {
 		return examType;
 	}
-	public void setExamTypeId(Integer examType) {
+	public void setExamType(ExamType examType) {
 		this.examType = examType;
 	}
 	public Integer getPeriodYearFrom() {
@@ -69,6 +63,18 @@ public class AcademicQualificationDTO {
 	}
 	public void setExaminationYear(Integer examinationYear) {
 		this.examinationYear = examinationYear;
+	}
+	public Date getCreatedAt() {
+		return createdAt;
+	}
+	public void setCreatedAt(Date createdAt) {
+		this.createdAt = createdAt;
+	}
+	public Date getUpdatedAt() {
+		return updatedAt;
+	}
+	public void setUpdatedAt(Date updatedAt) {
+		this.updatedAt = updatedAt;
 	}
 	
 	

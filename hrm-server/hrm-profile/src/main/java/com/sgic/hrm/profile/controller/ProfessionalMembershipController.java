@@ -18,8 +18,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.sgic.hrm.commons.dto.mapper.profile.ProfessionalMembershipDtoToProfessionalMembership;
 import com.sgic.hrm.commons.dto.profile.ProfessionalMembershipDto;
+import com.sgic.hrm.commons.dto.profile.ProfessionalMembershipSaveDto;
 import com.sgic.hrm.commons.entity.ProfessionalMembership;
 import com.sgic.hrm.commons.entity.User;
+import com.sgic.hrm.commons.entity.mapper.profile.ProfessionalMembershipMapper;
 import com.sgic.hrm.profile.service.ProfessionalMembershipService;
 import com.sgic.hrm.profile.service.UserService;
 
@@ -34,33 +36,31 @@ public class ProfessionalMembershipController {
 
 	@PostMapping("/professionalMembership")
 	public HttpStatus addProfessionalMembership(
-			@Valid @RequestBody ProfessionalMembershipDto professionalMembershipDto) {
-		User userObj = userService.findByUserId(professionalMembershipDto.getUser());
+			@Valid @RequestBody ProfessionalMembershipSaveDto professionalMembershipSaveDto) {
+		User userObj = userService.findByUserId(professionalMembershipSaveDto.getUser());
 		ProfessionalMembership professionalMembership = ProfessionalMembershipDtoToProfessionalMembership
-				.map(professionalMembershipDto);
+				.map(professionalMembershipSaveDto);
 		boolean test = professionalMembershipService.addProfessionalMembership(professionalMembership, userObj);
 		if (test) {
 			return HttpStatus.CREATED;
 		}
 		return HttpStatus.BAD_REQUEST;
 	}
+	
 
 	@GetMapping("/professionalMembership")
-	public ResponseEntity<List<ProfessionalMembership>> GetProfessionalMembership() {
-		List<ProfessionalMembership> professionalMembership = professionalMembershipService
-				.getAllProfessionalMembership();
-		ResponseEntity<List<ProfessionalMembership>> response = new ResponseEntity<>(professionalMembership,
-				HttpStatus.OK);
-		return response;
+	public ResponseEntity<List<ProfessionalMembershipDto>> GetProfessionalMembership() {
+		List<ProfessionalMembershipDto> professionalMembershipDtoList =ProfessionalMembershipMapper.mapProfessionalMembershipListToProfessionalMembershipDtoList(professionalMembershipService.getAllProfessionalMembership());
+		return new ResponseEntity<>(professionalMembershipDtoList,HttpStatus.OK);
 
 	}
 
 	@PutMapping("/professionalMembership/edit/{id}")
 	public HttpStatus ModifyProfessionalMembership(@PathVariable Integer id,
-			@RequestBody ProfessionalMembershipDto professionalMembershipDto) {
-		User userObj = userService.findByUserId(professionalMembershipDto.getUser());
+			@RequestBody ProfessionalMembershipSaveDto professionalMembershipSaveDto) {
+		User userObj = userService.findByUserId(professionalMembershipSaveDto.getUser());
 		ProfessionalMembership professionalMembership = ProfessionalMembershipDtoToProfessionalMembership
-				.map(professionalMembershipDto);
+				.map(professionalMembershipSaveDto);
 		boolean editTest = professionalMembershipService.editProfessionalMembership(professionalMembership,userObj, id);
 		if (editTest) {
 			return HttpStatus.ACCEPTED;
@@ -78,10 +78,9 @@ public class ProfessionalMembershipController {
 	}
 
 	@GetMapping("/professionalMembership/{uid}")
-	public ResponseEntity<List<ProfessionalMembership>> findProfessionalMembershipByUserId(
+	public ResponseEntity<List<ProfessionalMembershipDto>> findProfessionalMembershipByUserId(
 			@PathVariable("uid") Integer id) {
-		List<ProfessionalMembership> professionalMembership = professionalMembershipService
-				.getProfessionalMembershipByUserId(id);
-		return new ResponseEntity<>(professionalMembership, HttpStatus.OK);
+		List<ProfessionalMembershipDto> professionalMembershipDtoList = ProfessionalMembershipMapper.mapProfessionalMembershipListToProfessionalMembershipDtoList(professionalMembershipService.getProfessionalMembershipByUserId(id));
+		return new ResponseEntity<>(professionalMembershipDtoList, HttpStatus.OK);
 	}
 }

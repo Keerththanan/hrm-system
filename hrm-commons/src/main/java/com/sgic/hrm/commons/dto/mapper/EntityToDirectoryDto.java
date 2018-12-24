@@ -2,7 +2,6 @@ package com.sgic.hrm.commons.dto.mapper;
 
 import com.sgic.hrm.commons.dto.DirectoryDto;
 import com.sgic.hrm.commons.entity.Appointment;
-import com.sgic.hrm.commons.entity.User;
 
 public class EntityToDirectoryDto {
 

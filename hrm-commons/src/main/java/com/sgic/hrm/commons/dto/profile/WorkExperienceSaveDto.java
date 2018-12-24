@@ -1,6 +1,6 @@
 package com.sgic.hrm.commons.dto.profile;
 
-public class WorkExperienceDTO {
+public class WorkExperienceSaveDto {
 	private Integer user;
 	public Integer getUser() {
 		return user;

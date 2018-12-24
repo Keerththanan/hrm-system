@@ -4,23 +4,24 @@
 package com.sgic.hrm.lms.serviceimpl;
 
 import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
 import com.sgic.hrm.commons.dto.AcceptLeaveDto;
 import com.sgic.hrm.commons.dto.RejectLeaveDto;
 import com.sgic.hrm.commons.entity.AcceptLeaveRequest;
 import com.sgic.hrm.commons.entity.LeaveRequest;
 import com.sgic.hrm.commons.entity.RejectLeaveRequest;
 import com.sgic.hrm.commons.enums.Status;
-import com.sgic.hrm.commons.repository.AcceptLeaveRequestRepository;
 import com.sgic.hrm.commons.repository.LeaveRequestRepository;
-import com.sgic.hrm.commons.repository.LoginRepository;
-import com.sgic.hrm.commons.repository.RejectLeaveRequestRepository;
-import com.sgic.hrm.commons.repository.UserRepository;
+import com.sgic.hrm.lms.service.AcceptLeaveRequestService;
 import com.sgic.hrm.lms.service.LeaveAllocationService;
 import com.sgic.hrm.lms.service.LeaveRequestService;
 import com.sgic.hrm.lms.service.LoginService;
+import com.sgic.hrm.lms.service.RejectLeaveRequestService;
+import com.sgic.hrm.lms.service.UserService;
 
 /**
  * @author Anushanth
@@ -32,17 +33,15 @@ public class LeaveRequestServiceImpl implements LeaveRequestService {
 	@Autowired
 	LeaveRequestRepository leaveRequestRepository;
 	@Autowired
-	UserRepository userRepository;
-	@Autowired
 	LeaveAllocationService leaveAllocationService;
-	@Autowired
-	LoginRepository loginRepository;
 	@Autowired
 	LoginService loginService;
 	@Autowired
-	AcceptLeaveRequestRepository acceptLeaveRequestRepository;
+	AcceptLeaveRequestService acceptLeaveRequestService;
 	@Autowired
-	RejectLeaveRequestRepository rejectLeaveRequestRepository;
+	RejectLeaveRequestService rejectLeaveRequestService;
+	@Autowired
+	UserService userService;
 
 	@Transactional
 	@Override
@@ -59,7 +58,7 @@ public class LeaveRequestServiceImpl implements LeaveRequestService {
 		}
 		return false;
 	}
-	
+
 	@Override
 	public List<LeaveRequest> getLeaveRequestByUserName(String userName) {
 		return leaveRequestRepository.findByUserOrderByIdDesc(loginService.getUser(userName));
@@ -76,9 +75,8 @@ public class LeaveRequestServiceImpl implements LeaveRequestService {
 			leaveRequestRepository.save(leaveRequest);
 			AcceptLeaveRequest acceptLeaveRequest = new AcceptLeaveRequest();
 			acceptLeaveRequest.setLeaveRequest(leaveRequest);
-			acceptLeaveRequest
-					.setAcceptedBy(loginRepository.findByUsername(acceptLeaveDto.getUserName()).get().getUser());
-			acceptLeaveRequestRepository.save(acceptLeaveRequest);
+			acceptLeaveRequest.setAcceptedBy(loginService.getUser(acceptLeaveDto.getUserName()));
+			acceptLeaveRequestService.addAcceptLeaveRequest(acceptLeaveRequest);
 			return true;
 		}
 		return false;
@@ -101,7 +99,7 @@ public class LeaveRequestServiceImpl implements LeaveRequestService {
 	@Override
 	public List<LeaveRequest> getLeaveRequestByUser(Integer userId) {
 
-		return leaveRequestRepository.findByUserOrderByIdDesc(userRepository.getOne(userId));
+		return leaveRequestRepository.findByUserOrderByIdDesc(userService.getUser(userId));
 	}
 
 	@Override
@@ -126,10 +124,18 @@ public class LeaveRequestServiceImpl implements LeaveRequestService {
 			leaveRequestRepository.save(leaveRequest);
 			RejectLeaveRequest rejectLeaveRequest = new RejectLeaveRequest();
 			rejectLeaveRequest.setLeaveRequest(leaveRequest);
-			rejectLeaveRequest
-					.setRejectedBy(loginRepository.findByUsername(rejectLeaveDto.getUserName()).get().getUser());
+			rejectLeaveRequest.setRejectedBy(loginService.getUser(rejectLeaveDto.getUserName()));
 			rejectLeaveRequest.setReason(rejectLeaveDto.getRejectReason());
-			rejectLeaveRequestRepository.save(rejectLeaveRequest);
+			rejectLeaveRequestService.addRejectLeaveRequest(rejectLeaveRequest);
+			return true;
+		}
+		return false;
+	}
+
+	@Override
+	public boolean updateLeaveRequest(LeaveRequest leaveRequest) {
+		if (leaveRequestRepository.findById(leaveRequest.getId()).isPresent()) {
+			leaveRequestRepository.save(leaveRequest);
 			return true;
 		}
 		return false;

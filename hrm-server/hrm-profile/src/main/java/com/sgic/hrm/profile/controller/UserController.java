@@ -16,9 +16,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.sgic.hrm.commons.dto.mapper.profile.UserDtoToUser;
 import com.sgic.hrm.commons.dto.profile.UserDto;
+import com.sgic.hrm.commons.dto.profile.UserSaveDto;
 import com.sgic.hrm.commons.entity.Department;
 import com.sgic.hrm.commons.entity.Role;
 import com.sgic.hrm.commons.entity.User;
+import com.sgic.hrm.commons.entity.mapper.profile.UserMapper;
 import com.sgic.hrm.profile.service.DepartmentService;
 import com.sgic.hrm.profile.service.RoleService;
 import com.sgic.hrm.profile.service.UserService;
@@ -34,10 +36,10 @@ public class UserController {
 	private RoleService roleService;
 	
 	@PostMapping("/user")
-	public HttpStatus AddUser(@RequestBody UserDto userDto) {
-		Department department=departmentService.findByDepartmentId(userDto.getDepartment());
-		Role role=roleService.findByRoleId(userDto.getRole());
-		User user =UserDtoToUser.map(userDto);
+	public HttpStatus AddUser(@RequestBody UserSaveDto userSaveDto) {
+		Department department=departmentService.findByDepartmentId(userSaveDto.getDepartment());
+		Role role=roleService.findByRoleId(userSaveDto.getRole());
+		User user =UserDtoToUser.map(userSaveDto);
 		boolean test = userService.addUser(user, role, department);
 		if (test) {
 			return HttpStatus.CREATED;
@@ -45,23 +47,23 @@ public class UserController {
 		return HttpStatus.BAD_REQUEST;
 	} 
 	
+
+	
 	@GetMapping("/user")
-	public ResponseEntity<List<User>> GetUser() {
-		List<User> user = userService.getUser();
-		ResponseEntity<List<User>> response = new ResponseEntity<>(user, HttpStatus.OK);
-		return response;
+	public ResponseEntity<List<UserDto>> GetUser() {
+		List<UserDto> userDtoList = UserMapper.mapUserListToUserDtoList(userService.getUser());
+		 return new ResponseEntity<>(userDtoList, HttpStatus.OK);
 	}
 	
 	@GetMapping("/user/{id}")
-	public User getUserById(@PathVariable Integer id) {
-		
-			return userService.findByUserId(id);
-		
+	public UserDto getUserById(@PathVariable Integer id) {
+		UserDto userDtoList = UserMapper.mapUserToUserDto(userService.findByUserId(id));
+		return userDtoList;
 	}
 	@GetMapping("/userget/{fullName}")
-	public User getUserByName(@PathVariable String fullName) {
-		
-			return userService.findByUserName(fullName);
+	public UserDto getUserByName(@PathVariable String fullName) {
+		UserDto userDto = UserMapper.mapUserToUserDto(userService.findByUserName(fullName));
+		return userDto;
 	}
 
 	@PutMapping("/user/{id}")

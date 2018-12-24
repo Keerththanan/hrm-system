@@ -10,13 +10,13 @@ import com.sgic.hrm.commons.entity.RolesAndResponsibilites;
 import com.sgic.hrm.commons.entity.User;
 
 public interface RolesAndResponsibilitiesService {
-	boolean addRolesAndResponsibilites(RolesAndResponsibilites rolesAndResponsibilites, Job job, User user,
+	boolean addRolesAndResponsibilites(RolesAndResponsibilites rolesAndResponsibilites, Job job, User userObj,
 			KeyActivity keyActivity, Location location);
 
 	List<RolesAndResponsibilites> getRolesAndResponsibilites();
 
 	boolean editRolesAndResponsibilites(RolesAndResponsibilites rolesAndResponsibilites,
-			User user,Job job,Location location,KeyActivity keyActivity, Integer id);
+			User userObj,Job job,Location location,KeyActivity keyActivity, Integer id);
 
 	Optional<RolesAndResponsibilites> getReloAndResponsibilities(Integer id);
 

@@ -2,22 +2,21 @@ package com.sgic.hrm.lms.serviceimpl;
 
 import java.util.List;
 
-import javax.transaction.Transactional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.sgic.hrm.commons.dto.CarryforwardObjectData;
 import com.sgic.hrm.commons.entity.AcceptCarryforwardRequest;
 import com.sgic.hrm.commons.entity.CarryforwardRequest;
 import com.sgic.hrm.commons.entity.RejectCarryforwardRequest;
 import com.sgic.hrm.commons.enums.Status;
-import com.sgic.hrm.commons.repository.AcceptCarryForwardRequestRepository;
 import com.sgic.hrm.commons.repository.CarryforwardRequestRepository;
-import com.sgic.hrm.commons.repository.RejectCarryforwardRequestRepository;
+import com.sgic.hrm.lms.service.AcceptCarryforwardRequestService;
 import com.sgic.hrm.lms.service.CarryforwardRequestService;
 import com.sgic.hrm.lms.service.LeaveAllocationService;
 import com.sgic.hrm.lms.service.LoginService;
+import com.sgic.hrm.lms.service.RejectCarryforwardRequestService;
 
 @Service
 public class CarryforwardRequestServiceImpl implements CarryforwardRequestService {
@@ -25,10 +24,9 @@ public class CarryforwardRequestServiceImpl implements CarryforwardRequestServic
 	@Autowired
 	CarryforwardRequestRepository carryforwardRequestRepository;
 	@Autowired
-	AcceptCarryForwardRequestRepository acceptCarryForwardRequestRepository;
+	AcceptCarryforwardRequestService acceptCarryForwardRequestService;
 	@Autowired
-	RejectCarryforwardRequestRepository rejectCarryForwardRequestRepository;
-	
+	RejectCarryforwardRequestService rejectCarryForwardRequestService;	
 	@Autowired
 	LeaveAllocationService leaveAllocationService;
 	@Autowired
@@ -69,7 +67,7 @@ public class CarryforwardRequestServiceImpl implements CarryforwardRequestServic
 		AcceptCarryforwardRequest acceptCarryforwardRequest = new AcceptCarryforwardRequest();
 		acceptCarryforwardRequest.setCarryforwardRequest(carryforwardRequest);
 		acceptCarryforwardRequest.setAcceptedBy(loginService.getUser(username));
-		acceptCarryForwardRequestRepository.save(acceptCarryforwardRequest);
+		acceptCarryForwardRequestService.addAcceptCarryforwardRequest(acceptCarryforwardRequest);
 		return true;
 	}
 
@@ -85,7 +83,12 @@ public class CarryforwardRequestServiceImpl implements CarryforwardRequestServic
 		rejectCarryforwardRequest.setCarryforwardRequest(carryforwardRequest);
 		rejectCarryforwardRequest.setRejectedBy(loginService.getUser(username));
 		rejectCarryforwardRequest.setReason(reason);
-		rejectCarryForwardRequestRepository.save(rejectCarryforwardRequest);
+		rejectCarryForwardRequestService.addRejectCarryforwardRequest(rejectCarryforwardRequest);
 		return true;
+	}
+
+	@Override
+	public List<CarryforwardRequest> getCarryforwardRequestByStatus(Status status) {
+		return carryforwardRequestRepository.findByStatusOrderById(status);
 	}
 }

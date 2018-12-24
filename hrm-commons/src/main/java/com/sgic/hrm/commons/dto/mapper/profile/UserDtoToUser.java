@@ -1,37 +1,37 @@
 package com.sgic.hrm.commons.dto.mapper.profile;
 
 
-import com.sgic.hrm.commons.dto.profile.UserDto;
+import com.sgic.hrm.commons.dto.profile.UserSaveDto;
 import com.sgic.hrm.commons.entity.Role;
 import com.sgic.hrm.commons.entity.User;
 import com.sgic.hrm.commons.trainee.entity.Department;
 
 public class UserDtoToUser {
-	public static User map(UserDto userDto)
+	public static User map(UserSaveDto userSaveDto)
 	{
 		User user =new User();
-		user.setId(userDto.getId());
-		user.setFullName(userDto.getFullName());
-		user.setDateOfBirth(userDto.getDateOfBirth());
-		user.setEmail(userDto.getEmail());
-		user.setGender(userDto.getGender());
-		user.setJoinDate(userDto.getJoinDate());
-		user.setMaritalStatus(userDto.getMaritalStatus());
-		user.setMobileNumber(userDto.getMaritalStatus());
-		user.setNationality(userDto.getNationality());
-		user.setNic(userDto.getNic());
-		user.setPermenentAddress(userDto.getPermenentAddress());
-		user.setResidentialAddress(userDto.getResidentialAddress());
-		user.setReligion(userDto.getReligion());
-		user.setTelephoneNumber(userDto.getTelephoneNumber());
-		user.setServicePeriod(userDto.getServicePeriod());
-		user.setProfilePhoto(userDto.getProfilePhoto());
+		user.setId(userSaveDto.getId());
+		user.setFullName(userSaveDto.getFullName());
+		user.setDateOfBirth(userSaveDto.getDateOfBirth());
+		user.setEmail(userSaveDto.getEmail());
+		user.setGender(userSaveDto.getGender());
+		user.setJoinDate(userSaveDto.getJoinDate());
+		user.setMaritalStatus(userSaveDto.getMaritalStatus());
+		user.setMobileNumber(userSaveDto.getMaritalStatus());
+		user.setNationality(userSaveDto.getNationality());
+		user.setNic(userSaveDto.getNic());
+		user.setPermenentAddress(userSaveDto.getPermenentAddress());
+		user.setResidentialAddress(userSaveDto.getResidentialAddress());
+		user.setReligion(userSaveDto.getReligion());
+		user.setTelephoneNumber(userSaveDto.getTelephoneNumber());
+		user.setServicePeriod(userSaveDto.getServicePeriod());
+		user.setProfilePhoto(userSaveDto.getProfilePhoto());
 		
 		Department department=new Department();
-		department.setId(userDto.getDepartment());
+		department.setId(userSaveDto.getDepartment());
 		
 		Role role =new Role();
-		role.setId(userDto.getRole());
+		role.setId(userSaveDto.getRole());
 		
 		return user;
 		
