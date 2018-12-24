@@ -45,7 +45,7 @@ public class ScheduleParController {
 	private static Logger log = LoggerFactory.getLogger(ScheduleParController.class);
 	@Autowired
 	private EmailService emailService;
-
+    
 	@GetMapping("/scheduleparPostTemp")
 	public ScheduleParDtoPost getScheduleParPost() {
 		ScheduleParDtoPost objScheduleParDTO = new ScheduleParDtoPost();
@@ -86,12 +86,11 @@ public class ScheduleParController {
 			try {
 				log.info("Spring Mail - Sending Simple Email with JavaMailSender Example");
 				   //emailDto.setFrom("thirupparan1994@gmail.com");
-				   emailDto.setTo("thirupparan1994@gmail.com");
+				   emailDto.setTo(objScheduleParDTO.getEmployeeEmail());
 				   emailDto.setSubject("confirmation par score");
 				   emailDto.setContent("Dear thirupparan;");
 				   emailDto.setContent("please choose right prefernce for your meal.");
 			} catch (Exception e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 				String msg= "Error while sending mail ..";
 				//return msg; 
