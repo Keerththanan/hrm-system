@@ -3,6 +3,10 @@ package com.sgic.hrm.par.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.mail.MessagingException;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,6 +18,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.sgic.hrm.commons.dto.email.EmailDto;
 import com.sgic.hrm.commons.dto.par.ScheduleParAppraisorsDtoGet;
 import com.sgic.hrm.commons.dto.par.ScheduleParAppraisorsDtoPost;
 import com.sgic.hrm.commons.dto.par.ScheduleParContentDtoGet;
@@ -22,6 +27,7 @@ import com.sgic.hrm.commons.dto.par.ScheduleParDtoGet;
 import com.sgic.hrm.commons.dto.par.ScheduleParDtoPost;
 import com.sgic.hrm.commons.entity.par.EmployeeDetails;
 import com.sgic.hrm.commons.entity.par.Par;
+import com.sgic.hrm.par.service.EmailService;
 import com.sgic.hrm.par.service.EmployeeDetailsService;
 import com.sgic.hrm.par.service.ParService;
 import com.sgic.hrm.par.serviceCombined.ParScheduleService;
@@ -36,6 +42,9 @@ public class ScheduleParController {
 	ParService parservice;
 	@Autowired
 	EmployeeDetailsService employeeDetailsService;
+	private static Logger log = LoggerFactory.getLogger(ScheduleParController.class);
+	@Autowired
+	private EmailService emailService;
 
 	@GetMapping("/scheduleparPostTemp")
 	public ScheduleParDtoPost getScheduleParPost() {
@@ -73,12 +82,31 @@ public class ScheduleParController {
 	}
 
 	@PostMapping("/schedulepar")
-	public void createSchedulePar(@RequestBody ScheduleParDtoPost objScheduleParDTO) {
-		// boolean=
-
-		parScheduleService.createSchedulePar(objScheduleParDTO);
+	public void createSchedulePar(@RequestBody ScheduleParDtoPost objScheduleParDTO,EmailDto emailDto)throws MessagingException  {
+			try {
+				log.info("Spring Mail - Sending Simple Email with JavaMailSender Example");
+				   //emailDto.setFrom("thirupparan1994@gmail.com");
+				   emailDto.setTo("thirupparan1994@gmail.com");
+				   emailDto.setSubject("confirmation par score");
+				   emailDto.setContent("Dear thirupparan;");
+				   emailDto.setContent("please choose right prefernce for your meal.");
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				String msg= "Error while sending mail ..";
+				//return msg; 
+			}
+			emailService.sendSimpleMessage(emailDto);	
+		
+		
+		 parScheduleService.createSchedulePar(objScheduleParDTO);
 	}
-
+			//extra work find email by employee id
+	@GetMapping("/schedulepar/employee/{empid}")
+	public List<EmployeeDetails> getEmail(@PathVariable ("empid") String empid) {
+		return employeeDetailsService.getEmployeeByEmail(empid);		
+	}
+	
 	@GetMapping("/schedulepar/emp/{empid}")
 	public ResponseEntity<List<Par>> findByEmployeeId(@PathVariable("empid") String id) {
 		return new ResponseEntity<>(parservice.findByEmployeeId(id), HttpStatus.OK);
@@ -114,10 +142,10 @@ public class ScheduleParController {
 
 	// find employee details Name List
 	@GetMapping("/schedulepar/empname")
-	public List<EmployeeDetails> getEmployee() {
+	public ResponseEntity<List<EmployeeDetails>> getEmployee() {
 		List<EmployeeDetails> employeeDetailName = employeeDetailsService.findEmpDetails();
-		//ResponseEntity<List<EmployeeDetails>> response = new ResponseEntity<>(employeeDetailName, HttpStatus.OK);
-		return employeeDetailName;
+		ResponseEntity<List<EmployeeDetails>> response = new ResponseEntity<>(employeeDetailName, HttpStatus.OK);
+		return response;
 
 	}
 }

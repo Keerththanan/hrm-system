@@ -28,8 +28,8 @@ public class ParScheduleServiceTest {
 	public void createParScheduleService1() {
 		
 		ScheduleParDtoPost scheduleParDtoPost=new ScheduleParDtoPost();
-		scheduleParDtoPost.setEmpId("E001");
-		scheduleParDtoPost.setEmpId("EM001");
+		//scheduleParDtoPost.setEmpId("E001");
+		//scheduleParDtoPost.setEmpId("EM001");
 		scheduleParDtoPost.setScheduleDate(new Date());
 		
 		List<ScheduleParAppraisorsDtoPost> scheduleParAppraisorList = new ArrayList<ScheduleParAppraisorsDtoPost>();
@@ -50,8 +50,8 @@ public class ParScheduleServiceTest {
 	public void createParScheduleService2() {
 		
 		ScheduleParDtoPost scheduleParDtoPost=new ScheduleParDtoPost();
-		scheduleParDtoPost.setEmpId("E002");
-		scheduleParDtoPost.setEmpId("EM002");
+		//scheduleParDtoPost.setEmpId("E002");
+		//scheduleParDtoPost.setEmpId("EM002");
 		scheduleParDtoPost.setScheduleDate(new Date());
 		
 		List<ScheduleParAppraisorsDtoPost> scheduleParAppraisorList = new ArrayList<ScheduleParAppraisorsDtoPost>();
@@ -72,8 +72,8 @@ public class ParScheduleServiceTest {
 	public void createParScheduleService3() {
 		
 		ScheduleParDtoPost scheduleParDtoPost=new ScheduleParDtoPost();
-		scheduleParDtoPost.setEmpId("E003");
-		scheduleParDtoPost.setEmpId("EM003");
+		//scheduleParDtoPost.setEmpId("E003");
+		//scheduleParDtoPost.setEmpId("EM003");
 		scheduleParDtoPost.setScheduleDate(new Date());
 		
 		List<ScheduleParAppraisorsDtoPost> scheduleParAppraisorList = new ArrayList<ScheduleParAppraisorsDtoPost>();

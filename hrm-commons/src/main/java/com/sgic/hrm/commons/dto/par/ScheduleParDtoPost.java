@@ -3,6 +3,8 @@ package com.sgic.hrm.commons.dto.par;
 import java.util.Date;
 import java.util.List;
 
+import com.sgic.hrm.commons.entity.par.EmployeeDetails;
+
 public class ScheduleParDtoPost {
 
 	private String empId;
@@ -10,6 +12,16 @@ public class ScheduleParDtoPost {
 
 	private List<ScheduleParAppraisorsDtoPost> scheduleParAppraisorsList;
 	private List<ScheduleParContentDtoPost> scheduleParContentList;
+	
+	
+	public ScheduleParDtoPost(String empId, Date scheduleDate) {
+		this.empId = empId;
+		this.scheduleDate = scheduleDate;
+	}
+
+	public ScheduleParDtoPost() {
+		
+	}
 
 	public String getEmpId() {
 		return empId;

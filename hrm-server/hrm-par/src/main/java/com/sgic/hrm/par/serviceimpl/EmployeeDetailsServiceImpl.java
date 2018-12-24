@@ -10,7 +10,7 @@ import com.sgic.hrm.commons.repository.par.EmployeeDetailsRepository;
 import com.sgic.hrm.par.service.EmployeeDetailsService;
 
 @Service
-public class EmployeeDetailsServiceImpl implements EmployeeDetailsService  {
+public class EmployeeDetailsServiceImpl implements EmployeeDetailsService {
 	@Autowired
 	EmployeeDetailsRepository employeeDetailsRepo;
 
@@ -25,4 +25,12 @@ public class EmployeeDetailsServiceImpl implements EmployeeDetailsService  {
 		return employeeDetailsRepo.findAll();
 	}
 
+	@Override
+	public List<EmployeeDetails> getEmployeeByEmail(String empId) {
+		// TODO Auto-generated method stub
+		return employeeDetailsRepo.findByEmpId(empId);
+	}
+
+	
+	
 }

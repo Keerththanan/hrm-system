@@ -18,17 +18,17 @@ public class Par {
 	private Double overAllScore;
 	private Date scheduleDate;
 
-	public Par(Integer id, String empId, Double overAllScore, Date scheduleDate) {
+	public Par(Integer id, String  empId, Double overAllScore, Date scheduleDate) {
 		this.id = id;
-		this.empId = empId;
+		this.empId=empId;
 		this.overAllScore = overAllScore;
 		this.scheduleDate = scheduleDate;
 	}
 
-	public Par(Integer id, String empId, Date scheduleDate) {
+	public Par(Integer id,String empId,  Date scheduleDate) {
 
 		this.id = id;
-		this.empId = empId;
+		this.empId= empId;
 		this.scheduleDate = scheduleDate;
 	}
 
