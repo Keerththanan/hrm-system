@@ -14,13 +14,9 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.sgic.hrm.commons.dto.ApplicantData;
 import com.sgic.hrm.commons.dto.ApplicantDataSave;
-import com.sgic.hrm.commons.dto.VacancyData;
 import com.sgic.hrm.commons.dto.mapper.ApplicantDataMapper;
-import com.sgic.hrm.commons.dto.mapper.VacancyDataMapper;
 import com.sgic.hrm.commons.entity.Applicant;
-import com.sgic.hrm.commons.entity.Vacancy;
 import com.sgic.hrm.employee.service.ApplicantService;
 
 @CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
