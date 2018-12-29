@@ -1,5 +1,5 @@
 package com.sgic.hrm.trainer.controller;
-
+//done by daminiya
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,7 +43,7 @@ public class TrainingHistoryController {
 				TrainingHistoryToTrainingHistoryData.TrainingHistoryToTrainingHistoryData(trainingHistoryList),
 				HttpStatus.OK);
 	}
-
+//get by id method
 	@GetMapping("/trainingHistory/{id}")
 	public ResponseEntity<TrainingHistoryData> getOneTrainingHistory(@PathVariable(name = "id") Integer id) {
 		TrainingHistory trainingHistory = trainingHistoryService.getOneTrainingHistory(id);
