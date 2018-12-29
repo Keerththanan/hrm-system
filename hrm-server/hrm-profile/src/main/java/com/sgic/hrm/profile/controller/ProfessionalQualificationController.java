@@ -1,9 +1,7 @@
 package com.sgic.hrm.profile.controller;
 
 import java.util.List;
-
 import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,12 +13,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-
 import com.sgic.hrm.commons.dto.mapper.profile.ProfessionalQualificationDtoToProfessionalQualification;
 import com.sgic.hrm.commons.dto.profile.ProfessionalQualificationDto;
 import com.sgic.hrm.commons.dto.profile.ProfessionalQualificationSaveDto;
-import com.sgic.hrm.commons.entity.ProfessionalQualification;
-import com.sgic.hrm.commons.entity.User;
 import com.sgic.hrm.commons.entity.mapper.profile.ProfessionalQualificationMapper;
 import com.sgic.hrm.profile.service.ProfessionalQualificationService;
 import com.sgic.hrm.profile.service.UserService;
@@ -29,55 +24,61 @@ import com.sgic.hrm.profile.service.UserService;
 @RestController
 public class ProfessionalQualificationController {
 
-	@Autowired
-	private ProfessionalQualificationService professionalQualificationService;
-	
-	@Autowired
-	private UserService userService;
+  @Autowired
+  private ProfessionalQualificationService professionalQualificationService;
 
-	@PostMapping("/professionalQualification")
-	public HttpStatus addProfessionalQualification(@Valid @RequestBody ProfessionalQualificationSaveDto professionalQualificationSaveDto) {
-		User userobj=userService.findByUserId(professionalQualificationSaveDto.getUser());
-		ProfessionalQualification professionalQualification=ProfessionalQualificationDtoToProfessionalQualification.map(professionalQualificationSaveDto);
-		
-		boolean test = professionalQualificationService.addProfessionalQualification(professionalQualification, userobj);
-		if (test) {
-			return HttpStatus.CREATED;
-		}
-		return HttpStatus.BAD_REQUEST;
-	}
-	@PutMapping("/professionalQualification/edit/{id}")
-	public HttpStatus ModifyProfessionalQualification(@PathVariable Integer id,@RequestBody ProfessionalQualificationSaveDto professionalQualificationSaveDto) {
-		User userObj=userService.findByUserId(professionalQualificationSaveDto.getUser());
-		ProfessionalQualification professionalQualification=ProfessionalQualificationDtoToProfessionalQualification.map(professionalQualificationSaveDto);
-		boolean editTest=professionalQualificationService.editProfessionalQualification(professionalQualification,userObj, id);
-		if(editTest) {
-			return HttpStatus.ACCEPTED;
-		}
-		return HttpStatus.BAD_REQUEST;
-	}
-	
-	@GetMapping("/professionalQualification")
-	public ResponseEntity<List<ProfessionalQualificationDto>> GetProfessionalQualification(){
-		List<ProfessionalQualificationDto> professionalQualificationDtoList= ProfessionalQualificationMapper.mapProfessionalQualificationListToProfessionalQualificationDtoList(professionalQualificationService.getAllProfessionalQualifications());
-		return new ResponseEntity<>(professionalQualificationDtoList,HttpStatus.OK);
-	}
-	
-	@GetMapping("/professionalQualification/{uid}")
-	public  ResponseEntity<List<ProfessionalQualificationDto>>findProfessionalQualificationByUserId(@PathVariable("uid") Integer id)
-	{
-		List<ProfessionalQualificationDto> 
-		professionalQualificationDtoList =ProfessionalQualificationMapper.mapProfessionalQualificationListToProfessionalQualificationDtoList(professionalQualificationService.getProfessionalQualificationByUserId(id));
-		return new ResponseEntity<>(professionalQualificationDtoList,HttpStatus.OK);
-	}
-	
-	@DeleteMapping("/professionalQualification/{id}")
-	public HttpStatus DeleteProfessionalQualification(@PathVariable Integer id) {
-		boolean test=professionalQualificationService.deleteProfessionalQualification(id);
-		if(test) {
-			return HttpStatus.ACCEPTED;
-		}
-		return HttpStatus.BAD_REQUEST;
-	}
-	
+  @Autowired
+  private UserService userService;
+
+  @PostMapping("/professionalQualification")
+  public HttpStatus addProfessionalQualification(
+      @Valid @RequestBody ProfessionalQualificationSaveDto professionalQualificationSaveDto) {
+    if (professionalQualificationService.addProfessionalQualification(
+        ProfessionalQualificationDtoToProfessionalQualification
+            .map(professionalQualificationSaveDto),
+        userService.findByUserId(professionalQualificationSaveDto.getUser()))) {
+      return HttpStatus.CREATED;
+    }
+    return HttpStatus.BAD_REQUEST;
+  }
+
+  @PutMapping("/professionalQualification/edit/{id}")
+  public HttpStatus modifyProfessionalQualification(@PathVariable Integer id,
+      @RequestBody ProfessionalQualificationSaveDto professionalQualificationSaveDto) {
+    if (professionalQualificationService.editProfessionalQualification(
+        ProfessionalQualificationDtoToProfessionalQualification
+            .map(professionalQualificationSaveDto),
+        userService.findByUserId(professionalQualificationSaveDto.getUser()), id)) {
+      return HttpStatus.ACCEPTED;
+    }
+    return HttpStatus.BAD_REQUEST;
+  }
+
+  @GetMapping("/professionalQualification")
+  public ResponseEntity<List<ProfessionalQualificationDto>> getProfessionalQualification() {
+    return new ResponseEntity<>(
+        ProfessionalQualificationMapper
+            .mapProfessionalQualificationListToProfessionalQualificationDtoList(
+                professionalQualificationService.getAllProfessionalQualifications()),
+        HttpStatus.OK);
+  }
+
+  @GetMapping("/professionalQualification/{uid}")
+  public ResponseEntity<List<ProfessionalQualificationDto>> findProfessionalQualificationByUserId(
+      @PathVariable("uid") Integer id) {
+    return new ResponseEntity<>(
+        ProfessionalQualificationMapper
+            .mapProfessionalQualificationListToProfessionalQualificationDtoList(
+                professionalQualificationService.getProfessionalQualificationByUserId(id)),
+        HttpStatus.OK);
+  }
+
+  @DeleteMapping("/professionalQualification/{id}")
+  public HttpStatus deleteProfessionalQualification(@PathVariable Integer id) {
+    if (professionalQualificationService.deleteProfessionalQualification(id)) {
+      return HttpStatus.ACCEPTED;
+    }
+    return HttpStatus.BAD_REQUEST;
+  }
+
 }

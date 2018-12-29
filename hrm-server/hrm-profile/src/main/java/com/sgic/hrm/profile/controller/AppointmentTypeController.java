@@ -27,8 +27,7 @@ public class AppointmentTypeController {
 	@PostMapping("/appointmentType")
 	public HttpStatus AddAppointmentType(@RequestBody AppointmentType appointmentType) 
 	{
-		boolean testadd= appointmentTypeService.addAppointmentType(appointmentType);
-		if(testadd) {
+		if(appointmentTypeService.addAppointmentType(appointmentType)) {
 			return HttpStatus.CREATED;
 		}
 		return HttpStatus.BAD_REQUEST;
@@ -37,17 +36,13 @@ public class AppointmentTypeController {
 	@GetMapping("/appointmentType")
 	public ResponseEntity <List<AppointmentType>> GetAppointmentType()
 	{
-		List<AppointmentType> appointmentType= appointmentTypeService.getAppointmentType();
-		ResponseEntity<List<AppointmentType>> 
-		response =  new ResponseEntity<>(appointmentType,HttpStatus.OK);
-		return response;
+		return new ResponseEntity<>(appointmentTypeService.getAppointmentType(),HttpStatus.OK);
 		
 	}
 	
 	@PutMapping("/appointmentType/{id}")
 	public HttpStatus editAppointmentType(@PathVariable Integer id,@RequestBody AppointmentType appointmentType) {
-		boolean editTest=appointmentTypeService.editAppointmentType(appointmentType, id);
-		if(editTest) {
+		if(appointmentTypeService.editAppointmentType(appointmentType, id)) {
 			return HttpStatus.ACCEPTED;
 		}
 		return HttpStatus.BAD_REQUEST;
@@ -55,8 +50,7 @@ public class AppointmentTypeController {
 	
 	@DeleteMapping("/appointmentType/{id}")
 	public HttpStatus deleteAppointmentType(@PathVariable Integer id,@RequestBody AppointmentType appointmentType) {
-		boolean deleteTest=appointmentTypeService.deleteAppointmentType(id);
-		if(deleteTest) {
+		if(appointmentTypeService.deleteAppointmentType(id)) {
 			return HttpStatus.ACCEPTED;
 		}
 		return HttpStatus.BAD_REQUEST;
