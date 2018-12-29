@@ -1,10 +1,8 @@
 package com.sgic.hrm.profile.serviceimpl;
 
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.sgic.hrm.commons.entity.Department;
 import com.sgic.hrm.commons.entity.Role;
 import com.sgic.hrm.commons.entity.User;
@@ -16,7 +14,7 @@ public class UserServiceImpl implements UserService {
   @Autowired
   private UserRepository userRepository;
 
- 
+
   @Override
   public List<User> getUser() {
     return userRepository.findAll();
@@ -44,25 +42,22 @@ public class UserServiceImpl implements UserService {
 
   @Override
   public User findByUserId(Integer id) {
-    // TODO Auto-generated method stub
     return userRepository.findUserById(id);
   }
 
-@Override
-public User findByUserName(String fullName) {
-	
-	return userRepository.findByfullName(fullName);
-}
+  @Override
+  public User findByUserName(String fullName) {
 
-@Override
-public boolean addUser(User user, Role role, Department department) {
-	user.setDepartment(department);
-	user.setRole(role);
-	userRepository.save(user);
-	return true;
-}
+    return userRepository.findByfullName(fullName);
+  }
 
-
+  @Override
+  public boolean addUser(User user, Role role, Department department) {
+    user.setDepartment(department);
+    user.setRole(role);
+    userRepository.save(user);
+    return true;
+  }
 
 
 

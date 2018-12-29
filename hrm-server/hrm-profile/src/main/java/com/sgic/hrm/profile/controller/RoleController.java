@@ -20,9 +20,8 @@ public class RoleController {
 	@GetMapping("/roles")
 	public ResponseEntity <List<Role>> viewRoles()
 	{
-		List<Role> role = roleService.getRoles();
-		return new ResponseEntity<>(role, HttpStatus.OK);
+		return new ResponseEntity<>(roleService.getRoles(), HttpStatus.OK);
 		
-	}
-	
+  }
+
 }

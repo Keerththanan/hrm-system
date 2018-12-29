@@ -27,8 +27,7 @@ public class ExamTypeController {
 	@PostMapping("/examtype")
 	public HttpStatus createExamType(@Valid @RequestBody ExamType examtype)
 	{
-		boolean addextype= examTypeService.addExamType(examtype);
-		if(addextype){
+		if(examTypeService.addExamType(examtype)){
 			return HttpStatus.CREATED;
 			}
 		return HttpStatus.BAD_REQUEST;
@@ -36,22 +35,19 @@ public class ExamTypeController {
 	
 	@GetMapping("/examtype")
 	public ResponseEntity <List<ExamType>> getExamType(){
-		List<ExamType> examtype = examTypeService.getAllExamType();
-		return new ResponseEntity<>(examtype, HttpStatus.OK);
+		return new ResponseEntity<>(examTypeService.getAllExamType(), HttpStatus.OK);
 		
 	}
 	@PutMapping("/examtype/{id}")
 	public HttpStatus editExamType(@PathVariable Integer id,@RequestBody ExamType examtype) {
-		boolean editTest=examTypeService.editExamType(examtype, id);
-		if(editTest) {
+		if(examTypeService.editExamType(examtype, id)) {
 			return HttpStatus.ACCEPTED;
 		}
 		return HttpStatus.BAD_REQUEST;
 	}
 	@DeleteMapping("/examtype/{id}")
 	public HttpStatus deleteExamType(@PathVariable Integer id,@RequestBody ExamType examtype) {
-		boolean editTest=examTypeService.deleteExamType(id);
-		if(editTest) {
+		if(examTypeService.deleteExamType(id)) {
 			return HttpStatus.ACCEPTED;
 		}
 		return HttpStatus.BAD_REQUEST;

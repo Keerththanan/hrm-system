@@ -55,14 +55,12 @@ public class WorkExperienceServiceImpl implements WorkExperienceService{
 
 	@Override
 	public WorkExperience getWorkExperienceById(int id) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public List<WorkExperience> getWorkExperienceByUserId(Integer uid) {
-		User userObj=userRepository.findUserById(uid);
-		return experienceRepository.findWorkExperienceByUser(userObj);
+	  return experienceRepository.findWorkExperienceByUser(userRepository.findUserById(uid));
 	}
 	
 	
