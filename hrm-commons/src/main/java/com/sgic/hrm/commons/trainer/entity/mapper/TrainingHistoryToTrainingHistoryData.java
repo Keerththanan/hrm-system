@@ -1,5 +1,5 @@
 package com.sgic.hrm.commons.trainer.entity.mapper;
-
+//done by daminiya
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,8 +20,6 @@ public class TrainingHistoryToTrainingHistoryData {
 	}
 	
 	
-	
-
 	public static List<TrainingHistoryData> TrainingHistoryToTrainingHistoryData(List<TrainingHistory> trainingHistory) {
 		List<TrainingHistoryData> trainingHistoryList = new ArrayList<TrainingHistoryData>();
 
