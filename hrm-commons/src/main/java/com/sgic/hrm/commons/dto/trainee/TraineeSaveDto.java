@@ -1,10 +1,8 @@
-package com.sgic.hrm.commons.trainee.dto;
+package com.sgic.hrm.commons.dto.trainee;
 
 import java.util.Date;
 
-import com.sgic.hrm.commons.trainee.entity.Department;
-
-public class TraineeDto {
+public class TraineeSaveDto {
 	private Integer id;
 	private String fullName;
 	private String name;
@@ -24,7 +22,7 @@ public class TraineeDto {
 	private String maritalStatus;
 	private String employment;
 	private String occupation;
-	private Department department;
+	private Integer department;
 	private Date updateAt;
 	public Integer getId() {
 		return id;
@@ -140,10 +138,10 @@ public class TraineeDto {
 	public void setOccupation(String occupation) {
 		this.occupation = occupation;
 	}
-	public Department getDepartment() {
+	public Integer getDepartment() {
 		return department;
 	}
-	public void setDepartment(Department department) {
+	public void setDepartment(Integer department) {
 		this.department = department;
 	}
 	public Date getUpdateAt() {
@@ -153,4 +151,6 @@ public class TraineeDto {
 		this.updateAt = updateAt;
 	}
 	
+	
+
 }

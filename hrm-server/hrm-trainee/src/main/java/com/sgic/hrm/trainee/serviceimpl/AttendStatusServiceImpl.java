@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.sgic.hrm.commons.trainee.entity.AttendStatus;
-import com.sgic.hrm.commons.trainee.repository.AttendStatusRepository;
+import com.sgic.hrm.commons.entity.trainee.AttendStatus;
+import com.sgic.hrm.commons.repository.trainee.AttendStatusRepository;
 import com.sgic.hrm.trainee.service.AttendStatusService;
 
 @Service
@@ -23,7 +23,7 @@ public class AttendStatusServiceImpl implements AttendStatusService {
 	@Override
 	public List<AttendStatus> getAttendanceStatus() {
 		return attendStatusRepository.findAll();
-		 
+
 	}
 
 	@Override
@@ -42,6 +42,11 @@ public class AttendStatusServiceImpl implements AttendStatusService {
 			return true;
 		}
 		return false;
+	}
+
+	@Override
+	public AttendStatus getAttendStatusId(Integer id) {	
+		return attendStatusRepository.findAttendStatusById(id);
 	}
 
 }

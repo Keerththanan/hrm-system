@@ -1,25 +1,10 @@
-package com.sgic.hrm.commons.trainee.entity;
+package com.sgic.hrm.commons.dto.trainee;
 
-import java.io.Serializable;
 import java.util.Date;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import com.sgic.hrm.commons.entity.trainee.Department;
 
-import org.hibernate.annotations.UpdateTimestamp;
-
-@Entity
-@Table(name="trainee", schema="trainee")
-public class Trainee implements Serializable {
-	
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 7137158887066721742L;
-	@Id
+public class TraineeDto {
 	private Integer id;
 	private String fullName;
 	private String name;
@@ -39,11 +24,7 @@ public class Trainee implements Serializable {
 	private String maritalStatus;
 	private String employment;
 	private String occupation;
-	
-	@ManyToOne
-	@JoinColumn(name = "department_id")
 	private Department department;
-	@UpdateTimestamp
 	private Date updateAt;
 	public Integer getId() {
 		return id;
@@ -172,5 +153,4 @@ public class Trainee implements Serializable {
 		this.updateAt = updateAt;
 	}
 	
-
 }

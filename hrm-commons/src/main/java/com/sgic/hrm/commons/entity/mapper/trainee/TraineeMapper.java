@@ -1,10 +1,10 @@
-package com.sgic.hrm.commons.trainee.entity.mapper;
+package com.sgic.hrm.commons.entity.mapper.trainee;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import com.sgic.hrm.commons.trainee.dto.TraineeDto;
-import com.sgic.hrm.commons.trainee.entity.Trainee;
+import com.sgic.hrm.commons.dto.trainee.TraineeDto;
+import com.sgic.hrm.commons.entity.trainee.Trainee;
 
 public class TraineeMapper {
 

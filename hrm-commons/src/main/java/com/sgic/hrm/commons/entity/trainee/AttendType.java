@@ -1,4 +1,4 @@
-package com.sgic.hrm.commons.trainee.entity;
+package com.sgic.hrm.commons.entity.trainee;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -10,16 +10,15 @@ import javax.persistence.Table;
 import org.hibernate.annotations.UpdateTimestamp;
 
 @Entity
-@Table(name = "attend_status", schema = "trainee")
-public class AttendStatus implements Serializable {
-
+@Table(name = "attend_type", schema = "trainee")
+public class AttendType implements Serializable {
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 8219141855019063420L;
+	private static final long serialVersionUID = -6893112632166995105L;
 	@Id
 	private Integer id;
-	private String statusName;
+	private String attendType;
 	@UpdateTimestamp
 	private Date updateAt;
 
@@ -39,12 +38,12 @@ public class AttendStatus implements Serializable {
 		this.id = id;
 	}
 
-	public String getStatusName() {
-		return statusName;
+	public String getAttendType() {
+		return attendType;
 	}
 
-	public void setStatusName(String statusName) {
-		this.statusName = statusName;
+	public void setAttendType(String attendType) {
+		this.attendType = attendType;
 	}
 
 }

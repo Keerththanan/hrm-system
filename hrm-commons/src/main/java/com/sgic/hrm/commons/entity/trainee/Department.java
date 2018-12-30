@@ -1,4 +1,4 @@
-package com.sgic.hrm.commons.trainee.entity;
+package com.sgic.hrm.commons.entity.trainee;
 
 
 import java.io.Serializable;

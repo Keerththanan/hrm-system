@@ -2,7 +2,7 @@ package com.sgic.hrm.trainee.service;
 
 import java.util.List;
 
-import com.sgic.hrm.commons.trainee.entity.AttendStatus;
+import com.sgic.hrm.commons.entity.trainee.AttendStatus;
 
 public interface AttendStatusService {
 
@@ -13,4 +13,6 @@ public interface AttendStatusService {
 	boolean editAttendStatus(AttendStatus attendStatus, Integer id);
 
 	boolean deleteAttendStatus(Integer id);
+
+	AttendStatus getAttendStatusId(Integer id);
 }

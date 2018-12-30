@@ -1,8 +1,25 @@
-package com.sgic.hrm.commons.trainee.dto;
+package com.sgic.hrm.commons.entity.trainee;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class TraineeSaveDto {
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+import org.hibernate.annotations.UpdateTimestamp;
+
+@Entity
+@Table(name="trainee", schema="trainee")
+public class Trainee implements Serializable {
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 7137158887066721742L;
+	@Id
 	private Integer id;
 	private String fullName;
 	private String name;
@@ -22,7 +39,11 @@ public class TraineeSaveDto {
 	private String maritalStatus;
 	private String employment;
 	private String occupation;
-	private Integer department;
+	
+	@ManyToOne
+	@JoinColumn(name = "department_id")
+	private Department department;
+	@UpdateTimestamp
 	private Date updateAt;
 	public Integer getId() {
 		return id;
@@ -138,10 +159,10 @@ public class TraineeSaveDto {
 	public void setOccupation(String occupation) {
 		this.occupation = occupation;
 	}
-	public Integer getDepartment() {
+	public Department getDepartment() {
 		return department;
 	}
-	public void setDepartment(Integer department) {
+	public void setDepartment(Department department) {
 		this.department = department;
 	}
 	public Date getUpdateAt() {
@@ -150,7 +171,6 @@ public class TraineeSaveDto {
 	public void setUpdateAt(Date updateAt) {
 		this.updateAt = updateAt;
 	}
-	
 	
 
 }

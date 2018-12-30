@@ -1,4 +1,4 @@
-package com.sgic.hrm.commons.trainee.entity;
+package com.sgic.hrm.commons.entity.trainee;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -31,6 +31,17 @@ public class AttendanceDetails implements Serializable {
 	@ManyToOne
 	@JoinColumn(name = "status_id")
 	private AttendStatus attendantStatus;
+	@ManyToOne
+	@JoinColumn(name = "attend_type_id")
+	private AttendType attendType;
+
+	public AttendType getAttendType() {
+		return attendType;
+	}
+
+	public void setAttendType(AttendType attendType) {
+		this.attendType = attendType;
+	}
 
 	public AttendStatus getAttendantStatus() {
 		return attendantStatus;

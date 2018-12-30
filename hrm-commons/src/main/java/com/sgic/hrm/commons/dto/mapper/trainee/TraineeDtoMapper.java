@@ -1,9 +1,9 @@
-package com.sgic.hrm.commons.trainee.dto.mapper;
+package com.sgic.hrm.commons.dto.mapper.trainee;
 
-import com.sgic.hrm.commons.trainee.dto.TraineeDto;
-import com.sgic.hrm.commons.trainee.dto.TraineeSaveDto;
-import com.sgic.hrm.commons.trainee.entity.Department;
-import com.sgic.hrm.commons.trainee.entity.Trainee;
+import com.sgic.hrm.commons.dto.trainee.TraineeDto;
+import com.sgic.hrm.commons.dto.trainee.TraineeSaveDto;
+import com.sgic.hrm.commons.entity.trainee.Department;
+import com.sgic.hrm.commons.entity.trainee.Trainee;
 
 public class TraineeDtoMapper {
 

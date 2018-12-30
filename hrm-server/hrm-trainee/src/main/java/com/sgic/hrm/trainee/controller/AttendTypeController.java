@@ -17,36 +17,37 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.sgic.hrm.commons.entity.trainee.AttendStatus;
-import com.sgic.hrm.trainee.service.AttendStatusService;
+import com.sgic.hrm.commons.entity.trainee.AttendType;
+import com.sgic.hrm.trainee.service.AttendTypeService;
 
 @CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
 @RestController
-public class AttendStatusController {
+public class AttendTypeController {
 	@Autowired
-	private AttendStatusService attendStatusService; 
+	private AttendTypeService attendTypeService; 
 
-	@PostMapping("/attendence/status")
-	public HttpStatus addAttendStatus(@Valid @RequestBody AttendStatus attendStatus) {
-		if (attendStatusService.addAttendanceStatus(attendStatus)) {
+	@PostMapping("/attendence/type")
+	public HttpStatus addAttendType(@Valid @RequestBody AttendType attendType) {
+		if (attendTypeService.addAttendanceType(attendType)) {
 			return HttpStatus.CREATED;
 		}
 		return HttpStatus.BAD_REQUEST;
 	}
 
-	@GetMapping("/attendence/status")
-	public ResponseEntity<List<AttendStatus>> getAttendStatus() {
-		return new ResponseEntity<>(attendStatusService.getAttendanceStatus(), HttpStatus.OK);
+	@GetMapping("/attendence/type")
+	public ResponseEntity<List<AttendType>> getAttendType() {
+		return new ResponseEntity<>(attendTypeService.getAttendanceType(), HttpStatus.OK);
 	}
-	@PutMapping("/attendence/status/{id}")
-	public HttpStatus editAttendStatus(@RequestBody AttendStatus attendStatus, @PathVariable Integer id) {
-		if(attendStatusService.editAttendStatus(attendStatus, id)) {
+	@PutMapping("/attendence/type/{id}")
+	public HttpStatus editAttendType(@RequestBody AttendType attendType, @PathVariable Integer id) {
+		if(attendTypeService.editAttendType(attendType, id)) {
 			return HttpStatus.ACCEPTED;
 		}
 		return HttpStatus.BAD_REQUEST;
 	}
-	@DeleteMapping("/attendence/status/{id}")
-	public HttpStatus deleteAttendStatus(@PathVariable Integer id) {
-		if(attendStatusService.deleteAttendStatus(id)) {
+	@DeleteMapping("/attendence/type/{id}")
+	public HttpStatus deleteAttendType(@PathVariable Integer id) {
+		if(attendTypeService.deleteAttendType(id)) {
 			return HttpStatus.ACCEPTED;
 		}
 		return HttpStatus.BAD_REQUEST;
