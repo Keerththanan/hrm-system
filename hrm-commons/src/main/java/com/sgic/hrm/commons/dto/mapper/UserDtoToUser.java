@@ -4,7 +4,7 @@ package com.sgic.hrm.commons.dto.mapper;
 import com.sgic.hrm.commons.dto.profile.UserSaveDto;
 import com.sgic.hrm.commons.entity.Role;
 import com.sgic.hrm.commons.entity.User;
-import com.sgic.hrm.commons.trainee.entity.Department;
+import com.sgic.hrm.commons.entity.trainee.Department;
 
 public class UserDtoToUser {
 	public static User map(UserSaveDto userSaveDto)

@@ -42,10 +42,11 @@
 
 /hrm-server/hrm-trainee/.mvn
 /hrm-server/hrm-trainee/.settings
-/hrm-server/hrm-trainee/target/
+/hrm-server/hrm-trainee/target/*
 /hrm-server/hrm-trainee/.classpath
 /hrm-server/hrm-trainee/.gitignore
-/hrm-server/hrm-trainer/.project
+/hrm-server/hrm-trainee/target/classes/META-INF/maven/com.sgic.hrm/hrm-trainee/pom.properties
+/hrm-server/hrm-trainee/.project
 
 /hrm-server/hrm-profile/.mvn
 /hrm-server/hrm-profile/.settings
@@ -54,4 +55,6 @@
 /hrm-server/hrm-profile/.gitignore
 /hrm-server/hrm-profile/.project
 /hrm-server/.project
+ 
+
 
