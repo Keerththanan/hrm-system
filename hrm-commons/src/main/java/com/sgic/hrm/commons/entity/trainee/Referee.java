@@ -1,4 +1,4 @@
-package com.sgic.hrm.commons.entity;
+package com.sgic.hrm.commons.entity.trainee;
 
 import java.io.Serializable;
 
@@ -11,73 +11,79 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="referee",schema="employee")
+@Table(name = "referee", schema = "trainee")
 public class Referee implements Serializable {
 
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = -2382706104002165442L;
+	private static final long serialVersionUID = -7696841525096791838L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String refereeName;
-	
 	@ManyToOne
-	@JoinColumn(name="user_id")
-	private User user;
-	
+	@JoinColumn(name = "trainee_id")
+	private Trainee trainee;
 	private String address;
 	private String email;
-	
 	private String contactNo;
 	private String relationship;
-	
+
 	public Integer getId() {
 		return id;
 	}
+
 	public void setId(Integer id) {
 		this.id = id;
 	}
+
 	public String getRefereeName() {
 		return refereeName;
 	}
+
 	public void setRefereeName(String refereeName) {
 		this.refereeName = refereeName;
 	}
-	
-	public User getUser() {
-		return user;
+
+	public Trainee getTrainee() {
+		return trainee;
 	}
-	public void setUser(User user) {
-		this.user = user;
+
+	public void setTrainee(Trainee trainee) {
+		this.trainee = trainee;
 	}
-	public String getEmail() {
-		return email;
-	}
-	public void setEmail(String email) {
-		this.email = email;
-	}
+
 	public String getAddress() {
 		return address;
 	}
+
 	public void setAddress(String address) {
-		address = address;
+		this.address = address;
 	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
 	public String getContactNo() {
 		return contactNo;
 	}
+
 	public void setContactNo(String contactNo) {
 		this.contactNo = contactNo;
 	}
+
 	public String getRelationship() {
 		return relationship;
 	}
+
 	public void setRelationship(String relationship) {
 		this.relationship = relationship;
-	}
-	public static long getSerialversionuid() {
-		return serialVersionUID;
 	}
 
 }
