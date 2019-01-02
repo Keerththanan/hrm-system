@@ -12,7 +12,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-import com.sgic.hrm.commons.dto.mapper.RolesAndResponsibilitesDtoToRolesAndResponsibilites;
+
+import com.sgic.hrm.commons.dto.mapper.profile.RolesAndResponsibilitesDtoToRolesAndResponsibilites;
 import com.sgic.hrm.commons.dto.profile.RolesAndResponsibilityDto;
 import com.sgic.hrm.commons.dto.profile.RolesAndResponsibilitySaveDto;
 import com.sgic.hrm.commons.entity.RolesAndResponsibilites;

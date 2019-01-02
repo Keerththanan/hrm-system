@@ -31,13 +31,13 @@ public class AcademicQualificationSaveDto {
 	public Integer getUser() {
 		return user;
 	}
-	public void setUserId(Integer user) {
+	public void setUser(Integer user) {
 		this.user = user;
 	}
 	public Integer getExamType() {
 		return examType;
 	}
-	public void setExamTypeId(Integer examType) {
+	public void setExamType(Integer examType) {
 		this.examType = examType;
 	}
 	public Integer getPeriodYearFrom() {
