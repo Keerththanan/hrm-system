@@ -1,5 +1,5 @@
 
-package com.sgic.hrm.profile.controller;
+package com.sgic.hrm.trainee.controller;
 
 import java.util.List;
 import javax.validation.Valid;
@@ -14,14 +14,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-import com.sgic.hrm.commons.dto.mapper.profile.AcademicQualificationDTOToAcademicQualification;
-import com.sgic.hrm.commons.dto.profile.AcademicQualificationDto;
-import com.sgic.hrm.commons.dto.profile.AcademicQualificationSaveDto;
-import com.sgic.hrm.commons.entity.mapper.profile.AcademicQualificationMapper;
-import com.sgic.hrm.profile.service.AcademicQualificationService;
-import com.sgic.hrm.profile.service.ExamTypeService;
-import com.sgic.hrm.profile.service.UserService;
-
+import com.sgic.hrm.commons.dto.mapper.trainee.AcademicQualificationDTOMapper;
+import com.sgic.hrm.commons.dto.trainee.AcademicQualificationDto;
+import com.sgic.hrm.commons.dto.trainee.AcademicQualificationSaveDto;
+import com.sgic.hrm.commons.entity.mapper.trainee.AcademicQualificationMapper;
+import com.sgic.hrm.trainee.service.AcademicQualificationService;
+import com.sgic.hrm.trainee.service.ExamTypeService;
+import com.sgic.hrm.trainee.service.TraineeService;
 
 
 @CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
@@ -30,7 +29,7 @@ public class AcademicQualificationController {
   @Autowired
   private AcademicQualificationService academicQualificationService;
   @Autowired
-  private UserService userService;
+  private TraineeService traineeService;
   @Autowired
   private ExamTypeService examTypeService;
 
@@ -38,9 +37,10 @@ public class AcademicQualificationController {
   public HttpStatus addAcademicQualification(
       @Valid @RequestBody AcademicQualificationSaveDto academicQualificationSaveDto) {
     if (academicQualificationService.addAcademicQualification(
-        AcademicQualificationDTOToAcademicQualification.map(academicQualificationSaveDto),
+        AcademicQualificationDTOMapper
+            .mapAcademicQualificationSaveDtoToAcademicQualification(academicQualificationSaveDto),
         examTypeService.findByExamTypeId(academicQualificationSaveDto.getExamType()),
-        userService.findByUserId(academicQualificationSaveDto.getUser()))) {
+        traineeService.findTraineeById(academicQualificationSaveDto.getTrainee()))) {
       return HttpStatus.CREATED;
     }
     return HttpStatus.BAD_REQUEST;
@@ -60,18 +60,19 @@ public class AcademicQualificationController {
       @PathVariable("uid") Integer id) {
     return new ResponseEntity<>(
         AcademicQualificationMapper.mapAcademicQualificationListToAcademicQualificationDtoList(
-            academicQualificationService.getAcademicQualificationByUserId(id)),
+            academicQualificationService.getAcademicQualificationByTraineeId(id)),
         HttpStatus.OK);
   }
 
 
-  @PutMapping("/academicQualification/edit/{id}")
+  @PutMapping("/academicQualification/{id}")
   public HttpStatus editAcademicQualification(@PathVariable Integer id,
       @Valid @RequestBody AcademicQualificationSaveDto academicQualificationSaveDto) {
     if (academicQualificationService.editAcademicQualification(
-        AcademicQualificationDTOToAcademicQualification.map(academicQualificationSaveDto),
+        AcademicQualificationDTOMapper
+            .mapAcademicQualificationSaveDtoToAcademicQualification(academicQualificationSaveDto),
         examTypeService.findByExamTypeId(academicQualificationSaveDto.getExamType()),
-        userService.findByUserId(academicQualificationSaveDto.getUser()), id)) {
+        traineeService.findTraineeById(academicQualificationSaveDto.getTrainee()), id)) {
       return HttpStatus.ACCEPTED;
     }
     return HttpStatus.BAD_REQUEST;

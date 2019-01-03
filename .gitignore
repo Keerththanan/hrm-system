@@ -54,6 +54,8 @@
 /hrm-server/hrm-profile/.classpath
 /hrm-server/hrm-profile/.gitignore
 /hrm-server/hrm-profile/.project
+hrm-server/hrm-profile/target/classes/META-INF/MANIFEST.MF
+
 /hrm-server/.project
  
 

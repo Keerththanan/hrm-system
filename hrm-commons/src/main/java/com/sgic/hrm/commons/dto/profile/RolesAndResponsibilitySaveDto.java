@@ -1,20 +1,13 @@
 package com.sgic.hrm.commons.dto.profile;
 
 public class RolesAndResponsibilitySaveDto {
-	private Integer id;
+	
 	private Integer user;
 	private Integer job;
 	private Integer location;
 	private Integer keyActivity;
 	private String responsibility;
 	private String overAllPurpose;
-	
-	public Integer getId() {
-		return id;
-	}
-	public void setId(Integer id) {
-		this.id = id;
-	}
 	
 	public Integer getUser() {
 		return user;
