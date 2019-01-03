@@ -23,7 +23,7 @@ public class RefereeServiceImpl implements RefereeService {
 	public boolean addReferee(Referee referee, Trainee trainee) {
 		referee.setTrainee(trainee);
 		refereeRepository.save(referee);
-		return false;
+		return true;
 	}
 
 	@Override
@@ -58,7 +58,7 @@ public class RefereeServiceImpl implements RefereeService {
 
 	@Override
 	public List<Referee> getRefereeByTraineeId(Integer id) {
-		return refereeRepository.findRefereeByUser(traineeRepository.findTraineeById(id));
+		return refereeRepository.findRefereeByTrainee(traineeRepository.findTraineeById(id));
 	}
 
 }

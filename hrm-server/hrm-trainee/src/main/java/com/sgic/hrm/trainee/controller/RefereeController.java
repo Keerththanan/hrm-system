@@ -23,57 +23,51 @@ import com.sgic.hrm.commons.entity.mapper.trainee.RefereeMapper;
 import com.sgic.hrm.trainee.service.RefereeService;
 import com.sgic.hrm.trainee.service.TraineeService;
 
-
-
 @CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
 @RestController
 public class RefereeController {
-  @Autowired
-  private RefereeService refereeService;
-  @Autowired
-  private TraineeService traineeService;
+	@Autowired
+	private RefereeService refereeService;
+	@Autowired
+	private TraineeService traineeService;
 
-  @PostMapping("/referee")
-  public HttpStatus addReferee(@Valid @RequestBody RefereeSaveDto refereesSaveDto) {
-    if (refereeService.addReferee(RefereeDtoToReferee.map(refereesSaveDto),
-        traineeService.findTraineeById(refereesSaveDto.getTrainee()))) {
-      return HttpStatus.CREATED;
-    }
-    return HttpStatus.BAD_REQUEST;
-  }
+	@PostMapping("/referee")
+	public HttpStatus addReferee(@Valid @RequestBody RefereeSaveDto refereesSaveDto) {
+		if (refereeService.addReferee(RefereeDtoToReferee.map(refereesSaveDto),
+				traineeService.findTraineeById(refereesSaveDto.getTrainee()))) {
+			return HttpStatus.CREATED;
+		}
+		return HttpStatus.BAD_REQUEST;
+	}
 
-  @GetMapping("/referee")
-  public ResponseEntity<List<RefereeDto>> getReferee() {
-    return new ResponseEntity<>(
-        RefereeMapper.mapRefereeListToRefereeDtoList(refereeService.getAllReferee()),
-        HttpStatus.OK);
-  }
+	@GetMapping("/referee")
+	public ResponseEntity<List<RefereeDto>> getReferee() {
+		return new ResponseEntity<>(RefereeMapper.mapRefereeListToRefereeDtoList(refereeService.getAllReferee()),
+				HttpStatus.OK);
+	}
 
-  @PutMapping("/refereeedit/{id}")
-  public HttpStatus editReferee(@RequestBody RefereeSaveDto refereesSaveDto,
-      @PathVariable("id") Integer id) {
-    boolean test = refereeService.editReferee(RefereeDtoToReferee.map(refereesSaveDto), id,
-    		traineeService.findTraineeById(refereesSaveDto.getTrainee()));
-    if (test) {
-      return HttpStatus.ACCEPTED;
-    }
-    return HttpStatus.BAD_REQUEST;
+	@PutMapping("/refereeedit/{id}")
+	public HttpStatus editReferee(@RequestBody RefereeSaveDto refereesSaveDto, @PathVariable("id") Integer id) {
+		boolean test = refereeService.editReferee(RefereeDtoToReferee.map(refereesSaveDto), id,
+				traineeService.findTraineeById(refereesSaveDto.getTrainee()));
+		if (test) {
+			return HttpStatus.ACCEPTED;
+		}
+		return HttpStatus.BAD_REQUEST;
 
-  }
+	}
 
-  @DeleteMapping("/referee/{id}")
-  public HttpStatus deleteReferee(@PathVariable("id") Integer Id) {
-    if (refereeService.deleteReferee(Id)) {
-      return HttpStatus.ACCEPTED;
-    }
-    return HttpStatus.BAD_REQUEST;
-  }
+	@DeleteMapping("/referee/{id}")
+	public HttpStatus deleteReferee(@PathVariable("id") Integer Id) {
+		if (refereeService.deleteReferee(Id)) {
+			return HttpStatus.ACCEPTED;
+		}
+		return HttpStatus.BAD_REQUEST;
+	}
 
-  @GetMapping("/referee/{uid}")
-  public ResponseEntity<List<RefereeDto>> findAcademicQualificationByUserId(
-      @PathVariable("uid") Integer id) {
-    return new ResponseEntity<>(
-        RefereeMapper.mapRefereeListToRefereeDtoList(refereeService.getRefereeByTraineeId(id)),
-        HttpStatus.OK);
-  }
+	@GetMapping("/referee/{uid}")
+	public ResponseEntity<List<RefereeDto>> findAcademicQualificationByUserId(@PathVariable("uid") Integer id) {
+		return new ResponseEntity<>(
+				RefereeMapper.mapRefereeListToRefereeDtoList(refereeService.getRefereeByTraineeId(id)), HttpStatus.OK);
+	}
 }

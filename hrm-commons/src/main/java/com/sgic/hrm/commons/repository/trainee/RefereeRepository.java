@@ -8,5 +8,5 @@ import com.sgic.hrm.commons.entity.trainee.Referee;
 import com.sgic.hrm.commons.entity.trainee.Trainee;
 
 public interface RefereeRepository extends JpaRepository<Referee, Integer> {
-	List<Referee> findRefereeByUser(Trainee trainee);
+	List<Referee> findRefereeByTrainee(Trainee trainee);
 }
