@@ -15,8 +15,8 @@ public class AvailabilityDataToAvailability {
 		if (availabilityData != null) {
 			availability.setId(availabilityData.getId());
 			availability.setTrainerName(availabilityData.getTrainerName());
-			availability.setStartDate(availabilityData.getStartDate());
-			availability.setEndDate(availabilityData.getEndDate());
+//			availability.setEndDate(availabilityData.getStartDate());
+//			availability.setEndDate(availabilityData.getEndDate());
 			availability.setTime(availabilityData.getTime());
 			availability.setScheduledTopic(availabilityData.getScheduledTopic());
 			availability.setStatus(availabilityData.getStatus());

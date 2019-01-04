@@ -1,7 +1,7 @@
 package com.sgic.hrm.commons.trainer.dto;
 
-import java.sql.Date;
 import java.sql.Time;
+import java.util.Date;
 
 public class AvailabilityData {
 	
