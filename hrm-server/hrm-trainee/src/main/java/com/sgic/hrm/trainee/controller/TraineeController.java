@@ -18,7 +18,7 @@ import com.sgic.hrm.commons.dto.mapper.trainee.TraineeDtoMapper;
 import com.sgic.hrm.commons.dto.trainee.TraineeDto;
 import com.sgic.hrm.commons.dto.trainee.TraineeSaveDto;
 import com.sgic.hrm.commons.entity.mapper.trainee.TraineeMapper;
-import com.sgic.hrm.trainee.service.DepartmentService;
+import com.sgic.hrm.trainee.service.TraineeDepartmentService;
 import com.sgic.hrm.trainee.service.TraineeService;
 
 @CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
@@ -27,12 +27,12 @@ public class TraineeController {
 	@Autowired
 	private TraineeService traineeService;
 	@Autowired
-	private DepartmentService departmentService;
+	private TraineeDepartmentService traineeDepartmentService;
 
 	@PostMapping("/trainee")
 	public HttpStatus Addtrainee(@RequestBody TraineeSaveDto traineeSaveDto) {
 		if (traineeService.addTrainee(TraineeDtoMapper.mapTraineeSaveDtoToTrainee(traineeSaveDto),
-				departmentService.findByDepartmentId(traineeSaveDto.getDepartment()))) {
+				traineeDepartmentService.findByDepartmentId(traineeSaveDto.getDepartment()))) {
 			return HttpStatus.CREATED;
 		}
 		return HttpStatus.BAD_REQUEST;
@@ -47,7 +47,7 @@ public class TraineeController {
 	@PutMapping("/trainee/{id}")
 	public HttpStatus editTrainee(@RequestBody TraineeSaveDto traineeSaveDto, @PathVariable("id") Integer id) {
 		boolean test = traineeService.editTrainee(TraineeDtoMapper.mapTraineeSaveDtoToTrainee(traineeSaveDto),
-				departmentService.findByDepartmentId(traineeSaveDto.getDepartment()),id);
+				traineeDepartmentService.findByDepartmentId(traineeSaveDto.getDepartment()),id);
 		if (test) {
 			return HttpStatus.ACCEPTED;
 		}

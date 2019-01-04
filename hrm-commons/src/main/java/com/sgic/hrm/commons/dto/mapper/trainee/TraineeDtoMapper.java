@@ -2,19 +2,19 @@ package com.sgic.hrm.commons.dto.mapper.trainee;
 
 import com.sgic.hrm.commons.dto.trainee.TraineeDto;
 import com.sgic.hrm.commons.dto.trainee.TraineeSaveDto;
-import com.sgic.hrm.commons.entity.trainee.Department;
+import com.sgic.hrm.commons.entity.trainee.TraineeDepartment;
 import com.sgic.hrm.commons.entity.trainee.Trainee;
 
 public class TraineeDtoMapper {
 
 	public static Trainee mapTraineeSaveDtoToTrainee(TraineeSaveDto traineeSaveDto) {
 		Trainee trainee = new Trainee();
-		Department department = new Department();
+		TraineeDepartment traineeDepartment = new TraineeDepartment();
 
-		department.setId(traineeSaveDto.getDepartment());
+		traineeDepartment.setId(traineeSaveDto.getDepartment());
 
 		trainee.setId(traineeSaveDto.getId());
-		trainee.setDepartment(department);
+		trainee.setDepartment(traineeDepartment);
 		trainee.setDateOfBirth(traineeSaveDto.getDateOfBirth());
 		trainee.setEmail(traineeSaveDto.getEmail());
 		trainee.setFullName(traineeSaveDto.getFullName());

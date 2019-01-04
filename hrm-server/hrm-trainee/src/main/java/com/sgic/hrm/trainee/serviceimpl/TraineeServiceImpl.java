@@ -41,16 +41,16 @@ public class TraineeServiceImpl implements TraineeService {
 	}
 
 	@Override
-	public boolean addTrainee(Trainee trainee, com.sgic.hrm.commons.entity.trainee.Department department) {
-		trainee.setDepartment(department);
+	public boolean addTrainee(Trainee trainee, com.sgic.hrm.commons.entity.trainee.TraineeDepartment traineeDepartment) {
+		trainee.setDepartment(traineeDepartment);
 		traineeRepository.save(trainee);
 		return true;
 	}
 
 	@Override
-	public boolean editTrainee(Trainee trainee, com.sgic.hrm.commons.entity.trainee.Department department, Integer id) {
+	public boolean editTrainee(Trainee trainee, com.sgic.hrm.commons.entity.trainee.TraineeDepartment traineeDepartment, Integer id) {
 		if (traineeRepository.getOne(id) != null) {
-			trainee.setDepartment(department);
+			trainee.setDepartment(traineeDepartment);
 			traineeRepository.save(trainee);
 		}
 		return false;

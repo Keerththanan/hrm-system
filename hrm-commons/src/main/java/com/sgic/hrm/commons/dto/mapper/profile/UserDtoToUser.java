@@ -4,7 +4,7 @@ package com.sgic.hrm.commons.dto.mapper.profile;
 import com.sgic.hrm.commons.dto.profile.UserSaveDto;
 import com.sgic.hrm.commons.entity.Role;
 import com.sgic.hrm.commons.entity.User;
-import com.sgic.hrm.commons.entity.trainee.Department;
+import com.sgic.hrm.commons.entity.trainee.TraineeDepartment;
 
 public class UserDtoToUser {
 	public static User map(UserSaveDto userSaveDto)
@@ -27,8 +27,8 @@ public class UserDtoToUser {
 		user.setServicePeriod(userSaveDto.getServicePeriod());
 		user.setProfilePhoto(userSaveDto.getProfilePhoto());
 		
-		Department department=new Department();
-		department.setId(userSaveDto.getDepartment());
+		TraineeDepartment traineeDepartment=new TraineeDepartment();
+		traineeDepartment.setId(userSaveDto.getDepartment());
 		
 		Role role =new Role();
 		role.setId(userSaveDto.getRole());

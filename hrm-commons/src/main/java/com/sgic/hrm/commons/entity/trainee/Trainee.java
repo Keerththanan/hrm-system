@@ -42,7 +42,7 @@ public class Trainee implements Serializable {
 	
 	@ManyToOne
 	@JoinColumn(name = "department_id")
-	private Department department;
+	private TraineeDepartment traineeDepartment;
 	@UpdateTimestamp
 	private Date updateAt;
 	public Integer getId() {
@@ -159,11 +159,11 @@ public class Trainee implements Serializable {
 	public void setOccupation(String occupation) {
 		this.occupation = occupation;
 	}
-	public Department getDepartment() {
-		return department;
+	public TraineeDepartment getDepartment() {
+		return traineeDepartment;
 	}
-	public void setDepartment(Department department) {
-		this.department = department;
+	public void setDepartment(TraineeDepartment traineeDepartment) {
+		this.traineeDepartment = traineeDepartment;
 	}
 	public Date getUpdateAt() {
 		return updateAt;

@@ -1,47 +1,19 @@
-package com.sgic.hrm.commons.entity.trainee;
+package com.sgic.hrm.commons.dto.trainee;
 
-import java.io.Serializable;
 import java.util.Date;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
-@Entity
-@Table(name = "academic_qualification", schema = "trainee")
-public class TraineeAcademicQualification implements Serializable {
+import com.sgic.hrm.commons.entity.trainee.TraineeExamType;
+import com.sgic.hrm.commons.entity.trainee.Trainee;
 
-  /**
-  * 
-  */
-  private static final long serialVersionUID = 5760018363201538466L;
-
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
-  @Id
+public class TraineeAcademicQualificationDto {
   private Integer id;
-
-  @ManyToOne
-  @JoinColumn(name = "trainee_id")
   private Trainee trainee;
-
-  @ManyToOne
-  @JoinColumn(name = "exam_type_id")
   private TraineeExamType traineeExamType;
-
   private Integer periodYearFrom;
   private Integer periodYearTo;
   private String schoolName;
   private String result;
   private Integer examinationYear;
-
-  @CreationTimestamp
   private Date createdAt;
-
-  @UpdateTimestamp
   private Date updatedAt;
 
   public Integer getId() {
@@ -123,11 +95,6 @@ public class TraineeAcademicQualification implements Serializable {
   public void setUpdatedAt(Date updatedAt) {
     this.updatedAt = updatedAt;
   }
-
-  public static long getSerialversionuid() {
-    return serialVersionUID;
-  }
-
 
 
 }
