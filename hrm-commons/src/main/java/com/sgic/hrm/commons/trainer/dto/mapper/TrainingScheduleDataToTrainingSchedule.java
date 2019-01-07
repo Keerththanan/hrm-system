@@ -3,13 +3,13 @@ package com.sgic.hrm.commons.trainer.dto.mapper;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.sgic.hrm.commons.entity.trainer.TrainingHistory;
-import com.sgic.hrm.commons.trainer.dto.TrainingHistoryData;
+import com.sgic.hrm.commons.entity.trainer.TrainingSchedule;
+import com.sgic.hrm.commons.trainer.dto.TrainingScheduleData;
 
-public class TrainingHistoryDataToTrainingHistory {
+public class TrainingScheduleDataToTrainingSchedule {
 
-	public static TrainingHistory TrainingHistoryDataToTrainingHistory(TrainingHistoryData trainingHistoryData) {
-		TrainingHistory trainingHistory = new TrainingHistory();
+	public static TrainingSchedule TrainingHistoryDataToTrainingHistory(TrainingScheduleData trainingHistoryData) {
+		TrainingSchedule trainingHistory = new TrainingSchedule();
 		
 			if (trainingHistoryData != null) {
 				trainingHistory.setId(trainingHistoryData.getId());
@@ -26,12 +26,12 @@ public class TrainingHistoryDataToTrainingHistory {
 	}
 	
 	
-	  public static List<TrainingHistory> mapToTrainingHistoryList(
-	      List<TrainingHistoryData> trainingHistoryList) {
-	    List<TrainingHistory> trainingDto = new ArrayList<TrainingHistory>();
+	  public static List<TrainingSchedule> mapToTrainingHistoryList(
+	      List<TrainingScheduleData> trainingHistoryList) {
+	    List<TrainingSchedule> trainingDto = new ArrayList<TrainingSchedule>();
 
 	    if (trainingHistoryList != null) {
-	      for (TrainingHistoryData trainingHistoryData :trainingHistoryList) {
+	      for (TrainingScheduleData trainingHistoryData :trainingHistoryList) {
 	        trainingDto.add(TrainingHistoryDataToTrainingHistory(trainingHistoryData));
 	      }
 	    }

@@ -13,7 +13,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "training_history", schema = "trainer")
-public class TrainingHistory implements Serializable {
+public class TrainingSchedule implements Serializable {
 
 	private static final long serialVersionUID = -3323930356795011743L;
 	@Id
