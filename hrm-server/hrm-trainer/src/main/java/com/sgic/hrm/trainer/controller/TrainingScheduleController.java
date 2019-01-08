@@ -14,21 +14,21 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.sgic.hrm.commons.entity.trainer.TrainingHistory;
-import com.sgic.hrm.commons.trainer.dto.TrainingHistoryData;
-import com.sgic.hrm.commons.trainer.dto.mapper.TrainingHistoryDataToTrainingHistory;
-import com.sgic.hrm.commons.trainer.entity.mapper.TrainingHistoryToTrainingHistoryData;
-import com.sgic.hrm.trainer.service.TrainingHistoryService;
+import com.sgic.hrm.commons.entity.trainer.TrainingSchedule;
+import com.sgic.hrm.commons.trainer.dto.TrainingScheduleData;
+import com.sgic.hrm.commons.trainer.dto.mapper.TrainingScheduleDataToTrainingSchedule;
+import com.sgic.hrm.commons.trainer.entity.mapper.TrainingScheduleToTrainingScheduleData;
+import com.sgic.hrm.trainer.service.TrainingScheduleService;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200",maxAge=3600)
-public class TrainingHistoryController {
+public class TrainingScheduleController {
 	@Autowired
-	private TrainingHistoryService trainingHistoryService;
+	private TrainingScheduleService trainingHistoryService;
 
 	@PostMapping("/trainingHistory")
-	public HttpStatus trainingHistory(@RequestBody TrainingHistoryData trainingHistoryData) {
-		TrainingHistory trainingHistory = TrainingHistoryDataToTrainingHistory
+	public HttpStatus trainingHistory(@RequestBody TrainingScheduleData trainingHistoryData) {
+		TrainingSchedule trainingHistory = TrainingScheduleDataToTrainingSchedule
 				.TrainingHistoryDataToTrainingHistory(trainingHistoryData);
 		if (trainingHistoryService.addTrainingHistory(trainingHistory)) {
 			return HttpStatus.OK;
@@ -37,25 +37,25 @@ public class TrainingHistoryController {
 	}
 
 	@GetMapping("/trainingHistory")
-	public ResponseEntity<List<TrainingHistoryData>> getTrainingHistory() {
-		List<TrainingHistory> trainingHistoryList = trainingHistoryService.getAllTrainingHistory();
+	public ResponseEntity<List<TrainingScheduleData>> getTrainingHistory() {
+		List<TrainingSchedule> trainingHistoryList = trainingHistoryService.getAllTrainingHistory();
 		return new ResponseEntity<>(
-				TrainingHistoryToTrainingHistoryData.TrainingHistoryToTrainingHistoryData(trainingHistoryList),
+				TrainingScheduleToTrainingScheduleData.TrainingHistoryToTrainingHistoryData(trainingHistoryList),
 				HttpStatus.OK);
 	}
 //get by id method
 	@GetMapping("/trainingHistory/{id}")
-	public ResponseEntity<TrainingHistoryData> getOneTrainingHistory(@PathVariable(name = "id") Integer id) {
-		TrainingHistory trainingHistory = trainingHistoryService.getOneTrainingHistory(id);
+	public ResponseEntity<TrainingScheduleData> getOneTrainingHistory(@PathVariable(name = "id") Integer id) {
+		TrainingSchedule trainingHistory = trainingHistoryService.getOneTrainingHistory(id);
 		return new ResponseEntity<>(
-				TrainingHistoryToTrainingHistoryData.TrainingHistoryToTrainingHistoryData(trainingHistory),
+				TrainingScheduleToTrainingScheduleData.TrainingHistoryToTrainingHistoryData(trainingHistory),
 				HttpStatus.OK);
 	}
 
 	@PutMapping("/trainingHistory/{id}")
 	public HttpStatus updateTrainingHistory(@PathVariable(name = "id") Integer id,
-			@RequestBody TrainingHistoryData trainingHistoryData) {
-		TrainingHistory trainingHistory = TrainingHistoryDataToTrainingHistory
+			@RequestBody TrainingScheduleData trainingHistoryData) {
+		TrainingSchedule trainingHistory = TrainingScheduleDataToTrainingSchedule
 				.TrainingHistoryDataToTrainingHistory(trainingHistoryData);
 		if (trainingHistoryService.updateTrainingHistory(id, trainingHistory)) {
 			return HttpStatus.OK;

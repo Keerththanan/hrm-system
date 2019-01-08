@@ -5,28 +5,28 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.sgic.hrm.commons.entity.trainer.TrainingHistory;
-import com.sgic.hrm.commons.trainer.repository.TrainingHistoryRepository;
-import com.sgic.hrm.trainer.service.TrainingHistoryService;
+import com.sgic.hrm.commons.entity.trainer.TrainingSchedule;
+import com.sgic.hrm.commons.trainer.repository.TrainingScheduleRepository;
+import com.sgic.hrm.trainer.service.TrainingScheduleService;
 
 @Service
-public class TrainingHistoryServiceImpl implements TrainingHistoryService {
+public class TrainingScheduleServiceImpl implements TrainingScheduleService {
 	@Autowired
-	private TrainingHistoryRepository trainingHistoryRepository;
+	private TrainingScheduleRepository trainingHistoryRepository;
 
 	@Override
-	public boolean addTrainingHistory(TrainingHistory trainingHistory) {
+	public boolean addTrainingHistory(TrainingSchedule trainingHistory) {
 		trainingHistoryRepository.save(trainingHistory);
 		return true;
 	}
 
 	@Override
-	public List<TrainingHistory> getAllTrainingHistory() {
+	public List<TrainingSchedule> getAllTrainingHistory() {
 		return trainingHistoryRepository.findAll();
 	}
 
 	@Override
-	public boolean editTrainingHistory(TrainingHistory trainingHistory) {
+	public boolean editTrainingHistory(TrainingSchedule trainingHistory) {
 		boolean success = false;
 		if (trainingHistoryRepository.getOne(trainingHistory.getId()) != null) {
 			trainingHistoryRepository.save(trainingHistory);
@@ -37,7 +37,7 @@ public class TrainingHistoryServiceImpl implements TrainingHistoryService {
 
 	@Override
 	public boolean deleteTrainingHistory(Integer id) {
-		TrainingHistory trainingHistory = trainingHistoryRepository.getOne(id);
+		TrainingSchedule trainingHistory = trainingHistoryRepository.getOne(id);
 		if (trainingHistory.getId() == (id)) {
 			trainingHistoryRepository.deleteById(id);
 			return true;
@@ -46,17 +46,17 @@ public class TrainingHistoryServiceImpl implements TrainingHistoryService {
 	}
 
 	@Override
-	public TrainingHistory getById(Integer id) {
+	public TrainingSchedule getById(Integer id) {
 		return trainingHistoryRepository.getOne(id);
 	}
 
 	@Override
-	public TrainingHistory getOneTrainingHistory(Integer id) {
+	public TrainingSchedule getOneTrainingHistory(Integer id) {
 		return trainingHistoryRepository.findById(id).orElse(null);
 	}
 
 	@Override
-	public boolean updateTrainingHistory(Integer id, TrainingHistory trainingHistory) {
+	public boolean updateTrainingHistory(Integer id, TrainingSchedule trainingHistory) {
 		if (trainingHistoryRepository.getOne(id) != null) {
 			trainingHistory.setId(id);
 			trainingHistoryRepository.save(trainingHistory);

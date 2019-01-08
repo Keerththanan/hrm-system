@@ -3,7 +3,7 @@ package com.sgic.hrm.commons.trainer.dto;
 import java.sql.Date;
 import java.sql.Timestamp;
 
-public class TrainingHistoryData {
+public class TrainingScheduleData {
 	private Integer id;
 	private String trainerName;
 	private String trainingTopic;
