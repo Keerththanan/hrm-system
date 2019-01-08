@@ -12,7 +12,7 @@ public class TechnologySkillLevelMapper {
 		if (technologySkillLevel != null) {
 			technologySkillLevelDTO.setId(technologySkillLevel.getId());
 			technologySkillLevelDTO.setTechnology(technologySkillLevel.getTechnology());
-			technologySkillLevelDTO.setSkill(technologySkillLevel.getSkill());
+//			technologySkillLevelDTO.setSkill(technologySkillLevel.getSkill());
 			technologySkillLevelDTO.setLevel(technologySkillLevel.getLevel());
 		}
 		return technologySkillLevelDTO;
