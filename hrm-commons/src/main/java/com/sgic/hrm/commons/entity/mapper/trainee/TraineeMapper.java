@@ -13,7 +13,7 @@ public class TraineeMapper {
 		
 		traineeDto.setId(trainee.getId());
 		traineeDto.setDateOfBirth(trainee.getDateOfBirth());
-		traineeDto.setDepartment(trainee.getDepartment());
+		traineeDto.setTraineeDepartment(trainee.getTraineeDepartment());
 		traineeDto.setEmail(trainee.getEmail());
 		traineeDto.setEmployment(trainee.getEmployment());
 		traineeDto.setFullName(trainee.getFullName());
@@ -32,7 +32,6 @@ public class TraineeMapper {
 		traineeDto.setServicePeriod(trainee.getServicePeriod());
 		traineeDto.setTelephoneNumber(trainee.getTelephoneNumber());
 		traineeDto.setUpdateAt(trainee.getUpdateAt());
-		
 		return traineeDto;	
 	}
 	public static List<TraineeDto> mapTraineeListToTraineeDtoList(List<Trainee> traineeList) {
@@ -45,4 +44,5 @@ public class TraineeMapper {
 		}
 		return traineeDtoList;
 	}
+	
 }

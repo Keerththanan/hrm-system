@@ -24,6 +24,8 @@ public class TraineeSaveDto {
 	private String occupation;
 	private Integer department;
 	private Date updateAt;
+	private String qualificationLevel;
+	
 	public Integer getId() {
 		return id;
 	}
@@ -138,10 +140,10 @@ public class TraineeSaveDto {
 	public void setOccupation(String occupation) {
 		this.occupation = occupation;
 	}
-	public Integer getDepartment() {
+	public Integer getTraineeDepartment() {
 		return department;
 	}
-	public void setDepartment(Integer department) {
+	public void setTraineeDepartment(Integer department) {
 		this.department = department;
 	}
 	public Date getUpdateAt() {
@@ -149,6 +151,12 @@ public class TraineeSaveDto {
 	}
 	public void setUpdateAt(Date updateAt) {
 		this.updateAt = updateAt;
+	}
+	public String getQualificationLevel() {
+		return qualificationLevel;
+	}
+	public void setQualificationLevel(String qualificationLevel) {
+		this.qualificationLevel = qualificationLevel;
 	}
 	
 	
