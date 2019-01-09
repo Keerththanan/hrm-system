@@ -1,23 +1,29 @@
 package com.sgic.hrm.commons.trainer.dto;
 
 import java.io.File;
-import com.sgic.hrm.commons.entity.trainer.Trainer;
-import com.sgic.hrm.commons.entity.trainer.TrainingSchedule;
+
 
 public class PreRequestData {
 	
 	private Integer id;
+	private TrainingScheduleData trainingSchedule;
 	private String resourceName;
 	private File  resource;
 	private String link;
-	
-	private TrainingSchedule trainingSchedule;
-	private Trainer trainer;
+	private TrainerData trainer;
 	public Integer getId() {
 		return id;
 	}
 	public void setId(Integer id) {
 		this.id = id;
+	}
+	
+	
+	public TrainingScheduleData getTrainingSchedule() {
+		return trainingSchedule;
+	}
+	public void setTrainingSchedule(TrainingScheduleData trainingSchedule) {
+		this.trainingSchedule = trainingSchedule;
 	}
 	public String getResourceName() {
 		return resourceName;
@@ -37,17 +43,11 @@ public class PreRequestData {
 	public void setLink(String link) {
 		this.link = link;
 	}
-	
-	public void setTrainingSchedule(TrainingSchedule trainingSchedule) {
-		this.trainingSchedule = trainingSchedule;
-	}
-	public Trainer getTrainer() {
+	public TrainerData getTrainer() {
 		return trainer;
 	}
-	public void setTrainer(Trainer trainer) {
+	public void setTrainer(TrainerData trainer) {
 		this.trainer = trainer;
 	}
-	
-	
 
 }

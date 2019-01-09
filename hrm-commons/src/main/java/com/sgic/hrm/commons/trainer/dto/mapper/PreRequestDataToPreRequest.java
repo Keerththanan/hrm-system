@@ -14,11 +14,11 @@ public class PreRequestDataToPreRequest {
 			preRequest.setLink(preRequestData.getLink());
 			preRequest.setResource(preRequestData.getResource());
 			preRequest.setResourceName(preRequestData.getResourceName());
-//			preRequest.setTrainingSchedule(TrainingScheduleDataToTrainingSchedule
-//					.TrainingHistoryDataToTrainingHistory(preRequestData.getTrainingSchedule()));
-			return preRequest;
+			preRequest.setTrainer(TrainerDataMapper.mapToTrainer(preRequestData.getTrainer()));
+			preRequest.setTrainingSchedule(TrainingScheduleDataToTrainingSchedule.TrainingHistoryDataToTrainingHistory(preRequestData.getTrainingSchedule()));
 		}
-		return null;
+		return preRequest;
+
 		
 	}
 	
@@ -28,11 +28,9 @@ public class PreRequestDataToPreRequest {
 		if(preRequestDataList!=null) {
 			for(PreRequestData preRequestData:preRequestDataList) {
 				preRequest.add(mapToPreRequest(preRequestData));
-				return preRequest;
 			}
-			
 		}
-		return null;
+		return preRequest;
 	}
 
 }
