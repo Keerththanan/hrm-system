@@ -1,15 +1,18 @@
 package com.sgic.hrm.commons.entity.trainer;
 
 import java.io.Serializable;
-import java.sql.Date;
-import java.sql.Time;
+import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 @Entity
+@Table(schema="trainer", name="availability")
 public class Availability implements Serializable {
 	
 	/**
@@ -19,57 +22,34 @@ public class Availability implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
-	private String trainerName;
-	private Date startDate;
-	private Date endDate;
-	private Time time;
-	private String scheduledTopic;
-	private String status;
+	private Date date;
+	
+	@ManyToOne
+	@JoinColumn(name="trainer_id")
+	private Trainer trainerId;
+	
+	
 	public Integer getId() {
 		return id;
 	}
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public String getTrainerName() {
-		return trainerName;
+	
+	public Date getDate() {
+		return date;
 	}
-	public void setTrainerName(String trainerName) {
-		this.trainerName = trainerName;
+	public void setDate(Date date) {
+		this.date = date;
 	}
-	public Date getStartDate() {
-		return startDate;
+	public Trainer getTrainerId() {
+		return trainerId;
 	}
-	public void setStartDate(Date startDate) {
-		this.startDate = startDate;
-	}
-	public Date getEndDate() {
-		return endDate;
-	}
-	public void setEndDate(Date endDate) {
-		this.endDate = endDate;
+	public void setTrainerId(Trainer trainerId) {
+		this.trainerId = trainerId;
 	}
 	
 	
-	
-	public Time getTime() {
-		return time;
-	}
-	public void setTime(Time time) {
-		this.time = time;
-	}
-	public String getScheduledTopic() {
-		return scheduledTopic;
-	}
-	public void setScheduledTopic(String scheduledTopic) {
-		this.scheduledTopic = scheduledTopic;
-	}
-	public String getStatus() {
-		return status;
-	}
-	public void setStatus(String status) {
-		this.status = status;
-	}
 	
 
 }
