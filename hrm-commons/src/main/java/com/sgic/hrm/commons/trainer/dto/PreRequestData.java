@@ -10,7 +10,6 @@ public class PreRequestData {
 	private String resourceName;
 	private File  resource;
 	private String link;
-	private TrainerData trainer;
 	public Integer getId() {
 		return id;
 	}
@@ -43,11 +42,6 @@ public class PreRequestData {
 	public void setLink(String link) {
 		this.link = link;
 	}
-	public TrainerData getTrainer() {
-		return trainer;
-	}
-	public void setTrainer(TrainerData trainer) {
-		this.trainer = trainer;
-	}
+	
 
 }

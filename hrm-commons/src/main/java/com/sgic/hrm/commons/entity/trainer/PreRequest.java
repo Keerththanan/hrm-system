@@ -40,9 +40,7 @@ public class PreRequest implements Serializable{
 	@JoinColumn(name = "trainingSchedule_id")
 	private TrainingSchedule trainingSchedule;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "trainer_id")
-	private Trainer trainer;
+	
 
 	public Integer getId() {
 		return id;
@@ -86,11 +84,5 @@ public class PreRequest implements Serializable{
 		this.trainingSchedule = trainingSchedule;
 	}
 
-	public Trainer getTrainer() {
-		return trainer;
-	}
-
-	public void setTrainer(Trainer trainer) {
-		this.trainer = trainer;
-	}
+	
 }
