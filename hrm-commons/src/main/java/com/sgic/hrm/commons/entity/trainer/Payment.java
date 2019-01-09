@@ -1,18 +1,13 @@
-
 package com.sgic.hrm.commons.entity.trainer;
-import java.io.Serializable;
-import java.sql.Date;
 
-import javax.persistence.CascadeType;
+import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.Table;
-
-import com.sgic.hrm.commons.entity.User;
+import javax.persistence.Table;;
 
 @Entity
 @Table(schema = "trainer", name = "payment")
@@ -24,16 +19,13 @@ public class Payment implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	private Date trainingDate;
-	private Integer amountPaid;
-	private Integer remainingAmount;
-	private String paymentStatus;
+	private Double amount;
+	private String status;
 
 	@ManyToOne
-	@JoinColumn(name = "user_id")
-	private User user;
+	@JoinColumn(name = "trainingSchedule_id")
+	private TrainingSchedule trainingSchedule;
 
-	
 	public Integer getId() {
 		return id;
 	}
@@ -42,46 +34,28 @@ public class Payment implements Serializable {
 		this.id = id;
 	}
 
-	public Date getTrainingDate() {
-		return trainingDate;
+	public Double getAmount() {
+		return amount;
 	}
 
-	public void setTrainingDate(Date trainingDate) {
-		this.trainingDate = trainingDate;
+	public void setAmount(Double amount) {
+		this.amount = amount;
 	}
 
-	public Integer getAmountPaid() {
-		return amountPaid;
+	public String getStatus() {
+		return status;
 	}
 
-	public void setAmountPaid(Integer amountPaid) {
-		this.amountPaid = amountPaid;
+	public void setStatus(String status) {
+		this.status = status;
 	}
 
-	public Integer getRemainingAmount() {
-		return remainingAmount;
+	public TrainingSchedule getTrainingSchedule() {
+		return trainingSchedule;
 	}
 
-	public void setRemainingAmount(Integer remainingAmount) {
-		this.remainingAmount = remainingAmount;
+	public void setTrainingSchedule(TrainingSchedule trainingSchedule) {
+		this.trainingSchedule = trainingSchedule;
 	}
-
-	public String getPaymentStatus() {
-		return paymentStatus;
-	}
-
-	public void setPaymentStatus(String paymentStatus) {
-		this.paymentStatus = paymentStatus;
-	}
-
-	public User getUser() {
-		return user;
-	}
-
-	public void setUser(User user) {
-		this.user = user;
-	}
-
-	
 
 }
