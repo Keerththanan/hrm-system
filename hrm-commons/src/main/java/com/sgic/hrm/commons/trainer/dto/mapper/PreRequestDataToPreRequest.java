@@ -14,7 +14,7 @@ public class PreRequestDataToPreRequest {
 			preRequest.setLink(preRequestData.getLink());
 			preRequest.setResource(preRequestData.getResource());
 			preRequest.setResourceName(preRequestData.getResourceName());
-			preRequest.setTrainingSchedule(TrainingScheduleDataToTrainingSchedule.TrainingScheduleDataToTrainingSchedule(preRequestData.getTrainingSchedule()));
+			preRequest.setTrainingSchedule(TrainingScheduleDataToTrainingSchedule.mapToTrainingSchedule(preRequestData.getTrainingSchedule()));
 		}
 		return preRequest;
 

@@ -29,7 +29,7 @@ public class TrainingScheduleController {
 	@PostMapping("/trainingSchedule")
 	public HttpStatus trainingSchedule(@RequestBody TrainingScheduleData trainingScheduleData) {
 		TrainingSchedule trainingSchedule= TrainingScheduleDataToTrainingSchedule
-				.TrainingScheduleDataToTrainingSchedule(trainingScheduleData);
+				.mapToTrainingSchedule(trainingScheduleData);
 		if (trainingScheduleService.addTrainingSchedule(trainingSchedule)) {
 			return HttpStatus.OK;
 		}
@@ -40,7 +40,7 @@ public class TrainingScheduleController {
 	public ResponseEntity<List<TrainingScheduleData>> getTrainingSchedule() {
 		List<TrainingSchedule> trainingScheduleList = trainingScheduleService.getAllTrainingSchedule();
 		return new ResponseEntity<>(
-				TrainingScheduleToTrainingScheduleData.TrainingScheduleToTrainingScheduleData(trainingScheduleList),
+				TrainingScheduleToTrainingScheduleData.mapToTrainingScheduleDataList(trainingScheduleList),
 				HttpStatus.OK);
 	}
 //get by id method
@@ -48,7 +48,7 @@ public class TrainingScheduleController {
 	public ResponseEntity<TrainingScheduleData> getOneTrainingSchedule(@PathVariable(name = "id") Integer id) {
 		TrainingSchedule trainingSchedule = trainingScheduleService.getOneTrainingSchedule(id);
 		return new ResponseEntity<>(
-				TrainingScheduleToTrainingScheduleData.TrainingScheduleToTrainingScheduleData(trainingSchedule),
+				TrainingScheduleToTrainingScheduleData.mapToTrainingScheduleData(trainingSchedule),
 				HttpStatus.OK);
 	}
 
@@ -56,7 +56,7 @@ public class TrainingScheduleController {
 	public HttpStatus updateTrainingSchedule(@PathVariable(name = "id") Integer id,
 			@RequestBody TrainingScheduleData trainingScheduleData) {
 		TrainingSchedule trainingSchedule = TrainingScheduleDataToTrainingSchedule
-				.TrainingScheduleDataToTrainingSchedule(trainingScheduleData);
+				.mapToTrainingSchedule(trainingScheduleData);
 		if (trainingScheduleService.updateTrainingSchedule(id, trainingSchedule)) {
 			return HttpStatus.OK;
 		}

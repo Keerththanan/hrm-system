@@ -2,8 +2,8 @@ package com.sgic.hrm.commons.entity.trainer;
 
 //done by daminiya
 import java.io.Serializable;
-import java.sql.Date;
-import java.sql.Timestamp;
+import java.sql.Time;
+import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,8 +13,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import com.sgic.hrm.commons.entity.User;
-
 @Entity
 @Table(name = "training_schedule", schema = "trainer")
 public class TrainingSchedule implements Serializable {
@@ -23,10 +21,9 @@ public class TrainingSchedule implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-	private String trainerName;
 	private String trainingTopic;
 	private Date date;
-	private Timestamp totalCoveredhours;
+	private Time totalCoveredhours;
 	private String status;
 	
 	@OneToOne
@@ -58,15 +55,8 @@ public class TrainingSchedule implements Serializable {
 		this.id = id;
 	}
 
-	public String getTrainerName() {
-		return trainerName;
-	}
-
-	public void setTrainerName(String trainerName) {
-		this.trainerName = trainerName;
-	}
-
-	public String getTrainingTopic() {
+	
+    public String getTrainingTopic() {
 		return trainingTopic;
 	}
 
@@ -82,12 +72,13 @@ public class TrainingSchedule implements Serializable {
 		this.date = date;
 	}
 
-	public Timestamp getTotalCoveredhours() {
+	public Time getTotalCoveredhours() {
 		return totalCoveredhours;
 	}
 
-	public void setTotalCoveredhours(Timestamp totalCoveredhours) {
+	public void setTotalCoveredhours(Time totalCoveredhours) {
 		this.totalCoveredhours = totalCoveredhours;
 	}
 
+	
 }

@@ -17,7 +17,7 @@ public class PaymentDataMapper {
 		payment.setStatus(paymentData.getStatus());
 
 		payment.setTrainingSchedule(TrainingScheduleDataToTrainingSchedule
-				.TrainingScheduleDataToTrainingSchedule(paymentData.getTrainingSchedule()));
+				.mapToTrainingSchedule(paymentData.getTrainingSchedule()));
 		return payment;
 	}
 
