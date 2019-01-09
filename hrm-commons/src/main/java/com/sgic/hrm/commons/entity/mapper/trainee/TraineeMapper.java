@@ -32,6 +32,7 @@ public class TraineeMapper {
 		traineeDto.setServicePeriod(trainee.getServicePeriod());
 		traineeDto.setTelephoneNumber(trainee.getTelephoneNumber());
 		traineeDto.setUpdateAt(trainee.getUpdateAt());
+		traineeDto.setQualificationLevel(trainee.getQualificationLevel());
 		return traineeDto;	
 	}
 	public static List<TraineeDto> mapTraineeListToTraineeDtoList(List<Trainee> traineeList) {
