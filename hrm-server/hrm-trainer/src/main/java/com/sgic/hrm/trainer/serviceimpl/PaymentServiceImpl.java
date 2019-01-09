@@ -1,10 +1,8 @@
 package com.sgic.hrm.trainer.serviceimpl;
 
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.sgic.hrm.commons.entity.trainer.Payment;
 import com.sgic.hrm.commons.trainer.repository.PaymentRepository;
 import com.sgic.hrm.trainer.service.PaymentService;
@@ -47,9 +45,14 @@ public class PaymentServiceImpl implements PaymentService {
 		return false;
 	}
 
-	@Override
-	public Payment getById(Integer id) {
-		return paymentRepository.getOne(id);
-	}
+//	@Override
+//	public List<Payment> getById(Integer id) {
+//		return paymentRepository.getOne(id)
+//		}
+
+//	@Override
+//	public List<Payment> getPaymentByTrainerId(int id) {
+//		return paymentRepository.findByTrainerId(id);
+//	}
 
 }
