@@ -12,34 +12,34 @@ import com.sgic.hrm.trainer.service.TrainingScheduleService;
 @Service
 public class TrainingScheduleServiceImpl implements TrainingScheduleService {
 	@Autowired
-	private TrainingScheduleRepository trainingHistoryRepository;
+	private TrainingScheduleRepository trainingScheduleRepository;
 
 	@Override
-	public boolean addTrainingHistory(TrainingSchedule trainingHistory) {
-		trainingHistoryRepository.save(trainingHistory);
+	public boolean addTrainingSchedule(TrainingSchedule trainingSchedule) {
+		trainingScheduleRepository.save(trainingSchedule);
 		return true;
 	}
 
 	@Override
-	public List<TrainingSchedule> getAllTrainingHistory() {
-		return trainingHistoryRepository.findAll();
+	public List<TrainingSchedule> getAllTrainingSchedule() {
+		return trainingScheduleRepository.findAll();
 	}
 
 	@Override
-	public boolean editTrainingHistory(TrainingSchedule trainingHistory) {
+	public boolean editTrainingSchedule(TrainingSchedule trainingSchedule) {
 		boolean success = false;
-		if (trainingHistoryRepository.getOne(trainingHistory.getId()) != null) {
-			trainingHistoryRepository.save(trainingHistory);
+		if (trainingScheduleRepository.getOne(trainingSchedule.getId()) != null) {
+			trainingScheduleRepository.save(trainingSchedule);
 			success = true;
 		}
 		return success;
 	}
 
 	@Override
-	public boolean deleteTrainingHistory(Integer id) {
-		TrainingSchedule trainingHistory = trainingHistoryRepository.getOne(id);
-		if (trainingHistory.getId() == (id)) {
-			trainingHistoryRepository.deleteById(id);
+	public boolean deleteTrainingSchedule(Integer id) {
+		TrainingSchedule trainingSchedule = trainingScheduleRepository.getOne(id);
+		if (trainingSchedule.getId() == (id)) {
+			trainingScheduleRepository.deleteById(id);
 			return true;
 		}
 		return false;
@@ -47,19 +47,19 @@ public class TrainingScheduleServiceImpl implements TrainingScheduleService {
 
 	@Override
 	public TrainingSchedule getById(Integer id) {
-		return trainingHistoryRepository.getOne(id);
+		return trainingScheduleRepository.getOne(id);
 	}
 
 	@Override
-	public TrainingSchedule getOneTrainingHistory(Integer id) {
-		return trainingHistoryRepository.findById(id).orElse(null);
+	public TrainingSchedule getOneTrainingSchedule(Integer id) {
+		return trainingScheduleRepository.findById(id).orElse(null);
 	}
 
 	@Override
-	public boolean updateTrainingHistory(Integer id, TrainingSchedule trainingHistory) {
-		if (trainingHistoryRepository.getOne(id) != null) {
-			trainingHistory.setId(id);
-			trainingHistoryRepository.save(trainingHistory);
+	public boolean updateTrainingSchedule(Integer id, TrainingSchedule trainingSchedule) {
+		if (trainingScheduleRepository.getOne(id) != null) {
+			trainingSchedule.setId(id);
+			trainingScheduleRepository.save(trainingSchedule);
 			return true;
 		}
 		return false;

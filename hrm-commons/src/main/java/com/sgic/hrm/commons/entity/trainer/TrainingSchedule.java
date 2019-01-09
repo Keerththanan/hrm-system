@@ -9,10 +9,14 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.sgic.hrm.commons.entity.User;
+
 @Entity
-@Table(name = "training_history", schema = "trainer")
+@Table(name = "training_schedule", schema = "trainer")
 public class TrainingSchedule implements Serializable {
 
 	private static final long serialVersionUID = -3323930356795011743L;
@@ -23,7 +27,29 @@ public class TrainingSchedule implements Serializable {
 	private String trainingTopic;
 	private Date date;
 	private Timestamp totalCoveredhours;
-//start getter setter
+	private String status;
+	
+	@OneToOne
+	@JoinColumn(name="trainer_id")
+	private Trainer trainer;
+	
+    public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+	public Trainer getTrainer() {
+		return trainer;
+	}
+
+	public void setTrainer(Trainer trainer) {
+		this.trainer = trainer;
+	}
+
+	//start getter setter
 	public Integer getId() {
 		return id;
 	}

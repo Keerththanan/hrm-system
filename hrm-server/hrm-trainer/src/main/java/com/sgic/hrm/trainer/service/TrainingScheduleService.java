@@ -5,17 +5,17 @@ import java.util.List;
 import com.sgic.hrm.commons.entity.trainer.TrainingSchedule;
 
 public interface TrainingScheduleService {
-	boolean addTrainingHistory(TrainingSchedule trainingHistory);
+	boolean addTrainingSchedule(TrainingSchedule trainingSchedule);
 
-	List<TrainingSchedule> getAllTrainingHistory();
+	List<TrainingSchedule> getAllTrainingSchedule();
 
-	boolean editTrainingHistory(TrainingSchedule trainingHistory);
+	boolean editTrainingSchedule(TrainingSchedule trainingSchedule);
 
-	boolean deleteTrainingHistory(Integer id);
+	boolean deleteTrainingSchedule(Integer id);
 
 	TrainingSchedule getById(Integer id);
 
-	TrainingSchedule getOneTrainingHistory(Integer id);
+	TrainingSchedule getOneTrainingSchedule(Integer id);
 
-	boolean updateTrainingHistory(Integer id, TrainingSchedule trainingHistory);
+	boolean updateTrainingSchedule(Integer id, TrainingSchedule trainingSchedule);
 }
