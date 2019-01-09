@@ -7,28 +7,29 @@ import com.sgic.hrm.commons.entity.trainer.TrainingSchedule;
 import com.sgic.hrm.commons.trainer.dto.TrainingScheduleData;
 
 public class TrainingScheduleToTrainingScheduleData {
-	public static  TrainingScheduleData TrainingHistoryToTrainingHistoryData(TrainingSchedule trainingHistory) {
-		TrainingScheduleData trainingHistoryData = new TrainingScheduleData();
-		if (trainingHistory !=null) {
-			trainingHistoryData.setId(trainingHistory.getId());
-			trainingHistoryData.setTrainerName(trainingHistory.getTrainerName());
-			trainingHistoryData.setTrainingTopic(trainingHistory.getTrainingTopic());
-			trainingHistoryData.setTotalCoveredhours(trainingHistory.getTotalCoveredhours());
-			trainingHistoryData.setDate(trainingHistory.getDate());
+	public static  TrainingScheduleData mapToTrainingScheduleData(TrainingSchedule trainingSchedule) {
+		TrainingScheduleData trainingScheduleData = new TrainingScheduleData();
+		if (trainingSchedule !=null) {
+			trainingScheduleData.setId(trainingSchedule.getId());
+			trainingScheduleData.setTrainingTopic(trainingSchedule.getTrainingTopic());
+			trainingScheduleData.setTotalCoveredhours(trainingSchedule.getTotalCoveredhours());
+			trainingScheduleData.setDate(trainingSchedule.getDate());
+			trainingScheduleData.setStatus(trainingSchedule.getStatus());
+			trainingScheduleData.setTrainer(TrainerMapper.maptoTrainerData(trainingSchedule.getTrainer()));
 		}
-		return trainingHistoryData;
+		return trainingScheduleData;
 	}
 	
 	
-	public static List<TrainingScheduleData> TrainingHistoryToTrainingHistoryData(List<TrainingSchedule> trainingHistory) {
-		List<TrainingScheduleData> trainingHistoryList = new ArrayList<TrainingScheduleData>();
+	public static List<TrainingScheduleData> mapToTrainingScheduleDataList(List<TrainingSchedule> trainingSchedule) {
+		List<TrainingScheduleData> trainingScheduleList = new ArrayList<TrainingScheduleData>();
 
-		if (trainingHistory != null) {
-			for (TrainingSchedule training : trainingHistory) {
-				trainingHistoryList.add(TrainingHistoryToTrainingHistoryData(training));
+		if (trainingSchedule != null) {
+			for (TrainingSchedule training : trainingSchedule) {
+				trainingScheduleList.add(mapToTrainingScheduleData(training));
 			}
 		}
-		return trainingHistoryList;
+		return trainingScheduleList;
 	}
 
 

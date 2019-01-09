@@ -1,5 +1,5 @@
 package com.sgic.hrm.trainer.controller;
-
+//Created by Thamilini
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -66,4 +66,14 @@ public class PaymentController {
 		}
 		return status;
 	}
+
+//	@GetMapping("/paymentByTrainer/{id}")
+//	public List<Payment> getAllPaymentByTrainerId(@PathVariable int id) {
+//		return paymentService.getPaymentByTrainerId(id);
+//	}
+
+//	@GetMapping("/payment/{id1}")
+//	public List<Payment> getOneById(@PathVariable("id1") Integer payment_id) {
+//		return paymentService.getById(payment_id);
+//	}
 }
