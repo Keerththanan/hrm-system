@@ -13,12 +13,8 @@ public class AvailabilityToAvailabilityData {
 		AvailabilityData availabilityData = new AvailabilityData();
 		if (availability != null) {
 			availabilityData.setId(availability.getId());
-			availabilityData.setTrainerName(availability.getTrainerName());
-			availabilityData.setStartDate(availability.getStartDate());
-			availabilityData.setEndDate(availability.getEndDate());
-			availabilityData.setTime(availability.getTime());
-			availabilityData.setScheduledTopic(availability.getScheduledTopic());
-			availabilityData.setStatus(availability.getStatus());
+			availabilityData.setDate(availability.getDate());
+			availabilityData.setTrainerId(TrainerMapper.maptoTrainerData(availability.getTrainerId()));
 			
 		}
 		return availabilityData;

@@ -1,26 +1,38 @@
 package com.sgic.hrm.commons.trainer.dto;
+
+import java.sql.Time;
+import java.util.Date;
+
 //done by daminiya
-import java.sql.Date;
-import java.sql.Timestamp;
 
 public class TrainingScheduleData {
 	private Integer id;
-	private String trainerName;
 	private String trainingTopic;
 	private Date date;
-	private Timestamp totalCoveredhours;
+	private Time totalCoveredhours;
+	private String status;
+	private TrainerData trainer;
+	
+	
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
+	}
+	public TrainerData getTrainer() {
+		return trainer;
+	}
+	public void setTrainer(TrainerData trainer) {
+		this.trainer = trainer;
+	}
 	public Integer getId() {
 		return id;
 	}
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public String getTrainerName() {
-		return trainerName;
-	}
-	public void setTrainerName(String trainerName) {
-		this.trainerName = trainerName;
-	}
+
 	public String getTrainingTopic() {
 		return trainingTopic;
 	}
@@ -33,11 +45,13 @@ public class TrainingScheduleData {
 	public void setDate(Date date) {
 		this.date = date;
 	}
-	public Timestamp getTotalCoveredhours() {
+	public Time getTotalCoveredhours() {
 		return totalCoveredhours;
 	}
-	public void setTotalCoveredhours(Timestamp totalCoveredhours) {
+	public void setTotalCoveredhours(Time totalCoveredhours) {
 		this.totalCoveredhours = totalCoveredhours;
 	}
+	
+	
 	
 }

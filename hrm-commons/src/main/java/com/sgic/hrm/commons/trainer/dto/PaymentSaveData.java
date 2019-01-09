@@ -1,16 +1,11 @@
 package com.sgic.hrm.commons.trainer.dto;
 
-
-import java.sql.Date;
-
 public class PaymentSaveData {
 	private Integer id;
-	private Date trainingDate;
-	private Integer amountPaid;
-	private Integer remainingAmount;
-	private String paymentStatus;
+	private Double amount;
+	private String status;
 
-	private Integer user;
+	private Integer trainingSchedule;
 
 	public Integer getId() {
 		return id;
@@ -20,46 +15,28 @@ public class PaymentSaveData {
 		this.id = id;
 	}
 
-	public Date getTrainingDate() {
-		return trainingDate;
+	public Double getAmount() {
+		return amount;
 	}
 
-	public void setTrainingDate(Date trainingDate) {
-		this.trainingDate = trainingDate;
+	public void setAmount(Double amount) {
+		this.amount = amount;
 	}
 
-	public Integer getAmountPaid() {
-		return amountPaid;
+	public String getStatus() {
+		return status;
 	}
 
-	public void setAmountPaid(Integer amountPaid) {
-		this.amountPaid = amountPaid;
+	public void setStatus(String status) {
+		this.status = status;
 	}
 
-	public Integer getRemainingAmount() {
-		return remainingAmount;
+	public Integer getTrainingSchedule() {
+		return trainingSchedule;
 	}
 
-	public void setRemainingAmount(Integer remainingAmount) {
-		this.remainingAmount = remainingAmount;
+	public void setTrainingSchedule(Integer trainingSchedule) {
+		this.trainingSchedule = trainingSchedule;
 	}
-
-	public String getPaymentStatus() {
-		return paymentStatus;
-	}
-
-	public void setPaymentStatus(String paymentStatus) {
-		this.paymentStatus = paymentStatus;
-	}
-
-	public Integer getUser() {
-		return user;
-	}
-
-	public void setUser(Integer user) {
-		this.user = user;
-	}
-
-
 
 }
