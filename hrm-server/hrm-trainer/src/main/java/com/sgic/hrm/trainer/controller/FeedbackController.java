@@ -39,10 +39,10 @@ public class FeedbackController {
 	}
 	return HttpStatus.BAD_REQUEST;
 	}
-	@GetMapping("/trainer")
-	public List<Trainer> getTrainers(){
-		return feedbackService.getTrainer();
-	}
+//	@GetMapping("/trainer")
+//	public List<Trainer> getTrainers(){
+//		return feedbackService.getTrainer();
+//	}
 
 //	@GetMapping("/trainer/{username}")
 //	public ResponseEntity<List<FeedbackDto>> getTrainersFeedbackByUsername(@PathVariable String username){

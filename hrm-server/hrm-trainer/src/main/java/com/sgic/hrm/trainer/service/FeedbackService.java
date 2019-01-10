@@ -10,6 +10,5 @@ public List<Feedback> getFeedback();
 public boolean createFeedback(Feedback feedback);
 public List<Feedback> getTraineeByTraineeId(Integer id);
 //public List<Feedback> getTrainerByTrainerId(Integer id);
-//List<Feedback> getTrainerByUsername(String username);
-public List<Trainer> getTrainer();
+//List<Feedback> getTrainerByName(String username);
 }

@@ -40,14 +40,10 @@ public class FeedbackServiceImpl implements FeedbackService {
 		return feedbackRepository.findTraineeByTrainee(traineeRepository.findTraineeById(id));
 	}
 
-	@Override
-	public List<Trainer> getTrainer() {
-		return trainerRepository.findAll();
-	}
 
 //	@Override
-//	public List<Feedback> getTrainerByUsername(String username) {
-//		return feedbackRepository.findTrainerByTrainer(trainerRepository.findTrainerByUserName(username));
+//	public List<Feedback> getTrainerByName(String username) {
+//		return feedbackRepository.findTrainerByTrainer(trainerRepository.findTrainerByName(username));
 //		
 //	}
 
