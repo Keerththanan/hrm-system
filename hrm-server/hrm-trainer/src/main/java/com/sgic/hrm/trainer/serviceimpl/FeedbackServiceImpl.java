@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.sgic.hrm.commons.entity.trainer.Feedback;
+import com.sgic.hrm.commons.entity.trainer.Trainer;
 import com.sgic.hrm.commons.repository.trainee.TraineeRepository;
 import com.sgic.hrm.commons.trainer.repository.FeedbackRepository;
 import com.sgic.hrm.commons.trainer.repository.TrainerRepository;
@@ -40,8 +41,19 @@ public class FeedbackServiceImpl implements FeedbackService {
 	}
 
 	@Override
-	public List<Feedback> getTrainerByTrainerId(Integer id) {
-		return feedbackRepository.findTrainerByTrainer(trainerRepository.findTrainerById(id));
+	public List<Trainer> getTrainer() {
+		return trainerRepository.findAll();
 	}
+
+//	@Override
+//	public List<Feedback> getTrainerByUsername(String username) {
+//		return feedbackRepository.findTrainerByTrainer(trainerRepository.findTrainerByUserName(username));
+//		
+//	}
+
+//	@Override
+//	public List<Feedback> getTrainerByTrainerId(Integer id) {
+//		return feedbackRepository.findTrainerByTrainer(trainerRepository.findTrainerById(id));
+//	}
 
 }

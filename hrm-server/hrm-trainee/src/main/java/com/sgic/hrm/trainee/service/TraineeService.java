@@ -18,4 +18,8 @@ public interface TraineeService {
 	public Trainee findTraineeById(Integer id);
 
 	public Trainee findByTraineeName(String fullName);
+	
+	public List<Trainee> findTraineeByEmployment(String employment);
+	
+	public List<Trainee> findTraineebyfullName(String fullName);
 }

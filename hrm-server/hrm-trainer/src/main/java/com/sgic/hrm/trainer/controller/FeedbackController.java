@@ -7,9 +7,12 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.sgic.hrm.commons.entity.trainer.Trainer;
 import com.sgic.hrm.commons.trainer.dto.FeedbackDto;
 import com.sgic.hrm.commons.trainer.dto.FeedbackSaveDto;
 import com.sgic.hrm.commons.trainer.dto.mapper.FeedbackDtoMapper;
@@ -36,5 +39,14 @@ public class FeedbackController {
 	}
 	return HttpStatus.BAD_REQUEST;
 	}
+	@GetMapping("/trainer")
+	public List<Trainer> getTrainers(){
+		return feedbackService.getTrainer();
+	}
 
-}
+//	@GetMapping("/trainer/{username}")
+//	public ResponseEntity<List<FeedbackDto>> getTrainersFeedbackByUsername(@PathVariable String username){
+//		return new ResponseEntity<>(FeedbackMapper.mapFeedbackListToFeedbackDtoList(feedbackService.getTrainerByUsername(username)),
+//				HttpStatus.OK);
+//	}
+	}
