@@ -24,48 +24,48 @@ import com.sgic.hrm.trainer.service.TrainingScheduleService;
 @CrossOrigin(origins = "http://localhost:4200",maxAge=3600)
 public class TrainingScheduleController {
 	@Autowired
-	private TrainingScheduleService trainingHistoryService;
+	private TrainingScheduleService trainingScheduleService;
 
-	@PostMapping("/trainingHistory")
-	public HttpStatus trainingHistory(@RequestBody TrainingScheduleData trainingHistoryData) {
-		TrainingSchedule trainingHistory = TrainingScheduleDataToTrainingSchedule
-				.TrainingHistoryDataToTrainingHistory(trainingHistoryData);
-		if (trainingHistoryService.addTrainingHistory(trainingHistory)) {
+	@PostMapping("/trainingSchedule")
+	public HttpStatus trainingSchedule(@RequestBody TrainingScheduleData trainingScheduleData) {
+		TrainingSchedule trainingSchedule= TrainingScheduleDataToTrainingSchedule
+				.mapToTrainingSchedule(trainingScheduleData);
+		if (trainingScheduleService.addTrainingSchedule(trainingSchedule)) {
 			return HttpStatus.OK;
 		}
 		return HttpStatus.BAD_REQUEST;
 	}
 
-	@GetMapping("/trainingHistory")
-	public ResponseEntity<List<TrainingScheduleData>> getTrainingHistory() {
-		List<TrainingSchedule> trainingHistoryList = trainingHistoryService.getAllTrainingHistory();
+	@GetMapping("/trainingSchedule")
+	public ResponseEntity<List<TrainingScheduleData>> getTrainingSchedule() {
+		List<TrainingSchedule> trainingScheduleList = trainingScheduleService.getAllTrainingSchedule();
 		return new ResponseEntity<>(
-				TrainingScheduleToTrainingScheduleData.TrainingHistoryToTrainingHistoryData(trainingHistoryList),
+				TrainingScheduleToTrainingScheduleData.mapToTrainingScheduleDataList(trainingScheduleList),
 				HttpStatus.OK);
 	}
 //get by id method
-	@GetMapping("/trainingHistory/{id}")
-	public ResponseEntity<TrainingScheduleData> getOneTrainingHistory(@PathVariable(name = "id") Integer id) {
-		TrainingSchedule trainingHistory = trainingHistoryService.getOneTrainingHistory(id);
+	@GetMapping("/trainingSchedule/{id}")
+	public ResponseEntity<TrainingScheduleData> getOneTrainingSchedule(@PathVariable(name = "id") Integer id) {
+		TrainingSchedule trainingSchedule = trainingScheduleService.getOneTrainingSchedule(id);
 		return new ResponseEntity<>(
-				TrainingScheduleToTrainingScheduleData.TrainingHistoryToTrainingHistoryData(trainingHistory),
+				TrainingScheduleToTrainingScheduleData.mapToTrainingScheduleData(trainingSchedule),
 				HttpStatus.OK);
 	}
 
-	@PutMapping("/trainingHistory/{id}")
-	public HttpStatus updateTrainingHistory(@PathVariable(name = "id") Integer id,
-			@RequestBody TrainingScheduleData trainingHistoryData) {
-		TrainingSchedule trainingHistory = TrainingScheduleDataToTrainingSchedule
-				.TrainingHistoryDataToTrainingHistory(trainingHistoryData);
-		if (trainingHistoryService.updateTrainingHistory(id, trainingHistory)) {
+	@PutMapping("/trainingSchedule/{id}")
+	public HttpStatus updateTrainingSchedule(@PathVariable(name = "id") Integer id,
+			@RequestBody TrainingScheduleData trainingScheduleData) {
+		TrainingSchedule trainingSchedule = TrainingScheduleDataToTrainingSchedule
+				.mapToTrainingSchedule(trainingScheduleData);
+		if (trainingScheduleService.updateTrainingSchedule(id, trainingSchedule)) {
 			return HttpStatus.OK;
 		}
 		return HttpStatus.BAD_REQUEST;
 	}
 
-	@DeleteMapping("/trainingHistory/{id}")
-	public HttpStatus deleteTrainingHistory(@PathVariable(name = "id") Integer id) {
-		if (trainingHistoryService.deleteTrainingHistory(id)) {
+	@DeleteMapping("/trainingSchedule/{id}")
+	public HttpStatus deleteTrainingSchedule(@PathVariable(name = "id") Integer id) {
+		if (trainingScheduleService.deleteTrainingSchedule(id)) {
 			return HttpStatus.OK;
 		}
 		return HttpStatus.BAD_REQUEST;

@@ -1,9 +1,12 @@
 package com.sgic.hrm.commons.entity.trainee;
 
 import java.io.Serializable;
+import java.sql.Time;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -20,12 +23,14 @@ public class AttendanceDetails implements Serializable {
 	 */
 	private static final long serialVersionUID = -1382561378759436449L;
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	@ManyToOne
 	@JoinColumn(name = "trainee_id")
 	private Trainee trainee;
-	private Date startDate;
-	private Date endDate;
+	private Time startTime;
+	private Time endTime;
+	private Date AttendDate;
 	@UpdateTimestamp
 	private Date updateAt;
 	@ManyToOne
@@ -34,6 +39,15 @@ public class AttendanceDetails implements Serializable {
 	@ManyToOne
 	@JoinColumn(name = "attend_type_id")
 	private AttendType attendType;
+	private float duration;
+
+	public float getDuration() {
+		return duration;
+	}
+
+	public void setDuration(float duration) {
+		this.duration = duration;
+	}
 
 	public AttendType getAttendType() {
 		return attendType;
@@ -67,20 +81,28 @@ public class AttendanceDetails implements Serializable {
 		this.trainee = trainee;
 	}
 
-	public Date getStartDate() {
-		return startDate;
+	public Time getStartTime() {
+		return startTime;
 	}
 
-	public void setStartDate(Date startDate) {
-		this.startDate = startDate;
+	public void setStartTime(Time startTime) {
+		this.startTime = startTime;
 	}
 
-	public Date getEndDate() {
-		return endDate;
+	public Time getEndTime() {
+		return endTime;
 	}
 
-	public void setEndDate(Date endDate) {
-		this.endDate = endDate;
+	public void setEndTime(Time endTime) {
+		this.endTime = endTime;
+	}
+
+	public Date getAttendDate() {
+		return AttendDate;
+	}
+
+	public void setAttendDate(Date attendDate) {
+		AttendDate = attendDate;
 	}
 
 	public Date getUpdateAt() {

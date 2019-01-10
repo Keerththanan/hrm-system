@@ -1,57 +1,89 @@
 package com.sgic.hrm.commons.dto.trainee;
 
+import java.sql.Time;
 import java.util.Date;
 
 public class AttendanceDetailsDto {
 	private Integer id;
 	private Integer trainee;
-	private Date startDate;
-	private Date endDate;
+	private Time startTime;
+	private Time endTime;
 	private Date updateAt;
 	private Integer attendantStatus;
 	private Integer attendType;
+	private Date attendDate;
+	private Float duration;
+
+	public Date getAttendDate() {
+		return attendDate;
+	}
+
+	public void setAttendDate(Date attendDate) {
+		this.attendDate = attendDate;
+	}
+
 	public Integer getId() {
 		return id;
 	}
+
 	public void setId(Integer id) {
 		this.id = id;
 	}
+
 	public Integer getTrainee() {
 		return trainee;
 	}
+
 	public void setTrainee(Integer trainee) {
 		this.trainee = trainee;
 	}
-	public Date getStartDate() {
-		return startDate;
+
+	public Time getStartTime() {
+		return startTime;
 	}
-	public void setStartDate(Date startDate) {
-		this.startDate = startDate;
+
+	public void setStartTime(Time startTime) {
+		this.startTime = startTime;
 	}
-	public Date getEndDate() {
-		return endDate;
+
+	public Time getEndTime() {
+		return endTime;
 	}
-	public void setEndDate(Date endDate) {
-		this.endDate = endDate;
+
+	public void setEndTime(Time endTime) {
+		this.endTime = endTime;
 	}
+
+	public Float getDuration() {
+		return duration;
+	}
+
+	public void setDuration(Float duration) {
+		this.duration = duration;
+	}
+
 	public Date getUpdateAt() {
 		return updateAt;
 	}
+
 	public void setUpdateAt(Date updateAt) {
 		this.updateAt = updateAt;
 	}
+
 	public Integer getAttendantStatus() {
 		return attendantStatus;
 	}
+
 	public void setAttendantStatus(Integer attendantStatus) {
 		this.attendantStatus = attendantStatus;
 	}
+
 	public Integer getAttendType() {
 		return attendType;
 	}
+
 	public void setAttendType(Integer attendType) {
 		this.attendType = attendType;
 	}
 
-	
 }

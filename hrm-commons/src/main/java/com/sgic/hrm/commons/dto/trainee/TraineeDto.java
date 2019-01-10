@@ -26,6 +26,8 @@ public class TraineeDto {
 	private String occupation;
 	private TraineeDepartment traineeDepartment;
 	private Date updateAt;
+	private String qualificationLevel;
+	
 	public Integer getId() {
 		return id;
 	}
@@ -140,10 +142,10 @@ public class TraineeDto {
 	public void setOccupation(String occupation) {
 		this.occupation = occupation;
 	}
-	public TraineeDepartment getDepartment() {
+	public TraineeDepartment getTraineeDepartment() {
 		return traineeDepartment;
 	}
-	public void setDepartment(TraineeDepartment traineeDepartment) {
+	public void setTraineeDepartment(TraineeDepartment traineeDepartment) {
 		this.traineeDepartment = traineeDepartment;
 	}
 	public Date getUpdateAt() {
@@ -151,6 +153,12 @@ public class TraineeDto {
 	}
 	public void setUpdateAt(Date updateAt) {
 		this.updateAt = updateAt;
+	}
+	public String getQualificationLevel() {
+		return qualificationLevel;
+	}
+	public void setQualificationLevel(String qualificationLevel) {
+		this.qualificationLevel = qualificationLevel;
 	}
 	
 }

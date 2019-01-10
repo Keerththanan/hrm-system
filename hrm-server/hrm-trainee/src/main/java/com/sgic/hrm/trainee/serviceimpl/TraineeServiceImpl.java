@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.sgic.hrm.commons.entity.trainee.Trainee;
+import com.sgic.hrm.commons.entity.trainee.TraineeDepartment;
 import com.sgic.hrm.commons.repository.trainee.TraineeRepository;
 import com.sgic.hrm.trainee.service.TraineeService;
 
@@ -41,16 +42,18 @@ public class TraineeServiceImpl implements TraineeService {
 	}
 
 	@Override
-	public boolean addTrainee(Trainee trainee, com.sgic.hrm.commons.entity.trainee.TraineeDepartment traineeDepartment) {
-		trainee.setDepartment(traineeDepartment);
+	public boolean addTrainee(Trainee trainee,
+			TraineeDepartment traineeDepartment) {
+		trainee.setTraineeDepartment(traineeDepartment);
 		traineeRepository.save(trainee);
 		return true;
 	}
 
 	@Override
-	public boolean editTrainee(Trainee trainee, com.sgic.hrm.commons.entity.trainee.TraineeDepartment traineeDepartment, Integer id) {
+	public boolean editTrainee(Trainee trainee, TraineeDepartment traineeDepartment,
+			Integer id) {
 		if (traineeRepository.getOne(id) != null) {
-			trainee.setDepartment(traineeDepartment);
+			trainee.setTraineeDepartment(traineeDepartment);
 			traineeRepository.save(trainee);
 		}
 		return false;
@@ -60,5 +63,17 @@ public class TraineeServiceImpl implements TraineeService {
 	public Trainee getTraineeById(Integer id) {
 		return traineeRepository.findTraineeById(id);
 	}
+
+	@Override
+	public List<Trainee> findTraineeByEmployment(String employment) {
+		return traineeRepository.findTraineeByEmployment(employment);
+	}
+
+	@Override
+	public List<Trainee> findTraineebyfullName(String fullName) {
+		return traineeRepository.findTraineeByFullName(fullName);
+	}
+
+	
 
 }

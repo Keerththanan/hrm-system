@@ -11,10 +11,10 @@ public class TraineeDtoMapper {
 		Trainee trainee = new Trainee();
 		TraineeDepartment traineeDepartment = new TraineeDepartment();
 
-		traineeDepartment.setId(traineeSaveDto.getDepartment());
+		traineeDepartment.setId(traineeSaveDto.getTraineeDepartment());
 
 		trainee.setId(traineeSaveDto.getId());
-		trainee.setDepartment(traineeDepartment);
+		trainee.setTraineeDepartment(traineeDepartment);
 		trainee.setDateOfBirth(traineeSaveDto.getDateOfBirth());
 		trainee.setEmail(traineeSaveDto.getEmail());
 		trainee.setFullName(traineeSaveDto.getFullName());
@@ -34,7 +34,7 @@ public class TraineeDtoMapper {
 		trainee.setServicePeriod(traineeSaveDto.getServicePeriod());
 		trainee.setTelephoneNumber(traineeSaveDto.getTelephoneNumber());
 		trainee.setUpdateAt(traineeSaveDto.getUpdateAt());
-
+		trainee.setQualificationLevel(traineeSaveDto.getQualificationLevel());
 		return trainee;
 	}
 
@@ -42,7 +42,7 @@ public class TraineeDtoMapper {
 		Trainee trainee=new Trainee();
 		
 		trainee.setId(traineeDto.getId());
-		trainee.setDepartment(traineeDto.getDepartment());
+		trainee.setTraineeDepartment(traineeDto.getTraineeDepartment());
 		trainee.setDateOfBirth(traineeDto.getDateOfBirth());
 		trainee.setEmail(traineeDto.getEmail());
 		trainee.setEmployment(traineeDto.getEmployment());
@@ -62,7 +62,7 @@ public class TraineeDtoMapper {
 		trainee.setServicePeriod(traineeDto.getServicePeriod());
 		trainee.setTelephoneNumber(traineeDto.getTelephoneNumber());
 		trainee.setUpdateAt(traineeDto.getUpdateAt());
-		
+		trainee.setQualificationLevel(traineeDto.getQualificationLevel());
 		return trainee;
 	}
 }

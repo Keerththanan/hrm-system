@@ -32,7 +32,7 @@ public class TraineeController {
 	@PostMapping("/trainee")
 	public HttpStatus Addtrainee(@RequestBody TraineeSaveDto traineeSaveDto) {
 		if (traineeService.addTrainee(TraineeDtoMapper.mapTraineeSaveDtoToTrainee(traineeSaveDto),
-				traineeDepartmentService.findByDepartmentId(traineeSaveDto.getDepartment()))) {
+				traineeDepartmentService.findByDepartmentId(traineeSaveDto.getTraineeDepartment()))) {
 			return HttpStatus.CREATED;
 		}
 		return HttpStatus.BAD_REQUEST;
@@ -47,12 +47,13 @@ public class TraineeController {
 	@PutMapping("/trainee/{id}")
 	public HttpStatus editTrainee(@RequestBody TraineeSaveDto traineeSaveDto, @PathVariable("id") Integer id) {
 		boolean test = traineeService.editTrainee(TraineeDtoMapper.mapTraineeSaveDtoToTrainee(traineeSaveDto),
-				traineeDepartmentService.findByDepartmentId(traineeSaveDto.getDepartment()),id);
+				traineeDepartmentService.findByDepartmentId(traineeSaveDto.getTraineeDepartment()), id);
 		if (test) {
 			return HttpStatus.ACCEPTED;
 		}
 		return HttpStatus.BAD_REQUEST;
 	}
+
 	@DeleteMapping("/trainee/{id}")
 	public HttpStatus deleteTrainee(@PathVariable("id") Integer id) {
 		if (traineeService.deleteTrainee(id)) {
@@ -60,10 +61,13 @@ public class TraineeController {
 		}
 		return HttpStatus.BAD_REQUEST;
 	}
-//	@GetMapping("/trainee/{uid}")
-//	public ResponseEntity<List<TraineeDto>> findTraineeById(@PathVariable("uid") Integer id) {
-//		return new ResponseEntity<>(
-//				TraineeMapper.mapTraineeToTraineeDto(traineeService.findTraineeById(id)),HttpStatus.OK);
-//	}
 
+	@GetMapping("/trainee/{employment}")
+	public List<TraineeDto> getTraineeByEmployment(@PathVariable String employment){
+		return TraineeMapper.mapTraineeListToTraineeDtoList(traineeService.findTraineeByEmployment(employment));
+	}
+	@GetMapping("/trainee/search/{name}")
+	public List<TraineeDto> getTraineeByName(@PathVariable String name){
+		return TraineeMapper.mapTraineeListToTraineeDtoList(traineeService.findTraineebyfullName(name));
+	}
 }
