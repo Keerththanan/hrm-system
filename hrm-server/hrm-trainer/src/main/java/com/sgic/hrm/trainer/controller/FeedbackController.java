@@ -39,7 +39,7 @@ public class FeedbackController {
 	}
 	return HttpStatus.BAD_REQUEST;
 	}
-	@GetMapping("/trainer")
+	@GetMapping("/trainers")
 	public List<Trainer> getTrainers(){
 		return feedbackService.getTrainer();
 	}
