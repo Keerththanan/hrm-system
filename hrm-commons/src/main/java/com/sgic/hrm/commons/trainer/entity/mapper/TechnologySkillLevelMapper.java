@@ -12,13 +12,13 @@ public class TechnologySkillLevelMapper {
 		if (technologySkillLevel != null) {
 			technologySkillLevelDTO.setId(technologySkillLevel.getId());
 			technologySkillLevelDTO.setTechnology(technologySkillLevel.getTechnology());
-//			technologySkillLevelDTO.setSkill(technologySkillLevel.getSkill());
+			technologySkillLevelDTO.setSkill(SkillMapper.mapToSkillDTO(technologySkillLevel.getSkill()));
 			technologySkillLevelDTO.setLevel(technologySkillLevel.getLevel());
 		}
 		return technologySkillLevelDTO;
 	}
 
-	public static List<TechnologySkillLevelDTO> mapToTerminationTypeDataList(
+	public static List<TechnologySkillLevelDTO> mapToTechnologySkillLevelDTO(
 		      List<TechnologySkillLevel> technologySkillLevelList) {
 		    List<TechnologySkillLevelDTO> technologySkillLevelDTO = new ArrayList<TechnologySkillLevelDTO>();
 	

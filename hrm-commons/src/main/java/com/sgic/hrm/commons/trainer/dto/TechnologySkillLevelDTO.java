@@ -3,7 +3,7 @@ package com.sgic.hrm.commons.trainer.dto;
 public class TechnologySkillLevelDTO {
 	private Integer id;
 	private String technology;
-	private String skill;
+	private SkillData skill;
 	private Integer level;
 	
 	public Integer getId() {
@@ -18,10 +18,11 @@ public class TechnologySkillLevelDTO {
 	public void setTechnology(String technology) {
 		this.technology = technology;
 	}
-	public String getSkill() {
+	
+	public SkillData getSkill() {
 		return skill;
 	}
-	public void setSkill(String skill) {
+	public void setSkill(SkillData skill) {
 		this.skill = skill;
 	}
 	public Integer getLevel() {

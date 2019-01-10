@@ -37,7 +37,7 @@ public class TechnologySkillLevelController {
 	public ResponseEntity<List<TechnologySkillLevelDTO>> getAllRecordOfEmployment(){
 
 		return new ResponseEntity<>(TechnologySkillLevelMapper
-				.mapToTerminationTypeDataList(technologySkillLevelService.getAllTechnologySkillLevel()), HttpStatus.OK);
+				.mapToTechnologySkillLevelDTO(technologySkillLevelService.getAllTechnologySkillLevel()), HttpStatus.OK);
 	}
 
 	@PostMapping("/technologySkillLevel")
