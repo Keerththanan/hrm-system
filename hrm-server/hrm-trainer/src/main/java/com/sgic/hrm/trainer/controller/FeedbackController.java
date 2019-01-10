@@ -39,17 +39,6 @@ public class FeedbackController {
 	}
 	return HttpStatus.BAD_REQUEST;
 	}
-<<<<<<< HEAD
-//	@GetMapping("/trainer")
-//	public List<Trainer> getTrainers(){
-//		return feedbackService.getTrainer();
-//	}
-=======
-	@GetMapping("/trainers")
-	public List<Trainer> getTrainers(){
-		return feedbackService.getTrainer();
-	}
->>>>>>> d1607cf77b52ebde09b2efe087ef0ae99175b8d5
 
 //	@GetMapping("/trainer/{username}")
 //	public ResponseEntity<List<FeedbackDto>> getTrainersFeedbackByUsername(@PathVariable String username){
