@@ -18,7 +18,6 @@ import com.sgic.hrm.commons.dto.mapper.trainee.TraineeProfessionalMembershipDtoM
 import com.sgic.hrm.commons.dto.trainee.TraineeProfessionalMembershipDto;
 import com.sgic.hrm.commons.dto.trainee.TraineeProfessionalMembershipSaveDto;
 import com.sgic.hrm.commons.entity.mapper.trainee.TraineeProfessionalMembershipMapper;
-import com.sgic.hrm.commons.entity.trainee.TraineeProfessionalMembership;
 import com.sgic.hrm.commons.entity.trainee.Trainee;
 import com.sgic.hrm.trainee.service.TraineeProfessionalMembershipService;
 import com.sgic.hrm.trainee.service.TraineeService;
@@ -34,20 +33,18 @@ public class TraineeProfessionalMembershipController {
 
 	@GetMapping("/professionalMembership")
 	public ResponseEntity<List<TraineeProfessionalMembershipDto>> getProfessionalMembership() {
-		List<TraineeProfessionalMembershipDto> professionalMembershipDtoList = TraineeProfessionalMembershipMapper
+		return new ResponseEntity<>(TraineeProfessionalMembershipMapper
 				.mapProfessionalMembershipListToProfessionalMembershipDtoList(
-						traineeProfessionalMembershipService.getAllProfessionalMembership());
-		return new ResponseEntity<>(professionalMembershipDtoList, HttpStatus.OK);
+						traineeProfessionalMembershipService.getAllProfessionalMembership()), HttpStatus.OK);
 
 	}
 
 	@GetMapping("/professionalMembership/{tid}")
 	public ResponseEntity<List<TraineeProfessionalMembershipDto>> getProfesionalMembershipByTraineeId(
 			@PathVariable("tid") Integer id) {
-		List<TraineeProfessionalMembershipDto> professionalMembershipDtoList = TraineeProfessionalMembershipMapper
+		return new ResponseEntity<>(TraineeProfessionalMembershipMapper
 				.mapProfessionalMembershipListToProfessionalMembershipDtoList(
-						traineeProfessionalMembershipService.getProfessionalMembershipByTraineeId(id));
-		return new ResponseEntity<>(professionalMembershipDtoList, HttpStatus.OK);
+						traineeProfessionalMembershipService.getProfessionalMembershipByTraineeId(id)), HttpStatus.OK);
 
 	}
 
@@ -55,10 +52,8 @@ public class TraineeProfessionalMembershipController {
 	public HttpStatus addProfessionalMembership(
 			@RequestBody TraineeProfessionalMembershipSaveDto traineeProfessionalMembershipSaveDto) {
 		Trainee trainee = traineeService.findTraineeById(traineeProfessionalMembershipSaveDto.getTrainee());
-		TraineeProfessionalMembership traineeProfessionalMembership = TraineeProfessionalMembershipDtoMapper
-				.mapProfessionalMembershipSaveDtoToProfeesionalMembership(traineeProfessionalMembershipSaveDto);
-		boolean test = traineeProfessionalMembershipService.addProfessionalMembership(traineeProfessionalMembership, trainee);
-		if (test) {
+		if (traineeProfessionalMembershipService.addProfessionalMembership(TraineeProfessionalMembershipDtoMapper
+				.mapProfessionalMembershipSaveDtoToProfeesionalMembership(traineeProfessionalMembershipSaveDto), trainee)) {
 			return HttpStatus.CREATED;
 		}
 		return HttpStatus.BAD_REQUEST;
@@ -68,19 +63,16 @@ public class TraineeProfessionalMembershipController {
 	public HttpStatus ModifyProfessionalMembership(@PathVariable Integer id,
 			@RequestBody TraineeProfessionalMembershipSaveDto traineeProfessionalMembershipSaveDto) {
 		Trainee trainee = traineeService.findTraineeById(traineeProfessionalMembershipSaveDto.getTrainee());
-		TraineeProfessionalMembership traineeProfessionalMembership = TraineeProfessionalMembershipDtoMapper
-				.mapProfessionalMembershipSaveDtoToProfeesionalMembership(traineeProfessionalMembershipSaveDto);
-		boolean editTest = traineeProfessionalMembershipService.editProfessionalMembership(traineeProfessionalMembership, trainee,
-				id);
-		if (editTest) {
+		if (traineeProfessionalMembershipService.editProfessionalMembership(TraineeProfessionalMembershipDtoMapper
+				.mapProfessionalMembershipSaveDtoToProfeesionalMembership(traineeProfessionalMembershipSaveDto), trainee,
+				id)) {
 			return HttpStatus.ACCEPTED;
 		}
 		return HttpStatus.BAD_REQUEST;
 	}
 	@DeleteMapping("/professionalMembership/{id}")
 	public HttpStatus deleteProfessionalMembership(@PathVariable Integer id) {
-		boolean test=traineeProfessionalMembershipService.deleteProfessionalMembership(id);
-		if(test) {
+		if(traineeProfessionalMembershipService.deleteProfessionalMembership(id)) {
 			return HttpStatus.ACCEPTED;
 		}
 		return HttpStatus.BAD_REQUEST;

@@ -18,7 +18,6 @@ import com.sgic.hrm.commons.dto.mapper.trainee.TraineeProfessionalQualificationa
 import com.sgic.hrm.commons.dto.trainee.TraineeProfessionalQualificationalDto;
 import com.sgic.hrm.commons.dto.trainee.TraineeProfessionalQualificationalSaveDto;
 import com.sgic.hrm.commons.entity.mapper.trainee.TraineeProfessionalQualificationalMapper;
-import com.sgic.hrm.commons.entity.trainee.TraineeProfessionalQualification;
 import com.sgic.hrm.commons.entity.trainee.Trainee;
 import com.sgic.hrm.trainee.service.TraineeProfessionalQualificationService;
 import com.sgic.hrm.trainee.service.TraineeService;
@@ -34,19 +33,17 @@ public class TraineeProfessionalQualificationController {
 
 	@GetMapping("/professionalQualification")
 	public ResponseEntity<List<TraineeProfessionalQualificationalDto>> getProfessionalQualification() {
-		List<TraineeProfessionalQualificationalDto> professionalQualificationalDtoList = TraineeProfessionalQualificationalMapper
+		return new ResponseEntity<>(TraineeProfessionalQualificationalMapper
 				.mapProfessionalQualificationListToProfessionalQulaificationalDtoList(
-						traineeProfessionalQualificationService.getAllProofessionalQualificstion());
-		return new ResponseEntity<>(professionalQualificationalDtoList, HttpStatus.OK);
+						traineeProfessionalQualificationService.getAllProofessionalQualificstion()), HttpStatus.OK);
 	}
 
 	@GetMapping("/professionalQualification/{tid}")
 	public ResponseEntity<List<TraineeProfessionalQualificationalDto>> getProfessionalQualificationBytraineeId(
 			@PathVariable("tid") Integer id) {
-		List<TraineeProfessionalQualificationalDto> professionalQualificationalDtoList = TraineeProfessionalQualificationalMapper
+		return new ResponseEntity<>(TraineeProfessionalQualificationalMapper
 				.mapProfessionalQualificationListToProfessionalQulaificationalDtoList(
-						traineeProfessionalQualificationService.getProfessionalQualificationByTraineeId(id));
-		return new ResponseEntity<>(professionalQualificationalDtoList, HttpStatus.OK);
+						traineeProfessionalQualificationService.getProfessionalQualificationByTraineeId(id)), HttpStatus.OK);
 
 	}
 
@@ -54,11 +51,9 @@ public class TraineeProfessionalQualificationController {
 	public HttpStatus addProfessionalQualification(
 			@RequestBody TraineeProfessionalQualificationalSaveDto traineeProfessionalQualificationalSaveDto) {
 		Trainee trainee = traineeService.findTraineeById(traineeProfessionalQualificationalSaveDto.getTrainee());
-		TraineeProfessionalQualification traineeProfessionalQualification = TraineeProfessionalQualificationalDtoMapper
-				.mapProfessionalQualificationalSaveDtoToProfessionalQualification(traineeProfessionalQualificationalSaveDto);
-		boolean test = traineeProfessionalQualificationService.addProfessionalQualification(traineeProfessionalQualification,
-				trainee);
-		if (test) {
+		if (traineeProfessionalQualificationService.addProfessionalQualification(TraineeProfessionalQualificationalDtoMapper
+				.mapProfessionalQualificationalSaveDtoToProfessionalQualification(traineeProfessionalQualificationalSaveDto),
+				trainee)) {
 			return HttpStatus.CREATED;
 		}
 		return HttpStatus.BAD_REQUEST;
@@ -68,18 +63,15 @@ public class TraineeProfessionalQualificationController {
 	public HttpStatus ModifyProfessionalQualiication(@PathVariable Integer id,
 			@RequestBody TraineeProfessionalQualificationalSaveDto traineeProfessionalQualificationalSaveDto) {
 		Trainee trainee = traineeService.findTraineeById(traineeProfessionalQualificationalSaveDto.getTrainee());
-		TraineeProfessionalQualification traineeProfessionalQualification = TraineeProfessionalQualificationalDtoMapper
-				.mapProfessionalQualificationalSaveDtoToProfessionalQualification(traineeProfessionalQualificationalSaveDto);
-		boolean editTest=traineeProfessionalQualificationService.editProfessionalQualification(id, traineeProfessionalQualification, trainee);
-		if(editTest) {
+		if(traineeProfessionalQualificationService.editProfessionalQualification(id, TraineeProfessionalQualificationalDtoMapper
+				.mapProfessionalQualificationalSaveDtoToProfessionalQualification(traineeProfessionalQualificationalSaveDto), trainee)) {
 			return HttpStatus.ACCEPTED;
 		}
 		return HttpStatus.BAD_REQUEST;
 	}
 	@DeleteMapping("/professionalQualification/{id}")
 	public HttpStatus DeleteProfessionalQualification(@PathVariable Integer id) {
-		boolean test=traineeProfessionalQualificationService.deleteProfessionalQualification(id);
-		if(test) {
+		if(traineeProfessionalQualificationService.deleteProfessionalQualification(id)) {
 			return HttpStatus.ACCEPTED;
 		}
 		return HttpStatus.BAD_REQUEST;

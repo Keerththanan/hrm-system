@@ -58,13 +58,11 @@ public class TraineeProfessionalMembershipServiceImpl implements TraineeProfessi
 
 	@Override
 	public Optional<TraineeProfessionalMembership> getProfessionalMembershipById(Integer id) {
-		// TODO Auto-generated method stub
 		return traineeProfessionalMembershipRepository.findById(id);
 	}
 
 	@Override
 	public List<TraineeProfessionalMembership> getProfessionalMembershipByTraineeId(Integer tid) {
-		// TODO Auto-generated method stub
 		return traineeProfessionalMembershipRepository.findProfessionalMembershipByTrainee(traineeRepository.findTraineeById(tid));
 	}
 
