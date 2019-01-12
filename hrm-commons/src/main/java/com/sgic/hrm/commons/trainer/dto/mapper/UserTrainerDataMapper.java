@@ -3,7 +3,6 @@ package com.sgic.hrm.commons.trainer.dto.mapper;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.sgic.hrm.commons.dto.mapper.UserDataToUser;
 import com.sgic.hrm.commons.entity.trainer.UserTrainer;
 import com.sgic.hrm.commons.trainer.dto.UserTrainerData;
 

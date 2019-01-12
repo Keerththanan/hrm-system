@@ -9,7 +9,7 @@ import com.sgic.hrm.commons.trainer.dto.TrainerDTO;
 public class TrainerMapper {
 	public static TrainerDTO mapToTrainerDTO(Trainer trainer) {
 		TrainerDTO trainerDTO = new TrainerDTO();
-		if (trainer !=null) {
+		if (trainer != null) {
 			trainerDTO.setId(trainer.getId());
 			trainerDTO.setFullName(trainer.getFullName());
 			trainerDTO.setNationality(trainer.getNationality());
@@ -25,25 +25,22 @@ public class TrainerMapper {
 			trainerDTO.setMaritalStatus(trainer.getMaritalStatus());
 			trainerDTO.setPosition(trainer.getPosition());
 			trainerDTO.setSpecializedArea(trainer.getSpecializedArea());
-			
+
 		}
-		
+
 		return trainerDTO;
-		
+
 	}
-	
-	public static List<TrainerDTO> mapToTrainerDTOList(
-			List<Trainer> trainerList){
+
+	public static List<TrainerDTO> mapToTrainerDTOList(List<Trainer> trainerList) {
 		List<TrainerDTO> trainerDTO = new ArrayList<TrainerDTO>();
-		
+
 		if (trainerList != null) {
-			
-			  for (Trainer trainer : trainerList) {
-			        trainerDTO.add(mapToTrainerDTO(trainer));
-			      }
-			    }
-			    return trainerDTO;
-			  }
+
+			for (Trainer trainer : trainerList) {
+				trainerDTO.add(mapToTrainerDTO(trainer));
 			}
-
-
+		}
+		return trainerDTO;
+	}
+}
