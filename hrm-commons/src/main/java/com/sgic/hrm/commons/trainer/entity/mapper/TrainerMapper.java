@@ -3,38 +3,47 @@ package com.sgic.hrm.commons.trainer.entity.mapper;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.sgic.hrm.commons.entity.mapper.UserToUserData;
 import com.sgic.hrm.commons.entity.trainer.Trainer;
-import com.sgic.hrm.commons.trainer.dto.TrainerData;
+import com.sgic.hrm.commons.trainer.dto.TrainerDTO;
 
 public class TrainerMapper {
-	
-	public static TrainerData maptoTrainerData(Trainer trainer) {
-		TrainerData trainerData = new TrainerData();
-
-		if (trainer != null) {
-			trainerData.setId(trainer.getId());
-			trainerData.setUser(UserToUserData.mapToUserData(trainer.getUser()));
-			trainerData.setSpecializedArea(trainer.getSpecializedArea());
-			trainerData.setPosition(trainer.getPosition());
+	public static TrainerDTO mapToTrainerDTO(Trainer trainer) {
+		TrainerDTO trainerDTO = new TrainerDTO();
+		if (trainer !=null) {
+			trainerDTO.setId(trainer.getId());
+			trainerDTO.setFullName(trainer.getFullName());
+			trainerDTO.setNationality(trainer.getNationality());
+			trainerDTO.setNic(trainer.getNic());
+			trainerDTO.setGender(trainer.getGender());
+			trainerDTO.setDateOfBirth(trainer.getDateOfBirth());
+			trainerDTO.setReligion(trainer.getReligion());
+			trainerDTO.setPermenentAddress(trainer.getPermenentAddress());
+			trainerDTO.setResidentialAddress(trainer.getResidentialAddress());
+			trainerDTO.setTelephoneNumber(trainer.getTelephoneNumber());
+			trainerDTO.setMobileNumber(trainer.getMobileNumber());
+			trainerDTO.setEmail(trainer.getEmail());
+			trainerDTO.setMaritalStatus(trainer.getMaritalStatus());
+			trainerDTO.setPosition(trainer.getPosition());
+			trainerDTO.setSpecializedArea(trainer.getSpecializedArea());
+			
 		}
-		return trainerData;
-	}	
+		
+		return trainerDTO;
+		
+	}
 	
-	public static List<TrainerData> mapToTrainerDataList(
-		      List<Trainer> trainerList) {
-		    List<TrainerData> trainerDataList =
-		        new ArrayList<TrainerData>();
-
-		    if (trainerList != null) {
-		      for (Trainer trainer : trainerList) {
-		    	  trainerDataList.add(maptoTrainerData(trainer));
-		      }
-		    }
-		    return trainerDataList;
-		  }
-
-		}
-
+	public static List<TrainerDTO> mapToTrainerDTOList(
+			List<Trainer> trainerList){
+		List<TrainerDTO> trainerDTO = new ArrayList<TrainerDTO>();
+		
+		if (trainerList != null) {
+			
+			  for (Trainer trainer : trainerList) {
+			        trainerDTO.add(mapToTrainerDTO(trainer));
+			      }
+			    }
+			    return trainerDTO;
+			  }
+			}
 
 

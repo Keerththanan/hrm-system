@@ -26,7 +26,7 @@ public class Availability implements Serializable {
 	
 	@ManyToOne
 	@JoinColumn(name="trainer_id")
-	private Trainer trainerId;
+	private UserTrainer trainerId;
 	
 	
 	public Integer getId() {
@@ -42,10 +42,10 @@ public class Availability implements Serializable {
 	public void setDate(Date date) {
 		this.date = date;
 	}
-	public Trainer getTrainerId() {
+	public UserTrainer getTrainerId() {
 		return trainerId;
 	}
-	public void setTrainerId(Trainer trainerId) {
+	public void setTrainerId(UserTrainer trainerId) {
 		this.trainerId = trainerId;
 	}
 	

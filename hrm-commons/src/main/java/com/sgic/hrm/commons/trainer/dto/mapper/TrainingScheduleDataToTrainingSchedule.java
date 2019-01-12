@@ -18,7 +18,7 @@ public class TrainingScheduleDataToTrainingSchedule {
 			trainingSchedule.setTrainingTopic(trainingScheduleData.getTrainingTopic());
 			trainingSchedule.setDate(trainingScheduleData.getDate());
 			trainingSchedule.setStatus(trainingScheduleData.getStatus());
-			trainingSchedule.setTrainer(TrainerDataMapper.mapToTrainer(trainingScheduleData.getTrainer()));
+			trainingSchedule.setTrainer(UserTrainerDataMapper.mapToTrainer(trainingScheduleData.getTrainer()));
 
 		}
 

@@ -10,11 +10,10 @@ import com.sgic.hrm.commons.trainer.repository.TrainerRepository;
 import com.sgic.hrm.trainer.service.TrainerService;
 
 @Service
-public class TrainerServiceImpl implements TrainerService {
-	
+public class TrainerServiceImpl implements TrainerService{
 	@Autowired
-private TrainerRepository trainerRepository;
-	
+	TrainerRepository trainerRepository;
+
 	@Override
 	public List<Trainer> getAllTrainer() {
 		return trainerRepository.findAll();
@@ -46,5 +45,4 @@ private TrainerRepository trainerRepository;
 	public Trainer getById(Integer id) {
 		return trainerRepository.findById(id).orElse(null);
 	}
-
 }
