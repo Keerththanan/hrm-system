@@ -23,6 +23,7 @@ public class UserTrainer {
 	private User user;
 	private String position;
 	private String specializedArea;
+	
 	public User getUser() {
 		return user;
 	}
@@ -54,5 +55,4 @@ public class UserTrainer {
 	public void setSpecializedArea(String specializedArea) {
 		this.specializedArea = specializedArea;
 	}
-
 }

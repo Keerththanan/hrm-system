@@ -8,7 +8,6 @@ import com.sgic.hrm.commons.entity.trainer.UserTrainer;
 import com.sgic.hrm.commons.trainer.dto.UserTrainerData;
 
 public class UserTrainerMapper {
-	
 	public static UserTrainerData maptoUserTrainerData(UserTrainer userTrainer) {
 		UserTrainerData userTrainerData = new UserTrainerData();
 
@@ -19,22 +18,16 @@ public class UserTrainerMapper {
 			userTrainerData.setPosition(userTrainer.getPosition());
 		}
 		return userTrainerData;
-	}	
-	
-	public static List<UserTrainerData> mapToUserTrainerDataList(
-		      List<UserTrainer> userTrainerList) {
-		    List<UserTrainerData> userTrainerDataList =
-		        new ArrayList<UserTrainerData>();
+	}
 
-		    if (userTrainerList != null) {
-		      for (UserTrainer userTrainer : userTrainerList) {
-		    	  userTrainerDataList.add(maptoUserTrainerData(userTrainer));
-		      }
-		    }
-		    return userTrainerDataList;
-		  }
+	public static List<UserTrainerData> mapToUserTrainerDataList(List<UserTrainer> userTrainerList) {
+		List<UserTrainerData> userTrainerDataList = new ArrayList<UserTrainerData>();
 
+		if (userTrainerList != null) {
+			for (UserTrainer userTrainer : userTrainerList) {
+				userTrainerDataList.add(maptoUserTrainerData(userTrainer));
+			}
 		}
-
-
-
+		return userTrainerDataList;
+	}
+}

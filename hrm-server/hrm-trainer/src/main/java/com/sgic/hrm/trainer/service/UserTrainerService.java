@@ -1,8 +1,6 @@
 package com.sgic.hrm.trainer.service;
 
 import java.util.List;
-
-
 import com.sgic.hrm.commons.entity.trainer.UserTrainer;
 
 public interface UserTrainerService {
@@ -16,5 +14,4 @@ public interface UserTrainerService {
 	boolean updateuserTrainer(UserTrainer userTrainer, Integer id);
 	
 	UserTrainer getById(Integer id);
-
 }

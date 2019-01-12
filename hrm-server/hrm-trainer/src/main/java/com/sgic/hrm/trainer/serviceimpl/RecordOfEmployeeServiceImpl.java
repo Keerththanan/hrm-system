@@ -33,7 +33,7 @@ public class RecordOfEmployeeServiceImpl implements RecordOfEmploymentService {
 
 	@Override
 	public boolean updateRecordOfEmployment(RecordOfEmployment recordOfEmployment, Integer id) {
-		if(recordOfEmploymentRepository.getOne(id)!=null) {
+		if (recordOfEmploymentRepository.getOne(id) != null) {
 			recordOfEmployment.setId(id);
 			recordOfEmploymentRepository.save(recordOfEmployment);
 			return true;
@@ -45,5 +45,4 @@ public class RecordOfEmployeeServiceImpl implements RecordOfEmploymentService {
 	public RecordOfEmployment getById(Integer id) {
 		return recordOfEmploymentRepository.findById(id).orElse(null);
 	}
-
 }

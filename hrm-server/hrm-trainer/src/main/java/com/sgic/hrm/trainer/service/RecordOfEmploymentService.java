@@ -6,15 +6,12 @@ import com.sgic.hrm.commons.entity.trainer.RecordOfEmployment;
 
 public interface RecordOfEmploymentService {
 	List<RecordOfEmployment> getAllRecordOfEmployment();
-	
-	boolean createRecordOfEmployment (RecordOfEmployment recordOfEmployment);
+
+	boolean createRecordOfEmployment(RecordOfEmployment recordOfEmployment);
 
 	boolean deleteRecordOfEmployment(Integer id);
 
 	boolean updateRecordOfEmployment(RecordOfEmployment recordOfEmployment, Integer id);
-	
+
 	RecordOfEmployment getById(Integer id);
-	
-
-
 }
