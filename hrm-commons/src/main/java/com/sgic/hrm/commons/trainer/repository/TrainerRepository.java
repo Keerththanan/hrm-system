@@ -5,5 +5,5 @@ import com.sgic.hrm.commons.entity.trainer.Trainer;
 
 public interface TrainerRepository extends JpaRepository<Trainer, Integer>{
 //	Trainer findTrainerById(Integer id);
-//	Trainer findTrainerByName(String username);
+//	Trainer findTrainerByName(String fullname);
 }

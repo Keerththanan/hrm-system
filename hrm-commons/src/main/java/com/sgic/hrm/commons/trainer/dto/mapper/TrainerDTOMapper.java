@@ -8,38 +8,38 @@ import com.sgic.hrm.commons.trainer.dto.TrainerDTO;
 
 public class TrainerDTOMapper {
 
-	public static Trainer mapToGeneralInformation(TrainerDTO trainerDTO) {
-		Trainer generalInformation = new Trainer();
+	public static Trainer mapToTrainer(TrainerDTO trainerDTO) {
+		Trainer trainer = new Trainer();
 		if (trainerDTO != null) {
-			generalInformation.setId(trainerDTO.getId());
-			generalInformation.setFullName(trainerDTO.getFullName());
-			generalInformation.setNationality(trainerDTO.getNationality());
-			generalInformation.setNic(trainerDTO.getNic());
-			generalInformation.setGender(trainerDTO.getGender());
-			generalInformation.setDateOfBirth(trainerDTO.getDateOfBirth());
-			generalInformation.setReligion(trainerDTO.getReligion());
-			generalInformation.setPermenentAddress(trainerDTO.getPermenentAddress());
-			generalInformation.setResidentialAddress(trainerDTO.getResidentialAddress());
-			generalInformation.setTelephoneNumber(trainerDTO.getTelephoneNumber());
-			generalInformation.setMobileNumber(trainerDTO.getMobileNumber());
-			generalInformation.setEmail(trainerDTO.getEmail());
-			generalInformation.setMaritalStatus(trainerDTO.getMaritalStatus());
-			generalInformation.setPosition(trainerDTO.getPosition());
-			generalInformation.setSpecializedArea(trainerDTO.getSpecializedArea());
+			trainer.setId(trainerDTO.getId());
+			trainer.setFullName(trainerDTO.getFullName());
+			trainer.setNationality(trainerDTO.getNationality());
+			trainer.setNic(trainerDTO.getNic());
+			trainer.setGender(trainerDTO.getGender());
+			trainer.setDateOfBirth(trainerDTO.getDateOfBirth());
+			trainer.setReligion(trainerDTO.getReligion());
+			trainer.setPermenentAddress(trainerDTO.getPermenentAddress());
+			trainer.setResidentialAddress(trainerDTO.getResidentialAddress());
+			trainer.setTelephoneNumber(trainerDTO.getTelephoneNumber());
+			trainer.setMobileNumber(trainerDTO.getMobileNumber());
+			trainer.setEmail(trainerDTO.getEmail());
+			trainer.setMaritalStatus(trainerDTO.getMaritalStatus());
+			trainer.setPosition(trainerDTO.getPosition());
+			trainer.setSpecializedArea(trainerDTO.getSpecializedArea());
 		}
 
-		return generalInformation;
+		return trainer;
 	}
 
-	public static List<Trainer> mapToGeneralInformationList(
-			List<TrainerDTO> generalInformationDTOList) {
+	public static List<Trainer> mapToTrainerList(
+			List<TrainerDTO> trainerDTOList) {
 
-		if (generalInformationDTOList != null) {
-			List<Trainer> generalInformationList = new ArrayList<Trainer>();
-			for (TrainerDTO trainerDTO : generalInformationDTOList) {
-				generalInformationList.add(mapToGeneralInformation(trainerDTO));
+		if (trainerDTOList != null) {
+			List<Trainer> trainerList = new ArrayList<Trainer>();
+			for (TrainerDTO trainerDTO : trainerDTOList) {
+				trainerList.add(mapToTrainer(trainerDTO));
 			}
-			return generalInformationList;
+			return trainerList;
 		}
 		return null;
 	}

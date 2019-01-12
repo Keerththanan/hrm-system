@@ -44,7 +44,7 @@ public class TrainerController {
 	public ResponseEntity<String> createGeneralInformation(@RequestBody TrainerDTO trainerDTO) {
 
 		if (trainerService
-				.createTrainer(TrainerDTOMapper.mapToGeneralInformation(trainerDTO))) {
+				.createTrainer(TrainerDTOMapper.mapToTrainer(trainerDTO))) {
 			return new ResponseEntity<>("Trainer Create Succesfully ", HttpStatus.OK);
 		}
 		return new ResponseEntity<>("Trainer Create Failed ", HttpStatus.BAD_REQUEST);
@@ -54,7 +54,7 @@ public class TrainerController {
 	public ResponseEntity<String> updateGeneralInformation(@PathVariable(name = "id") Integer id,
 			@RequestBody TrainerDTO trainerDTO) {
 		if (trainerService.updateTrainer(
-				TrainerDTOMapper.mapToGeneralInformation(trainerDTO), id)) {
+				TrainerDTOMapper.mapToTrainer(trainerDTO), id)) {
 			return new ResponseEntity<>("Trainer Update Succesfully ", HttpStatus.OK);
 		}
 		return new ResponseEntity<>("Trainer Update Failed ", HttpStatus.BAD_REQUEST);
