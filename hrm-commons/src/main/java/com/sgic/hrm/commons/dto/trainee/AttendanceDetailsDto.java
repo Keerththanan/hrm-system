@@ -1,6 +1,7 @@
 package com.sgic.hrm.commons.dto.trainee;
 
 import java.sql.Time;
+import java.time.Duration;
 import java.util.Date;
 
 public class AttendanceDetailsDto {
@@ -12,7 +13,7 @@ public class AttendanceDetailsDto {
 	private Integer attendantStatus;
 	private Integer attendType;
 	private Date attendDate;
-	private Float duration;
+	private Duration duration;
 
 	public Date getAttendDate() {
 		return attendDate;
@@ -54,11 +55,11 @@ public class AttendanceDetailsDto {
 		this.endTime = endTime;
 	}
 
-	public Float getDuration() {
+	public Duration getDuration() {
 		return duration;
 	}
 
-	public void setDuration(Float duration) {
+	public void setDuration(Duration duration) {
 		this.duration = duration;
 	}
 

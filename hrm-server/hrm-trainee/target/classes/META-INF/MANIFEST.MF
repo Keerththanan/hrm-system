@@ -2,6 +2,11 @@ Manifest-Version: 1.0
 Implementation-Title: hrm-trainee
 Implementation-Version: 0.0.1-SNAPSHOT
 <<<<<<< HEAD
+Built-By: Pakikaran
+Implementation-Vendor-Id: com.sgic.hrm
+Build-Jdk: 1.8.0_191
+=======
+<<<<<<< HEAD
 Built-By: Ragulan
 Implementation-Vendor-Id: com.sgic.hrm
 Build-Jdk: 1.8.0_181
@@ -10,6 +15,7 @@ Built-By: Saruga
 Implementation-Vendor-Id: com.sgic.hrm
 Build-Jdk: 1.8.0_171
 >>>>>>> d1607cf77b52ebde09b2efe087ef0ae99175b8d5
+>>>>>>> af91964d9ba1cf0605813d9be9f6abca201ab80a
 Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
  ot-starter-parent/hrm-trainee
 Created-By: Maven Integration for Eclipse
