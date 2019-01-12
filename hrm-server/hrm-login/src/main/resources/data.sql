@@ -344,3 +344,14 @@ INSERT INTO employee.professional_membership VALUES (4, 1, 'Key Chalange', 'IT C
 
 INSERT INTO employee.professional_qualification VALUES (1, 'Physical Science', 'Computer Science', 2016, 3.4000001, 'Jaffna University', 2013, 2016, 'Passed', 3);
 INSERT INTO employee.professional_qualification VALUES (2, 'Computer Science', 'Computer Science', 2015, 3.0999999, 'Clombo University', 2012, 2015, 'passed', 4);
+
+--
+-- Data for Name: payment; Type: TABLE DATA; Schema: trainer; Owner: postgres
+--
+--
+--INSERT INTO trainer.payment VALUES (1, 10000, '2018-09-06 00:00:00', 'Closed', 1);
+--INSERT INTO trainer.payment VALUES (3, 50000, '2018-09-06 00:00:00', 'Completed', 2);
+--INSERT INTO trainer.payment VALUES (2, 15000, '2018-09-06 00:00:00', 'Initialized', 3);
+
+
+
