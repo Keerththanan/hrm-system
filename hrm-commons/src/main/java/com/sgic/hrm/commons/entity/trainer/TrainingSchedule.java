@@ -28,7 +28,7 @@ public class TrainingSchedule implements Serializable {
 	
 	@OneToOne
 	@JoinColumn(name="trainer_id")
-	private Trainer trainer;
+	private UserTrainer trainer;
 	
     public String getStatus() {
 		return status;
@@ -38,11 +38,11 @@ public class TrainingSchedule implements Serializable {
 		this.status = status;
 	}
 
-	public Trainer getTrainer() {
+	public UserTrainer getTrainer() {
 		return trainer;
 	}
 
-	public void setTrainer(Trainer trainer) {
+	public void setTrainer(UserTrainer trainer) {
 		this.trainer = trainer;
 	}
 

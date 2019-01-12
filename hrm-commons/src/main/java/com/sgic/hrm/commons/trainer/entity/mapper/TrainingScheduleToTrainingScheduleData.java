@@ -15,7 +15,7 @@ public class TrainingScheduleToTrainingScheduleData {
 			trainingScheduleData.setTotalCoveredhours(trainingSchedule.getTotalCoveredhours());
 			trainingScheduleData.setDate(trainingSchedule.getDate());
 			trainingScheduleData.setStatus(trainingSchedule.getStatus());
-			trainingScheduleData.setTrainer(TrainerMapper.maptoTrainerData(trainingSchedule.getTrainer()));
+			trainingScheduleData.setTrainer(UserTrainerMapper.maptoUserTrainerData(trainingSchedule.getTrainer()));
 		}
 		return trainingScheduleData;
 	}

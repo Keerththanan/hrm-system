@@ -2,7 +2,7 @@ package com.sgic.hrm.commons.trainer.dto;
 
 import java.util.Date;
 
-public class GeneralInformationDTO {
+public class TrainerDTO {
 	
 	private Integer id;
 	private String fullName;

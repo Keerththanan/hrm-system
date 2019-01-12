@@ -3,7 +3,7 @@ package com.sgic.hrm.commons.trainer.dto;
 import com.sgic.hrm.commons.dto.UserData;
 
 
-public class TrainerData {
+public class UserTrainerData {
 	
 	private int id;
 	private UserData user;

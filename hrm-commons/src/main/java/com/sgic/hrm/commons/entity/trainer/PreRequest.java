@@ -29,6 +29,9 @@ public class PreRequest implements Serializable{
 	@Column(name = "resourceName")
 	private String resourceName;
 	
+	@Column(name= "resourceType")
+	private String resourceType;
+	
 	@Column(name = "resource")
 	private File  resource;
 	
@@ -83,6 +86,15 @@ public class PreRequest implements Serializable{
 	public void setTrainingSchedule(TrainingSchedule trainingSchedule) {
 		this.trainingSchedule = trainingSchedule;
 	}
+
+	public String getResourceType() {
+		return resourceType;
+	}
+
+	public void setResourceType(String resourceType) {
+		this.resourceType = resourceType;
+	}
+	
 
 	
 }

@@ -11,7 +11,7 @@ public class TrainingScheduleData {
 	private Date date;
 	private Time totalCoveredhours;
 	private String status;
-	private TrainerData trainer;
+	private UserTrainerData trainer;
 	
 	
 	public String getStatus() {
@@ -20,10 +20,10 @@ public class TrainingScheduleData {
 	public void setStatus(String status) {
 		this.status = status;
 	}
-	public TrainerData getTrainer() {
+	public UserTrainerData getTrainer() {
 		return trainer;
 	}
-	public void setTrainer(TrainerData trainer) {
+	public void setTrainer(UserTrainerData trainer) {
 		this.trainer = trainer;
 	}
 	public Integer getId() {

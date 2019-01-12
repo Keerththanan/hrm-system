@@ -15,7 +15,7 @@ public class AvailabilityDataToAvailability {
 		if (availabilityData != null) {
 			availability.setId(availabilityData.getId());
 			availability.setDate(availabilityData.getDate());
-			availability.setTrainerId(TrainerDataMapper.mapToTrainer(availabilityData.getTrainerId()));
+			availability.setTrainerId(UserTrainerDataMapper.mapToTrainer(availabilityData.getTrainerId()));
 			
 			
 		}
