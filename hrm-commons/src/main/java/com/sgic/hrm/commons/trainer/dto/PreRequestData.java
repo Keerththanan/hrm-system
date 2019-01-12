@@ -8,6 +8,7 @@ public class PreRequestData {
 	private Integer id;
 	private TrainingScheduleData trainingSchedule;
 	private String resourceName;
+	private String resourceType;
 	private File  resource;
 	private String link;
 	public Integer getId() {
@@ -42,6 +43,10 @@ public class PreRequestData {
 	public void setLink(String link) {
 		this.link = link;
 	}
-	
-
+	public String getResourceType() {
+		return resourceType;
+	}
+	public void setResourceType(String resourceType) {
+		this.resourceType = resourceType;
+	}
 }
