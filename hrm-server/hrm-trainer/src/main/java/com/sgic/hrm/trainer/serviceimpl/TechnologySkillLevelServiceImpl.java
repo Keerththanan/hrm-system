@@ -10,7 +10,7 @@ import com.sgic.hrm.commons.trainer.repository.TechnologySkillLevelRepository;
 import com.sgic.hrm.trainer.service.TechnologySkillLevelService;
 
 @Service
-public class TechnologySkillLevelServiceImpl implements TechnologySkillLevelService{
+public class TechnologySkillLevelServiceImpl implements TechnologySkillLevelService {
 	@Autowired
 	private TechnologySkillLevelRepository technologySkillLevelRepository;
 
@@ -33,7 +33,7 @@ public class TechnologySkillLevelServiceImpl implements TechnologySkillLevelServ
 
 	@Override
 	public boolean updateTechnologySkillLevel(TechnologySkillLevel technologySkillLevel, Integer id) {
-		if(technologySkillLevelRepository.getOne(id)!=null) {
+		if (technologySkillLevelRepository.getOne(id) != null) {
 			technologySkillLevel.setId(id);
 			technologySkillLevelRepository.save(technologySkillLevel);
 			return true;
@@ -45,8 +45,4 @@ public class TechnologySkillLevelServiceImpl implements TechnologySkillLevelServ
 	public TechnologySkillLevel getById(Integer id) {
 		return technologySkillLevelRepository.findById(id).orElse(null);
 	}
-	
-	
-
-	
 }

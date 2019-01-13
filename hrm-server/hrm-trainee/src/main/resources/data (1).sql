@@ -29,12 +29,13 @@ INSERT INTO employee.department(department_name) VALUES('Manager');
 INSERT INTO employee.department(department_name) VALUES('QA');
 INSERT INTO employee.department(department_name) VALUES('Development');
 INSERT INTO employee.department(department_name) VALUES('Account');
+
 --user--
 INSERT INTO employee."user" VALUES (1, '1988-08-12 00:00:00', 'sinthu@gmail.com', 'sinthuja', 'female', '2018-07-07 00:00:00', 'single', '0766548594', 'Srilankan', '884561237V', 'Manipay Jaffna', NULL, 'Hindu', 'Manipay Jaffna', 1, '0214567893', '2018-08-10 00:00:00', 1, 6);
 INSERT INTO employee."user" VALUES (2, '1986-04-21 00:00:00', 'betsy@gmail.com', 'betsy', 'female', '2018-07-08 00:00:00', 'married', '0777526389', 'Srilankan', '864521472V', 'Pandatharippu Jaffna', NULL, 'Christian', 'Pandatharippu Jaffna', 1, '02177775421', '2018-08-10 00:00:00', 2, 1);
 INSERT INTO employee."user" VALUES (3, '1991-02-25 00:00:00', 'paki@gmail.com', 'Pakikaran', 'male', '2018-08-20 00:00:00', 'single', '0775458526', 'Srilankan', '911251257V', 'Manipay Jaffna', NULL, 'Hindu', 'Manipay Jaffna', 1, '02145562574', '2018-08-10 00:00:00', 4, 7);
 INSERT INTO employee."user" VALUES (4, '1990-04-25 00:00:00', 'dilshi@gmail.com', 'dilshanth', 'male', '2018-08-20 00:00:00', 'single', '0711125525', 'Srilankan', '901542548V', 'Kantharmadam Jaffna', NULL, 'Hindu', 'Kantharmadam Jaffna', 1, '02145645612', '2018-08-10 00:00:00', 4, 7);
---trainee
+
 --leave-allocation--
 INSERT INTO leavesystem.leave_allocation VALUES (7, 14, 0, 1, 2);
 INSERT INTO leavesystem.leave_allocation VALUES (8, 7, 0, 2, 2);
@@ -301,7 +302,6 @@ INSERT INTO employee.vacancy VALUES (2, '2018-06-07', 'External', 5, 30000, '201
 INSERT INTO employee.exam_type(exam_type_name) VALUES('O/L');
 INSERT INTO employee.exam_type(exam_type_name) VALUES('A/L');
 
-
 INSERT INTO employee.academic_qualification VALUES (1, NULL, 2008, 2003, 2008, 'passed', 'J/SJMV', NULL, 1, 3);
 INSERT INTO employee.academic_qualification VALUES (2, NULL, 2009, 2011, 2012, 'passed', 'J/SJMV', NULL, 2, 3);
 INSERT INTO employee.academic_qualification VALUES (3, NULL, 2008, 2003, 2008, 'passed', 'J/SJMV', NULL, 1, 4);
@@ -344,14 +344,3 @@ INSERT INTO employee.professional_membership VALUES (4, 1, 'Key Chalange', 'IT C
 
 INSERT INTO employee.professional_qualification VALUES (1, 'Physical Science', 'Computer Science', 2016, 3.4000001, 'Jaffna University', 2013, 2016, 'Passed', 3);
 INSERT INTO employee.professional_qualification VALUES (2, 'Computer Science', 'Computer Science', 2015, 3.0999999, 'Clombo University', 2012, 2015, 'passed', 4);
-
---
--- Data for Name: payment; Type: TABLE DATA; Schema: trainer; Owner: postgres
---
---
---INSERT INTO trainer.payment VALUES (1, 10000, '2018-09-06 00:00:00', 'Closed', 1);
---INSERT INTO trainer.payment VALUES (3, 50000, '2018-09-06 00:00:00', 'Completed', 2);
---INSERT INTO trainer.payment VALUES (2, 15000, '2018-09-06 00:00:00', 'Initialized', 3);
-
-
-

@@ -2,6 +2,7 @@ package com.sgic.hrm.commons.entity.trainee;
 
 import java.io.Serializable;
 import java.sql.Time;
+import java.time.Duration;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -30,7 +31,7 @@ public class AttendanceDetails implements Serializable {
 	private Trainee trainee;
 	private Time startTime;
 	private Time endTime;
-	private Date AttendDate;
+	private Date attendDate;
 	@UpdateTimestamp
 	private Date updateAt;
 	@ManyToOne
@@ -39,13 +40,13 @@ public class AttendanceDetails implements Serializable {
 	@ManyToOne
 	@JoinColumn(name = "attend_type_id")
 	private AttendType attendType;
-	private float duration;
+	private Duration duration;
 
-	public float getDuration() {
+	public Duration getDuration() {
 		return duration;
 	}
 
-	public void setDuration(float duration) {
+	public void setDuration(Duration duration) {
 		this.duration = duration;
 	}
 
@@ -98,11 +99,11 @@ public class AttendanceDetails implements Serializable {
 	}
 
 	public Date getAttendDate() {
-		return AttendDate;
+		return attendDate;
 	}
 
 	public void setAttendDate(Date attendDate) {
-		AttendDate = attendDate;
+		this.attendDate = attendDate;
 	}
 
 	public Date getUpdateAt() {

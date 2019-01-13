@@ -24,5 +24,7 @@ public class AttendanceDetailsDtoMapper {
 		attendStatus.setId(attendanceDetailsDto.getAttendantStatus());
 		return attendanceDetails;
 	}
+	
+	
 
 }
