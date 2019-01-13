@@ -1,3 +1,4 @@
+//code done by ragulan
 package com.sgic.hrm.commons.entity.trainer;
 
 import java.sql.Date;
