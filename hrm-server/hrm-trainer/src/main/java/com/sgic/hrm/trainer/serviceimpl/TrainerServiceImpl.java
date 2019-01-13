@@ -11,10 +11,9 @@ import com.sgic.hrm.trainer.service.TrainerService;
 
 @Service
 public class TrainerServiceImpl implements TrainerService {
-	
 	@Autowired
-private TrainerRepository trainerRepository;
-	
+	TrainerRepository trainerRepository;
+
 	@Override
 	public List<Trainer> getAllTrainer() {
 		return trainerRepository.findAll();
@@ -34,7 +33,7 @@ private TrainerRepository trainerRepository;
 
 	@Override
 	public boolean updateTrainer(Trainer trainer, Integer id) {
-		if(trainerRepository.getOne(id)!=null) {
+		if (trainerRepository.getOne(id) != null) {
 			trainer.setId(id);
 			trainerRepository.save(trainer);
 			return true;
@@ -46,5 +45,4 @@ private TrainerRepository trainerRepository;
 	public Trainer getById(Integer id) {
 		return trainerRepository.findById(id).orElse(null);
 	}
-
 }

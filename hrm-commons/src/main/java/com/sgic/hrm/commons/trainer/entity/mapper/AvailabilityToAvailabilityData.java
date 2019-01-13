@@ -6,15 +6,13 @@ import java.util.List;
 import com.sgic.hrm.commons.entity.trainer.Availability;
 import com.sgic.hrm.commons.trainer.dto.AvailabilityData;
 
-
-
 public class AvailabilityToAvailabilityData {
 	public static AvailabilityData mapToAvailabilityData(Availability availability) {
 		AvailabilityData availabilityData = new AvailabilityData();
 		if (availability != null) {
 			availabilityData.setId(availability.getId());
 			availabilityData.setDate(availability.getDate());
-			availabilityData.setTrainerId(TrainerMapper.maptoTrainerData(availability.getTrainerId()));
+			availabilityData.setTrainerId(UserTrainerMapper.maptoUserTrainerData(availability.getTrainerId()));
 			
 		}
 		return availabilityData;

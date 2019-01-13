@@ -1,5 +1,7 @@
 package com.sgic.hrm.trainee.serviceimpl;
 
+import java.time.Duration;
+import java.time.LocalTime;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,8 +39,22 @@ public class AttendanceDetailsServiceImpl implements AttendanceDetailsService {
 		attendanceDetails.setTrainee(trainee);
 		attendanceDetails.setAttendantStatus(attendStatus);
 		attendanceDetails.setAttendType(attendType);
+
+		LocalTime start = LocalTime.of(attendanceDetails.getStartTime().getHours(),
+				attendanceDetails.getStartTime().getMinutes());
+		LocalTime end = LocalTime.of(attendanceDetails.getEndTime().getHours(),
+				attendanceDetails.getEndTime().getMinutes());
+		Duration duration = Duration.between(start, end);
+		Duration newdu = duration.dividedBy(1000000000);
+		float time = newdu.toHours();
+//		duration get in long number of nano secounds
+		attendanceDetails.setDuration(newdu);
+
+//		System.out.printf("Seconds between %s and %s is: %s seconds.%n", start, end, duration.getSeconds());
+
 		attendanceDetailsRepository.save(attendanceDetails);
 		return true;
+
 	}
 
 	@Override

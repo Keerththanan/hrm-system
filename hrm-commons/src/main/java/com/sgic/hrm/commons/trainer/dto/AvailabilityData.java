@@ -6,7 +6,7 @@ public class AvailabilityData {
 	
 	private Integer id;
 	private Date date;
-	private TrainerData trainerId;
+	private UserTrainerData trainerId;
 	public Integer getId() {
 		return id;
 	}
@@ -19,10 +19,10 @@ public class AvailabilityData {
 	public void setDate(Date date) {
 		this.date = date;
 	}
-	public TrainerData getTrainerId() {
+	public UserTrainerData getTrainerId() {
 		return trainerId;
 	}
-	public void setTrainerId(TrainerData trainerId) {
+	public void setTrainerId(UserTrainerData trainerId) {
 		this.trainerId = trainerId;
 	}
 	

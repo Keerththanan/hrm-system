@@ -16,7 +16,7 @@ public class SkillServiceImpl implements SkillService {
 
 	@Override
 	public List<Skill> getAllSkill() {
-			return skillRepository.findAll();
+		return skillRepository.findAll();
 	}
 
 	@Override
@@ -33,7 +33,7 @@ public class SkillServiceImpl implements SkillService {
 
 	@Override
 	public boolean updateSkill(Skill skill, Integer id) {
-		if(skillRepository.getOne(id)!=null) {
+		if (skillRepository.getOne(id) != null) {
 			skill.setId(id);
 			skillRepository.save(skill);
 			return true;
@@ -45,5 +45,4 @@ public class SkillServiceImpl implements SkillService {
 	public Skill getById(Integer id) {
 		return skillRepository.findById(id).orElse(null);
 	}
-
 }

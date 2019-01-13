@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.sgic.hrm.commons.trainer.dto.TrainerData;
-import com.sgic.hrm.commons.trainer.dto.mapper.TrainerDataMapper;
+import com.sgic.hrm.commons.trainer.dto.TrainerDto;
+import com.sgic.hrm.commons.trainer.dto.mapper.TrainerDtoMapper;
 import com.sgic.hrm.commons.trainer.entity.mapper.TrainerMapper;
 import com.sgic.hrm.trainer.service.TrainerService;
 
@@ -24,55 +24,41 @@ import com.sgic.hrm.trainer.service.TrainerService;
 public class TrainerController {
 	@Autowired
 	TrainerService trainerService;
-	
-	
+
 	@GetMapping("/trainer/{id}")
-	public ResponseEntity<TrainerData> getById(@PathVariable(name = "id") Integer id) {
-		return new ResponseEntity<>(
-				TrainerMapper.maptoTrainerData(trainerService.getById(id)),
-				HttpStatus.OK);
+	public ResponseEntity<TrainerDto> getById(@PathVariable(name = "id") Integer id) {
+		return new ResponseEntity<>(TrainerMapper.mapToTrainerDTO(trainerService.getById(id)), HttpStatus.OK);
 	}
 
 	@GetMapping("/trainer")
-	public ResponseEntity<List<TrainerData>> getAllTrainer(){
+	public ResponseEntity<List<TrainerDto>> getAllTerminationType() {
 
-		return new ResponseEntity<>(TrainerMapper
-				.mapToTrainerDataList(trainerService.getAllTrainer()), HttpStatus.OK);
+		return new ResponseEntity<>(TrainerMapper.mapToTrainerDTOList(trainerService.getAllTrainer()), HttpStatus.OK);
 	}
-	
-//	@GetMapping("/trainerget/{fullName}")
-//	  public UserDto getUserByName(@PathVariable String fullName) {
-//	    return UserMapper.mapUserToUserDto(UserService.findByUserName(fullName));
-//	  }
-	
-	@PostMapping("/trainer")
-	public ResponseEntity<String> createTrainer(@RequestBody TrainerData trainerData) {
 
-		if (trainerService
-				.createTrainer(TrainerDataMapper.mapToTrainer(trainerData))) {
-			return new ResponseEntity<>("Trainer Creation Succesfully ", HttpStatus.OK);
+	@PostMapping("/trainer")
+	public ResponseEntity<String> createGeneralInformation(@RequestBody TrainerDto trainerDto) {
+
+		if (trainerService.createTrainer(TrainerDtoMapper.mapToTrainer(trainerDto))) {
+			return new ResponseEntity<>("Trainer Create Succesfully ", HttpStatus.OK);
 		}
-		return new ResponseEntity<>("Trainer Creation Failed ", HttpStatus.BAD_REQUEST);
+		return new ResponseEntity<>("Trainer Create Failed ", HttpStatus.BAD_REQUEST);
 	}
 
 	@PutMapping("/trainer/{id}")
-	public ResponseEntity<String> updateTrainer(@PathVariable(name = "id") Integer id,
-			@RequestBody TrainerData trainerData) {
-		if (trainerService.updateTrainer(
-				TrainerDataMapper.mapToTrainer(trainerData), id)) {
+	public ResponseEntity<String> updateGeneralInformation(@PathVariable(name = "id") Integer id,
+			@RequestBody TrainerDto trainerDto) {
+		if (trainerService.updateTrainer(TrainerDtoMapper.mapToTrainer(trainerDto), id)) {
 			return new ResponseEntity<>("Trainer Update Succesfully ", HttpStatus.OK);
 		}
 		return new ResponseEntity<>("Trainer Update Failed ", HttpStatus.BAD_REQUEST);
 	}
 
 	@DeleteMapping("/trainer/{id}")
-	public ResponseEntity<String> deleteTrainer(@PathVariable(name = "id") Integer id) {
+	public ResponseEntity<String> deleteGeneralInformation(@PathVariable(name = "id") Integer id) {
 		if (trainerService.deleteTrainer(id)) {
 			return new ResponseEntity<>("Trainer Delete Succesfully ", HttpStatus.OK);
 		}
 		return new ResponseEntity<>("Trainer Delete Failed ", HttpStatus.BAD_REQUEST);
-
 	}
-
 }
-
