@@ -19,7 +19,7 @@ public class TraineeProfessionalMembership implements Serializable {
 	 */
 	private static final long serialVersionUID = -4866981437223237564L;
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String organizationName;
 	private String eventName;
@@ -95,6 +95,5 @@ public class TraineeProfessionalMembership implements Serializable {
 	public void setTrainee(Trainee trainee) {
 		this.trainee = trainee;
 	}
-	
-	
+
 }

@@ -15,25 +15,27 @@ import com.sgic.hrm.trainee.service.TraineeProfessionalQualificationService;
 @Service
 public class TraineeProfessionalQualificationServiceImpl implements TraineeProfessionalQualificationService {
 	@Autowired
-	private  TraineeProfessionalQualificationRepository traineeProfessionalQualificationRepository;
+	private TraineeProfessionalQualificationRepository traineeProfessionalQualificationRepository;
 	@Autowired
 	private TraineeRepository traineeRepository;
+
 	@Override
 	public List<TraineeProfessionalQualification> getAllProofessionalQualificstion() {
 		return traineeProfessionalQualificationRepository.findAll();
 	}
 
 	@Override
-	public boolean addProfessionalQualification(TraineeProfessionalQualification traineeProfessionalQualification, Trainee trainee) {
+	public boolean addProfessionalQualification(TraineeProfessionalQualification traineeProfessionalQualification,
+			Trainee trainee) {
 		traineeProfessionalQualification.setTrainee(trainee);
 		traineeProfessionalQualificationRepository.save(traineeProfessionalQualification);
 		return true;
 	}
 
 	@Override
-	public boolean editProfessionalQualification(Integer id, TraineeProfessionalQualification traineeProfessionalQualification,
-			Trainee trainee) {
-		if(traineeProfessionalQualificationRepository.getOne(id) !=null) {
+	public boolean editProfessionalQualification(Integer id,
+			TraineeProfessionalQualification traineeProfessionalQualification, Trainee trainee) {
+		if (traineeProfessionalQualificationRepository.getOne(id) != null) {
 			traineeProfessionalQualification.setTrainee(trainee);
 			traineeProfessionalQualification.setId(id);
 			traineeProfessionalQualificationRepository.save(traineeProfessionalQualification);
@@ -44,7 +46,7 @@ public class TraineeProfessionalQualificationServiceImpl implements TraineeProfe
 
 	@Override
 	public boolean deleteProfessionalQualification(Integer id) {
-		if(traineeProfessionalQualificationRepository.getOne(id) !=null) {
+		if (traineeProfessionalQualificationRepository.getOne(id) != null) {
 			traineeProfessionalQualificationRepository.deleteById(id);
 			return true;
 		}
@@ -58,7 +60,8 @@ public class TraineeProfessionalQualificationServiceImpl implements TraineeProfe
 
 	@Override
 	public List<TraineeProfessionalQualification> getProfessionalQualificationByTraineeId(int tid) {
-		return traineeProfessionalQualificationRepository.findProfessionalQualificationByTrainee(traineeRepository.findTraineeById(tid));
+		return traineeProfessionalQualificationRepository
+				.findProfessionalQualificationByTrainee(traineeRepository.findTraineeById(tid));
 	}
 
 }

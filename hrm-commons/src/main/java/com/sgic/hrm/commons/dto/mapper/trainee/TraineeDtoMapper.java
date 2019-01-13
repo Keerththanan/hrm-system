@@ -39,8 +39,8 @@ public class TraineeDtoMapper {
 	}
 
 	public static Trainee mapTraineeDtoToTrainee(TraineeDto traineeDto) {
-		Trainee trainee=new Trainee();
-		
+		Trainee trainee = new Trainee();
+
 		trainee.setId(traineeDto.getId());
 		trainee.setTraineeDepartment(traineeDto.getTraineeDepartment());
 		trainee.setDateOfBirth(traineeDto.getDateOfBirth());

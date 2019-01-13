@@ -42,16 +42,14 @@ public class TraineeServiceImpl implements TraineeService {
 	}
 
 	@Override
-	public boolean addTrainee(Trainee trainee,
-			TraineeDepartment traineeDepartment) {
+	public boolean addTrainee(Trainee trainee, TraineeDepartment traineeDepartment) {
 		trainee.setTraineeDepartment(traineeDepartment);
 		traineeRepository.save(trainee);
 		return true;
 	}
 
 	@Override
-	public boolean editTrainee(Trainee trainee, TraineeDepartment traineeDepartment,
-			Integer id) {
+	public boolean editTrainee(Trainee trainee, TraineeDepartment traineeDepartment, Integer id) {
 		if (traineeRepository.getOne(id) != null) {
 			trainee.setTraineeDepartment(traineeDepartment);
 			traineeRepository.save(trainee);
@@ -73,7 +71,5 @@ public class TraineeServiceImpl implements TraineeService {
 	public List<Trainee> findTraineebyfullName(String fullName) {
 		return traineeRepository.findTraineeByFullName(fullName);
 	}
-
-	
 
 }
