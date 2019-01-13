@@ -9,8 +9,8 @@ import com.sgic.hrm.commons.entity.trainee.Trainee;
 public class TraineeMapper {
 
 	public static TraineeDto mapTraineeToTraineeDto(Trainee trainee) {
-		TraineeDto traineeDto=new TraineeDto();
-		
+		TraineeDto traineeDto = new TraineeDto();
+
 		traineeDto.setId(trainee.getId());
 		traineeDto.setDateOfBirth(trainee.getDateOfBirth());
 		traineeDto.setTraineeDepartment(trainee.getTraineeDepartment());
@@ -33,17 +33,18 @@ public class TraineeMapper {
 		traineeDto.setTelephoneNumber(trainee.getTelephoneNumber());
 		traineeDto.setUpdateAt(trainee.getUpdateAt());
 		traineeDto.setQualificationLevel(trainee.getQualificationLevel());
-		return traineeDto;	
+		return traineeDto;
 	}
+
 	public static List<TraineeDto> mapTraineeListToTraineeDtoList(List<Trainee> traineeList) {
-		List<TraineeDto> traineeDtoList=new ArrayList<TraineeDto>();
-		
-		if(traineeList !=null) {
-			for(Trainee trainee:traineeList) {
+		List<TraineeDto> traineeDtoList = new ArrayList<TraineeDto>();
+
+		if (traineeList != null) {
+			for (Trainee trainee : traineeList) {
 				traineeDtoList.add(mapTraineeToTraineeDto(trainee));
 			}
 		}
 		return traineeDtoList;
 	}
-	
+
 }

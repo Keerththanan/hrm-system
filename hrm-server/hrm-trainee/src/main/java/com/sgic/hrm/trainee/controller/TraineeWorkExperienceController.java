@@ -23,53 +23,51 @@ import com.sgic.hrm.trainee.service.TraineeWorkExperienceService;
 @CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
 @RestController
 public class TraineeWorkExperienceController {
-  @Autowired
-  private TraineeWorkExperienceService traineeWorkExperienceService;
+	@Autowired
+	private TraineeWorkExperienceService traineeWorkExperienceService;
 
-  @Autowired
-  private TraineeService traineeService;
+	@Autowired
+	private TraineeService traineeService;
 
-  @PostMapping("/workexperience")
-  public HttpStatus addWorkExperience(
-      @Valid @RequestBody TraineeWorkExperienceSaveDto traineeWorkExperienceSaveDto) {
-    if (traineeWorkExperienceService.addWorkExperience(
-        TraineeWorkExperienceDtoMapper.map(traineeWorkExperienceSaveDto),
-        traineeService.findTraineeById(traineeWorkExperienceSaveDto.getTrainee()))) {
-      return HttpStatus.CREATED;
-    }
-    return HttpStatus.BAD_REQUEST;
-  }
+	@PostMapping("/workexperience")
+	public HttpStatus addWorkExperience(@Valid @RequestBody TraineeWorkExperienceSaveDto traineeWorkExperienceSaveDto) {
+		if (traineeWorkExperienceService.addWorkExperience(
+				TraineeWorkExperienceDtoMapper.map(traineeWorkExperienceSaveDto),
+				traineeService.findTraineeById(traineeWorkExperienceSaveDto.getTrainee()))) {
+			return HttpStatus.CREATED;
+		}
+		return HttpStatus.BAD_REQUEST;
+	}
 
-  @PutMapping("/workexperience/{id}")
-  public HttpStatus modifyworkexperience(@PathVariable Integer id,
-      @RequestBody TraineeWorkExperienceSaveDto traineeWorkExperienceSaveDto) {
-    if (traineeWorkExperienceService.editWorkExperience(
-        TraineeWorkExperienceDtoMapper.map(traineeWorkExperienceSaveDto),
-        traineeService.findTraineeById(traineeWorkExperienceSaveDto.getTrainee()), id)) {
-      return HttpStatus.CREATED;
-    }
-    return HttpStatus.BAD_REQUEST;
-  }
+	@PutMapping("/workexperience/{id}")
+	public HttpStatus modifyworkexperience(@PathVariable Integer id,
+			@RequestBody TraineeWorkExperienceSaveDto traineeWorkExperienceSaveDto) {
+		if (traineeWorkExperienceService.editWorkExperience(
+				TraineeWorkExperienceDtoMapper.map(traineeWorkExperienceSaveDto),
+				traineeService.findTraineeById(traineeWorkExperienceSaveDto.getTrainee()), id)) {
+			return HttpStatus.CREATED;
+		}
+		return HttpStatus.BAD_REQUEST;
+	}
 
-  @GetMapping("/workexperience")
-  public ResponseEntity<List<TraineeWorkExperienceDto>> getWorkExperience() {
-    return new ResponseEntity<>(TraineeWorkExperienceMapper.mapWorkExperienceListToWorkExperienceDtoList(
-        traineeWorkExperienceService.getAllWorkExperience()), HttpStatus.OK);
-  }
+	@GetMapping("/workexperience")
+	public ResponseEntity<List<TraineeWorkExperienceDto>> getWorkExperience() {
+		return new ResponseEntity<>(TraineeWorkExperienceMapper.mapWorkExperienceListToWorkExperienceDtoList(
+				traineeWorkExperienceService.getAllWorkExperience()), HttpStatus.OK);
+	}
 
-  @GetMapping("/workexperience/{uid}")
-  public ResponseEntity<List<TraineeWorkExperienceDto>> getworkExperiencesByUserId(
-      @PathVariable("uid") Integer id) {
-    return new ResponseEntity<>(TraineeWorkExperienceMapper.mapWorkExperienceListToWorkExperienceDtoList(
-        traineeWorkExperienceService.getWorkExperienceByTraineeId(id)), HttpStatus.OK);
-  }
+	@GetMapping("/workexperience/{uid}")
+	public ResponseEntity<List<TraineeWorkExperienceDto>> getworkExperiencesByUserId(@PathVariable("uid") Integer id) {
+		return new ResponseEntity<>(TraineeWorkExperienceMapper.mapWorkExperienceListToWorkExperienceDtoList(
+				traineeWorkExperienceService.getWorkExperienceByTraineeId(id)), HttpStatus.OK);
+	}
 
-  @DeleteMapping("/workexperience/{id}")
-  public HttpStatus deleteWorkexperience(@PathVariable Integer id) {
-    if (traineeWorkExperienceService.deleteWorkExperience(id)) {
-      return HttpStatus.ACCEPTED;
-    }
-    return HttpStatus.BAD_REQUEST;
-  }
+	@DeleteMapping("/workexperience/{id}")
+	public HttpStatus deleteWorkexperience(@PathVariable Integer id) {
+		if (traineeWorkExperienceService.deleteWorkExperience(id)) {
+			return HttpStatus.ACCEPTED;
+		}
+		return HttpStatus.BAD_REQUEST;
+	}
 
 }

@@ -45,7 +45,7 @@ public class AttendStatusServiceImpl implements AttendStatusService {
 	}
 
 	@Override
-	public AttendStatus getAttendStatusId(Integer id) {	
+	public AttendStatus getAttendStatusId(Integer id) {
 		return attendStatusRepository.findAttendStatusById(id);
 	}
 

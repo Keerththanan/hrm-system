@@ -11,7 +11,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="professionalQualification",schema="trainee")
+@Table(name = "professionalQualification", schema = "trainee")
 public class TraineeProfessionalQualification implements Serializable {
 
 	/**
@@ -19,19 +19,19 @@ public class TraineeProfessionalQualification implements Serializable {
 	 */
 	private static final long serialVersionUID = 6276461206670069734L;
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String courseName;
-	private String courseType; 
+	private String courseType;
 	private Integer periodYearFrom;
 	private Integer periodYearTo;
 	private Integer examinationYear;
 	private String insituteName;
 	private String result;
 	private Float gpa;
-	
+
 	@ManyToOne
-	@JoinColumn(name="trainee_id")
+	@JoinColumn(name = "trainee_id")
 	private Trainee trainee;
 
 	public Integer getId() {
@@ -113,7 +113,5 @@ public class TraineeProfessionalQualification implements Serializable {
 	public void setTrainee(Trainee trainee) {
 		this.trainee = trainee;
 	}
-	
-	
-	
+
 }

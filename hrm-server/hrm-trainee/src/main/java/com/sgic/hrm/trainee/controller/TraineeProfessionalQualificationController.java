@@ -33,17 +33,21 @@ public class TraineeProfessionalQualificationController {
 
 	@GetMapping("/professionalQualification")
 	public ResponseEntity<List<TraineeProfessionalQualificationalDto>> getProfessionalQualification() {
-		return new ResponseEntity<>(TraineeProfessionalQualificationalMapper
-				.mapProfessionalQualificationListToProfessionalQulaificationalDtoList(
-						traineeProfessionalQualificationService.getAllProofessionalQualificstion()), HttpStatus.OK);
+		return new ResponseEntity<>(
+				TraineeProfessionalQualificationalMapper
+						.mapProfessionalQualificationListToProfessionalQulaificationalDtoList(
+								traineeProfessionalQualificationService.getAllProofessionalQualificstion()),
+				HttpStatus.OK);
 	}
 
 	@GetMapping("/professionalQualification/{tid}")
 	public ResponseEntity<List<TraineeProfessionalQualificationalDto>> getProfessionalQualificationBytraineeId(
 			@PathVariable("tid") Integer id) {
-		return new ResponseEntity<>(TraineeProfessionalQualificationalMapper
-				.mapProfessionalQualificationListToProfessionalQulaificationalDtoList(
-						traineeProfessionalQualificationService.getProfessionalQualificationByTraineeId(id)), HttpStatus.OK);
+		return new ResponseEntity<>(
+				TraineeProfessionalQualificationalMapper
+						.mapProfessionalQualificationListToProfessionalQulaificationalDtoList(
+								traineeProfessionalQualificationService.getProfessionalQualificationByTraineeId(id)),
+				HttpStatus.OK);
 
 	}
 
@@ -51,9 +55,11 @@ public class TraineeProfessionalQualificationController {
 	public HttpStatus addProfessionalQualification(
 			@RequestBody TraineeProfessionalQualificationalSaveDto traineeProfessionalQualificationalSaveDto) {
 		Trainee trainee = traineeService.findTraineeById(traineeProfessionalQualificationalSaveDto.getTrainee());
-		if (traineeProfessionalQualificationService.addProfessionalQualification(TraineeProfessionalQualificationalDtoMapper
-				.mapProfessionalQualificationalSaveDtoToProfessionalQualification(traineeProfessionalQualificationalSaveDto),
-				trainee)) {
+		if (traineeProfessionalQualificationService
+				.addProfessionalQualification(TraineeProfessionalQualificationalDtoMapper
+						.mapProfessionalQualificationalSaveDtoToProfessionalQualification(
+								traineeProfessionalQualificationalSaveDto),
+						trainee)) {
 			return HttpStatus.CREATED;
 		}
 		return HttpStatus.BAD_REQUEST;
@@ -63,15 +69,19 @@ public class TraineeProfessionalQualificationController {
 	public HttpStatus ModifyProfessionalQualiication(@PathVariable Integer id,
 			@RequestBody TraineeProfessionalQualificationalSaveDto traineeProfessionalQualificationalSaveDto) {
 		Trainee trainee = traineeService.findTraineeById(traineeProfessionalQualificationalSaveDto.getTrainee());
-		if(traineeProfessionalQualificationService.editProfessionalQualification(id, TraineeProfessionalQualificationalDtoMapper
-				.mapProfessionalQualificationalSaveDtoToProfessionalQualification(traineeProfessionalQualificationalSaveDto), trainee)) {
+		if (traineeProfessionalQualificationService.editProfessionalQualification(id,
+				TraineeProfessionalQualificationalDtoMapper
+						.mapProfessionalQualificationalSaveDtoToProfessionalQualification(
+								traineeProfessionalQualificationalSaveDto),
+				trainee)) {
 			return HttpStatus.ACCEPTED;
 		}
 		return HttpStatus.BAD_REQUEST;
 	}
+
 	@DeleteMapping("/professionalQualification/{id}")
 	public HttpStatus DeleteProfessionalQualification(@PathVariable Integer id) {
-		if(traineeProfessionalQualificationService.deleteProfessionalQualification(id)) {
+		if (traineeProfessionalQualificationService.deleteProfessionalQualification(id)) {
 			return HttpStatus.ACCEPTED;
 		}
 		return HttpStatus.BAD_REQUEST;

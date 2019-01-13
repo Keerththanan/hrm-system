@@ -31,8 +31,8 @@ public class TraineeProfessionalQualificationalMapper {
 
 		if (professionalQualificationList != null) {
 			for (TraineeProfessionalQualification traineeProfessionalQualification : professionalQualificationList) {
-				professionalQualificationalDtoList
-						.add(mapProfessionalQualificationalToProfessionalQualificationalDto(traineeProfessionalQualification));
+				professionalQualificationalDtoList.add(mapProfessionalQualificationalToProfessionalQualificationalDto(
+						traineeProfessionalQualification));
 			}
 		}
 

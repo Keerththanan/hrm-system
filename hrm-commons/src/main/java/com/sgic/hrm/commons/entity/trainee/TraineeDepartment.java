@@ -1,6 +1,5 @@
 package com.sgic.hrm.commons.entity.trainee;
 
-
 import java.io.Serializable;
 
 import javax.persistence.Entity;
@@ -10,32 +9,33 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="department",schema="trainee")
+@Table(name = "department", schema = "trainee")
 
 public class TraineeDepartment implements Serializable {
-	
+
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = -7766090764871412095L;
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Id
 	private Integer id;
 	private String departmentName;
-	
+
 	public Integer getId() {
 		return id;
 	}
+
 	public void setId(Integer id) {
 		this.id = id;
 	}
+
 	public String getDepartmentName() {
 		return departmentName;
 	}
+
 	public void setDepartmentName(String departmentName) {
 		this.departmentName = departmentName;
 	}
-	
-	
-}
 
+}

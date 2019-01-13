@@ -24,30 +24,32 @@ import com.sgic.hrm.trainee.service.TraineeExamTypeService;
 public class TraineeExamTypeController {
 	@Autowired
 	private TraineeExamTypeService examTypeService;
+
 	@PostMapping("/examtype")
-	public HttpStatus createExamType(@Valid @RequestBody TraineeExamType examtype)
-	{
-		if(examTypeService.addExamType(examtype)){
+	public HttpStatus createExamType(@Valid @RequestBody TraineeExamType examtype) {
+		if (examTypeService.addExamType(examtype)) {
 			return HttpStatus.CREATED;
-			}
+		}
 		return HttpStatus.BAD_REQUEST;
-	}  
-	
-	@GetMapping("/examtype")
-	public ResponseEntity <List<TraineeExamType>> getExamType(){
-		return new ResponseEntity<>(examTypeService.getAllExamType(), HttpStatus.OK);
-		
 	}
+
+	@GetMapping("/examtype")
+	public ResponseEntity<List<TraineeExamType>> getExamType() {
+		return new ResponseEntity<>(examTypeService.getAllExamType(), HttpStatus.OK);
+
+	}
+
 	@PutMapping("/examtype/{id}")
-	public HttpStatus editExamType(@PathVariable Integer id,@RequestBody TraineeExamType examtype) {
-		if(examTypeService.editExamType(examtype, id)) {
+	public HttpStatus editExamType(@PathVariable Integer id, @RequestBody TraineeExamType examtype) {
+		if (examTypeService.editExamType(examtype, id)) {
 			return HttpStatus.ACCEPTED;
 		}
 		return HttpStatus.BAD_REQUEST;
 	}
+
 	@DeleteMapping("/examtype/{id}")
-	public HttpStatus deleteExamType(@PathVariable Integer id,@RequestBody TraineeExamType examtype) {
-		if(examTypeService.deleteExamType(id)) {
+	public HttpStatus deleteExamType(@PathVariable Integer id, @RequestBody TraineeExamType examtype) {
+		if (examTypeService.deleteExamType(id)) {
 			return HttpStatus.ACCEPTED;
 		}
 		return HttpStatus.BAD_REQUEST;
