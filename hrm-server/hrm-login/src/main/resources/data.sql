@@ -355,6 +355,7 @@ INSERT INTO employee.professional_membership VALUES (4, 1, 'Key Chalange', 'IT C
 INSERT INTO employee.professional_qualification VALUES (1, 'Physical Science', 'Computer Science', 2016, 3.4000001, 'Jaffna University', 2013, 2016, 'Passed', 3);
 INSERT INTO employee.professional_qualification VALUES (2, 'Computer Science', 'Computer Science', 2015, 3.0999999, 'Clombo University', 2012, 2015, 'passed', 4);
 
+<<<<<<< HEAD
 
 INSERT INTO trainee.attend_type VALUES (1, 'week', NULL);
 INSERT INTO trainee.attend_type VALUES (2, 'weekend', NULL);
@@ -382,3 +383,15 @@ INSERT INTO trainee.referee VALUES (2, 'kanchipuram, mathagal', '0771030615', 't
 INSERT INTO trainee.work_experience VALUES (1, 'Demo', 40000, 2018, 2019, 'End period', 'Demonstator', 'Jaffan University', 'Instructor', 1);
 INSERT INTO trainee.work_experience VALUES (2, 'Demo', 40000, 2018, 2019, 'End period', 'Demonstator', 'Jaffan University', 'Instructor', 2);
 
+=======
+--
+-- Data for Name: payment; Type: TABLE DATA; Schema: trainer; Owner: postgres
+--
+--
+--INSERT INTO trainer.payment VALUES (1, 10000, '2018-09-06 00:00:00', 'Closed', 1);
+--INSERT INTO trainer.payment VALUES (3, 50000, '2018-09-06 00:00:00', 'Completed', 2);
+--INSERT INTO trainer.payment VALUES (2, 15000, '2018-09-06 00:00:00', 'Initialized', 3);
+
+
+
+>>>>>>> e2e29c6f7337944134588845d7d2e211a61022a9

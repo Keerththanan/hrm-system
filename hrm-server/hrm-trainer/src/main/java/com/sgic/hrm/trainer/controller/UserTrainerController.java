@@ -23,30 +23,21 @@ import com.sgic.hrm.trainer.service.UserTrainerService;
 public class UserTrainerController {
 	@Autowired
 	UserTrainerService userTrainerService;
-	
-	
+
 	@GetMapping("/userTrainer/{id}")
 	public ResponseEntity<UserTrainerData> getById(@PathVariable(name = "id") Integer id) {
-		return new ResponseEntity<>(
-				UserTrainerMapper.maptoUserTrainerData(userTrainerService.getById(id)),
+		return new ResponseEntity<>(UserTrainerMapper.maptoUserTrainerData(userTrainerService.getById(id)),
 				HttpStatus.OK);
 	}
 
 	@GetMapping("/userTrainer")
-	public ResponseEntity<List<UserTrainerData>> getAlluserTrainer(){
-
-		return new ResponseEntity<>(UserTrainerMapper
-				.mapToUserTrainerDataList(userTrainerService.getAlluserTrainer()), HttpStatus.OK);
+	public ResponseEntity<List<UserTrainerData>> getAlluserTrainer() {
+		return new ResponseEntity<>(UserTrainerMapper.mapToUserTrainerDataList(userTrainerService.getAlluserTrainer()),
+				HttpStatus.OK);
 	}
-	
-//	@GetMapping("/userTrainerget/{fullName}")
-//	  public UserDto getUserByName(@PathVariable String fullName) {
-//	    return UserMapper.mapUserToUserDto(userTrainerService.);
-//	  }
-	
+
 	@PostMapping("/userTrainer")
 	public ResponseEntity<String> createuserTrainer(@RequestBody UserTrainerData userTrainerData) {
-
 		if (userTrainerService.createuserTrainer(UserTrainerDataMapper.mapToTrainer(userTrainerData))) {
 			return new ResponseEntity<>("User Trainer Creation Succesfully ", HttpStatus.OK);
 		}
@@ -56,8 +47,7 @@ public class UserTrainerController {
 	@PutMapping("/userTrainer/{id}")
 	public ResponseEntity<String> updateuserTrainer(@PathVariable(name = "id") Integer id,
 			@RequestBody UserTrainerData userTrainerData) {
-		if (userTrainerService.updateuserTrainer(
-				UserTrainerDataMapper.mapToTrainer(userTrainerData), id)) {
+		if (userTrainerService.updateuserTrainer(UserTrainerDataMapper.mapToTrainer(userTrainerData), id)) {
 			return new ResponseEntity<>("User Trainer Update Succesfully ", HttpStatus.OK);
 		}
 		return new ResponseEntity<>("User Trainer Update Failed ", HttpStatus.BAD_REQUEST);
@@ -69,8 +59,5 @@ public class UserTrainerController {
 			return new ResponseEntity<>("User Trainer Delete Succesfully ", HttpStatus.OK);
 		}
 		return new ResponseEntity<>("User Trainer Delete Failed ", HttpStatus.BAD_REQUEST);
-
 	}
-
 }
-

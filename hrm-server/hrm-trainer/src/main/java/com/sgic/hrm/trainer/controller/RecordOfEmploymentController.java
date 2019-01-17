@@ -1,6 +1,5 @@
 package com.sgic.hrm.trainer.controller;
 
-
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,38 +14,35 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.sgic.hrm.commons.trainer.dto.RecordOfEmploymentDTO;
-import com.sgic.hrm.commons.trainer.dto.mapper.RecordOfEmployementDTOMapper;
+import com.sgic.hrm.commons.trainer.dto.RecordOfEmploymentDto;
+import com.sgic.hrm.commons.trainer.dto.mapper.RecordOfEmployementDtoMapper;
 import com.sgic.hrm.commons.trainer.entity.mapper.RecordOfEmploymentMapper;
 import com.sgic.hrm.trainer.service.RecordOfEmploymentService;
-
 
 @RestController
 @CrossOrigin(origins = "*")
 public class RecordOfEmploymentController {
-
 	@Autowired
 	RecordOfEmploymentService recordOfEmploymentService;
-	
+
 	@GetMapping("/recordOfEmployment/{id}")
-	public ResponseEntity<RecordOfEmploymentDTO> getById(@PathVariable(name = "id") Integer id) {
+	public ResponseEntity<RecordOfEmploymentDto> getById(@PathVariable(name = "id") Integer id) {
 		return new ResponseEntity<>(
 				RecordOfEmploymentMapper.mapToRecordOfEmploymentDTO(recordOfEmploymentService.getById(id)),
 				HttpStatus.OK);
 	}
 
 	@GetMapping("/recordOfEmployment")
-	public ResponseEntity<List<RecordOfEmploymentDTO>> getAllRecordOfEmployment(){
+	public ResponseEntity<List<RecordOfEmploymentDto>> getAllRecordOfEmployment() {
 
 		return new ResponseEntity<>(RecordOfEmploymentMapper
 				.mapToRecordOfEmploymentDTOList(recordOfEmploymentService.getAllRecordOfEmployment()), HttpStatus.OK);
 	}
 
 	@PostMapping("/recordOfEmployment")
-	public ResponseEntity<String> createRecordOfEmployement(@RequestBody RecordOfEmploymentDTO recordOfEmploymentDTO) {
-
-		if (recordOfEmploymentService
-				.createRecordOfEmployment(RecordOfEmployementDTOMapper.mapToRecordOfEmployment(recordOfEmploymentDTO))) {
+	public ResponseEntity<String> createRecordOfEmployement(@RequestBody RecordOfEmploymentDto recordOfEmploymentDto) {
+		if (recordOfEmploymentService.createRecordOfEmployment(
+				RecordOfEmployementDtoMapper.mapToRecordOfEmployment(recordOfEmploymentDto))) {
 			return new ResponseEntity<>("Record of Employment Create Succesfully ", HttpStatus.OK);
 		}
 		return new ResponseEntity<>("Record of Employment Create Failed ", HttpStatus.BAD_REQUEST);
@@ -54,9 +50,9 @@ public class RecordOfEmploymentController {
 
 	@PutMapping("/recordOfEmployment/{id}")
 	public ResponseEntity<String> updateRecordOfEmployement(@PathVariable(name = "id") Integer id,
-			@RequestBody RecordOfEmploymentDTO recordOfEmploymentDTO) {
+			@RequestBody RecordOfEmploymentDto recordOfEmploymentDto) {
 		if (recordOfEmploymentService.updateRecordOfEmployment(
-				RecordOfEmployementDTOMapper.mapToRecordOfEmployment(recordOfEmploymentDTO), id)) {
+				RecordOfEmployementDtoMapper.mapToRecordOfEmployment(recordOfEmploymentDto), id)) {
 			return new ResponseEntity<>("Record of Employment Update Succesfully ", HttpStatus.OK);
 		}
 		return new ResponseEntity<>("Record of Employment Update Failed ", HttpStatus.BAD_REQUEST);
@@ -68,7 +64,5 @@ public class RecordOfEmploymentController {
 			return new ResponseEntity<>("Record of Employment Delete Succesfully ", HttpStatus.OK);
 		}
 		return new ResponseEntity<>("Record of Employment Delete Failed ", HttpStatus.BAD_REQUEST);
-
 	}
-
 }

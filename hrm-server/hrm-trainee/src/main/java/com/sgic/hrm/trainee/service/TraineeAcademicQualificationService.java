@@ -6,17 +6,17 @@ import com.sgic.hrm.commons.entity.trainee.TraineeExamType;
 import com.sgic.hrm.commons.entity.trainee.Trainee;
 
 public interface TraineeAcademicQualificationService {
-  boolean addAcademicQualification(TraineeAcademicQualification traineeAcademicQualification, TraineeExamType traineeExamType,
-      Trainee trainee);
+	boolean addAcademicQualification(TraineeAcademicQualification traineeAcademicQualification,
+			TraineeExamType traineeExamType, Trainee trainee);
 
-  List<TraineeAcademicQualification> getAllAcademicQualification();
+	List<TraineeAcademicQualification> getAllAcademicQualification();
 
-  boolean editAcademicQualification(TraineeAcademicQualification traineeAcademicQualification, TraineeExamType traineeExamType,
-      Trainee trainee, Integer id);
+	boolean editAcademicQualification(TraineeAcademicQualification traineeAcademicQualification,
+			TraineeExamType traineeExamType, Trainee trainee, Integer id);
 
-  boolean deleteAcademicQualification(Integer id);
+	boolean deleteAcademicQualification(Integer id);
 
-  TraineeAcademicQualification getAcademicQualificationById(int id);
+	TraineeAcademicQualification getAcademicQualificationById(int id);
 
-  List<TraineeAcademicQualification> getAcademicQualificationByTraineeId(Integer uid);
+	List<TraineeAcademicQualification> getAcademicQualificationByTraineeId(Integer uid);
 }

@@ -13,6 +13,6 @@ public interface AttendTypeService {
 	boolean editAttendType(AttendType attendType, Integer id);
 
 	boolean deleteAttendType(Integer id);
-	
+
 	AttendType getAttendTypeId(Integer id);
 }

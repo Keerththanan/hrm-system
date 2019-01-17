@@ -11,21 +11,18 @@ import com.sgic.hrm.trainer.service.UserTrainerService;
 
 @Service
 public class UserTrainerServiceImpl implements UserTrainerService {
-	
 	@Autowired
-private UserTrainerRepository userTrainerRepository;
+	private UserTrainerRepository userTrainerRepository;
 
 	@Override
 	public List<UserTrainer> getAlluserTrainer() {
 		return userTrainerRepository.findAll();
-		
 	}
 
 	@Override
 	public boolean createuserTrainer(UserTrainer userTrainer) {
 		userTrainerRepository.save(userTrainer);
 		return true;
-		
 	}
 
 	@Override
@@ -36,7 +33,7 @@ private UserTrainerRepository userTrainerRepository;
 
 	@Override
 	public boolean updateuserTrainer(UserTrainer userTrainer, Integer id) {
-		if(userTrainerRepository.getOne(id)!=null) {
+		if (userTrainerRepository.getOne(id) != null) {
 			userTrainer.setId(id);
 			userTrainerRepository.save(userTrainer);
 			return true;
@@ -48,5 +45,4 @@ private UserTrainerRepository userTrainerRepository;
 	public UserTrainer getById(Integer id) {
 		return userTrainerRepository.findById(id).orElse(null);
 	}
-	
 }

@@ -5,10 +5,10 @@ import com.sgic.hrm.commons.entity.trainee.Trainee;
 import com.sgic.hrm.commons.entity.trainee.TraineeWorkExperience;
 
 public class TraineeWorkExperienceDtoMapper {
-	
+
 	public static TraineeWorkExperience map(TraineeWorkExperienceSaveDto traineeWorkExperienceSaveDto) {
-		TraineeWorkExperience traineeWorkExperience =new TraineeWorkExperience();
-		Trainee trainee=new Trainee();
+		TraineeWorkExperience traineeWorkExperience = new TraineeWorkExperience();
+		Trainee trainee = new Trainee();
 		traineeWorkExperience.setDesignation(traineeWorkExperienceSaveDto.getDesignation());
 		traineeWorkExperience.setId(traineeWorkExperienceSaveDto.getId());
 		traineeWorkExperience.setLeavingSalary(traineeWorkExperienceSaveDto.getLeavingSalary());
@@ -20,7 +20,7 @@ public class TraineeWorkExperienceDtoMapper {
 		traineeWorkExperience.setWorkType(traineeWorkExperienceSaveDto.getWorkType());
 		trainee.setId(traineeWorkExperienceSaveDto.getTrainee());
 		return traineeWorkExperience;
-		
+
 	}
 
 }

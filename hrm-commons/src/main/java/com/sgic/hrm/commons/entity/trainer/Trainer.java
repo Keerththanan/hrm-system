@@ -14,9 +14,6 @@ import javax.persistence.Table;
 
 public class Trainer implements Serializable {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 7400137569388776487L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -156,5 +153,4 @@ public class Trainer implements Serializable {
 	public void setSpecializedArea(String specializedArea) {
 		this.specializedArea = specializedArea;
 	}
-
 }

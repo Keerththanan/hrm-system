@@ -42,7 +42,8 @@ public class TraineeRefereeController {
 
 	@GetMapping("/referee")
 	public ResponseEntity<List<TraineeRefereeDto>> getReferee() {
-		return new ResponseEntity<>(TraineeRefereeMapper.mapRefereeListToRefereeDtoList(traineeRefereeService.getAllReferee()),
+		return new ResponseEntity<>(
+				TraineeRefereeMapper.mapRefereeListToRefereeDtoList(traineeRefereeService.getAllReferee()),
 				HttpStatus.OK);
 	}
 
@@ -68,6 +69,7 @@ public class TraineeRefereeController {
 	@GetMapping("/referee/{uid}")
 	public ResponseEntity<List<TraineeRefereeDto>> findAcademicQualificationByUserId(@PathVariable("uid") Integer id) {
 		return new ResponseEntity<>(
-				TraineeRefereeMapper.mapRefereeListToRefereeDtoList(traineeRefereeService.getRefereeByTraineeId(id)), HttpStatus.OK);
+				TraineeRefereeMapper.mapRefereeListToRefereeDtoList(traineeRefereeService.getRefereeByTraineeId(id)),
+				HttpStatus.OK);
 	}
 }

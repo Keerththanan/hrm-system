@@ -10,7 +10,7 @@ import com.sgic.hrm.commons.trainer.repository.TrainerRepository;
 import com.sgic.hrm.trainer.service.TrainerService;
 
 @Service
-public class TrainerServiceImpl implements TrainerService{
+public class TrainerServiceImpl implements TrainerService {
 	@Autowired
 	TrainerRepository trainerRepository;
 
@@ -33,7 +33,7 @@ public class TrainerServiceImpl implements TrainerService{
 
 	@Override
 	public boolean updateTrainer(Trainer trainer, Integer id) {
-		if(trainerRepository.getOne(id)!=null) {
+		if (trainerRepository.getOne(id) != null) {
 			trainer.setId(id);
 			trainerRepository.save(trainer);
 			return true;

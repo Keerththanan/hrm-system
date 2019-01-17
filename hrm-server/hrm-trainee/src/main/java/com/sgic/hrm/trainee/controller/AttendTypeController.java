@@ -24,7 +24,7 @@ import com.sgic.hrm.trainee.service.AttendTypeService;
 @RestController
 public class AttendTypeController {
 	@Autowired
-	private AttendTypeService attendTypeService; 
+	private AttendTypeService attendTypeService;
 
 	@PostMapping("/attendence/type")
 	public HttpStatus addAttendType(@Valid @RequestBody AttendType attendType) {
@@ -38,16 +38,18 @@ public class AttendTypeController {
 	public ResponseEntity<List<AttendType>> getAttendType() {
 		return new ResponseEntity<>(attendTypeService.getAttendanceType(), HttpStatus.OK);
 	}
+
 	@PutMapping("/attendence/type/{id}")
 	public HttpStatus editAttendType(@RequestBody AttendType attendType, @PathVariable Integer id) {
-		if(attendTypeService.editAttendType(attendType, id)) {
+		if (attendTypeService.editAttendType(attendType, id)) {
 			return HttpStatus.ACCEPTED;
 		}
 		return HttpStatus.BAD_REQUEST;
 	}
+
 	@DeleteMapping("/attendence/type/{id}")
 	public HttpStatus deleteAttendType(@PathVariable Integer id) {
-		if(attendTypeService.deleteAttendType(id)) {
+		if (attendTypeService.deleteAttendType(id)) {
 			return HttpStatus.ACCEPTED;
 		}
 		return HttpStatus.BAD_REQUEST;

@@ -51,7 +51,7 @@ public class Trainee implements Serializable {
 	private TraineeDepartment traineeDepartment;
 	@UpdateTimestamp
 	private Date updateAt;
-	
+
 	public TraineeDepartment getTraineeDepartment() {
 		return traineeDepartment;
 	}
@@ -59,7 +59,6 @@ public class Trainee implements Serializable {
 	public void setTraineeDepartment(TraineeDepartment traineeDepartment) {
 		this.traineeDepartment = traineeDepartment;
 	}
-
 
 	public Integer getId() {
 		return id;

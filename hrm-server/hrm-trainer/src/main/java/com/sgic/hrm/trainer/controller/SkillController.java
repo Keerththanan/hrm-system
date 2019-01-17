@@ -21,41 +21,31 @@ import com.sgic.hrm.trainer.service.SkillService;
 
 @RestController
 @CrossOrigin(origins = "*")
-
 public class SkillController {
-	
 	@Autowired
 	SkillService skillService;
-	
+
 	@GetMapping("/skill/{id}")
 	public ResponseEntity<SkillData> getById(@PathVariable(name = "id") Integer id) {
-		return new ResponseEntity<>(
-				SkillMapper.mapToSkillDTO(skillService.getById(id)),
-				HttpStatus.OK);
+		return new ResponseEntity<>(SkillMapper.mapToSkillDTO(skillService.getById(id)), HttpStatus.OK);
 	}
 
 	@GetMapping("/skill")
-	public ResponseEntity<List<SkillData>> getAllSkill(){
-
-		return new ResponseEntity<>(SkillMapper
-				.mapToSkillDTOList(skillService.getAllSkill()), HttpStatus.OK);
+	public ResponseEntity<List<SkillData>> getAllSkill() {
+		return new ResponseEntity<>(SkillMapper.mapToSkillDTOList(skillService.getAllSkill()), HttpStatus.OK);
 	}
-	
+
 	@PostMapping("/skill")
 	public ResponseEntity<String> createSkill(@RequestBody SkillData skillData) {
-
-		if (skillService
-				.createSkill(SkillDataMapper.mapToSkill(skillData))) {
+		if (skillService.createSkill(SkillDataMapper.mapToSkill(skillData))) {
 			return new ResponseEntity<>("Skill Creation Succesfully ", HttpStatus.OK);
 		}
 		return new ResponseEntity<>("Skill Creation Failed ", HttpStatus.BAD_REQUEST);
 	}
 
 	@PutMapping("/skill/{id}")
-	public ResponseEntity<String> updateSkill(@PathVariable(name = "id") Integer id,
-			@RequestBody SkillData skillData) {
-		if (skillService.updateSkill(
-				SkillDataMapper.mapToSkill(skillData), id)) {
+	public ResponseEntity<String> updateSkill(@PathVariable(name = "id") Integer id, @RequestBody SkillData skillData) {
+		if (skillService.updateSkill(SkillDataMapper.mapToSkill(skillData), id)) {
 			return new ResponseEntity<>("Skill Update Succesfully ", HttpStatus.OK);
 		}
 		return new ResponseEntity<>("Skill Update Failed ", HttpStatus.BAD_REQUEST);
@@ -67,9 +57,5 @@ public class SkillController {
 			return new ResponseEntity<>("Skill Delete Succesfully ", HttpStatus.OK);
 		}
 		return new ResponseEntity<>("Skill Delete Failed ", HttpStatus.BAD_REQUEST);
-
 	}
-
 }
-
-

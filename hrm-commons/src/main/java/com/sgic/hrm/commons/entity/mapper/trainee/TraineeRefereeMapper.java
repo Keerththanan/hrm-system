@@ -8,7 +8,7 @@ import com.sgic.hrm.commons.entity.trainee.TraineeReferee;
 
 public class TraineeRefereeMapper {
 	public static TraineeRefereeDto mapRefereeToRefereeDto(TraineeReferee traineeReferee) {
-		TraineeRefereeDto traineeRefereeDto=new TraineeRefereeDto();
+		TraineeRefereeDto traineeRefereeDto = new TraineeRefereeDto();
 		traineeRefereeDto.setAddress(traineeReferee.getAddress());
 		traineeRefereeDto.setContactNo(traineeReferee.getContactNo());
 		traineeRefereeDto.setEmail(traineeReferee.getEmail());
@@ -18,13 +18,13 @@ public class TraineeRefereeMapper {
 		traineeRefereeDto.setTrainee(traineeReferee.getTrainee());
 		return traineeRefereeDto;
 	}
-	
-	public static List<TraineeRefereeDto> mapRefereeListToRefereeDtoList(List<TraineeReferee>refereeList){
-		List<TraineeRefereeDto>refereeDtoList=new ArrayList<TraineeRefereeDto>();
-		if(refereeDtoList != null) {
-			for(TraineeReferee traineeReferee:refereeList)
+
+	public static List<TraineeRefereeDto> mapRefereeListToRefereeDtoList(List<TraineeReferee> refereeList) {
+		List<TraineeRefereeDto> refereeDtoList = new ArrayList<TraineeRefereeDto>();
+		if (refereeDtoList != null) {
+			for (TraineeReferee traineeReferee : refereeList)
 				refereeDtoList.add(mapRefereeToRefereeDto(traineeReferee));
-			
+
 		}
 		return refereeDtoList;
 	}

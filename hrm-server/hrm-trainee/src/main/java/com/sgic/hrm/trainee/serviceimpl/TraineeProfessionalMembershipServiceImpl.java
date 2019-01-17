@@ -14,46 +14,46 @@ import com.sgic.hrm.trainee.service.TraineeProfessionalMembershipService;
 
 @Service
 public class TraineeProfessionalMembershipServiceImpl implements TraineeProfessionalMembershipService {
-	
+
 	@Autowired
 	private TraineeProfessionalMembershipRepository traineeProfessionalMembershipRepository;
 	@Autowired
 	private TraineeRepository traineeRepository;
-	
-	
+
 	@Override
 	public List<TraineeProfessionalMembership> getAllProfessionalMembership() {
 		return traineeProfessionalMembershipRepository.findAll();
 	}
 
 	@Override
-	public boolean addProfessionalMembership(TraineeProfessionalMembership traineeProfessionalMembership, Trainee trainee) {
+	public boolean addProfessionalMembership(TraineeProfessionalMembership traineeProfessionalMembership,
+			Trainee trainee) {
 		traineeProfessionalMembership.setTrainee(trainee);
 		traineeProfessionalMembershipRepository.save(traineeProfessionalMembership);
 		return true;
 	}
 
 	@Override
-	public boolean editProfessionalMembership(TraineeProfessionalMembership traineeProfessionalMembership, Trainee trainee,
-			Integer id) {
-		if(traineeProfessionalMembershipRepository.getOne(id) !=null){
+	public boolean editProfessionalMembership(TraineeProfessionalMembership traineeProfessionalMembership,
+			Trainee trainee, Integer id) {
+		if (traineeProfessionalMembershipRepository.getOne(id) != null) {
 			traineeProfessionalMembership.setTrainee(trainee);
 			traineeProfessionalMembership.setId(id);
 			traineeProfessionalMembershipRepository.save(traineeProfessionalMembership);
 			return true;
-			
+
 		}
 		return false;
 	}
 
 	@Override
 	public boolean deleteProfessionalMembership(Integer id) {
-		if(traineeProfessionalMembershipRepository.getOne(id)!=null) {
+		if (traineeProfessionalMembershipRepository.getOne(id) != null) {
 			traineeProfessionalMembershipRepository.deleteById(id);
 			return true;
-			
+
 		}
-			return false;
+		return false;
 	}
 
 	@Override
@@ -63,7 +63,8 @@ public class TraineeProfessionalMembershipServiceImpl implements TraineeProfessi
 
 	@Override
 	public List<TraineeProfessionalMembership> getProfessionalMembershipByTraineeId(Integer tid) {
-		return traineeProfessionalMembershipRepository.findProfessionalMembershipByTrainee(traineeRepository.findTraineeById(tid));
+		return traineeProfessionalMembershipRepository
+				.findProfessionalMembershipByTrainee(traineeRepository.findTraineeById(tid));
 	}
 
 }

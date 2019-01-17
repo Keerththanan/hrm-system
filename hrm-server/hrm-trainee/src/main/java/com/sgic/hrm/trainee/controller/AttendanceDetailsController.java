@@ -35,17 +35,17 @@ public class AttendanceDetailsController {
 
 	@PostMapping("/attedenceDetails")
 	public HttpStatus addAttendanceDetails(@Valid @RequestBody AttendanceDetailsDto attendanceDetailsDto) {
-		if (attendanceDetailsService.addAttendanceDetails(
-				AttendanceDetailsDtoMapper.map(attendanceDetailsDto),
+		if (attendanceDetailsService.addAttendanceDetails(AttendanceDetailsDtoMapper.map(attendanceDetailsDto),
 				traineeService.findTraineeById(attendanceDetailsDto.getTrainee()),
 				attendTypeService.getAttendTypeId(attendanceDetailsDto.getAttendType()),
-				 attendStatusService.getAttendStatusId(attendanceDetailsDto.getAttendantStatus()))) {
+				attendStatusService.getAttendStatusId(attendanceDetailsDto.getAttendantStatus()))) {
 			return HttpStatus.CREATED;
 		}
 		return HttpStatus.BAD_REQUEST;
 	}
+
 	@GetMapping("/attedenceDetails")
-	public ResponseEntity<List<AttendanceDetails>> getAttendanceDetails(){
-		return new ResponseEntity<>(attendanceDetailsService.getAttendanceDetails(),HttpStatus.OK);
+	public ResponseEntity<List<AttendanceDetails>> getAttendanceDetails() {
+		return new ResponseEntity<>(attendanceDetailsService.getAttendanceDetails(), HttpStatus.OK);
 	}
 }

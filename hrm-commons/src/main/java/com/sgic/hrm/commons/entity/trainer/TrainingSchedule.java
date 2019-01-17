@@ -20,17 +20,17 @@ public class TrainingSchedule implements Serializable {
 	private static final long serialVersionUID = -3323930356795011743L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+	private Integer id;
 	private String trainingTopic;
 	private Date date;
 	private Time totalCoveredhours;
 	private String status;
-	
+
 	@OneToOne
-	@JoinColumn(name="trainer_id")
+	@JoinColumn(name = "trainer_id")
 	private UserTrainer trainer;
-	
-    public String getStatus() {
+
+	public String getStatus() {
 		return status;
 	}
 
@@ -46,7 +46,7 @@ public class TrainingSchedule implements Serializable {
 		this.trainer = trainer;
 	}
 
-	//start getter setter
+	// start getter setter
 	public Integer getId() {
 		return id;
 	}
@@ -55,8 +55,7 @@ public class TrainingSchedule implements Serializable {
 		this.id = id;
 	}
 
-	
-    public String getTrainingTopic() {
+	public String getTrainingTopic() {
 		return trainingTopic;
 	}
 
@@ -80,5 +79,4 @@ public class TrainingSchedule implements Serializable {
 		this.totalCoveredhours = totalCoveredhours;
 	}
 
-	
 }
