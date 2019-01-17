@@ -4,13 +4,13 @@ import java.util.List;
 import com.sgic.hrm.commons.entity.trainee.TraineeExamType;
 
 public interface TraineeExamTypeService {
-  boolean addExamType(TraineeExamType examtype);
+	boolean addExamType(TraineeExamType examtype);
 
-  List<TraineeExamType> getAllExamType();
+	List<TraineeExamType> getAllExamType();
 
-  TraineeExamType findByExamTypeId(Integer id);
+	TraineeExamType findByExamTypeId(Integer id);
 
-  boolean editExamType(TraineeExamType examtype, Integer id);
+	boolean editExamType(TraineeExamType examtype, Integer id);
 
-  boolean deleteExamType(Integer id);
+	boolean deleteExamType(Integer id);
 }

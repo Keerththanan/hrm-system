@@ -33,18 +33,20 @@ public class TraineeProfessionalMembershipController {
 
 	@GetMapping("/professionalMembership")
 	public ResponseEntity<List<TraineeProfessionalMembershipDto>> getProfessionalMembership() {
-		return new ResponseEntity<>(TraineeProfessionalMembershipMapper
-				.mapProfessionalMembershipListToProfessionalMembershipDtoList(
-						traineeProfessionalMembershipService.getAllProfessionalMembership()), HttpStatus.OK);
+		return new ResponseEntity<>(
+				TraineeProfessionalMembershipMapper.mapProfessionalMembershipListToProfessionalMembershipDtoList(
+						traineeProfessionalMembershipService.getAllProfessionalMembership()),
+				HttpStatus.OK);
 
 	}
 
 	@GetMapping("/professionalMembership/{tid}")
 	public ResponseEntity<List<TraineeProfessionalMembershipDto>> getProfesionalMembershipByTraineeId(
 			@PathVariable("tid") Integer id) {
-		return new ResponseEntity<>(TraineeProfessionalMembershipMapper
-				.mapProfessionalMembershipListToProfessionalMembershipDtoList(
-						traineeProfessionalMembershipService.getProfessionalMembershipByTraineeId(id)), HttpStatus.OK);
+		return new ResponseEntity<>(
+				TraineeProfessionalMembershipMapper.mapProfessionalMembershipListToProfessionalMembershipDtoList(
+						traineeProfessionalMembershipService.getProfessionalMembershipByTraineeId(id)),
+				HttpStatus.OK);
 
 	}
 
@@ -53,7 +55,8 @@ public class TraineeProfessionalMembershipController {
 			@RequestBody TraineeProfessionalMembershipSaveDto traineeProfessionalMembershipSaveDto) {
 		Trainee trainee = traineeService.findTraineeById(traineeProfessionalMembershipSaveDto.getTrainee());
 		if (traineeProfessionalMembershipService.addProfessionalMembership(TraineeProfessionalMembershipDtoMapper
-				.mapProfessionalMembershipSaveDtoToProfeesionalMembership(traineeProfessionalMembershipSaveDto), trainee)) {
+				.mapProfessionalMembershipSaveDtoToProfeesionalMembership(traineeProfessionalMembershipSaveDto),
+				trainee)) {
 			return HttpStatus.CREATED;
 		}
 		return HttpStatus.BAD_REQUEST;
@@ -64,15 +67,16 @@ public class TraineeProfessionalMembershipController {
 			@RequestBody TraineeProfessionalMembershipSaveDto traineeProfessionalMembershipSaveDto) {
 		Trainee trainee = traineeService.findTraineeById(traineeProfessionalMembershipSaveDto.getTrainee());
 		if (traineeProfessionalMembershipService.editProfessionalMembership(TraineeProfessionalMembershipDtoMapper
-				.mapProfessionalMembershipSaveDtoToProfeesionalMembership(traineeProfessionalMembershipSaveDto), trainee,
-				id)) {
+				.mapProfessionalMembershipSaveDtoToProfeesionalMembership(traineeProfessionalMembershipSaveDto),
+				trainee, id)) {
 			return HttpStatus.ACCEPTED;
 		}
 		return HttpStatus.BAD_REQUEST;
 	}
+
 	@DeleteMapping("/professionalMembership/{id}")
 	public HttpStatus deleteProfessionalMembership(@PathVariable Integer id) {
-		if(traineeProfessionalMembershipService.deleteProfessionalMembership(id)) {
+		if (traineeProfessionalMembershipService.deleteProfessionalMembership(id)) {
 			return HttpStatus.ACCEPTED;
 		}
 		return HttpStatus.BAD_REQUEST;

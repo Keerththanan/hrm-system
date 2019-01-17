@@ -1,3 +1,4 @@
+//code done by jayapriya
 package com.sgic.hrm.commons.trainer.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;

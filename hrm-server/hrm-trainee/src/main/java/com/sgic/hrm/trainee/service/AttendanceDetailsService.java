@@ -8,11 +8,13 @@ import com.sgic.hrm.commons.entity.trainee.AttendanceDetails;
 import com.sgic.hrm.commons.entity.trainee.Trainee;
 
 public interface AttendanceDetailsService {
-	boolean addAttendanceDetails(AttendanceDetails attendanceDetails, Trainee trainee, AttendType attendType, AttendStatus attendStatus);
+	boolean addAttendanceDetails(AttendanceDetails attendanceDetails, Trainee trainee, AttendType attendType,
+			AttendStatus attendStatus);
 
 	List<AttendanceDetails> getAttendanceDetails();
 
-	boolean editAttendDetails(AttendanceDetails attendanceDetails, Trainee trainee, AttendType attendType, AttendStatus attendStatus, Integer id);
+	boolean editAttendDetails(AttendanceDetails attendanceDetails, Trainee trainee, AttendType attendType,
+			AttendStatus attendStatus, Integer id);
 
 	boolean deleteAttendDetails(Integer id);
 }

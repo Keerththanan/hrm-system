@@ -344,3 +344,9 @@ INSERT INTO employee.professional_membership VALUES (4, 1, 'Key Chalange', 'IT C
 
 INSERT INTO employee.professional_qualification VALUES (1, 'Physical Science', 'Computer Science', 2016, 3.4000001, 'Jaffna University', 2013, 2016, 'Passed', 3);
 INSERT INTO employee.professional_qualification VALUES (2, 'Computer Science', 'Computer Science', 2015, 3.0999999, 'Clombo University', 2012, 2015, 'passed', 4);
+
+INSERT INTO trainer.feedback_fields VALUES(2,'Objective Of The Training Was Clearly Defined','Participation And Interaction Were Encouraged','Content Was Well Organized And Easy To Follow'
+,'Meterials Distributed Were Helpfull','This Training Will Helpfull For My Work','Trainer Was Good knowladge In Topic',
+'Trainer Was Prepared','Training Objective Were Met','Allocated Time Were sufficient','Interaction With Trainee',
+'How would you Rate For The Training','Recomending this course to others','The Trainer Given References was usefull',
+'The trainer uses study meterials was help full','Was Trainer kept Functuality');

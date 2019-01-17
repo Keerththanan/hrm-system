@@ -6,10 +6,10 @@ import com.sgic.hrm.commons.entity.trainee.TraineeExamType;
 import com.sgic.hrm.commons.entity.trainee.Trainee;
 
 public class TraineeAcademicQualificationDtoMapper {
-	public static TraineeAcademicQualification mapAcademicQualificationSaveDtoToAcademicQualification(TraineeAcademicQualificationSaveDto traineeAcademicQualificationSaveDto)
-	{
+	public static TraineeAcademicQualification mapAcademicQualificationSaveDtoToAcademicQualification(
+			TraineeAcademicQualificationSaveDto traineeAcademicQualificationSaveDto) {
 		TraineeAcademicQualification traineeAcademicQualification = new TraineeAcademicQualification();
-		Trainee trainee= new Trainee();
+		Trainee trainee = new Trainee();
 		TraineeExamType traineeExamType = new TraineeExamType();
 		traineeAcademicQualification.setExaminationYear(traineeAcademicQualificationSaveDto.getExaminationYear());
 		traineeAcademicQualification.setCreatedAt(traineeAcademicQualificationSaveDto.getCreatedAt());

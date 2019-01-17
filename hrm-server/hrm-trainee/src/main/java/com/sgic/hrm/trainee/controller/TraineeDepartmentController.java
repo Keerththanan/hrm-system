@@ -17,43 +17,41 @@ import org.springframework.web.bind.annotation.RestController;
 import com.sgic.hrm.commons.entity.trainee.TraineeDepartment;
 import com.sgic.hrm.trainee.service.TraineeDepartmentService;
 
-
 @CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
 @RestController
 public class TraineeDepartmentController {
-  @Autowired
-  private TraineeDepartmentService traineeDepartmentService;
+	@Autowired
+	private TraineeDepartmentService traineeDepartmentService;
 
-  @PostMapping("/department")
-  public HttpStatus AddDepartment(@RequestBody TraineeDepartment traineeDepartment) {
-    if (traineeDepartmentService.addDepartment(traineeDepartment)){
-      return HttpStatus.CREATED;
-    }
-    return HttpStatus.BAD_REQUEST;
-  }
+	@PostMapping("/department")
+	public HttpStatus AddDepartment(@RequestBody TraineeDepartment traineeDepartment) {
+		if (traineeDepartmentService.addDepartment(traineeDepartment)) {
+			return HttpStatus.CREATED;
+		}
+		return HttpStatus.BAD_REQUEST;
+	}
 
+	@GetMapping("/department")
+	public ResponseEntity<List<TraineeDepartment>> GetDepartment() {
+		return new ResponseEntity<>(traineeDepartmentService.getAllDepartment(), HttpStatus.OK);
 
-  @GetMapping("/department")
-  public ResponseEntity<List<TraineeDepartment>> GetDepartment() {
-    return new ResponseEntity<>( traineeDepartmentService.getAllDepartment(), HttpStatus.OK);
+	}
 
-  }
+	@PutMapping("/department/{id}")
+	public ResponseEntity<String> updateDepartment(@PathVariable(name = "id") Integer id,
+			@RequestBody TraineeDepartment traineeDepartment) {
+		if (traineeDepartmentService.editDepartment(traineeDepartment, id)) {
+			return new ResponseEntity<>("updated", HttpStatus.OK);
+		}
+		return new ResponseEntity<>("upadte failed", HttpStatus.BAD_REQUEST);
+	}
 
-  @PutMapping("/department/{id}")
-  public ResponseEntity<String> updateDepartment(@PathVariable(name = "id") Integer id,
-      @RequestBody TraineeDepartment traineeDepartment) {
-    if (traineeDepartmentService.editDepartment(traineeDepartment, id)){
-      return new ResponseEntity<>("updated", HttpStatus.OK);
-    }
-    return new ResponseEntity<>("upadte failed", HttpStatus.BAD_REQUEST);
-  }
-
-  @DeleteMapping("/department/{id}")
-  public HttpStatus DeleteDepartment(@PathVariable Integer id) {
-    if (traineeDepartmentService.deleteDepartment(id)) {
-      return HttpStatus.ACCEPTED;
-    }
-    return HttpStatus.BAD_REQUEST;
-  }
+	@DeleteMapping("/department/{id}")
+	public HttpStatus DeleteDepartment(@PathVariable Integer id) {
+		if (traineeDepartmentService.deleteDepartment(id)) {
+			return HttpStatus.ACCEPTED;
+		}
+		return HttpStatus.BAD_REQUEST;
+	}
 
 }

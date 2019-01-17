@@ -4,6 +4,14 @@ Implementation-Version: 0.0.1-SNAPSHOT
 Built-By: Thanusha
 Implementation-Vendor-Id: com.sgic.hrm
 Build-Jdk: 1.8.0_191
+<<<<<<< HEAD
+=======
+=======
+Built-By: Ragulan
+Implementation-Vendor-Id: com.sgic.hrm
+Build-Jdk: 1.8.0_181
+>>>>>>> e2e29c6f7337944134588845d7d2e211a61022a9
+>>>>>>> d8f23a9ca91b94d38b9a7fd66c8873e162776450
 Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
  ot-starter-parent/hrm-profile
 Created-By: Maven Integration for Eclipse

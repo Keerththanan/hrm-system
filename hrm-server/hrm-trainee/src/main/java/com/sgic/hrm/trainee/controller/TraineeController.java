@@ -63,11 +63,12 @@ public class TraineeController {
 	}
 
 	@GetMapping("/trainee/{employment}")
-	public List<TraineeDto> getTraineeByEmployment(@PathVariable String employment){
+	public List<TraineeDto> getTraineeByEmployment(@PathVariable String employment) {
 		return TraineeMapper.mapTraineeListToTraineeDtoList(traineeService.findTraineeByEmployment(employment));
 	}
+
 	@GetMapping("/trainee/search/{name}")
-	public List<TraineeDto> getTraineeByName(@PathVariable String name){
+	public List<TraineeDto> getTraineeByName(@PathVariable String name) {
 		return TraineeMapper.mapTraineeListToTraineeDtoList(traineeService.findTraineebyfullName(name));
 	}
 }

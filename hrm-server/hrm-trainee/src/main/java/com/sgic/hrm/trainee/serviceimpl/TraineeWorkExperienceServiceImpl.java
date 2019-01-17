@@ -10,18 +10,18 @@ import com.sgic.hrm.commons.repository.trainee.TraineeRepository;
 import com.sgic.hrm.commons.repository.trainee.TraineeWorkExperienceRepository;
 import com.sgic.hrm.trainee.service.TraineeWorkExperienceService;
 
-
 @Service
-public class TraineeWorkExperienceServiceImpl implements TraineeWorkExperienceService{
+public class TraineeWorkExperienceServiceImpl implements TraineeWorkExperienceService {
 	@Autowired
 	private TraineeWorkExperienceRepository experienceRepository;
 	@Autowired
 	private TraineeRepository taineeRepository;
+
 	@Override
-	public boolean addWorkExperience(TraineeWorkExperience traineeWorkExperience,Trainee trainee) {
-		traineeWorkExperience.setTrainee(trainee);;
+	public boolean addWorkExperience(TraineeWorkExperience traineeWorkExperience, Trainee trainee) {
+		traineeWorkExperience.setTrainee(trainee);
 		experienceRepository.save(traineeWorkExperience);
-		
+
 		return true;
 	}
 
@@ -31,14 +31,13 @@ public class TraineeWorkExperienceServiceImpl implements TraineeWorkExperienceSe
 	}
 
 	@Override
-	public boolean editWorkExperience(TraineeWorkExperience traineeWorkExperience, Trainee trainee ,Integer id) {
-		boolean editworkex =false;
-		if(experienceRepository.getOne(id) != null)
-		{
+	public boolean editWorkExperience(TraineeWorkExperience traineeWorkExperience, Trainee trainee, Integer id) {
+		boolean editworkex = false;
+		if (experienceRepository.getOne(id) != null) {
 			traineeWorkExperience.setId(id);
 			traineeWorkExperience.setTrainee(trainee);
 			experienceRepository.save(traineeWorkExperience);
-			editworkex=true;
+			editworkex = true;
 		}
 		return editworkex;
 	}
@@ -46,7 +45,7 @@ public class TraineeWorkExperienceServiceImpl implements TraineeWorkExperienceSe
 	@Override
 	public boolean deleteWorkExperience(Integer id) {
 		TraineeWorkExperience traineeWorkExperience = experienceRepository.getOne(id);
-		if(traineeWorkExperience.getId()==id) {
+		if (traineeWorkExperience.getId() == id) {
 			experienceRepository.deleteById(id);
 			return true;
 		}
@@ -60,8 +59,7 @@ public class TraineeWorkExperienceServiceImpl implements TraineeWorkExperienceSe
 
 	@Override
 	public List<TraineeWorkExperience> getWorkExperienceByTraineeId(Integer uid) {
-	  return experienceRepository.findWorkExperienceByTrainee(taineeRepository.findTraineeById(uid));
+		return experienceRepository.findWorkExperienceByTrainee(taineeRepository.findTraineeById(uid));
 	}
-	
-	
+
 }
