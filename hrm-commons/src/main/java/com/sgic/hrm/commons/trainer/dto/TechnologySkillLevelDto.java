@@ -1,5 +1,6 @@
 package com.sgic.hrm.commons.trainer.dto;
 
+//done by_Sujaany
 public class TechnologySkillLevelDto {
 	private Integer id;
 	private String technology;
