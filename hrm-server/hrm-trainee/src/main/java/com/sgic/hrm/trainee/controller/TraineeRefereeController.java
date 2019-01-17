@@ -46,7 +46,7 @@ public class TraineeRefereeController {
 				HttpStatus.OK);
 	}
 
-	@PutMapping("/refereeedit/{id}")
+	@PutMapping("/referee/{id}")
 	public HttpStatus editReferee(@RequestBody TraineeRefereeSaveDto refereesSaveDto, @PathVariable("id") Integer id) {
 		boolean test = traineeRefereeService.editReferee(TraineeRefereeDtoMapper.map(refereesSaveDto), id,
 				traineeService.findTraineeById(refereesSaveDto.getTrainee()));

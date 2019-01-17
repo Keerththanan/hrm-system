@@ -13,7 +13,7 @@ public class TraineeRefereeMapper {
 		traineeRefereeDto.setContactNo(traineeReferee.getContactNo());
 		traineeRefereeDto.setEmail(traineeReferee.getEmail());
 		traineeRefereeDto.setId(traineeReferee.getId());
-		traineeRefereeDto.setRefereeName(traineeReferee.getRelationship());
+		traineeRefereeDto.setRefereeName(traineeReferee.getRefereeName());
 		traineeRefereeDto.setRelationship(traineeReferee.getRelationship());
 		traineeRefereeDto.setTrainee(traineeReferee.getTrainee());
 		return traineeRefereeDto;
