@@ -1,9 +1,23 @@
 Manifest-Version: 1.0
 Implementation-Title: hrm-profile
 Implementation-Version: 0.0.1-SNAPSHOT
+<<<<<<< HEAD
 Built-By: Pakikaran
 Implementation-Vendor-Id: com.sgic.hrm
 Build-Jdk: 1.8.0_191
+=======
+Built-By: Thanusha
+Implementation-Vendor-Id: com.sgic.hrm
+Build-Jdk: 1.8.0_191
+<<<<<<< HEAD
+=======
+=======
+Built-By: Ragulan
+Implementation-Vendor-Id: com.sgic.hrm
+Build-Jdk: 1.8.0_181
+>>>>>>> e2e29c6f7337944134588845d7d2e211a61022a9
+>>>>>>> d8f23a9ca91b94d38b9a7fd66c8873e162776450
+>>>>>>> 35df37be17b73adaaa1e2bd119a926293a5069b9
 Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
  ot-starter-parent/hrm-profile
 Created-By: Maven Integration for Eclipse

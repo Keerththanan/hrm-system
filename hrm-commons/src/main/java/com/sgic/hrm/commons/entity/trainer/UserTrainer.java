@@ -1,5 +1,6 @@
 package com.sgic.hrm.commons.entity.trainer;
 
+//done by_Sujaany
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
