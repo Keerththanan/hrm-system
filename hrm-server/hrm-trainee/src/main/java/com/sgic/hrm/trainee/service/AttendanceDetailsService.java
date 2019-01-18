@@ -17,4 +17,5 @@ public interface AttendanceDetailsService {
 			AttendStatus attendStatus, Integer id);
 
 	boolean deleteAttendDetails(Integer id);
+	List <AttendanceDetails> getAttendanceDetailsByTrainee(Integer id);
 }

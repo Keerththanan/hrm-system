@@ -12,12 +12,16 @@ import com.sgic.hrm.commons.entity.trainee.AttendType;
 import com.sgic.hrm.commons.entity.trainee.AttendanceDetails;
 import com.sgic.hrm.commons.entity.trainee.Trainee;
 import com.sgic.hrm.commons.repository.trainee.AttendanceDetailsRepository;
+import com.sgic.hrm.commons.repository.trainee.TraineeRepository;
 import com.sgic.hrm.trainee.service.AttendanceDetailsService;
 
 @Service
 public class AttendanceDetailsServiceImpl implements AttendanceDetailsService {
 	@Autowired
 	private AttendanceDetailsRepository attendanceDetailsRepository;
+	
+	@Autowired
+	private TraineeRepository traineeRepository;
 
 	@Override
 	public List<AttendanceDetails> getAttendanceDetails() {
@@ -64,6 +68,13 @@ public class AttendanceDetailsServiceImpl implements AttendanceDetailsService {
 			return true;
 		}
 		return false;
+	}
+
+	@Override
+	public List<AttendanceDetails> getAttendanceDetailsByTrainee(Integer id) {
+		AttendanceDetails attendanceDetail;
+		
+		return attendanceDetailsRepository.findAttendanceDetailsByTrainee(traineeRepository.findTraineeById(id));
 	}
 
 }
