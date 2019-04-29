@@ -100,7 +100,7 @@ public class CancelLeaveRequestServiceImpl implements CancelLeaveRequestService 
 				.findById(rejectCancelRequestDto.getCancelRequestId()).orElse(null);
 
 		if (cancelLeaveRequest != null && cancelLeaveRequest.getStatus() == Status.PENDING) {
-			cancelLeaveRequest.getLeaveRequest().setStatus(Status.ACCEPTED);
+			cancelLeaveRequest.getLeaveRequest().setStatus(Status.TAKE_LEAVE);
 			if (leaveRequestService.updateLeaveRequest(cancelLeaveRequest.getLeaveRequest())) {
 				cancelLeaveRequest.setStatus(Status.REJECTED);
 				cancelLeaveRequestRepository.save(cancelLeaveRequest);
