@@ -33,7 +33,7 @@ public class RejectLeaveRequestServiceImpl implements RejectLeaveRequestService{
 
 	@Override
 	public List<RejectLeaveRequest> getAllRejectLeaveRequest() {
-		return rejectLeaveRequestRepository.findAll();
+		return rejectLeaveRequestRepository.findAllByOrderByIdDesc();
 	}
 
 	@Override

@@ -32,7 +32,7 @@ public class AcceptLeaveRequestServiceImpl implements AcceptLeaveRequestService{
 
 	@Override
 	public List<AcceptLeaveRequest> getAllAcceptLeaveRequests() {
-		return acceptLeaveRequestRepository.findAll();
+		return acceptLeaveRequestRepository.findAllByOrderByIdDesc();
 	}
 
 	@Override

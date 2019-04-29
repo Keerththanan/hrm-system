@@ -104,7 +104,7 @@ public class LeaveRequestServiceImpl implements LeaveRequestService {
 
 	@Override
 	public List<LeaveRequest> getAllLeaveRequest() {
-		return leaveRequestRepository.findAllByOrderByIdDesc();
+		return leaveRequestRepository.findAllByOrderByUpdatedAtDesc();
 	}
 
 	@Override

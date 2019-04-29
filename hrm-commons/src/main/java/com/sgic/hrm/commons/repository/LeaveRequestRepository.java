@@ -2,6 +2,8 @@ package com.sgic.hrm.commons.repository;
 
 import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+
 import com.sgic.hrm.commons.entity.LeaveRequest;
 import com.sgic.hrm.commons.entity.User;
 import com.sgic.hrm.commons.enums.Status;
@@ -13,5 +15,8 @@ public interface LeaveRequestRepository extends JpaRepository<LeaveRequest, Inte
   List<LeaveRequest> findByStatusOrderByIdDesc(Status status);
   
   List<LeaveRequest> findAllByOrderByIdDesc();
+  
+  @Query("select lr from LeaveRequest lr order by updated_at desc")
+  List<LeaveRequest> findAllByOrderByUpdatedAtDesc();
 
 }
