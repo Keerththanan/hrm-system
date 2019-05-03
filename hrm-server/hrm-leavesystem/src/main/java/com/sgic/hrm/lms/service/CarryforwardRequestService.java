@@ -14,5 +14,5 @@ public interface CarryforwardRequestService {
 	boolean acceptCarryforwardRequest(String username, CarryforwardRequest carryforwardRequest);
 	boolean rejectCarryforwardRequest(String username, CarryforwardRequest carryforwardRequest, String reason);
 	CarryforwardRequest getByUsername(String username);
-
+	List<CarryforwardRequest> getCarryforwardRequestByStatusAndUserName(Status status,String userName);
 }

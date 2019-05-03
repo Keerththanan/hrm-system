@@ -17,6 +17,7 @@ import com.sgic.hrm.commons.dto.CarryforwardObjectData;
 import com.sgic.hrm.commons.dto.CarryforwardRequestData;
 import com.sgic.hrm.commons.dto.RejectCarryforwardData;
 import com.sgic.hrm.commons.dto.mapper.CarryforwardRequestDataToCarryforwardRequest;
+import com.sgic.hrm.commons.entity.CarryforwardRequest;
 import com.sgic.hrm.commons.entity.mapper.CarryforwardRequestToCarryforwardRequestData;
 import com.sgic.hrm.commons.enums.Status;
 import com.sgic.hrm.lms.service.CarryforwardRequestService;
@@ -35,10 +36,15 @@ public class CarryforwordRequestController {
 				carryforwardRequestService.viewAllCarryforwardRequest()), HttpStatus.OK);
 	}
 	
-	@GetMapping("/pending")
-	public ResponseEntity<List<CarryforwardRequestData>> getCarryforwardRequestByStatus() {
-		return new ResponseEntity<>(CarryforwardRequestToCarryforwardRequestData.mapToCarryforwardRequestDataList(
-				carryforwardRequestService.getCarryforwardRequestByStatus(Status.PENDING)), HttpStatus.OK);
+//	@GetMapping("/pending")
+//	public ResponseEntity<List<CarryforwardRequestData>> getCarryforwardRequestByStatus() {
+//		return new ResponseEntity<>(CarryforwardRequestToCarryforwardRequestData.mapToCarryforwardRequestDataList(
+//				carryforwardRequestService.getCarryforwardRequestByStatus(Status.PENDING)), HttpStatus.OK);
+//	}
+	
+	@GetMapping("/pending/{userName}")
+	public ResponseEntity<List<CarryforwardRequest>> getCarryforwardRequestByStatus(@PathVariable("userName") String userName) {
+		return new ResponseEntity<>(carryforwardRequestService.getCarryforwardRequestByStatusAndUserName(Status.PENDING, userName), HttpStatus.OK);
 	}
 
 	@GetMapping("/{username}")

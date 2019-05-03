@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.sgic.hrm.commons.dto.RejectCancelRequestData;
-import com.sgic.hrm.commons.entity.RejectCancelRequest;
 import com.sgic.hrm.commons.entity.mapper.RejectCancelRequestToRejectCancelRequestData;
 import com.sgic.hrm.lms.service.RejectCancelRequestService;
 
@@ -24,5 +23,5 @@ public class RejectCancelLeaveRequestController {
 		return RejectCancelRequestToRejectCancelRequestData.mapToRejectCancelRequestData(rejectCancelRequestService
 				.getRejectCancelRequestByLeaveRequest(lId));
 	}
-
+	
 }

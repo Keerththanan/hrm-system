@@ -91,4 +91,10 @@ public class CarryforwardRequestServiceImpl implements CarryforwardRequestServic
 	public List<CarryforwardRequest> getCarryforwardRequestByStatus(Status status) {
 		return carryforwardRequestRepository.findByStatusOrderById(status);
 	}
+
+	@Override
+	public List<CarryforwardRequest> getCarryforwardRequestByStatusAndUserName(Status status, String userName) {
+		
+		return carryforwardRequestRepository.findByUserNot(loginService.getUser(userName));
+	}
 }
