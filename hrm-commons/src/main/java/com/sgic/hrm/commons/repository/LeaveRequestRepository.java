@@ -18,5 +18,8 @@ public interface LeaveRequestRepository extends JpaRepository<LeaveRequest, Inte
   
   @Query("select lr from LeaveRequest lr order by updated_at desc")
   List<LeaveRequest> findAllByOrderByUpdatedAtDesc();
-
+  
+  //Jananthan
+  LeaveRequest findLeaveRequestById(Integer id);
 }
+

@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.sgic.hrm.commons.entity.RejectCancelRequest;
+import com.sgic.hrm.commons.repository.CancelLeaveRequestRepository;
+import com.sgic.hrm.commons.repository.LeaveRequestRepository;
 import com.sgic.hrm.commons.repository.RejectCancelRequestRepository;
 import com.sgic.hrm.lms.service.RejectCancelRequestService;
 
@@ -13,6 +15,11 @@ import com.sgic.hrm.lms.service.RejectCancelRequestService;
 public class RejectCancelRequestServiceImpl implements RejectCancelRequestService {
 	@Autowired
 	RejectCancelRequestRepository rejectCancelRequestRepository;
+	//jananthan
+	@Autowired
+	CancelLeaveRequestRepository cancelLeaveRequestRepository;
+	@Autowired
+	LeaveRequestRepository leaveRequestRepository;
 
 	@Override
 	public boolean addRejectCancelRequest(RejectCancelRequest rejectCancelRequest) {
@@ -48,6 +55,13 @@ public class RejectCancelRequestServiceImpl implements RejectCancelRequestServic
 			return true;
 		}
 		return false;
+	}
+	
+	//Code done by Jananthan
+	@Override
+	public RejectCancelRequest getRejectCancelRequestByLeaveRequest(Integer id) {
+		return rejectCancelRequestRepository.findByCancelLeaveRequest(
+				cancelLeaveRequestRepository.findByLeaveRequest(leaveRequestRepository.findLeaveRequestById(id)));
 	}
 
 }
