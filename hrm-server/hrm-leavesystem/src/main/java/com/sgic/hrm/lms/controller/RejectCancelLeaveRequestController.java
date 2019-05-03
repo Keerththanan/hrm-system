@@ -7,7 +7,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.sgic.hrm.commons.dto.RejectCancelRequestData;
 import com.sgic.hrm.commons.entity.RejectCancelRequest;
+import com.sgic.hrm.commons.entity.mapper.RejectCancelRequestToRejectCancelRequestData;
 import com.sgic.hrm.lms.service.RejectCancelRequestService;
 
 @CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
@@ -16,13 +18,11 @@ import com.sgic.hrm.lms.service.RejectCancelRequestService;
 public class RejectCancelLeaveRequestController {
 	@Autowired
 	RejectCancelRequestService rejectCancelRequestService;
+	
 	@GetMapping("leaverequest/{lId}")
-//	public RejectCancelRequestData getRejectCancelRequestByLeveRequestId(@PathVariable Integer lId) {
-//		return RejectCancelRequestToRejectCancelRequestData.mapToRejectCancelRequestData(rejectCancelRequestService
-//				.getRejectCancelRequestByLeaveRequest(lId));
-//	}
-	public RejectCancelRequest getRejectCancelRequestByLeveRequestId(@PathVariable Integer lId) {
-		return rejectCancelRequestService
-				.getRejectCancelRequestByLeaveRequest(lId);
+	public RejectCancelRequestData getRejectCancelRequestByLeveRequestId(@PathVariable Integer lId) {
+		return RejectCancelRequestToRejectCancelRequestData.mapToRejectCancelRequestData(rejectCancelRequestService
+				.getRejectCancelRequestByLeaveRequest(lId));
 	}
+
 }
