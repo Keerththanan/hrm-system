@@ -16,7 +16,7 @@ public interface CarryforwardRequestRepository extends JpaRepository<Carryforwar
 	List<CarryforwardRequest> findByStatusOrderById(Status status);
 	
 	//@Query("SELECT cfr FROM CarryforwardRequest cfr WHERE cfr.userId <> ?1")
-	public List<CarryforwardRequest> findByUserNotOrderByIdDesc(User user);
+	public List<CarryforwardRequest> findByUserNotAndStatusOrderByIdDesc(User user,Status status);
 	
 
 }

@@ -44,7 +44,7 @@ public class CarryforwordRequestController {
 	
 	@GetMapping("/pending/{userName}")
 	public ResponseEntity<List<CarryforwardRequest>> getCarryforwardRequestByStatus(@PathVariable("userName") String userName) {
-		return new ResponseEntity<>(carryforwardRequestService.getCarryforwardRequestByStatusAndUserName(Status.PENDING, userName), HttpStatus.OK);
+		return new ResponseEntity<>(carryforwardRequestService.getCarryforwardRequestByStatusAndUserName(userName), HttpStatus.OK);
 	}
 
 	@GetMapping("/{username}")
