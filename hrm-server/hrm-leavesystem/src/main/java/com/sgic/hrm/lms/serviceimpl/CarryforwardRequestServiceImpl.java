@@ -39,7 +39,7 @@ public class CarryforwardRequestServiceImpl implements CarryforwardRequestServic
 
 	@Override
 	public CarryforwardRequest getByUsername(String username) {
-		return carryforwardRequestRepository.findByUser(loginService.getUser(username)).orElse(null);
+		return carryforwardRequestRepository.findByUser(loginService.getUser(username));
 	}
 
 	@Transactional

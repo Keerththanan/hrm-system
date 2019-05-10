@@ -16,5 +16,5 @@ public interface RejectCarryforwardRequestService {
 
   boolean deleteRejectCarryforwardRequest(Integer id);
 
-
+  RejectCarryforwardRequest getRejectCarryforwardRequestByUser(String userName);
 }
