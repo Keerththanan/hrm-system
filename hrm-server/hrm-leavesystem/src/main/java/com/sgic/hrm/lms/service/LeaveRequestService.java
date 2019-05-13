@@ -26,5 +26,7 @@ public interface LeaveRequestService {
   List<LeaveRequest> getAllLeaveRequest();
 
   List<LeaveRequest> getAllLeaveRequestByStatus(Status status);
+  
+  List<LeaveRequest> getLeaveRequestByUserNot(String userName);
 
 }

@@ -21,5 +21,8 @@ public interface LeaveRequestRepository extends JpaRepository<LeaveRequest, Inte
   
   //Jananthan
   LeaveRequest findLeaveRequestById(Integer id);
+  
+  //Kitty
+  List<LeaveRequest> findByUserNotAndStatus(User user, Status status);
 }
 

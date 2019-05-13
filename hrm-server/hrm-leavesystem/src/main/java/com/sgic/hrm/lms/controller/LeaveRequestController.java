@@ -62,11 +62,13 @@ public class LeaveRequestController {
         .mapLeaveRequestDataList(leaveRequestService.getLeaveRequestByUser(id)), HttpStatus.OK);
   }
 
-  @GetMapping("/pending")
-  public ResponseEntity<List<LeaveRequestData>> getPendingLeaveRequest() {
-    return new ResponseEntity<>(LeaveRequestToLeaveRequestData.mapLeaveRequestDataList(
-        leaveRequestService.getAllLeaveRequestByStatus(Status.PENDING)), HttpStatus.OK);
+  @GetMapping("/pending/{userName}")
+  public ResponseEntity<List<LeaveRequestData>> getPendingLeaveRequest(@PathVariable("userName") String userName) {
+	  return new ResponseEntity<>(LeaveRequestToLeaveRequestData
+	        .mapLeaveRequestDataList(leaveRequestService.getLeaveRequestByUserNot(userName)), HttpStatus.OK);
   }
+  
+  
 
   @DeleteMapping("/{id}")
   public HttpStatus deleteLeaveRequest(@PathVariable("id") Integer id) {

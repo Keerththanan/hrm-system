@@ -140,4 +140,10 @@ public class LeaveRequestServiceImpl implements LeaveRequestService {
 		}
 		return false;
 	}
+
+	@Override
+	public List<LeaveRequest> getLeaveRequestByUserNot(String userName) {
+		// TODO Auto-generated method stub
+		return leaveRequestRepository.findByUserNotAndStatus(loginService.getUser(userName), Status.PENDING);
+	}
 }
