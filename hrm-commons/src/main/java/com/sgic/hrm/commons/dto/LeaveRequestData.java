@@ -10,6 +10,7 @@ public class LeaveRequestData {
   private Integer id;
   private UserData user;
   private LeaveAllocationData leaveAllocation;
+  private String leaveTypeValue;
   private Date startDate;
   private Date endDate;
   private Double noOfDays;
@@ -19,7 +20,15 @@ public class LeaveRequestData {
   private ZonedDateTime createdAt;
   private ZonedDateTime updatedAt;
 
-  public Integer getId() {
+  public String getLeaveTypeValue() {
+	return leaveTypeValue;
+}
+
+public void setLeaveTypeValue(String leaveTypeValue) {
+	this.leaveTypeValue = leaveTypeValue;
+}
+
+public Integer getId() {
     return id;
   }
 

@@ -21,6 +21,8 @@ public class LeaveRequestToLeaveRequestData {
       leaveRequestData.setUser(UserToUserData.mapToUserData(leaveRequest.getUser()));
       leaveRequestData.setLeaveAllocation(LeaveAllocationToLeaveAllocationData
           .mapToLeaveAllocationData(leaveRequest.getLeaveAllocation()));
+      leaveRequestData.setLeaveTypeValue(LeaveAllocationToLeaveAllocationData
+    		  .mapToLeaveAllocationData(leaveRequest.getLeaveAllocation()).getLeaveType().getLeaveTypeValue());
       leaveRequestData.setStatus(leaveRequest.getStatus());
       leaveRequestData.setNoOfDays(leaveRequest.getNoOfDays());
     }
