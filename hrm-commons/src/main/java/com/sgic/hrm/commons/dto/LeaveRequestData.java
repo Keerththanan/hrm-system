@@ -9,6 +9,7 @@ public class LeaveRequestData {
 
   private Integer id;
   private UserData user;
+  private String fullName;
   private LeaveAllocationData leaveAllocation;
   private String leaveTypeValue;
   private Date startDate;
@@ -20,7 +21,15 @@ public class LeaveRequestData {
   private ZonedDateTime createdAt;
   private ZonedDateTime updatedAt;
 
-  public String getLeaveTypeValue() {
+  public String getFullName() {
+	return fullName;
+}
+
+public void setFullName(String fullName) {
+	this.fullName = fullName;
+}
+
+public String getLeaveTypeValue() {
 	return leaveTypeValue;
 }
 
