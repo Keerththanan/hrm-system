@@ -1,5 +1,9 @@
 # Human Resource Management System
 ## HRM-SYSTEM for SGIC
+
+#### Requirement
+     Postgre SQL, Eclipse, Valentina and Postman 
+
 1. First create a _database_ named **_hrm_system_**.
 2. Then create _schemas_ for all apps, named **employee, par, trainee, trainer and login**.
 3. First run the login app and then run other apps.
