@@ -32,3 +32,13 @@
        }**
 
 **After the first success run, Do not forget to change the value of** _spring.jpa.hibernate.ddl-auto=create_ **to** _spring.jpa.hibernate.ddl-auto=update_
+
+---
+
+#### Build, Deploy and Run a springboot application.
+
+1. Extend the main file to SpringBootServletInitializer, for each applications
+2. Add spring-boot-starter-tomcat dependency in pom.xml
+3. Change packaging methode to WAR in pom.xml
+4. Clean Install
+5. Then copy the war file and paste it in to tomcat/webapp
