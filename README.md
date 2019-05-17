@@ -42,3 +42,4 @@
 3. Change packaging methode to WAR in pom.xml
 4. Clean Install
 5. Then copy the war file and paste it in to tomcat/webapp
+6. Load the dump database hrm_system
